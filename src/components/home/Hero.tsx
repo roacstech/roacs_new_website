@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Container } from "@/components/common/Container";
-import { Button } from "@/components/common/Button";
 import { Reveal } from "@/components/common/Reveal";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
@@ -40,27 +40,31 @@ export function Hero() {
       />
 
       <Container wide>
-        {/* Value Proposition & Executive Copy */}
+        {/* Centered Hero Content Matching Reference UI */}
         <div
           style={{
-            maxWidth: "860px",
+            maxWidth: "920px",
+            margin: "0 auto",
+            textAlign: "center",
             position: "relative",
             zIndex: 1,
           }}
         >
+          {/* Centered Frosted Capsule Category Pill */}
           <Reveal delay={0.1}>
             <div
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.6rem",
-                padding: "0.45rem 1rem",
-                backgroundColor: "rgba(255, 255, 255, 0.85)",
-                border: "1px solid rgba(15, 23, 42, 0.1)",
-                borderRadius: "var(--radius-full)",
+                padding: "0.45rem 1.25rem",
+                backgroundColor: "rgba(255, 255, 255, 0.75)",
+                border: "1px solid rgba(0, 0, 0, 0.08)",
+                borderRadius: "9999px",
                 marginBottom: "1.75rem",
-                boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05)",
-                backdropFilter: "blur(8px)",
+                boxShadow: "0 2px 10px rgba(0, 0, 0, 0.04)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
               }}
             >
               <span
@@ -69,7 +73,7 @@ export function Hero() {
                   fontWeight: 700,
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
-                  color: "#0F172A",
+                  color: "#3F3F46",
                 }}
               >
                 Software & Technology Solutions
@@ -77,88 +81,166 @@ export function Hero() {
             </div>
           </Reveal>
 
+          {/* Centered High-Impact Headline with Reference UI Font Colors */}
           <Reveal delay={0.2}>
             <h1
               style={{
-                fontSize: "clamp(2.5rem, 5vw, 4.25rem)",
+                fontSize: "clamp(2.75rem, 5.5vw, 4.75rem)",
                 fontWeight: 800,
                 letterSpacing: "-0.035em",
                 lineHeight: 1.15,
                 marginBottom: "1.5rem",
-                color: "#0A1221",
+                color: "#0A0A0A",
               }}
             >
-              We build scalable software that drives{" "}
+              We Build Scalable{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #0A1221 20%, #1E293B 65%, #ED1918 100%)",
+                  background: "linear-gradient(135deg, #9333EA 0%, #D946EF 45%, #F59E0B 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                business growth.
+                Software
+              </span>
+              <br />
+              That Drives{" "}
+              <span
+                style={{
+                  background: "linear-gradient(135deg, #EC4899 0%, #EF4444 35%, #F59E0B 70%, #2563EB 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Business Growth
               </span>
             </h1>
           </Reveal>
 
+          {/* Centered Subtitle Copy */}
           <Reveal delay={0.3}>
             <p
               style={{
-                fontSize: "1.2rem",
-                lineHeight: 1.7,
-                color: "#475569",
-                marginBottom: "2.25rem",
-                maxWidth: "760px",
+                fontSize: "1.15rem",
+                lineHeight: 1.68,
+                color: "#52525B",
+                marginBottom: "2.5rem",
+                maxWidth: "680px",
+                marginLeft: "auto",
+                marginRight: "auto",
               }}
             >
               At Roacs Corporation, we design and develop powerful SaaS platforms, web applications, and enterprise solutions that help businesses streamline operations and scale efficiently.
             </p>
           </Reveal>
 
+          {/* Centered CTA Button Group Styled Like Reference UI */}
           <Reveal delay={0.4}>
             <div
               style={{
                 display: "flex",
-                flexWrap: "wrap",
                 alignItems: "center",
+                justifyContent: "center",
                 gap: "1rem",
-                marginBottom: "2.5rem",
+                flexWrap: "wrap",
+                marginBottom: "3.5rem",
               }}
             >
-              <Button
-                href="/services"
-                variant="primary"
-                size="lg"
-                icon={<ArrowRight size={18} />}
-              >
-                Explore Core Services
-              </Button>
-
-              <Button
+              {/* Primary Black Capsule Button with Circle Arrow */}
+              <Link
                 href="/contact"
-                variant="secondary-light"
-                size="lg"
                 style={{
-                  border: "1px solid rgba(15, 23, 42, 0.18)",
-                  color: "#0F172A",
-                  backgroundColor: "rgba(255, 255, 255, 0.85)",
-                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.85rem",
+                  backgroundColor: "#18181B",
+                  color: "#FFFFFF",
+                  padding: "0.6rem 0.75rem 0.6rem 1.6rem",
+                  borderRadius: "9999px",
+                  fontSize: "0.95rem",
+                  fontWeight: 600,
+                  boxShadow: "0 10px 25px -4px rgba(0, 0, 0, 0.28), 0 4px 10px -2px rgba(0, 0, 0, 0.15)",
+                  transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px) scale(1.02)";
+                  e.currentTarget.style.backgroundColor = "#000000";
+                  e.currentTarget.style.boxShadow = "0 14px 30px -4px rgba(0, 0, 0, 0.38)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0) scale(1)";
+                  e.currentTarget.style.backgroundColor = "#18181B";
+                  e.currentTarget.style.boxShadow = "0 10px 25px -4px rgba(0, 0, 0, 0.28)";
                 }}
               >
-                Start a Project
-              </Button>
+                <span>Get Started</span>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    borderRadius: "50%",
+                    backgroundColor: "#27272A",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  <ArrowRight size={15} />
+                </div>
+              </Link>
+
+              {/* Secondary Clean Glass Pill Button */}
+              <Link
+                href="/services"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  backgroundColor: "rgba(255, 255, 255, 0.85)",
+                  color: "#18181B",
+                  border: "1px solid rgba(0, 0, 0, 0.12)",
+                  padding: "0.75rem 1.6rem",
+                  borderRadius: "9999px",
+                  fontSize: "0.95rem",
+                  fontWeight: 600,
+                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)",
+                  backdropFilter: "blur(8px)",
+                  WebkitBackdropFilter: "blur(8px)",
+                  transition: "all 0.2s ease",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.25)";
+                  e.currentTarget.style.boxShadow = "0 6px 16px rgba(0, 0, 0, 0.08)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.borderColor = "rgba(0, 0, 0, 0.12)";
+                  e.currentTarget.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.05)";
+                }}
+              >
+                <span>Explore Core Services</span>
+              </Link>
             </div>
           </Reveal>
 
-          {/* Credibility Badges */}
+          {/* Centered Credibility Badges */}
           <Reveal delay={0.5}>
             <div
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "1.5rem",
-                paddingTop: "1.5rem",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "2rem",
+                paddingTop: "2rem",
                 borderTop: "1px solid rgba(0, 0, 0, 0.08)",
+                maxWidth: "760px",
+                marginLeft: "auto",
+                marginRight: "auto",
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
