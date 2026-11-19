@@ -4,7 +4,6 @@ import React from "react";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { Reveal } from "@/components/common/Reveal";
-import { HeroImageShowcase } from "@/components/home/HeroImageShowcase";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export function Hero() {
@@ -19,7 +18,7 @@ export function Hero() {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         color: "#0F172A",
-        paddingTop: "5rem",
+        paddingTop: "5.5rem",
         paddingBottom: "5.5rem",
         overflow: "hidden",
         borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
@@ -41,159 +40,147 @@ export function Hero() {
       />
 
       <Container wide>
+        {/* Value Proposition & Executive Copy */}
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "3.5rem",
-            alignItems: "center",
+            maxWidth: "860px",
             position: "relative",
             zIndex: 1,
           }}
-          className="hero-grid"
         >
-          {/* Left Column: Value Proposition & Executive Copy */}
-          <div style={{ maxWidth: "680px" }}>
-            <Reveal delay={0.1}>
-              <div
+          <Reveal delay={0.1}>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.6rem",
+                padding: "0.45rem 1rem",
+                backgroundColor: "rgba(255, 255, 255, 0.85)",
+                border: "1px solid rgba(15, 23, 42, 0.1)",
+                borderRadius: "var(--radius-full)",
+                marginBottom: "1.75rem",
+                boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05)",
+                backdropFilter: "blur(8px)",
+              }}
+            >
+              <span
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.6rem",
-                  padding: "0.45rem 1rem",
+                  fontSize: "0.8125rem",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  color: "#0F172A",
+                }}
+              >
+                Software & Technology Solutions
+              </span>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <h1
+              style={{
+                fontSize: "clamp(2.5rem, 5vw, 4.25rem)",
+                fontWeight: 800,
+                letterSpacing: "-0.035em",
+                lineHeight: 1.15,
+                marginBottom: "1.5rem",
+                color: "#0A1221",
+              }}
+            >
+              We build scalable software that drives{" "}
+              <span
+                style={{
+                  background: "linear-gradient(135deg, #0A1221 20%, #1E293B 65%, #ED1918 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                business growth.
+              </span>
+            </h1>
+          </Reveal>
+
+          <Reveal delay={0.3}>
+            <p
+              style={{
+                fontSize: "1.2rem",
+                lineHeight: 1.7,
+                color: "#475569",
+                marginBottom: "2.25rem",
+                maxWidth: "760px",
+              }}
+            >
+              At Roacs Corporation, we design and develop powerful SaaS platforms, web applications, and enterprise solutions that help businesses streamline operations and scale efficiently.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.4}>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                gap: "1rem",
+                marginBottom: "2.5rem",
+              }}
+            >
+              <Button
+                href="/services"
+                variant="primary"
+                size="lg"
+                icon={<ArrowRight size={18} />}
+              >
+                Explore Core Services
+              </Button>
+
+              <Button
+                href="/contact"
+                variant="secondary-light"
+                size="lg"
+                style={{
+                  border: "1px solid rgba(15, 23, 42, 0.18)",
+                  color: "#0F172A",
                   backgroundColor: "rgba(255, 255, 255, 0.85)",
-                  border: "1px solid rgba(15, 23, 42, 0.1)",
-                  borderRadius: "var(--radius-full)",
-                  marginBottom: "1.75rem",
-                  boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05)",
-                  backdropFilter: "blur(8px)",
+                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
                 }}
               >
-                <span
-                  style={{
-                    fontSize: "0.8125rem",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    color: "#0F172A",
-                  }}
-                >
-                  Software & Technology Solutions
+                Start a Project
+              </Button>
+            </div>
+          </Reveal>
+
+          {/* Credibility Badges */}
+          <Reveal delay={0.5}>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "1.5rem",
+                paddingTop: "1.5rem",
+                borderTop: "1px solid rgba(0, 0, 0, 0.08)",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <CheckCircle2 size={16} color="var(--color-brand-accent)" />
+                <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
+                  Enterprise Security Standards
                 </span>
               </div>
-            </Reveal>
-
-            <Reveal delay={0.2}>
-              <h1
-                style={{
-                  fontSize: "clamp(2.4rem, 4.5vw, 3.85rem)",
-                  fontWeight: 800,
-                  letterSpacing: "-0.035em",
-                  lineHeight: 1.15,
-                  marginBottom: "1.5rem",
-                  color: "#0A1221",
-                }}
-              >
-                We build scalable software that drives{" "}
-                <span
-                  style={{
-                    background: "linear-gradient(135deg, #0A1221 20%, #1E293B 65%, #ED1918 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  business growth.
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <CheckCircle2 size={16} color="var(--color-brand-accent)" />
+                <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
+                  Modular Next.js Architectures
                 </span>
-              </h1>
-            </Reveal>
-
-            <Reveal delay={0.3}>
-              <p
-                style={{
-                  fontSize: "1.15rem",
-                  lineHeight: 1.68,
-                  color: "#475569",
-                  marginBottom: "2.25rem",
-                }}
-              >
-                At Roacs Corporation, we design and develop powerful SaaS platforms, web applications, and enterprise solutions that help businesses streamline operations and scale efficiently.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.4}>
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  gap: "1rem",
-                  marginBottom: "2.5rem",
-                }}
-              >
-                <Button
-                  href="/services"
-                  variant="primary"
-                  size="lg"
-                  icon={<ArrowRight size={18} />}
-                >
-                  Explore Core Services
-                </Button>
-
-                <Button
-                  href="/contact"
-                  variant="secondary-light"
-                  size="lg"
-                  style={{
-                    border: "1px solid rgba(15, 23, 42, 0.18)",
-                    color: "#0F172A",
-                    backgroundColor: "rgba(255, 255, 255, 0.85)",
-                    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
-                  }}
-                >
-                  Start a Project
-                </Button>
               </div>
-            </Reveal>
-
-            {/* Credibility Badges */}
-            <Reveal delay={0.5}>
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "1.5rem",
-                  paddingTop: "1.5rem",
-                  borderTop: "1px solid rgba(0, 0, 0, 0.08)",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                  <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
-                    Enterprise Security Standards
-                  </span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                  <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
-                    Modular Next.js Architectures
-                  </span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                  <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
-                    Dedicated SLA Production Support
-                  </span>
-                </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <CheckCircle2 size={16} color="var(--color-brand-accent)" />
+                <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
+                  Dedicated SLA Production Support
+                </span>
               </div>
-            </Reveal>
-          </div>
-
-          {/* Right Column: Animated Project & Platform Imagery Showcase */}
-          <div style={{ position: "relative", width: "100%" }}>
-            <Reveal delay={0.3}>
-              <HeroImageShowcase />
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </div>
 
         {/* High-Impact Stat Counters Ribbon (from index.html: 300+ projects, 3+ years, 99.9% uptime, 100% satisfaction) */}
