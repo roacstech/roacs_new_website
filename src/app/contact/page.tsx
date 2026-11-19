@@ -216,9 +216,7 @@ export default function ContactPage() {
                     >
                       info@roacs.com
                     </a>
-                    <p style={{ fontSize: "0.85rem", color: "var(--color-text-muted)", marginTop: "0.25rem", margin: 0 }}>
-                      Monitored by our technical architecture desk
-                    </p>
+                   
                   </div>
                 </div>
 

@@ -632,3 +632,40 @@ p {
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
 }
+
+/* Hero Image Showcase Floating Badges & Animations */
+@keyframes float-badge-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes float-badge-reverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+.hero-float-badge-1 {
+  animation: float-badge-gentle 4.5s ease-in-out infinite;
+}
+
+.hero-float-badge-2 {
+  animation: float-badge-reverse 5.5s ease-in-out infinite;
+}
+
+.hero-showcase-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle at 60% 40%, rgba(237, 25, 24, 0.2) 0%, rgba(37, 99, 235, 0.15) 45%, transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+

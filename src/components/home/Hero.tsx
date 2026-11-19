@@ -1,23 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { Reveal } from "@/components/common/Reveal";
-import { 
-  ArrowRight, 
-  ShieldCheck, 
-  Layers, 
-  Cpu, 
-  CheckCircle2, 
-  Activity, 
-  Server 
-} from "lucide-react";
-
-type ActiveTab = "architecture" | "ai" | "security" | "cloud";
+import { HeroImageShowcase } from "@/components/home/HeroImageShowcase";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export function Hero() {
-  const [activeTab, setActiveTab] = useState<ActiveTab>("architecture");
 
   return (
     <section
@@ -102,7 +92,17 @@ export function Hero() {
                   boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
                 }}
               >
-                
+                <span
+                  style={{
+                    fontSize: "0.8125rem",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    color: "rgba(255, 255, 255, 0.95)",
+                  }}
+                >
+                  Software & Technology Solutions
+                </span>
               
               </div>
             </Reveal>
@@ -206,224 +206,10 @@ export function Hero() {
             </Reveal>
           </div>
 
-          {/* Right Column: Interactive System & Architecture Showcase Panel */}
-          <div style={{ position: "relative" }}>
+          {/* Right Column: Animated Project & Platform Imagery Showcase */}
+          <div style={{ position: "relative", width: "100%" }}>
             <Reveal delay={0.3}>
-              <div
-                style={{
-                  position: "relative",
-                  borderRadius: "var(--radius-lg)",
-                  backgroundColor: "rgba(15, 26, 48, 0.85)",
-                  border: "1px solid rgba(255, 255, 255, 0.15)",
-                  boxShadow: "0 28px 70px rgba(0, 0, 0, 0.55)",
-                  backdropFilter: "blur(16px)",
-                  padding: "1.75rem",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Visual Window Header */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    paddingBottom: "1.25rem",
-                    borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-                    marginBottom: "1.25rem",
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                    <div style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: "#EF4444" }} />
-                    <div style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: "#F59E0B" }} />
-                    <div style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: "#10B981" }} />
-                    <span style={{ fontSize: "0.78rem", color: "var(--color-muted-blue)", marginLeft: "0.5rem", fontFamily: "monospace" }}>
-                      roacs://enterprise/platform-engine
-                    </span>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
-                    <div className="live-pulse-dot" />
-                    <span
-                      style={{
-                        fontSize: "0.72rem",
-                        fontWeight: 700,
-                        color: "#10B981",
-                        fontFamily: "monospace",
-                        letterSpacing: "0.05em",
-                      }}
-                    >
-                      LIVE â€¢ 99.9% UPTIME
-                    </span>
-                  </div>
-                </div>
-
-                {/* Interactive Feature Category Tabs */}
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(4, 1fr)",
-                    gap: "0.35rem",
-                    backgroundColor: "rgba(10, 18, 33, 0.8)",
-                    padding: "0.35rem",
-                    borderRadius: "var(--radius-sm)",
-                    marginBottom: "1.25rem",
-                    border: "1px solid rgba(255, 255, 255, 0.06)",
-                  }}
-                >
-                  {[
-                    { id: "architecture" as ActiveTab, label: "Architecture", icon: Layers },
-                    { id: "ai" as ActiveTab, label: "Automation", icon: Cpu },
-                    { id: "security" as ActiveTab, label: "Security", icon: ShieldCheck },
-                    { id: "cloud" as ActiveTab, label: "Cloud Scale", icon: Server },
-                  ].map((tab) => {
-                    const TabIcon = tab.icon;
-                    const isActive = activeTab === tab.id;
-                    return (
-                      <button
-                        key={tab.id}
-                        onClick={() => setActiveTab(tab.id)}
-                        style={{
-                          padding: "0.45rem 0.25rem",
-                          borderRadius: "var(--radius-xs)",
-                          backgroundColor: isActive ? "var(--color-brand-accent)" : "transparent",
-                          color: isActive ? "#FFFFFF" : "var(--color-muted-blue)",
-                          fontSize: "0.75rem",
-                          fontWeight: 600,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          gap: "0.35rem",
-                          transition: "all 0.15s ease",
-                          cursor: "pointer",
-                        }}
-                      >
-                        <TabIcon size={12} />
-                        <span>{tab.label}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Dynamic Panel Content Based on Active Tab */}
-                <div
-                  style={{
-                    backgroundColor: "rgba(11, 20, 36, 0.85)",
-                    border: "1px solid rgba(255, 255, 255, 0.08)",
-                    borderRadius: "var(--radius-sm)",
-                    padding: "1.25rem",
-                    minHeight: "185px",
-                    marginBottom: "1.25rem",
-                  }}
-                >
-                  {activeTab === "architecture" && (
-                    <div>
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.75rem" }}>
-                        <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#FFFFFF" }}>Distributed Microservices Cluster</span>
-                        <span style={{ fontSize: "0.72rem", color: "#34D399", fontFamily: "monospace" }}>12ms Latency</span>
-                      </div>
-                      <p style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)", lineHeight: 1.5, marginBottom: "1rem" }}>
-                        Decoupled Next.js frontend with high-concurrency Node/Go service nodes, Kafka messaging bus, and isolated tenancy.
-                      </p>
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem" }}>
-                        <div style={{ background: "rgba(255,255,255,0.04)", padding: "0.5rem 0.75rem", borderRadius: "4px" }}>
-                          <div style={{ fontSize: "0.68rem", color: "var(--color-muted-blue)" }}>API Throughput</div>
-                          <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "#FFFFFF" }}>45,000 req/sec</div>
-                        </div>
-                        <div style={{ background: "rgba(255,255,255,0.04)", padding: "0.5rem 0.75rem", borderRadius: "4px" }}>
-                          <div style={{ fontSize: "0.68rem", color: "var(--color-muted-blue)" }}>Fault Tolerance</div>
-                          <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "#34D399" }}>Self-Healing N+1</div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {activeTab === "ai" && (
-                    <div>
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.75rem" }}>
-                        <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#FFFFFF" }}>Intelligent Workflow Orchestration</span>
-                        <span style={{ fontSize: "0.72rem", color: "#38BDF8", fontFamily: "monospace" }}>Deterministic GenAI</span>
-                      </div>
-                      <p style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)", lineHeight: 1.5, marginBottom: "1rem" }}>
-                        Enterprise automation embedding structured LLM agents, vector embeddings, and rule-based validation pipelines.
-                      </p>
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem" }}>
-                        <div style={{ background: "rgba(255,255,255,0.04)", padding: "0.5rem 0.75rem", borderRadius: "4px" }}>
-                          <div style={{ fontSize: "0.68rem", color: "var(--color-muted-blue)" }}>Manual Task Reduction</div>
-                          <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "#FFFFFF" }}>-82% Cycle Time</div>
-                        </div>
-                        <div style={{ background: "rgba(255,255,255,0.04)", padding: "0.5rem 0.75rem", borderRadius: "4px" }}>
-                          <div style={{ fontSize: "0.68rem", color: "var(--color-muted-blue)" }}>Guardrail Accuracy</div>
-                          <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "#38BDF8" }}>99.8% Precision</div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {activeTab === "security" && (
-                    <div>
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.75rem" }}>
-                        <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#FFFFFF" }}>Zero-Trust Compliance & Encryption</span>
-                        <span style={{ fontSize: "0.72rem", color: "#FBBF24", fontFamily: "monospace" }}>SOC2 / ISO Ready</span>
-                      </div>
-                      <p style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)", lineHeight: 1.5, marginBottom: "1rem" }}>
-                        End-to-end TLS 1.3 data encryption, role-based OAuth access control, audit logs, and automated penetration testing.
-                      </p>
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem" }}>
-                        <div style={{ background: "rgba(255,255,255,0.04)", padding: "0.5rem 0.75rem", borderRadius: "4px" }}>
-                          <div style={{ fontSize: "0.68rem", color: "var(--color-muted-blue)" }}>Security Posture</div>
-                          <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "#FFFFFF" }}>Zero Vulnerability</div>
-                        </div>
-                        <div style={{ background: "rgba(255,255,255,0.04)", padding: "0.5rem 0.75rem", borderRadius: "4px" }}>
-                          <div style={{ fontSize: "0.68rem", color: "var(--color-muted-blue)" }}>Data Encryption</div>
-                          <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "#FBBF24" }}>AES-256 at Rest</div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {activeTab === "cloud" && (
-                    <div>
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.75rem" }}>
-                        <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#FFFFFF" }}>Multi-Region Container Orchestration</span>
-                        <span style={{ fontSize: "0.72rem", color: "#A78BFA", fontFamily: "monospace" }}>Automated Autoscaling</span>
-                      </div>
-                      <p style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)", lineHeight: 1.5, marginBottom: "1rem" }}>
-                        Kubernetes and AWS ECS infrastructure with automated failover, load balancing, and continuous deployment pipelines.
-                      </p>
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.5rem" }}>
-                        <div style={{ background: "rgba(255,255,255,0.04)", padding: "0.5rem 0.75rem", borderRadius: "4px" }}>
-                          <div style={{ fontSize: "0.68rem", color: "var(--color-muted-blue)" }}>Global CDN Nodes</div>
-                          <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "#FFFFFF" }}>300+ Edge Points</div>
-                        </div>
-                        <div style={{ background: "rgba(255,255,255,0.04)", padding: "0.5rem 0.75rem", borderRadius: "4px" }}>
-                          <div style={{ fontSize: "0.68rem", color: "var(--color-muted-blue)" }}>Deployment Downtime</div>
-                          <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "#A78BFA" }}>0.00s Zero Downtime</div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* System Activity Stream Footer */}
-                <div
-                  style={{
-                    backgroundColor: "rgba(10, 18, 33, 0.95)",
-                    border: "1px solid rgba(255, 255, 255, 0.06)",
-                    borderRadius: "var(--radius-sm)",
-                    padding: "0.75rem 1rem",
-                    fontSize: "0.78rem",
-                    fontFamily: "monospace",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                    <Activity size={14} color="#34D399" />
-                    <span style={{ color: "#34D399" }}>System Active</span>
-                  </div>
-                  <span style={{ color: "var(--color-muted-blue)" }}>Next.js 16.4 â€¢ React 19 RSC Stack</span>
-                </div>
-              </div>
+              <HeroImageShowcase />
             </Reveal>
           </div>
         </div>
