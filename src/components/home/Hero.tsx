@@ -13,85 +13,30 @@ export function Hero() {
     <section
       style={{
         position: "relative",
-        backgroundColor: "var(--color-primary-navy)",
-        color: "#FFFFFF",
+        backgroundColor: "#FAFAFA",
+        backgroundImage: "url('/images/hero-mesh-gradient.jpg')",
+        backgroundPosition: "top center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        color: "#0F172A",
         paddingTop: "5rem",
         paddingBottom: "5.5rem",
         overflow: "hidden",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+        borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
       }}
     >
-      {/* High-Tech Glowing Cyber Network Sphere Background */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: "url('/images/hero-network-sphere.jpg')",
-          backgroundPosition: "center right",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          opacity: 0.55,
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-
-      {/* Radiant Vignette & Legibility Dark Gradients */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: `
-            linear-gradient(to right, var(--color-primary-navy) 20%, rgba(10, 18, 33, 0.88) 55%, rgba(10, 18, 33, 0.45) 100%),
-            linear-gradient(to top, var(--color-primary-navy) 0%, transparent 40%),
-            linear-gradient(to bottom, var(--color-primary-navy) 0%, transparent 25%)
-          `,
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-
-      {/* Background Decorative Tech Grid & Radiant Glow Orbs */}
+      {/* Subtle Clean Tech Grid Overlay */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px)
+            linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px)
           `,
-          backgroundSize: "56px 56px",
+          backgroundSize: "48px 48px",
           pointerEvents: "none",
-          opacity: 0.5,
-          zIndex: 0,
-        }}
-      />
-
-      <div
-        style={{
-          position: "absolute",
-          top: "-10%",
-          right: "2%",
-          width: "600px",
-          height: "600px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(237, 25, 24, 0.14) 0%, rgba(37, 99, 235, 0.09) 45%, transparent 70%)",
-          filter: "blur(90px)",
-          pointerEvents: "none",
-        }}
-      />
-
-      <div
-        style={{
-          position: "absolute",
-          bottom: "-15%",
-          left: "5%",
-          width: "480px",
-          height: "480px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 65%)",
-          filter: "blur(80px)",
-          pointerEvents: "none",
+          opacity: 0.8,
         }}
       />
 
@@ -116,11 +61,12 @@ export function Hero() {
                   alignItems: "center",
                   gap: "0.6rem",
                   padding: "0.45rem 1rem",
-                  backgroundColor: "rgba(255, 255, 255, 0.06)",
-                  border: "1px solid rgba(255, 255, 255, 0.14)",
+                  backgroundColor: "rgba(255, 255, 255, 0.85)",
+                  border: "1px solid rgba(15, 23, 42, 0.1)",
                   borderRadius: "var(--radius-full)",
                   marginBottom: "1.75rem",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                  boxShadow: "0 4px 14px rgba(0, 0, 0, 0.05)",
+                  backdropFilter: "blur(8px)",
                 }}
               >
                 <span
@@ -129,12 +75,11 @@ export function Hero() {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "0.08em",
-                    color: "rgba(255, 255, 255, 0.95)",
+                    color: "#0F172A",
                   }}
                 >
                   Software & Technology Solutions
                 </span>
-              
               </div>
             </Reveal>
 
@@ -146,13 +91,13 @@ export function Hero() {
                   letterSpacing: "-0.035em",
                   lineHeight: 1.15,
                   marginBottom: "1.5rem",
-                  color: "#FFFFFF",
+                  color: "#0A1221",
                 }}
               >
                 We build scalable software that drives{" "}
                 <span
                   style={{
-                    background: "linear-gradient(135deg, #FFFFFF 20%, #A9B7C9 70%, #ED1918 100%)",
+                    background: "linear-gradient(135deg, #0A1221 20%, #1E293B 65%, #ED1918 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
@@ -167,7 +112,7 @@ export function Hero() {
                 style={{
                   fontSize: "1.15rem",
                   lineHeight: 1.68,
-                  color: "var(--color-muted-blue)",
+                  color: "#475569",
                   marginBottom: "2.25rem",
                 }}
               >
@@ -196,8 +141,14 @@ export function Hero() {
 
                 <Button
                   href="/contact"
-                  variant="secondary"
+                  variant="secondary-light"
                   size="lg"
+                  style={{
+                    border: "1px solid rgba(15, 23, 42, 0.18)",
+                    color: "#0F172A",
+                    backgroundColor: "rgba(255, 255, 255, 0.85)",
+                    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.06)",
+                  }}
                 >
                   Start a Project
                 </Button>
@@ -212,24 +163,24 @@ export function Hero() {
                   flexWrap: "wrap",
                   gap: "1.5rem",
                   paddingTop: "1.5rem",
-                  borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+                  borderTop: "1px solid rgba(0, 0, 0, 0.08)",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.85rem", color: "rgba(255, 255, 255, 0.85)", fontWeight: 500 }}>
+                  <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
                     Enterprise Security Standards
                   </span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.85rem", color: "rgba(255, 255, 255, 0.85)", fontWeight: 500 }}>
+                  <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
                     Modular Next.js Architectures
                   </span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.85rem", color: "rgba(255, 255, 255, 0.85)", fontWeight: 500 }}>
+                  <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
                     Dedicated SLA Production Support
                   </span>
                 </div>
@@ -250,7 +201,7 @@ export function Hero() {
           style={{
             marginTop: "4.5rem",
             paddingTop: "2.5rem",
-            borderTop: "1px solid rgba(255, 255, 255, 0.1)",
+            borderTop: "1px solid rgba(0, 0, 0, 0.08)",
           }}
         >
           <div
@@ -265,7 +216,7 @@ export function Hero() {
                 style={{
                   fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
                   fontWeight: 800,
-                  color: "#FFFFFF",
+                  color: "#0A1221",
                   fontFamily: "var(--font-heading)",
                   lineHeight: 1,
                   marginBottom: "0.4rem",
@@ -273,7 +224,7 @@ export function Hero() {
               >
                 <span style={{ color: "var(--color-brand-accent)" }}>300</span>+
               </div>
-              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-muted-blue)" }}>
+              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748B" }}>
                 Successful Projects Completed
               </div>
             </div>
@@ -283,7 +234,7 @@ export function Hero() {
                 style={{
                   fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
                   fontWeight: 800,
-                  color: "#FFFFFF",
+                  color: "#0A1221",
                   fontFamily: "var(--font-heading)",
                   lineHeight: 1,
                   marginBottom: "0.4rem",
@@ -291,7 +242,7 @@ export function Hero() {
               >
                 <span style={{ color: "var(--color-brand-accent)" }}>3</span>+
               </div>
-              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-muted-blue)" }}>
+              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748B" }}>
                 Years Working Experience
               </div>
             </div>
@@ -301,15 +252,15 @@ export function Hero() {
                 style={{
                   fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
                   fontWeight: 800,
-                  color: "#FFFFFF",
+                  color: "#0A1221",
                   fontFamily: "var(--font-heading)",
                   lineHeight: 1,
                   marginBottom: "0.4rem",
                 }}
               >
-                <span style={{ color: "#34D399" }}>99.9</span>%
+                <span style={{ color: "#059669" }}>99.9</span>%
               </div>
-              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-muted-blue)" }}>
+              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748B" }}>
                 Production Infrastructure Uptime
               </div>
             </div>
@@ -319,15 +270,15 @@ export function Hero() {
                 style={{
                   fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
                   fontWeight: 800,
-                  color: "#FFFFFF",
+                  color: "#0A1221",
                   fontFamily: "var(--font-heading)",
                   lineHeight: 1,
                   marginBottom: "0.4rem",
                 }}
               >
-                <span style={{ color: "#38BDF8" }}>50</span>+
+                <span style={{ color: "#2563EB" }}>50</span>+
               </div>
-              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-muted-blue)" }}>
+              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748B" }}>
                 Global Enterprise & Startup Clients
               </div>
             </div>
