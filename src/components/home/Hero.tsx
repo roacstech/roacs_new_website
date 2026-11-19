@@ -393,24 +393,73 @@ export function Hero() {
                 flexWrap: "wrap",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: "2.5rem",
-                opacity: 0.85,
+                gap: "1.25rem",
               }}
             >
-              <div style={{ position: "relative", width: "110px", height: "32px", filter: "brightness(0) invert(1)" }}>
-                <Image src="/images/brands/Tetas-logo.svg" alt="Tetas Podcast Platform" fill style={{ objectFit: "contain" }} />
+              {/* Brand 1: Cazanoo */}
+              <div className="brand-badge-card" title="Cazanoo — Smart Housing">
+                <Image
+                  src="/images/brands/cazanoo-logo.jpg"
+                  alt="Cazanoo Smart Housing"
+                  width={125}
+                  height={34}
+                  style={{ objectFit: "contain", height: "30px", width: "auto" }}
+                />
               </div>
-              <div style={{ position: "relative", width: "100px", height: "30px", filter: "brightness(0) invert(1)" }}>
-                <Image src="/images/brands/yazi-logo.png" alt="Yazi Partner Brand" fill style={{ objectFit: "contain" }} />
+
+              {/* Brand 2: BEC */}
+              <div className="brand-badge-card" title="BEC Global">
+                <Image
+                  src="/images/brands/bec-logo.jpg"
+                  alt="BEC Global"
+                  width={42}
+                  height={42}
+                  style={{ objectFit: "contain", height: "34px", width: "auto" }}
+                />
               </div>
-              <div style={{ position: "relative", width: "110px", height: "32px", filter: "brightness(0) invert(1)" }}>
-                <Image src="/images/brands/brand-1.png" alt="Client Partner" fill style={{ objectFit: "contain" }} />
+
+              {/* Brand 3: A&B Import Export */}
+              <div className="brand-badge-card" title="A&B Import Export — Global Trade">
+                <Image
+                  src="/images/brands/aandb-logo.png"
+                  alt="A&B Import Export"
+                  width={85}
+                  height={34}
+                  style={{ objectFit: "contain", height: "28px", width: "auto" }}
+                />
               </div>
-              <div style={{ position: "relative", width: "100px", height: "30px", filter: "brightness(0) invert(1)" }}>
-                <Image src="/images/brands/brand-3.png" alt="Client Partner" fill style={{ objectFit: "contain" }} />
+
+              {/* Brand 4: Ambit Triangle Safety */}
+              <div className="brand-badge-card" title="Ambit Triangle Safety">
+                <Image
+                  src="/images/brands/ambit-logo.png"
+                  alt="Ambit Triangle Safety"
+                  width={125}
+                  height={34}
+                  style={{ objectFit: "contain", height: "30px", width: "auto" }}
+                />
               </div>
-              <div style={{ position: "relative", width: "100px", height: "30px", filter: "brightness(0) invert(1)" }}>
-                <Image src="/images/brands/brand-5.png" alt="Client Partner" fill style={{ objectFit: "contain" }} />
+
+              {/* Brand 5: Yazi Travels */}
+              <div className="brand-badge-card" title="Yazi Travels">
+                <Image
+                  src="/images/brands/yazi-travels-logo.png"
+                  alt="Yazi Travels"
+                  width={135}
+                  height={34}
+                  style={{ objectFit: "contain", height: "28px", width: "auto" }}
+                />
+              </div>
+
+              {/* Brand 6: Abir Ayurveda & Wellness */}
+              <div className="brand-badge-card" title="Abir Ayurveda & Wellness">
+                <Image
+                  src="/images/brands/abir-logo.jpg"
+                  alt="Abir Ayurveda & Wellness"
+                  width={52}
+                  height={34}
+                  style={{ objectFit: "contain", height: "32px", width: "auto" }}
+                />
               </div>
             </div>
           </div>
