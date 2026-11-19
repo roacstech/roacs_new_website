@@ -357,6 +357,28 @@ p {
   }
 }
 
+/* Header Navigation Link Styles */
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1E293B;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0;
+}
+
+.nav-link:hover {
+  color: var(--color-brand-accent);
+}
+
+.nav-link.active {
+  color: var(--color-brand-accent);
+  font-weight: 600;
+}
+
 /* Dropdown Menu */
 @keyframes fadeIn {
   from {

@@ -68,24 +68,14 @@ export function Navigation() {
     >
       <Link
         href="/"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname === "/" ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+        className={`nav-link ${pathname === "/" ? "active" : ""}`}
       >
         Home
       </Link>
 
       <Link
         href="/about"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname === "/about" ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+        className={`nav-link ${pathname === "/about" ? "active" : ""}`}
       >
         About
       </Link>
@@ -98,16 +88,7 @@ export function Navigation() {
       >
         <Link
           href="/services"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.35rem",
-            fontSize: "0.95rem",
-            fontWeight: 500,
-            color: pathname?.startsWith("/services") ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-            transition: "color var(--transition-fast)",
-            padding: "0.5rem 0",
-          }}
+          className={`nav-link ${pathname?.startsWith("/services") ? "active" : ""}`}
           aria-expanded={servicesOpen}
           aria-haspopup="true"
         >
@@ -248,16 +229,7 @@ export function Navigation() {
       >
         <Link
           href="/material-management"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.35rem",
-            fontSize: "0.95rem",
-            fontWeight: 500,
-            color: pathname?.startsWith("/material-management") ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-            transition: "color var(--transition-fast)",
-            padding: "0.5rem 0",
-          }}
+          className={`nav-link ${pathname?.startsWith("/material-management") ? "active" : ""}`}
           aria-expanded={productsOpen}
           aria-haspopup="true"
         >
@@ -343,50 +315,23 @@ export function Navigation() {
 
       <Link
         href="/projects"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname?.startsWith("/projects") ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+        className={`nav-link ${pathname?.startsWith("/projects") ? "active" : ""}`}
       >
         Projects
       </Link>
 
       <Link
         href="/faq"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname === "/faq" ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+        className={`nav-link ${pathname === "/faq" ? "active" : ""}`}
       >
         FAQ
       </Link>
 
       <Link
         href="/insights"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname?.startsWith("/insights") ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+        className={`nav-link ${pathname?.startsWith("/insights") ? "active" : ""}`}
       >
         Blogs
-      </Link>
-
-      <Link
-        href="/contact"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname === "/contact" ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
-      >
-        Contact
       </Link>
     </nav>
   );

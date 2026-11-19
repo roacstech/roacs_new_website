@@ -345,7 +345,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               textDecoration: "none",
             }}
           >
-            Start a Project
+            Contact Us
           </Link>
         </div>
       </div>
