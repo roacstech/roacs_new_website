@@ -16,51 +16,51 @@ const brands: BrandItem[] = [
   {
     name: "Cazanoo",
     industry: "Prefab & Smart Housing",
-    logo: "/images/brands/cazanoo-transparent.png",
+    logo: "/images/brands/brand-1.png",
     width: 140,
-    height: 42,
+    height: 45,
   },
   {
     name: "BEC Global",
     industry: "Corporate & Consulting",
-    logo: "/images/brands/bec-transparent.png",
-    width: 44,
-    height: 44,
+    logo: "/images/brands/brand-2.jpeg",
+    width: 90,
+    height: 45,
   },
   {
     name: "A&B Impex",
     industry: "Export & Global Trade",
-    logo: "/images/brands/aandb-transparent.png",
-    width: 90,
-    height: 38,
+    logo: "/images/brands/brand-3.png",
+    width: 70,
+    height: 45,
   },
   {
     name: "Ambit Triangle",
     industry: "Industrial Safety",
-    logo: "/images/brands/ambit-transparent.png",
-    width: 135,
-    height: 40,
+    logo: "/images/brands/brand-5.png",
+    width: 120,
+    height: 45,
   },
   {
     name: "Yazi Travels",
     industry: "Travel Tech Platform",
-    logo: "/images/brands/yazi-transparent.png",
-    width: 145,
+    logo: "/images/brands/yazi-logo.png",
+    width: 135,
     height: 38,
   },
   {
     name: "Abir Ayurveda",
     industry: "Health & Wellness",
-    logo: "/images/brands/abir-transparent.png",
-    width: 48,
-    height: 48,
+    logo: "/images/brands/brand-6.jpeg",
+    width: 45,
+    height: 45,
   },
   {
     name: "Tetas Podcast",
     industry: "Audio & Streaming Media",
     logo: "/images/brands/Tetas-logo.svg",
-    width: 110,
-    height: 38,
+    width: 100,
+    height: 40,
   },
 ];
 
@@ -109,69 +109,83 @@ export function BrandMarquee() {
             <div
               key={`${brand.name}-${idx}`}
               className="brand-pill-glass"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.85rem",
+                backgroundColor: "rgba(255, 255, 255, 0.05)",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
+                borderRadius: "var(--radius-md)",
+                padding: "0.45rem 1rem",
+                height: "56px",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                boxShadow: "0 4px 16px rgba(0, 0, 0, 0.25)",
+                flexShrink: 0,
+              }}
               title={`${brand.name} — ${brand.industry}`}
             >
+              {/* Pure White Container for Brand Logo (Renders 100% of Original Corporate Color) */}
               <div
                 style={{
+                  position: "relative",
                   display: "flex",
                   alignItems: "center",
-                  gap: "0.85rem",
+                  justifyContent: "center",
+                  height: "40px",
+                  minWidth: "100px",
+                  padding: "0.25rem 0.65rem",
+                  backgroundColor: "#FFFFFF",
+                  borderRadius: "8px",
+                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
+                  flexShrink: 0,
                 }}
               >
-                <div
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={brand.width}
+                  height={brand.height}
                   style={{
-                    position: "relative",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    height: "44px",
+                    objectFit: "contain",
+                    height: "30px",
+                    width: "auto",
+                    maxWidth: "120px",
+                  }}
+                  className="brand-logo-img"
+                />
+              </div>
+
+              <div
+                style={{
+                  borderLeft: "1px solid rgba(255, 255, 255, 0.15)",
+                  paddingLeft: "0.75rem",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "0.85rem",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    letterSpacing: "-0.01em",
+                    lineHeight: 1.2,
+                    whiteSpace: "nowrap",
                   }}
                 >
-                  <Image
-                    src={brand.logo}
-                    alt={brand.name}
-                    width={brand.width}
-                    height={brand.height}
-                    style={{
-                      objectFit: "contain",
-                      height: "36px",
-                      width: "auto",
-                      maxWidth: "150px",
-                      filter: "brightness(0) invert(1) opacity(0.85)",
-                      transition: "filter 0.2s ease, transform 0.2s ease",
-                    }}
-                    className="brand-logo-img"
-                  />
-                </div>
-                <div
+                  {brand.name}
+                </span>
+                <span
                   style={{
-                    borderLeft: "1px solid rgba(255, 255, 255, 0.15)",
-                    paddingLeft: "0.75rem",
-                    display: "flex",
-                    flexDirection: "column",
+                    fontSize: "0.7rem",
+                    color: "var(--color-muted-blue)",
+                    lineHeight: 1.2,
+                    whiteSpace: "nowrap",
                   }}
                 >
-                  <span
-                    style={{
-                      fontSize: "0.85rem",
-                      fontWeight: 700,
-                      color: "#FFFFFF",
-                      letterSpacing: "-0.01em",
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {brand.name}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: "0.7rem",
-                      color: "var(--color-muted-blue)",
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {brand.industry}
-                  </span>
-                </div>
+                  {brand.industry}
+                </span>
               </div>
             </div>
           ))}
