@@ -26,16 +26,17 @@ export function Header() {
     <>
       <header
         style={{
-          position: "sticky",
+          position: "fixed",
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 900,
-          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.95)" : "#FFFFFF",
+          width: "100%",
+          zIndex: 1000,
+          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.96)" : "#FFFFFF",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
           borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
-          boxShadow: scrolled ? "0 4px 20px rgba(0, 0, 0, 0.05)" : "none",
+          boxShadow: scrolled ? "0 4px 20px rgba(0, 0, 0, 0.06)" : "none",
           transition: "all var(--transition-normal)",
           padding: scrolled ? "0.85rem 0" : "1.1rem 0",
         }}
@@ -116,6 +117,16 @@ export function Header() {
           </div>
         </Container>
       </header>
+
+      {/* Preserve document flow height so page content never slips under the fixed header */}
+      <div
+        style={{
+          height: "76px",
+          width: "100%",
+          flexShrink: 0,
+        }}
+        aria-hidden="true"
+      />
 
       {/* Responsive Visibility Styles */}
       
