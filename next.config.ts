@@ -1,19 +1,43 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  experimental: {
-    agentFeedback: true,
+  reactStrictMode: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
   },
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
+  async redirects() {
+    return [
+      {
+        source: "/about.html",
+        destination: "/about",
+        permanent: true,
       },
-    },
+      {
+        source: "/services.html",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/projects.html",
+        destination: "/projects",
+        permanent: true,
+      },
+      {
+        source: "/contact.html",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/team.html",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/faq.html",
+        destination: "/contact",
+        permanent: true,
+      },
+    ];
   },
 };
 
