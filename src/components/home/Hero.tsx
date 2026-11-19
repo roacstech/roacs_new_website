@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { Reveal } from "@/components/common/Reveal";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function Hero() {
 
@@ -195,49 +195,12 @@ export function Hero() {
               </Link>
             </div>
           </Reveal>
-
-          {/* Centered Credibility Badges */}
-          <Reveal delay={0.4}>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "2rem",
-                paddingTop: "2rem",
-                borderTop: "1px solid rgba(0, 0, 0, 0.08)",
-                maxWidth: "760px",
-                marginLeft: "auto",
-                marginRight: "auto",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
-                  Enterprise Security Standards
-                </span>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
-                  Modular Next.js Architectures
-                </span>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                <span style={{ fontSize: "0.85rem", color: "#1E293B", fontWeight: 600 }}>
-                  Dedicated SLA Production Support
-                </span>
-              </div>
-            </div>
-          </Reveal>
         </div>
 
         {/* High-Impact Stat Counters Ribbon (from index.html: 300+ projects, 3+ years, 99.9% uptime, 100% satisfaction) */}
         <div
           style={{
-            marginTop: "4.5rem",
+            marginTop: "3.5rem",
             paddingTop: "2.5rem",
             borderTop: "1px solid rgba(0, 0, 0, 0.08)",
           }}
