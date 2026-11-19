@@ -4,7 +4,7 @@ import { Container } from "@/components/common/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { Button } from "@/components/common/Button";
 import { constructMetadata } from "@/lib/metadata";
-import { ShieldCheck, Target, Eye, Users, ArrowRight, Award, Zap } from "lucide-react";
+import { Target, Eye, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = constructMetadata({
   title: "About Us | Roacs Corporation",

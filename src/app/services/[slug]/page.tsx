@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
@@ -10,8 +9,7 @@ import {
   ArrowRight, 
   CheckCircle2, 
   Layers, 
-  FileCheck2, 
-  HelpCircle 
+  FileCheck2 
 } from "lucide-react";
 
 interface ServiceDetailPageProps {

@@ -8,9 +8,9 @@ import {
   Mail, 
   Phone, 
   Clock, 
-  ArrowUpRight, 
   ShieldCheck, 
-  ExternalLink 
+  ExternalLink,
+  Package
 } from "lucide-react";
 
 export function Footer() {
@@ -66,6 +66,97 @@ export function Footer() {
               Roacs Corporation delivers high-performance enterprise software engineering, strategic IT consulting, cloud infrastructure, and intelligent automation for forward-thinking organizations worldwide.
             </p>
 
+            {/* Social Links from index.html */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                marginBottom: "1.75rem",
+              }}
+            >
+              <a
+                href="https://linkedin.com/company/roacs-corporation"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Roacs on LinkedIn"
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "var(--radius-xs)",
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#FFFFFF",
+                  fontSize: "0.85rem",
+                  transition: "background-color 0.15s ease",
+                }}
+              >
+                In
+              </a>
+              <a
+                href="https://twitter.com/roacstech"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Roacs on X / Twitter"
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "var(--radius-xs)",
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#FFFFFF",
+                  fontSize: "0.85rem",
+                  transition: "background-color 0.15s ease",
+                }}
+              >
+                X
+              </a>
+              <a
+                href="https://facebook.com/roacstech"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Roacs on Facebook"
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "var(--radius-xs)",
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#FFFFFF",
+                  fontSize: "0.85rem",
+                  transition: "background-color 0.15s ease",
+                }}
+              >
+                Fb
+              </a>
+              <a
+                href="https://youtube.com/c/roacstech"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Roacs on YouTube"
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "var(--radius-xs)",
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#FFFFFF",
+                  fontSize: "0.85rem",
+                  transition: "background-color 0.15s ease",
+                }}
+              >
+                Yt
+              </a>
+            </div>
+
             <div
               style={{
                 display: "inline-flex",
@@ -96,7 +187,7 @@ export function Footer() {
                 marginBottom: "1.5rem",
               }}
             >
-              Services
+              Our Core Services
             </h4>
             <ul
               style={{
@@ -136,7 +227,7 @@ export function Footer() {
                 marginBottom: "1.5rem",
               }}
             >
-              Company & Work
+              Quick Links
             </h4>
             <ul
               style={{
@@ -153,8 +244,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/industries" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
-                  Industries Served
+                <Link href="/material-management" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
+                  Our Products (Material Management)
                 </Link>
               </li>
               <li>
@@ -163,36 +254,46 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/faq" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
+                  Frequently Asked Questions (FAQ)
+                </Link>
+              </li>
+              <li>
                 <Link href="/insights" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
-                  Engineering Insights
+                  Blogs & Tech Insights
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
-                  Contact & Consultations
+                  Contact Us
                 </Link>
               </li>
             </ul>
 
             {/* Proprietary Spotlight */}
-            <div
+            <Link
+              href="/material-management"
               style={{
+                display: "block",
                 backgroundColor: "rgba(255, 255, 255, 0.04)",
-                border: "1px solid rgba(255, 255, 255, 0.08)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
                 padding: "1rem",
                 borderRadius: "var(--radius-sm)",
+                textDecoration: "none",
+                transition: "border-color 0.2s ease",
               }}
             >
-              <div style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--color-brand-accent)", fontWeight: 700, marginBottom: "0.25rem" }}>
-                Proprietary Solution
+              <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--color-brand-accent)", fontWeight: 700, marginBottom: "0.25rem" }}>
+                <Package size={13} />
+                <span>Proprietary Platform</span>
               </div>
-              <div style={{ fontSize: "0.875rem", fontWeight: 600, color: "#FFFFFF", marginBottom: "0.25rem" }}>
-                Roacs Material Management
+              <div style={{ fontSize: "0.875rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "0.25rem" }}>
+                Roacs Material Management &rarr;
               </div>
-              <p style={{ fontSize: "0.78rem", color: "var(--color-text-on-dark-muted)", lineHeight: 1.4 }}>
-                Optimizing inventory pipelines, warehouse flows, and multi-location logistics.
+              <p style={{ fontSize: "0.78rem", color: "var(--color-text-on-dark-muted)", lineHeight: 1.4, margin: 0 }}>
+                Efficiently managing warehouse flow, inventory stock, and automated procurement.
               </p>
-            </div>
+            </Link>
           </div>
 
           {/* Col 4: Verified Contact & Corporate Details */}
@@ -207,7 +308,7 @@ export function Footer() {
                 marginBottom: "1.5rem",
               }}
             >
-              Global Presence
+              Contact Us
             </h4>
 
             <div
@@ -240,8 +341,8 @@ export function Footer() {
                 <Phone size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0, marginTop: "0.2rem" }} />
                 <div>
                   <div>
-                    <span style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)" }}>IND: </span>
-                    <a href="tel:+919363282216" style={{ color: "#FFFFFF" }}>+91 93632 82216</a>
+                    <span style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)" }}>INDIA: </span>
+                    <a href="tel:+919876543210" style={{ color: "#FFFFFF" }}>+91 98765 43210</a>
                   </div>
                   <div>
                     <span style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)" }}>USA: </span>
@@ -252,7 +353,7 @@ export function Footer() {
 
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
                 <Clock size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0 }} />
-                <span>Mon – Sat: 10:00 AM – 4:00 PM IST</span>
+                <span>Mon â€“ Sat: 10:00 AM â€“ 6:00 PM IST</span>
               </div>
             </div>
           </div>
@@ -291,14 +392,20 @@ export function Footer() {
                 gap: "1.5rem",
               }}
             >
-              <Link href="/privacy" style={{ color: "var(--color-muted-blue)" }}>
-                Privacy Policy
+              <Link href="/about" style={{ color: "var(--color-muted-blue)" }}>
+                About
               </Link>
-              <Link href="/terms" style={{ color: "var(--color-muted-blue)" }}>
-                Terms of Service
+              <Link href="/services" style={{ color: "var(--color-muted-blue)" }}>
+                Services
+              </Link>
+              <Link href="/material-management" style={{ color: "var(--color-muted-blue)" }}>
+                Products
+              </Link>
+              <Link href="/faq" style={{ color: "var(--color-muted-blue)" }}>
+                FAQ
               </Link>
               <Link href="/contact" style={{ color: "var(--color-muted-blue)" }}>
-                Security & Compliance
+                Contact
               </Link>
               <a
                 href="https://roacs.com"
@@ -318,8 +425,6 @@ export function Footer() {
           </div>
         </div>
       </Container>
-
-      
     </footer>
   );
 }

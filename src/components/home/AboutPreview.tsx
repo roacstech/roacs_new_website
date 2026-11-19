@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { Button } from "@/components/common/Button";
@@ -10,33 +9,19 @@ import { Reveal } from "@/components/common/Reveal";
 import { 
   ArrowRight, 
   CheckCircle2, 
-  Lightbulb, 
-  Settings2, 
-  BarChart3, 
-  ShieldCheck 
+  Award
 } from "lucide-react";
 
 export function AboutPreview() {
-  const lifecycleSteps = [
-    {
-      step: "01",
-      title: "Requirement Analysis",
-      description: "We analyze business workflows, data models, and constraints to architect a verified roadmap before writing code.",
-    },
-    {
-      step: "02",
-      title: "Architecture & Development",
-      description: "Our engineers build decoupled, modular solutions using modern component frameworks and automated test suites.",
-    },
-    {
-      step: "03",
-      title: "Deployment & Governance",
-      description: "Continuous CI/CD deployment, rigorous security auditing, and SLA-backed monitoring for long-term production resilience.",
-    },
+  const highlights = [
+    { title: "Technology Consultancy", desc: "Expert technical roadmaps, architectural evaluation, and vendor selection." },
+    { title: "300+ Successful Projects", desc: "Proven track record delivering mission-critical web, mobile, and SaaS platforms." },
+    { title: "Elite Engineering Talent", desc: "Senior full-stack developers, cloud architects, and UX specialists." },
+    { title: "Continuous Maintenance & SLAs", desc: "Proactive uptime monitoring, security patching, and ongoing feature evolution." },
   ];
 
   return (
-    <section className="section section-light">
+    <section className="section section-light" id="about">
       <Container wide>
         <div
           style={{
@@ -47,26 +32,35 @@ export function AboutPreview() {
           }}
           className="about-grid"
         >
-          {/* Left Column: Authentic Brand Image & Editorial Card */}
+          {/* Left Column: Authentic Brand Image & Floating Metric Card */}
           <div style={{ position: "relative" }}>
             <Reveal delay={0.1}>
               <div
                 style={{
                   position: "relative",
                   width: "100%",
-                  height: "460px",
+                  height: "480px",
                   borderRadius: "var(--radius-lg)",
                   overflow: "hidden",
                   boxShadow: "var(--shadow-xl)",
                   backgroundColor: "#E2E8F0",
+                  border: "1px solid var(--border-light)",
                 }}
               >
                 <Image
-                  src="/images/about/about-overview.jpg"
-                  alt="Roacs Corporation Software Engineering"
+                  src="/images/about/about-3.jpg"
+                  alt="About Roacs Corporation IT Consulting & Software Development"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   style={{ objectFit: "cover" }}
+                  priority
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(to top, rgba(16, 29, 53, 0.45) 0%, transparent 60%)",
+                  }}
                 />
               </div>
 
@@ -80,92 +74,90 @@ export function AboutPreview() {
                   color: "#FFFFFF",
                   padding: "1.5rem 1.75rem",
                   borderRadius: "var(--radius-md)",
-                  boxShadow: "0 16px 36px rgba(16, 29, 53, 0.25)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  maxWidth: "240px",
+                  boxShadow: "0 18px 40px rgba(16, 29, 53, 0.3)",
+                  border: "1px solid rgba(255, 255, 255, 0.12)",
+                  maxWidth: "260px",
                 }}
               >
-                <div
-                  style={{
-                    fontSize: "2.25rem",
-                    fontWeight: 800,
-                    color: "var(--color-brand-accent)",
-                    lineHeight: 1,
-                    marginBottom: "0.4rem",
-                  }}
-                >
-                  100%
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.4rem" }}>
+                  <Award size={22} color="var(--color-brand-accent)" />
+                  <span
+                    style={{
+                      fontSize: "2rem",
+                      fontWeight: 800,
+                      color: "#FFFFFF",
+                      lineHeight: 1,
+                    }}
+                  >
+                    3+ <span style={{ fontSize: "1.1rem", color: "var(--color-brand-accent)" }}>Years</span>
+                  </span>
                 </div>
-                <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#FFFFFF", lineHeight: 1.3 }}>
-                  Client Commitment & Engineering Transparency
+                <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-muted-blue)", lineHeight: 1.35 }}>
+                  Working Experience Delivering Global Enterprise Solutions
                 </div>
               </div>
             </Reveal>
           </div>
 
-          {/* Right Column: Narrative & Process */}
+          {/* Right Column: Narrative, Strengths & CTA */}
           <div>
             <Reveal delay={0.2}>
               <SectionHeading
-                eyebrow="Company Overview"
+                eyebrow="About Roacs Corporation"
                 eyebrowVariant="accent"
-                title="Driving growth through precision engineering & pragmatic technology."
-                description="Roacs Corporation is a forward-thinking software development and IT consulting firm. We combine strategic design, robust cloud infrastructure, and modern engineering practices to build scalable products that solve tangible business challenges."
+                title="We Strive To Offer Intelligent Business Solutions."
+                description="At Roacs Corporation, we deliver intelligent software solutions tailored to your business needs, ensuring quality, scalability, and seamless user experiences across every digital touchpoint."
               />
             </Reveal>
 
+            {/* Feature Bullets Grid (from index.html) */}
             <Reveal delay={0.3}>
               <div
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
                   gap: "1.25rem",
                   marginBottom: "2.5rem",
                 }}
               >
-                {lifecycleSteps.map((item, idx) => (
+                {highlights.map((item, idx) => (
                   <div
                     key={idx}
                     style={{
                       display: "flex",
-                      gap: "1.25rem",
-                      padding: "1.25rem",
+                      alignItems: "flex-start",
+                      gap: "0.75rem",
+                      padding: "1rem",
                       borderRadius: "var(--radius-sm)",
                       backgroundColor: "var(--color-bg-subtle)",
                       border: "1px solid var(--border-light)",
                     }}
                   >
-                    <span
-                      style={{
-                        fontSize: "1.1rem",
-                        fontWeight: 800,
-                        color: "var(--color-brand-accent)",
-                        fontFamily: "monospace",
-                        flexShrink: 0,
-                      }}
-                    >
-                      {item.step}
-                    </span>
+                    <CheckCircle2
+                      size={20}
+                      color="var(--color-brand-accent)"
+                      style={{ flexShrink: 0, marginTop: "2px" }}
+                    />
                     <div>
                       <h4
                         style={{
-                          fontSize: "1.05rem",
+                          fontSize: "0.95rem",
                           fontWeight: 700,
                           color: "var(--color-primary-navy)",
-                          marginBottom: "0.3rem",
+                          marginBottom: "0.2rem",
                         }}
                       >
                         {item.title}
                       </h4>
                       <p
                         style={{
-                          fontSize: "0.925rem",
+                          fontSize: "0.825rem",
                           color: "var(--color-text-secondary)",
-                          lineHeight: 1.5,
+                          lineHeight: 1.4,
                           margin: 0,
                         }}
                       >
-                        {item.description}
+                        {item.desc}
                       </p>
                     </div>
                   </div>
@@ -177,18 +169,22 @@ export function AboutPreview() {
               <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                 <Button
                   href="/about"
-                  variant="outline-navy"
+                  variant="primary"
                   icon={<ArrowRight size={16} />}
                 >
-                  Learn More About Roacs
+                  Discover More About Us
+                </Button>
+                <Button
+                  href="/projects"
+                  variant="outline-navy"
+                >
+                  View Case Studies
                 </Button>
               </div>
             </Reveal>
           </div>
         </div>
       </Container>
-
-      
     </section>
   );
 }

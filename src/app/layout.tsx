@@ -1,21 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Manrope } from "next/font/google";
 import "@/app/globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { constructMetadata, generateOrganizationSchema } from "@/lib/metadata";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: "#101D35",
@@ -34,14 +21,14 @@ export default function RootLayout({
   const jsonLd = generateOrganizationSchema();
 
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className="antialiased">
         <Header />
         <main>{children}</main>
         <Footer />

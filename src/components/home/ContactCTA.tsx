@@ -1,11 +1,10 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { Reveal } from "@/components/common/Reveal";
-import { ArrowRight, Mail, Phone, CalendarCheck, ShieldCheck } from "lucide-react";
+import { ArrowRight, Mail, Phone, CalendarCheck } from "lucide-react";
 
 export function ContactCTA() {
   return (

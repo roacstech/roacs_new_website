@@ -5,7 +5,7 @@ import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { projectsData } from "@/data/projects";
 import { constructMetadata } from "@/lib/metadata";
-import { ArrowLeft, ArrowRight, CheckCircle2, Building2, Tag } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 
 interface ProjectDetailPageProps {
   params: Promise<{

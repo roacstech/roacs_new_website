@@ -12,6 +12,7 @@ export interface ProjectItem {
   image: string;
   tags: string[];
   featured: boolean;
+  liveUrl?: string;
 }
 
 export const projectsData: ProjectItem[] = [
@@ -32,7 +33,8 @@ export const projectsData: ProjectItem[] = [
     ],
     image: "/images/projects/cazanoo.png",
     tags: ["Web Architecture", "UI/UX Design", "Performance Optimization", "Modular Tech"],
-    featured: true
+    featured: true,
+    liveUrl: "https://www.cazanoo.com/"
   },
   {
     id: "bec-global",
@@ -51,7 +53,8 @@ export const projectsData: ProjectItem[] = [
     ],
     image: "/images/projects/bec.jpg",
     tags: ["Enterprise Web", "Information Architecture", "Cloud Infrastructure"],
-    featured: true
+    featured: true,
+    liveUrl: "https://www.becgpl.com/"
   },
   {
     id: "aandb-impex",
@@ -70,7 +73,8 @@ export const projectsData: ProjectItem[] = [
     ],
     image: "/images/projects/aandb.jpg",
     tags: ["International Trade", "Catalog Management", "B2B Logistics"],
-    featured: true
+    featured: true,
+    liveUrl: "https://aandbimpex.com/"
   },
   {
     id: "ambit-triangle",
@@ -89,7 +93,8 @@ export const projectsData: ProjectItem[] = [
     ],
     image: "/images/projects/ambit.jpg",
     tags: ["Compliance", "Industrial Safety", "Portal Engineering"],
-    featured: true
+    featured: true,
+    liveUrl: "https://ambittrianglesafety.co.in/"
   },
   {
     id: "abir-ayurveda",
@@ -108,7 +113,8 @@ export const projectsData: ProjectItem[] = [
     ],
     image: "/images/projects/abir.png",
     tags: ["Healthcare UI", "Appointment Engine", "Responsive Design"],
-    featured: true
+    featured: true,
+    liveUrl: "https://abirayurveda.com/"
   },
   {
     id: "tetas-podcast",
@@ -127,7 +133,8 @@ export const projectsData: ProjectItem[] = [
     ],
     image: "/images/projects/tetas.png",
     tags: ["Media Streaming", "Audio Engine", "Web Performance"],
-    featured: true
+    featured: true,
+    liveUrl: "https://tetaspodcast.com/"
   },
   {
     id: "accupose",
@@ -146,6 +153,7 @@ export const projectsData: ProjectItem[] = [
     ],
     image: "/images/projects/accupose.png",
     tags: ["HealthTech", "Biomechanical Analytics", "Data Visualization"],
-    featured: true
+    featured: true,
+    liveUrl: "https://www.accupose.com/"
   }
 ];
