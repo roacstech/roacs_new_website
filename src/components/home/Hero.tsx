@@ -50,39 +50,8 @@ export function Hero() {
             zIndex: 1,
           }}
         >
-          {/* Centered Frosted Capsule Category Pill */}
-          <Reveal delay={0.1}>
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.6rem",
-                padding: "0.45rem 1.25rem",
-                backgroundColor: "rgba(255, 255, 255, 0.75)",
-                border: "1px solid rgba(0, 0, 0, 0.08)",
-                borderRadius: "9999px",
-                marginBottom: "1.75rem",
-                boxShadow: "0 2px 10px rgba(0, 0, 0, 0.04)",
-                backdropFilter: "blur(10px)",
-                WebkitBackdropFilter: "blur(10px)",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: "0.8125rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                  color: "#3F3F46",
-                }}
-              >
-                Software & Technology Solutions
-              </span>
-            </div>
-          </Reveal>
-
           {/* Centered High-Impact Headline with Reference UI Font Colors */}
-          <Reveal delay={0.2}>
+          <Reveal delay={0.1}>
             <h1
               style={{
                 fontSize: "clamp(2.75rem, 5.5vw, 4.75rem)",
@@ -118,7 +87,7 @@ export function Hero() {
           </Reveal>
 
           {/* Centered Subtitle Copy */}
-          <Reveal delay={0.3}>
+          <Reveal delay={0.2}>
             <p
               style={{
                 fontSize: "1.15rem",
@@ -135,7 +104,7 @@ export function Hero() {
           </Reveal>
 
           {/* Centered CTA Button Group Styled Like Reference UI */}
-          <Reveal delay={0.4}>
+          <Reveal delay={0.3}>
             <div
               style={{
                 display: "flex",
@@ -228,7 +197,7 @@ export function Hero() {
           </Reveal>
 
           {/* Centered Credibility Badges */}
-          <Reveal delay={0.5}>
+          <Reveal delay={0.4}>
             <div
               style={{
                 display: "flex",
