@@ -79,6 +79,29 @@ export function BrandMarquee() {
       }}
       aria-label="Trusted by Global Brands"
     >
+      {/* High-Tech Cyber Network Mesh Ambient Background */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "url('/images/hero-network-sphere.jpg')",
+          backgroundPosition: "center center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.18,
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(180deg, var(--color-navy-dark) 0%, rgba(7, 14, 27, 0.88) 50%, var(--color-navy-dark) 100%)",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
       <Container wide>
         <div
           style={{

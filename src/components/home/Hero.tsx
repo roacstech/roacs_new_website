@@ -21,18 +21,49 @@ export function Hero() {
         borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
       }}
     >
+      {/* High-Tech Glowing Cyber Network Sphere Background */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "url('/images/hero-network-sphere.jpg')",
+          backgroundPosition: "center right",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.55,
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+
+      {/* Radiant Vignette & Legibility Dark Gradients */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: `
+            linear-gradient(to right, var(--color-primary-navy) 20%, rgba(10, 18, 33, 0.88) 55%, rgba(10, 18, 33, 0.45) 100%),
+            linear-gradient(to top, var(--color-primary-navy) 0%, transparent 40%),
+            linear-gradient(to bottom, var(--color-primary-navy) 0%, transparent 25%)
+          `,
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+
       {/* Background Decorative Tech Grid & Radiant Glow Orbs */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+            linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px)
           `,
           backgroundSize: "56px 56px",
           pointerEvents: "none",
-          opacity: 0.65,
+          opacity: 0.5,
+          zIndex: 0,
         }}
       />
 
