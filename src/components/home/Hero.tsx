@@ -102,18 +102,8 @@ export function Hero() {
                   boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
                 }}
               >
-                <div className="live-pulse-red" />
-                <span
-                  style={{
-                    fontSize: "0.8125rem",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    color: "rgba(255, 255, 255, 0.95)",
-                  }}
-                >
-                  Software & Technology Solutions
-                </span>
+                
+              
               </div>
             </Reveal>
 
