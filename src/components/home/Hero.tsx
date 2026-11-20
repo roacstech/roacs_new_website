@@ -18,8 +18,8 @@ export function Hero() {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         color: "#0F172A",
-        paddingTop: "5.5rem",
-        paddingBottom: "5.5rem",
+        paddingTop: "1.75rem",
+        paddingBottom: "3rem",
         overflow: "hidden",
         borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
       }}
@@ -54,11 +54,11 @@ export function Hero() {
           <Reveal delay={0.1}>
             <h1
               style={{
-                fontSize: "clamp(2.75rem, 5.5vw, 4.75rem)",
+                fontSize: "clamp(2.35rem, 5vw, 4.25rem)",
                 fontWeight: 800,
                 letterSpacing: "-0.035em",
-                lineHeight: 1.15,
-                marginBottom: "1.5rem",
+                lineHeight: 1.12,
+                marginBottom: "1rem",
                 color: "#0A0A0A",
               }}
             >
@@ -90,10 +90,10 @@ export function Hero() {
           <Reveal delay={0.2}>
             <p
               style={{
-                fontSize: "1.15rem",
-                lineHeight: 1.68,
+                fontSize: "1.05rem",
+                lineHeight: 1.6,
                 color: "#52525B",
-                marginBottom: "2.5rem",
+                marginBottom: "1.75rem",
                 maxWidth: "680px",
                 marginLeft: "auto",
                 marginRight: "auto",
@@ -112,7 +112,7 @@ export function Hero() {
                 justifyContent: "center",
                 gap: "1rem",
                 flexWrap: "wrap",
-                marginBottom: "3.5rem",
+                marginBottom: "2rem",
               }}
             >
               {/* Primary Black Capsule Button with Circle Arrow */}
@@ -200,8 +200,8 @@ export function Hero() {
         {/* High-Impact Stat Counters Ribbon (from index.html: 300+ projects, 3+ years, 99.9% uptime, 100% satisfaction) */}
         <div
           style={{
-            marginTop: "3.5rem",
-            paddingTop: "2.5rem",
+            marginTop: "2rem",
+            paddingTop: "2rem",
             borderTop: "1px solid rgba(0, 0, 0, 0.08)",
           }}
         >

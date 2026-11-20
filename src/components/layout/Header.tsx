@@ -38,7 +38,7 @@ export function Header() {
           borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
           boxShadow: scrolled ? "0 4px 20px rgba(0, 0, 0, 0.06)" : "none",
           transition: "all var(--transition-normal)",
-          padding: scrolled ? "0.85rem 0" : "1.1rem 0",
+          padding: scrolled ? "0.65rem 0" : "0.85rem 0",
         }}
       >
         <Container wide>
@@ -121,7 +121,7 @@ export function Header() {
       {/* Preserve document flow height so page content never slips under the fixed header */}
       <div
         style={{
-          height: "76px",
+          height: "68px",
           width: "100%",
           flexShrink: 0,
         }}
