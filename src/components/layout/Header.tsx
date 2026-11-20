@@ -26,17 +26,19 @@ export function Header() {
     <>
       <header
         style={{
-          position: "sticky",
+          position: "fixed",
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 900,
-          backgroundColor: scrolled ? "rgba(16, 29, 53, 0.94)" : "var(--color-primary-navy)",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
-          borderBottom: "1px solid",
-          borderColor: scrolled ? "rgba(255, 255, 255, 0.12)" : "rgba(255, 255, 255, 0.08)",
+          width: "100%",
+          zIndex: 1000,
+          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.96)" : "#FFFFFF",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
+          boxShadow: scrolled ? "0 4px 20px rgba(0, 0, 0, 0.06)" : "none",
           transition: "all var(--transition-normal)",
-          padding: scrolled ? "0.85rem 0" : "1.2rem 0",
+          padding: scrolled ? "0.65rem 0" : "0.85rem 0",
         }}
       >
         <Container wide>
@@ -89,7 +91,7 @@ export function Header() {
                   size="sm"
                   icon={<ArrowRight size={14} />}
                 >
-                  Start a Project
+                  Contact Us
                 </Button>
               </div>
 
@@ -99,14 +101,14 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(true)}
                 aria-label="Open Navigation Menu"
                 style={{
-                  color: "#FFFFFF",
+                  color: "#101D35",
                   padding: "0.5rem",
                   borderRadius: "var(--radius-xs)",
-                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  border: "1px solid rgba(16, 29, 53, 0.15)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  backgroundColor: "rgba(255, 255, 255, 0.05)",
+                  backgroundColor: "rgba(16, 29, 53, 0.04)",
                 }}
               >
                 <Menu size={22} />
@@ -115,6 +117,16 @@ export function Header() {
           </div>
         </Container>
       </header>
+
+      {/* Preserve document flow height so page content never slips under the fixed header */}
+      <div
+        style={{
+          height: "68px",
+          width: "100%",
+          flexShrink: 0,
+        }}
+        aria-hidden="true"
+      />
 
       {/* Responsive Visibility Styles */}
       

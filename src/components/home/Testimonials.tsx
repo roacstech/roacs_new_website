@@ -14,10 +14,10 @@ export function Testimonials() {
       <Container wide>
         <Reveal delay={0.1}>
           <SectionHeading
-            eyebrow="Verified Client Feedback"
+            eyebrow="Client Testimonials"
             eyebrowVariant="accent"
-            title="What our partners say about delivering with Roacs."
-            description="We measure our achievement by the tangible business efficiency and operational longevity our clients experience in production."
+            title="What Our Clients Say About Roacs."
+            description="We take pride in delivering reliable, scalable, and result-driven digital solutions. Here's what our enterprise clients and founders say about their experience working with Roacs."
             align="center"
           />
         </Reveal>
@@ -27,13 +27,13 @@ export function Testimonials() {
             display: "grid",
             gridTemplateColumns: "1fr",
             gap: "2rem",
-            maxWidth: "960px",
+            maxWidth: "1080px",
             margin: "0 auto",
           }}
           className="testimonials-grid"
         >
           {testimonialsData.map((test, index) => (
-            <Reveal key={test.id} delay={0.15 * index}>
+            <Reveal key={test.id} delay={0.15 * (index + 1)}>
               <div
                 style={{
                   backgroundColor: "#FFFFFF",
@@ -46,17 +46,19 @@ export function Testimonials() {
                   justifyContent: "space-between",
                   position: "relative",
                   height: "100%",
+                  transition: "all var(--transition-normal)",
                 }}
+                className="card"
               >
                 <div
                   style={{
                     position: "absolute",
                     top: "1.75rem",
                     right: "2rem",
-                    color: "rgba(16, 29, 53, 0.08)",
+                    color: "rgba(237, 25, 24, 0.12)",
                   }}
                 >
-                  <Quote size={48} strokeWidth={1.5} />
+                  <Quote size={52} strokeWidth={1.5} />
                 </div>
 
                 <div>
@@ -69,29 +71,42 @@ export function Testimonials() {
                       marginBottom: "1.25rem",
                     }}
                   >
-                    {[...Array(test.rating)].map((_, i) => (
-                      <Star key={i} size={18} fill="#F59E0B" color="#F59E0B" />
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={18}
+                        fill="#F59E0B"
+                        color="#F59E0B"
+                      />
                     ))}
+                    <span
+                      style={{
+                        marginLeft: "0.5rem",
+                        fontSize: "0.8rem",
+                        fontWeight: 700,
+                        color: "var(--color-primary-navy)",
+                      }}
+                    >
+                      5.0 Verified Review
+                    </span>
                   </div>
 
-                  {/* Quote Text */}
-                  <blockquote
+                  <p
                     style={{
-                      fontSize: "1.1rem",
-                      lineHeight: 1.65,
+                      fontSize: "1.05rem",
+                      lineHeight: 1.7,
                       color: "var(--color-primary-navy)",
-                      fontStyle: "normal",
                       fontWeight: 500,
+                      fontStyle: "italic",
                       marginBottom: "2rem",
                       position: "relative",
                       zIndex: 1,
                     }}
                   >
-                    &ldquo;{test.quote}&rdquo;
-                  </blockquote>
+                    â€œ{test.quote}â€ 
+                  </p>
                 </div>
 
-                {/* Author Info */}
                 <div
                   style={{
                     display: "flex",
@@ -104,11 +119,12 @@ export function Testimonials() {
                   <div
                     style={{
                       position: "relative",
-                      width: "50px",
-                      height: "50px",
+                      width: "52px",
+                      height: "52px",
                       borderRadius: "50%",
                       overflow: "hidden",
-                      border: "2px solid var(--color-bg-subtle)",
+                      backgroundColor: "var(--color-bg-subtle)",
+                      border: "2px solid var(--color-brand-accent)",
                       flexShrink: 0,
                     }}
                   >
@@ -119,27 +135,36 @@ export function Testimonials() {
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-
                   <div>
                     <h4
                       style={{
                         fontSize: "1.05rem",
                         fontWeight: 700,
                         color: "var(--color-primary-navy)",
-                        marginBottom: "0.15rem",
+                        margin: 0,
+                        lineHeight: 1.2,
                       }}
                     >
                       {test.name}
                     </h4>
-                    <p
+                    <span
                       style={{
-                        fontSize: "0.85rem",
-                        color: "var(--color-text-muted)",
-                        margin: 0,
+                        fontSize: "0.825rem",
+                        color: "var(--color-brand-accent)",
+                        fontWeight: 600,
+                        display: "block",
                       }}
                     >
-                      {test.role} &bull; {test.company}
-                    </p>
+                      {test.role}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "0.78rem",
+                        color: "var(--color-text-muted)",
+                      }}
+                    >
+                      {test.company}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -147,8 +172,6 @@ export function Testimonials() {
           ))}
         </div>
       </Container>
-
-      
     </section>
   );
 }

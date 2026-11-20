@@ -1,10 +1,22 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { servicesData } from "@/data/services";
-import { ChevronDown, ArrowRight, Code2, Globe, Smartphone, Cpu, Cloud, Palette, TrendingUp, Package } from "lucide-react";
+import { 
+  ChevronDown, 
+  ArrowRight, 
+  Code2, 
+  Globe, 
+  Smartphone, 
+  Cpu, 
+  Cloud, 
+  Palette, 
+  TrendingUp, 
+  Package,
+  Boxes
+} from "lucide-react";
 
 const serviceIcons: Record<string, React.ElementType> = {
   "custom-software-development": Code2,
@@ -19,85 +31,64 @@ const serviceIcons: Record<string, React.ElementType> = {
 export function Navigation() {
   const pathname = usePathname();
   const [servicesOpen, setServicesOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [productsOpen, setProductsOpen] = useState(false);
 
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  const servicesTimeout = useRef<NodeJS.Timeout | null>(null);
+  const productsTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  const handleServicesEnter = () => {
+    if (servicesTimeout.current) clearTimeout(servicesTimeout.current);
     setServicesOpen(true);
   };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setServicesOpen(false);
-    }, 150);
+  const handleServicesLeave = () => {
+    servicesTimeout.current = setTimeout(() => setServicesOpen(false), 150);
   };
 
-  useEffect(() => {
-    setServicesOpen(false);
-  }, [pathname]);
+  const handleProductsEnter = () => {
+    if (productsTimeout.current) clearTimeout(productsTimeout.current);
+    setProductsOpen(true);
+  };
+  const handleProductsLeave = () => {
+    productsTimeout.current = setTimeout(() => setProductsOpen(false), 150);
+  };
 
-  const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Industries", href: "/industries" },
-    { label: "Projects", href: "/projects" },
-    { label: "Insights", href: "/insights" },
-    { label: "Contact", href: "/contact" },
-  ];
+  const closeAll = () => {
+    setServicesOpen(false);
+    setProductsOpen(false);
+  };
 
   return (
     <nav
       style={{
         display: "flex",
         alignItems: "center",
-        gap: "2rem",
+        gap: "1.75rem",
       }}
       aria-label="Main Navigation"
     >
       <Link
         href="/"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname === "/" ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+        className={`nav-link ${pathname === "/" ? "active" : ""}`}
       >
         Home
       </Link>
 
       <Link
         href="/about"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname === "/about" ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+        className={`nav-link ${pathname === "/about" ? "active" : ""}`}
       >
         About
       </Link>
 
       {/* Services Dropdown */}
       <div
-        ref={dropdownRef}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleServicesEnter}
+        onMouseLeave={handleServicesLeave}
         style={{ position: "relative" }}
       >
         <Link
           href="/services"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.35rem",
-            fontSize: "0.95rem",
-            fontWeight: 500,
-            color: pathname?.startsWith("/services") ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-            transition: "color var(--transition-fast)",
-            padding: "0.5rem 0",
-          }}
+          className={`nav-link ${pathname?.startsWith("/services") ? "active" : ""}`}
           aria-expanded={servicesOpen}
           aria-haspopup="true"
         >
@@ -135,6 +126,7 @@ export function Navigation() {
                 <Link
                   key={s.id}
                   href={`/services/${s.slug}`}
+                  onClick={closeAll}
                   style={{
                     display: "flex",
                     alignItems: "flex-start",
@@ -206,11 +198,12 @@ export function Navigation() {
               <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                 <Package size={16} color="var(--color-brand-accent)" />
                 <span style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-primary-navy)" }}>
-                  Featured Product: Roacs Material Management
+                  Proprietary Software: Roacs Material Management
                 </span>
               </div>
               <Link
-                href="/services"
+                href="/material-management"
+                onClick={closeAll}
                 style={{
                   fontSize: "0.8rem",
                   fontWeight: 600,
@@ -220,7 +213,7 @@ export function Navigation() {
                   gap: "0.25rem",
                 }}
               >
-                <span>View All Services</span>
+                <span>View Product</span>
                 <ArrowRight size={14} />
               </Link>
             </div>
@@ -228,52 +221,117 @@ export function Navigation() {
         )}
       </div>
 
-      <Link
-        href="/industries"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname === "/industries" ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+      {/* Products Dropdown (from index.html: Products -> Material Management) */}
+      <div
+        onMouseEnter={handleProductsEnter}
+        onMouseLeave={handleProductsLeave}
+        style={{ position: "relative" }}
       >
-        Industries
-      </Link>
+        <Link
+          href="/material-management"
+          className={`nav-link ${pathname?.startsWith("/material-management") ? "active" : ""}`}
+          aria-expanded={productsOpen}
+          aria-haspopup="true"
+        >
+          <span>Products</span>
+          <ChevronDown
+            size={14}
+            style={{
+              transition: "transform 0.2s ease",
+              transform: productsOpen ? "rotate(180deg)" : "rotate(0deg)",
+            }}
+          />
+        </Link>
+
+        {productsOpen && (
+          <div
+            style={{
+              position: "absolute",
+              top: "100%",
+              left: "-80px",
+              width: "360px",
+              backgroundColor: "#FFFFFF",
+              borderRadius: "var(--radius-md)",
+              boxShadow: "0 20px 40px -10px rgba(10, 20, 35, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.08)",
+              padding: "1.25rem",
+              zIndex: 100,
+              animation: "fadeIn 0.2s ease forwards",
+            }}
+          >
+            <Link
+              href="/material-management"
+              onClick={closeAll}
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "0.85rem",
+                padding: "0.85rem",
+                borderRadius: "var(--radius-sm)",
+                transition: "background-color 0.15s ease",
+                textDecoration: "none",
+              }}
+              className="dropdown-item"
+            >
+              <div
+                style={{
+                  width: "42px",
+                  height: "42px",
+                  borderRadius: "8px",
+                  backgroundColor: "rgba(237, 25, 24, 0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "var(--color-brand-accent)",
+                  flexShrink: 0,
+                }}
+              >
+                <Boxes size={22} />
+              </div>
+              <div>
+                <div
+                  style={{
+                    fontSize: "0.95rem",
+                    fontWeight: 700,
+                    color: "var(--color-primary-navy)",
+                    marginBottom: "0.2rem",
+                  }}
+                >
+                  Material Management
+                </div>
+                <div
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "var(--color-text-secondary)",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  Efficiently managing the flow of goods, warehouse stock, and procurement.
+                </div>
+              </div>
+            </Link>
+          </div>
+        )}
+      </div>
 
       <Link
         href="/projects"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname?.startsWith("/projects") ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+        className={`nav-link ${pathname?.startsWith("/projects") ? "active" : ""}`}
       >
         Projects
       </Link>
 
       <Link
-        href="/insights"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname?.startsWith("/insights") ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+        href="/faq"
+        className={`nav-link ${pathname === "/faq" ? "active" : ""}`}
       >
-        Insights
+        FAQ
       </Link>
 
       <Link
-        href="/contact"
-        style={{
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: pathname === "/contact" ? "var(--color-brand-accent)" : "rgba(255, 255, 255, 0.9)",
-          transition: "color var(--transition-fast)",
-        }}
+        href="/insights"
+        className={`nav-link ${pathname?.startsWith("/insights") ? "active" : ""}`}
       >
-        Contact
+        Blogs
       </Link>
     </nav>
   );

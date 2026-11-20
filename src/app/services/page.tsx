@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { Container } from "@/components/common/Container";
-import { SectionHeading } from "@/components/common/SectionHeading";
 import { ServiceCard } from "@/components/common/ServiceCard";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { servicesData } from "@/data/services";

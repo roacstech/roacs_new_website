@@ -1,28 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Manrope, Playfair_Display } from "next/font/google";
 import "@/app/globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { constructMetadata, generateOrganizationSchema } from "@/lib/metadata";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-editorial",
-  weight: ["600", "700", "800", "900"],
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   themeColor: "#101D35",
@@ -41,14 +21,18 @@ export default function RootLayout({
   const jsonLd = generateOrganizationSchema();
 
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable} ${playfair.variable}`}>
+    <html lang="en">
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" href="/roacs-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className="antialiased">
         <Header />
         <main>{children}</main>
         <Footer />

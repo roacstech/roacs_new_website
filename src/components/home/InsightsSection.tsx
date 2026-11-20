@@ -2,11 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/common/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { Reveal } from "@/components/common/Reveal";
 import { insightsData } from "@/data/insights";
-import { ArrowRight, Clock, Calendar } from "lucide-react";
+import { ArrowRight, Clock, Calendar, User } from "lucide-react";
 
 export function InsightsSection() {
   return (
@@ -25,10 +26,10 @@ export function InsightsSection() {
             className="insights-header-row"
           >
             <SectionHeading
-              eyebrow="Engineering Insights"
+              eyebrow="Latest Insights"
               eyebrowVariant="tech"
-              title="Perspectives on software architecture, cloud scale, and practical AI."
-              description="Deep dives and engineering methodologies from our teams on architecting modern platforms that perform under pressure."
+              title="Technology, Trends & Expert Insights."
+              description="Deep dives, architectural perspectives, and industry trends from the Roacs engineering team to keep your organization at the leading edge of software and cloud technology."
             />
 
             <Link
@@ -39,11 +40,11 @@ export function InsightsSection() {
                 gap: "0.4rem",
                 fontSize: "0.95rem",
                 fontWeight: 600,
-                color: "var(--color-primary-navy)",
+                color: "var(--color-brand-accent)",
                 whiteSpace: "nowrap",
               }}
             >
-              <span>View All Articles</span>
+              <span>View All Insights</span>
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -55,7 +56,6 @@ export function InsightsSection() {
               <article
                 className="card"
                 style={{
-                  padding: "2rem",
                   borderRadius: "var(--radius-md)",
                   backgroundColor: "#FFFFFF",
                   border: "1px solid var(--border-light)",
@@ -63,112 +63,149 @@ export function InsightsSection() {
                   flexDirection: "column",
                   justifyContent: "space-between",
                   height: "100%",
+                  overflow: "hidden",
+                  transition: "all var(--transition-normal)",
                 }}
               >
                 <div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginBottom: "1rem",
-                    }}
-                  >
-                    <span
+                  {/* Blog Image */}
+                  {item.image && (
+                    <div
                       style={{
-                        fontSize: "0.75rem",
-                        fontWeight: 600,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.06em",
-                        color: "var(--color-brand-accent)",
-                        backgroundColor: "var(--color-brand-accent-subtle)",
-                        padding: "0.25rem 0.6rem",
-                        borderRadius: "var(--radius-xs)",
+                        position: "relative",
+                        width: "100%",
+                        height: "210px",
+                        backgroundColor: "#F1F5F9",
+                        overflow: "hidden",
                       }}
                     >
-                      {item.category}
-                    </span>
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        style={{
+                          objectFit: "cover",
+                          transition: "transform var(--transition-slow)",
+                        }}
+                        className="project-image-hover"
+                      />
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "1rem",
+                          left: "1rem",
+                          zIndex: 2,
+                        }}
+                      >
+                        <span
+                          style={{
+                            backgroundColor: "rgba(16, 29, 53, 0.88)",
+                            backdropFilter: "blur(6px)",
+                            color: "#FFFFFF",
+                            fontSize: "0.72rem",
+                            fontWeight: 700,
+                            textTransform: "uppercase",
+                            letterSpacing: "0.06em",
+                            padding: "0.25rem 0.65rem",
+                            borderRadius: "var(--radius-full)",
+                            border: "1px solid rgba(255, 255, 255, 0.15)",
+                          }}
+                        >
+                          {item.category}
+                        </span>
+                      </div>
+                    </div>
+                  )}
 
+                  <div style={{ padding: "1.75rem 1.75rem 1rem 1.75rem" }}>
+                    {/* Meta info (from index.html: By Roacs Team, Date) */}
                     <div
                       style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: "0.3rem",
-                        fontSize: "0.78rem",
+                        gap: "1rem",
+                        fontSize: "0.8rem",
                         color: "var(--color-text-muted)",
+                        marginBottom: "0.85rem",
                       }}
                     >
-                      <Clock size={13} />
-                      <span>{item.readTime}</span>
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}>
+                        <User size={13} color="var(--color-brand-accent)" />
+                        <span>By {item.author}</span>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}>
+                        <Calendar size={13} />
+                        <span>{item.publishedDate}</span>
+                      </div>
                     </div>
-                  </div>
 
-                  <h3
-                    style={{
-                      fontSize: "1.25rem",
-                      fontWeight: 700,
-                      color: "var(--color-primary-navy)",
-                      lineHeight: 1.35,
-                      marginBottom: "0.85rem",
-                    }}
-                  >
-                    <Link
-                      href={`/insights/${item.slug}`}
-                      style={{ color: "inherit", textDecoration: "none" }}
+                    <h4
+                      style={{
+                        fontSize: "1.2rem",
+                        fontWeight: 700,
+                        color: "var(--color-primary-navy)",
+                        lineHeight: 1.35,
+                        marginBottom: "0.75rem",
+                      }}
                     >
-                      {item.title}
-                    </Link>
-                  </h3>
+                      <Link
+                        href={`/insights/${item.slug}`}
+                        style={{ color: "inherit", textDecoration: "none" }}
+                        className="service-link"
+                      >
+                        {item.title}
+                      </Link>
+                    </h4>
 
-                  <p
-                    style={{
-                      fontSize: "0.925rem",
-                      lineHeight: 1.6,
-                      color: "var(--color-text-secondary)",
-                      marginBottom: "1.75rem",
-                    }}
-                  >
-                    {item.excerpt}
-                  </p>
+                    <p
+                      style={{
+                        fontSize: "0.9rem",
+                        lineHeight: 1.6,
+                        color: "var(--color-text-secondary)",
+                        margin: 0,
+                      }}
+                    >
+                      {item.excerpt}
+                    </p>
+                  </div>
                 </div>
 
                 <div
                   style={{
+                    padding: "1rem 1.75rem 1.5rem 1.75rem",
                     borderTop: "1px solid var(--border-light)",
-                    paddingTop: "1rem",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
                   }}
                 >
-                  <div>
-                    <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-primary-navy)" }}>
-                      {item.author}
-                    </div>
-                    <div style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>
-                      {item.publishedDate}
-                    </div>
-                  </div>
-
                   <Link
                     href={`/insights/${item.slug}`}
                     style={{
+                      fontSize: "0.875rem",
+                      fontWeight: 600,
+                      color: "var(--color-brand-accent)",
                       display: "inline-flex",
                       alignItems: "center",
-                      color: "var(--color-brand-accent)",
+                      gap: "0.4rem",
                     }}
-                    aria-label={`Read article: ${item.title}`}
+                    className="service-link"
                   >
-                    <ArrowRight size={18} />
+                    <span>Read Article</span>
+                    <ArrowRight size={14} className="arrow-icon" />
                   </Link>
+
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", fontSize: "0.75rem", color: "var(--color-text-muted)" }}>
+                    <Clock size={12} />
+                    <span>{item.readTime}</span>
+                  </div>
                 </div>
               </article>
             </Reveal>
           ))}
         </div>
       </Container>
-
-      
     </section>
   );
 }

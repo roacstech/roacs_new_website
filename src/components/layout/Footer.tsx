@@ -7,10 +7,7 @@ import {
   MapPin, 
   Mail, 
   Phone, 
-  Clock, 
-  ArrowUpRight, 
-  ShieldCheck, 
-  ExternalLink 
+  Clock 
 } from "lucide-react";
 
 export function Footer() {
@@ -60,28 +57,10 @@ export function Footer() {
                 fontSize: "0.925rem",
                 lineHeight: 1.65,
                 color: "var(--color-text-on-dark-muted)",
-                marginBottom: "1.75rem",
               }}
             >
               Roacs Corporation delivers high-performance enterprise software engineering, strategic IT consulting, cloud infrastructure, and intelligent automation for forward-thinking organizations worldwide.
             </p>
-
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                backgroundColor: "rgba(255, 255, 255, 0.05)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                padding: "0.5rem 0.85rem",
-                borderRadius: "var(--radius-sm)",
-                fontSize: "0.8rem",
-                color: "var(--color-text-on-dark-muted)",
-              }}
-            >
-              <ShieldCheck size={16} color="var(--color-brand-accent)" />
-              <span>ISO & Enterprise Compliance Standards</span>
-            </div>
           </div>
 
           {/* Col 2: Services */}
@@ -96,7 +75,7 @@ export function Footer() {
                 marginBottom: "1.5rem",
               }}
             >
-              Services
+              Our Core Services
             </h4>
             <ul
               style={{
@@ -136,7 +115,7 @@ export function Footer() {
                 marginBottom: "1.5rem",
               }}
             >
-              Company & Work
+              Quick Links
             </h4>
             <ul
               style={{
@@ -144,7 +123,6 @@ export function Footer() {
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.75rem",
-                marginBottom: "1.5rem",
               }}
             >
               <li>
@@ -153,8 +131,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/industries" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
-                  Industries Served
+                <Link href="/material-management" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
+                  Our Products (Material Management)
                 </Link>
               </li>
               <li>
@@ -163,36 +141,21 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/faq" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
+                  Frequently Asked Questions (FAQ)
+                </Link>
+              </li>
+              <li>
                 <Link href="/insights" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
-                  Engineering Insights
+                  Blogs & Tech Insights
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
-                  Contact & Consultations
+                  Contact Us
                 </Link>
               </li>
             </ul>
-
-            {/* Proprietary Spotlight */}
-            <div
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.04)",
-                border: "1px solid rgba(255, 255, 255, 0.08)",
-                padding: "1rem",
-                borderRadius: "var(--radius-sm)",
-              }}
-            >
-              <div style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--color-brand-accent)", fontWeight: 700, marginBottom: "0.25rem" }}>
-                Proprietary Solution
-              </div>
-              <div style={{ fontSize: "0.875rem", fontWeight: 600, color: "#FFFFFF", marginBottom: "0.25rem" }}>
-                Roacs Material Management
-              </div>
-              <p style={{ fontSize: "0.78rem", color: "var(--color-text-on-dark-muted)", lineHeight: 1.4 }}>
-                Optimizing inventory pipelines, warehouse flows, and multi-location logistics.
-              </p>
-            </div>
           </div>
 
           {/* Col 4: Verified Contact & Corporate Details */}
@@ -207,7 +170,7 @@ export function Footer() {
                 marginBottom: "1.5rem",
               }}
             >
-              Global Presence
+              Contact Us
             </h4>
 
             <div
@@ -240,8 +203,8 @@ export function Footer() {
                 <Phone size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0, marginTop: "0.2rem" }} />
                 <div>
                   <div>
-                    <span style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)" }}>IND: </span>
-                    <a href="tel:+919363282216" style={{ color: "#FFFFFF" }}>+91 93632 82216</a>
+                    <span style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)" }}>INDIA: </span>
+                    <a href="tel:+919876543210" style={{ color: "#FFFFFF" }}>+91 98765 43210</a>
                   </div>
                   <div>
                     <span style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)" }}>USA: </span>
@@ -252,7 +215,7 @@ export function Footer() {
 
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
                 <Clock size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0 }} />
-                <span>Mon – Sat: 10:00 AM – 4:00 PM IST</span>
+                <span>Mon â€“ Sat: 10:00 AM â€“ 6:00 PM IST</span>
               </div>
             </div>
           </div>
@@ -291,35 +254,25 @@ export function Footer() {
                 gap: "1.5rem",
               }}
             >
-              <Link href="/privacy" style={{ color: "var(--color-muted-blue)" }}>
-                Privacy Policy
+              <Link href="/about" style={{ color: "var(--color-muted-blue)" }}>
+                About
               </Link>
-              <Link href="/terms" style={{ color: "var(--color-muted-blue)" }}>
-                Terms of Service
+              <Link href="/services" style={{ color: "var(--color-muted-blue)" }}>
+                Services
+              </Link>
+              <Link href="/material-management" style={{ color: "var(--color-muted-blue)" }}>
+                Products
+              </Link>
+              <Link href="/faq" style={{ color: "var(--color-muted-blue)" }}>
+                FAQ
               </Link>
               <Link href="/contact" style={{ color: "var(--color-muted-blue)" }}>
-                Security & Compliance
+                Contact
               </Link>
-              <a
-                href="https://roacs.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.25rem",
-                  color: "var(--color-brand-accent)",
-                }}
-              >
-                <span>roacs.com</span>
-                <ExternalLink size={12} />
-              </a>
             </div>
           </div>
         </div>
       </Container>
-
-      
     </footer>
   );
 }

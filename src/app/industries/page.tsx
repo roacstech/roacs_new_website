@@ -1,7 +1,5 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import { Container } from "@/components/common/Container";
-import { SectionHeading } from "@/components/common/SectionHeading";
 import { Button } from "@/components/common/Button";
 import { industriesData } from "@/data/industries";
 import { constructMetadata } from "@/lib/metadata";

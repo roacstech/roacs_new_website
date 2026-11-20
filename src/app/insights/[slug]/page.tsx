@@ -4,7 +4,7 @@ import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { insightsData } from "@/data/insights";
 import { constructMetadata } from "@/lib/metadata";
-import { ArrowLeft, Clock, Calendar, User, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, User, ArrowRight } from "lucide-react";
 
 interface InsightDetailPageProps {
   params: Promise<{

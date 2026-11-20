@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { servicesData } from "@/data/services";
-import { X, ChevronDown, Phone, Mail, ArrowRight } from "lucide-react";
+import { X, ChevronDown, Phone, Mail, ArrowRight, Boxes } from "lucide-react";
 import Image from "next/image";
 
 interface MobileMenuProps {
@@ -15,6 +15,7 @@ interface MobileMenuProps {
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
   const [servicesExpanded, setServicesExpanded] = useState(false);
+  const [productsExpanded, setProductsExpanded] = useState(false);
 
   if (!isOpen) return null;
 
@@ -24,8 +25,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         position: "fixed",
         inset: 0,
         zIndex: 1000,
-        backgroundColor: "rgba(11, 20, 36, 0.7)",
-        backdropFilter: "blur(6px)",
+        backgroundColor: "rgba(11, 20, 36, 0.75)",
+        backdropFilter: "blur(8px)",
         display: "flex",
         justifyContent: "flex-end",
       }}
@@ -53,7 +54,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              marginBottom: "2rem",
+              marginBottom: "1.75rem",
               borderBottom: "1px solid var(--border-dark)",
               paddingBottom: "1.25rem",
             }}
@@ -76,6 +77,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                cursor: "pointer",
               }}
               aria-label="Close mobile menu"
             >
@@ -88,7 +90,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "0.5rem",
+              gap: "0.4rem",
             }}
           >
             <Link
@@ -119,7 +121,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               About
             </Link>
 
-            {/* Services with expandable drawer */}
+            {/* Services Accordion */}
             <div>
               <div
                 onClick={() => setServicesExpanded(!servicesExpanded)}
@@ -190,19 +192,61 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               )}
             </div>
 
-            <Link
-              href="/industries"
-              onClick={onClose}
-              style={{
-                fontSize: "1.05rem",
-                fontWeight: 600,
-                color: pathname === "/industries" ? "var(--color-brand-accent)" : "#FFFFFF",
-                padding: "0.75rem 0",
-                borderBottom: "1px solid var(--border-dark-subtle)",
-              }}
-            >
-              Industries
-            </Link>
+            {/* Products Accordion */}
+            <div>
+              <div
+                onClick={() => setProductsExpanded(!productsExpanded)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  fontSize: "1.05rem",
+                  fontWeight: 600,
+                  color: pathname?.startsWith("/material-management") ? "var(--color-brand-accent)" : "#FFFFFF",
+                  padding: "0.75rem 0",
+                  cursor: "pointer",
+                  borderBottom: "1px solid var(--border-dark-subtle)",
+                }}
+              >
+                <span>Products</span>
+                <ChevronDown
+                  size={16}
+                  style={{
+                    transform: productsExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                    transition: "transform 0.2s",
+                  }}
+                />
+              </div>
+
+              {productsExpanded && (
+                <div
+                  style={{
+                    paddingLeft: "1rem",
+                    paddingTop: "0.5rem",
+                    paddingBottom: "0.5rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.5rem",
+                  }}
+                >
+                  <Link
+                    href="/material-management"
+                    onClick={onClose}
+                    style={{
+                      fontSize: "0.9rem",
+                      color: "#FFFFFF",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      padding: "0.4rem 0",
+                    }}
+                  >
+                    <Boxes size={16} color="var(--color-brand-accent)" />
+                    <span>Material Management</span>
+                  </Link>
+                </div>
+              )}
+            </div>
 
             <Link
               href="/projects"
@@ -219,6 +263,20 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             </Link>
 
             <Link
+              href="/faq"
+              onClick={onClose}
+              style={{
+                fontSize: "1.05rem",
+                fontWeight: 600,
+                color: pathname === "/faq" ? "var(--color-brand-accent)" : "#FFFFFF",
+                padding: "0.75rem 0",
+                borderBottom: "1px solid var(--border-dark-subtle)",
+              }}
+            >
+              FAQ
+            </Link>
+
+            <Link
               href="/insights"
               onClick={onClose}
               style={{
@@ -229,7 +287,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 borderBottom: "1px solid var(--border-dark-subtle)",
               }}
             >
-              Insights
+              Blogs
             </Link>
 
             <Link
@@ -248,7 +306,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </div>
         </div>
 
-        {/* Bottom CTA & Info */}
+        {/* Bottom Contact Details */}
         <div
           style={{
             borderTop: "1px solid var(--border-dark)",
@@ -256,35 +314,38 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             marginTop: "1.5rem",
             display: "flex",
             flexDirection: "column",
-            gap: "1rem",
+            gap: "0.85rem",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.5rem",
-              fontSize: "0.85rem",
-              color: "var(--color-text-on-dark-muted)",
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-              <Mail size={14} color="var(--color-brand-accent)" />
-              <a href="mailto:info@roacs.com">info@roacs.com</a>
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-              <Phone size={14} color="var(--color-brand-accent)" />
-              <a href="tel:+919363282216">+91 93632 82216</a>
-            </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", fontSize: "0.85rem", color: "var(--color-text-on-dark-muted)" }}>
+            <Mail size={15} color="var(--color-brand-accent)" />
+            <a href="mailto:info@roacs.com" style={{ color: "inherit" }}>info@roacs.com</a>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", fontSize: "0.85rem", color: "var(--color-text-on-dark-muted)" }}>
+            <Phone size={15} color="var(--color-brand-accent)" />
+            <span>USA: +1 320-316-2929</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", fontSize: "0.85rem", color: "var(--color-text-on-dark-muted)" }}>
+            <Phone size={15} color="var(--color-brand-accent)" />
+            <span>IND: +91 98765 43210</span>
           </div>
 
           <Link
             href="/contact"
             onClick={onClose}
-            className="btn btn-primary"
-            style={{ width: "100%", justifyContent: "center" }}
+            style={{
+              marginTop: "0.5rem",
+              backgroundColor: "var(--color-brand-accent)",
+              color: "#FFFFFF",
+              textAlign: "center",
+              padding: "0.75rem",
+              borderRadius: "var(--radius-sm)",
+              fontWeight: 700,
+              fontSize: "0.9rem",
+              textDecoration: "none",
+            }}
           >
-            Start a Project
+            Contact Us
           </Link>
         </div>
       </div>
