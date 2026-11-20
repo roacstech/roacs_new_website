@@ -64,6 +64,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 src="/logos/roacs-logo.png"
                 alt="Roacs Corporation"
                 fill
+                sizes="135px"
                 style={{ objectFit: "contain", objectPosition: "left center" }}
               />
             </div>

@@ -2,7 +2,9 @@ import { Metadata } from "next";
 import { Container } from "@/components/common/Container";
 import { ServiceCard } from "@/components/common/ServiceCard";
 import { ContactCTA } from "@/components/home/ContactCTA";
+import { HeroParallax } from "@/components/ui/hero-parallax";
 import { servicesData } from "@/data/services";
+import { servicesParallaxProducts } from "@/data/services-parallax";
 import { constructMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = constructMetadata({
@@ -13,19 +15,14 @@ export const metadata: Metadata = constructMetadata({
 
 export default function ServicesPage() {
   return (
-    <div>
-      {/* Services Hero */}
-      <section
-        style={{
-          backgroundColor: "var(--color-primary-navy)",
-          color: "#FFFFFF",
-          paddingTop: "5rem",
-          paddingBottom: "5rem",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-        }}
-      >
-        <Container>
-          <div style={{ maxWidth: "780px" }}>
+    <div style={{ overflowX: "clip" }}>
+      {/* Aceternity UI 3D Parallax Hero */}
+      <HeroParallax products={servicesParallaxProducts} />
+
+      {/* Detailed Services Grid */}
+      <section className="section section-light" style={{ position: "relative", zIndex: 10 }}>
+        <Container wide>
+          <div style={{ marginBottom: "3rem", textAlign: "center", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
             <span
               style={{
                 fontSize: "0.8125rem",
@@ -33,39 +30,34 @@ export default function ServicesPage() {
                 textTransform: "uppercase",
                 letterSpacing: "0.08em",
                 color: "var(--color-brand-accent)",
-                marginBottom: "1rem",
+                marginBottom: "0.75rem",
                 display: "inline-block",
               }}
             >
-              Enterprise Capabilities
+              Full Spectrum Engineering
             </span>
-            <h1
+            <h2
               style={{
-                fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
+                fontSize: "clamp(2rem, 3.5vw, 2.5rem)",
                 fontWeight: 800,
-                color: "#FFFFFF",
-                marginBottom: "1.25rem",
-                lineHeight: 1.15,
+                color: "var(--color-primary-navy)",
+                marginBottom: "1rem",
+                letterSpacing: "-0.02em",
               }}
             >
-              Engineering services built for operational resilience and scale.
-            </h1>
+              Explore In-Depth Core Practices
+            </h2>
             <p
               style={{
-                fontSize: "1.15rem",
-                color: "var(--color-muted-blue)",
+                fontSize: "1.05rem",
+                color: "var(--color-text-secondary)",
                 lineHeight: 1.6,
               }}
             >
-              Explore our core practices across custom software, modern web platforms, mobile ecosystems, cloud infrastructure, and intelligent automation.
+              Every practice is delivered with enterprise-grade quality benchmarks, dedicated SLA options, and modular architectures designed to evolve with your business.
             </p>
           </div>
-        </Container>
-      </section>
 
-      {/* Services Grid */}
-      <section className="section section-light">
-        <Container wide>
           <div className="grid-3" style={{ marginBottom: "2rem" }}>
             {servicesData.map((service) => (
               <ServiceCard key={service.id} service={service} />

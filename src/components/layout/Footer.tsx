@@ -47,6 +47,7 @@ export function Footer() {
                   src="/logos/roacs-logo.png"
                   alt="Roacs Corporation"
                   fill
+                  sizes="150px"
                   style={{ objectFit: "contain", objectPosition: "left center" }}
                 />
               </div>
