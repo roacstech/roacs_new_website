@@ -215,10 +215,36 @@ export function Footer() {
 
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
                 <Clock size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0 }} />
-                <span>Mon â€“ Sat: 10:00 AM â€“ 6:00 PM IST</span>
+                <span>Mon – Sat: 10:00 AM – 6:00 PM IST</span>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Grand ROACS Brand Signature Banner */}
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            borderRadius: "var(--radius-lg)",
+            overflow: "hidden",
+            marginTop: "1rem",
+            marginBottom: "3.5rem",
+            boxShadow: "0 25px 60px -15px rgba(0, 0, 0, 0.5)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+          }}
+        >
+          <Image
+            src="/images/footer-roacs-banner.jpg"
+            alt="ROACS Corporation"
+            width={1024}
+            height={536}
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+            }}
+          />
         </div>
 
         {/* Bottom Tier: Copyright, Legal, Disclaimer */}
