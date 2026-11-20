@@ -16,15 +16,48 @@ export function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: "var(--color-navy-dark)",
+        position: "relative",
+        backgroundColor: "#020B1E",
         color: "#FFFFFF",
-        borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-        paddingTop: "5rem",
-        paddingBottom: "2.5rem",
+        borderTop: "1px solid rgba(255, 255, 255, 0.12)",
+        paddingTop: "5.5rem",
+        paddingBottom: "3rem",
+        overflow: "hidden",
       }}
     >
+      {/* Full Footer ROACS Background Graphic */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+      >
+        <Image
+          src="/images/footer-roacs-banner.jpg"
+          alt="ROACS Background"
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+            objectPosition: "center bottom",
+          }}
+          priority
+        />
+        {/* Soft Ambient Contrast Overlay Ensuring All Text On Top Is 100% Readable */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to bottom, rgba(2, 11, 30, 0.82) 0%, rgba(2, 11, 30, 0.42) 55%, rgba(2, 11, 30, 0.88) 100%)",
+          }}
+        />
+      </div>
+
       <Container wide>
-        {/* Top Tier: Brand, Address, Services, Navigation */}
+        <div style={{ position: "relative", zIndex: 1 }}>
+          {/* Top Tier: Brand, Address, Services, Navigation */}
         <div
           style={{
             display: "grid",
@@ -221,37 +254,11 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Grand ROACS Brand Signature Banner */}
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            borderRadius: "var(--radius-lg)",
-            overflow: "hidden",
-            marginTop: "1rem",
-            marginBottom: "3.5rem",
-            boxShadow: "0 25px 60px -15px rgba(0, 0, 0, 0.5)",
-            border: "1px solid rgba(255, 255, 255, 0.08)",
-          }}
-        >
-          <Image
-            src="/images/footer-roacs-banner.jpg"
-            alt="ROACS Corporation"
-            width={1024}
-            height={536}
-            style={{
-              width: "100%",
-              height: "auto",
-              display: "block",
-            }}
-          />
-        </div>
-
         {/* Bottom Tier: Copyright, Legal, Disclaimer */}
         <div
           style={{
-            borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-            paddingTop: "2rem",
+            borderTop: "1px solid rgba(255, 255, 255, 0.15)",
+            paddingTop: "2.25rem",
             display: "flex",
             flexDirection: "column",
             gap: "1.25rem",
@@ -298,7 +305,8 @@ export function Footer() {
             </div>
           </div>
         </div>
-      </Container>
-    </footer>
+      </div>
+    </Container>
+  </footer>
   );
 }
