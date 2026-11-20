@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Manrope, Playfair_Display } from "next/font/google";
 import "@/app/globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -14,6 +14,13 @@ const inter = Inter({
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-heading",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-editorial",
+  weight: ["600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -34,7 +41,7 @@ export default function RootLayout({
   const jsonLd = generateOrganizationSchema();
 
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${inter.variable} ${manrope.variable} ${playfair.variable}`}>
       <head>
         <script
           type="application/ld+json"

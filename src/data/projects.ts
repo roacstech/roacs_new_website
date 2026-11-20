@@ -113,8 +113,8 @@ export const projectsData: ProjectItem[] = [
   {
     id: "tetas-podcast",
     slug: "tetas-podcast-media-streaming",
-    title: "Tetas Podcast — Audio Media Platform",
-    client: "Tetas Podcast",
+    title: "Tetas by Vanessa — Audio Media Platform",
+    client: "Tetas by Vanessa",
     category: "Media Streaming & Distribution",
     industry: "Digital Media & Broadcasting",
     description: "Dedicated streaming and syndication portal engineered for high-bitrate audio playback, episode categorization, and listener analytics.",

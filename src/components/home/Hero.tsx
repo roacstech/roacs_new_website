@@ -72,49 +72,15 @@ export function Hero() {
         >
           {/* Left Column: Editorial Value Proposition */}
           <div style={{ maxWidth: "680px" }}>
-            <Reveal delay={0.1}>
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  padding: "0.4rem 0.9rem",
-                  backgroundColor: "rgba(255, 255, 255, 0.06)",
-                  border: "1px solid rgba(255, 255, 255, 0.12)",
-                  borderRadius: "var(--radius-full)",
-                  marginBottom: "1.75rem",
-                }}
-              >
-                <span
-                  style={{
-                    width: "8px",
-                    height: "8px",
-                    borderRadius: "50%",
-                    backgroundColor: "var(--color-brand-accent)",
-                    boxShadow: "0 0 10px var(--color-brand-accent)",
-                  }}
-                />
-                <span
-                  style={{
-                    fontSize: "0.8125rem",
-                    fontWeight: 600,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    color: "rgba(255, 255, 255, 0.95)",
-                  }}
-                >
-                  Enterprise Software & IT Consulting
-                </span>
-              </div>
-            </Reveal>
-
+            
             <Reveal delay={0.2}>
               <h1
                 style={{
-                  fontSize: "clamp(2.4rem, 4.5vw, 3.85rem)",
-                  fontWeight: 800,
-                  letterSpacing: "-0.035em",
-                  lineHeight: 1.15,
+                  fontFamily: "var(--font-editorial)",
+                  fontSize: "clamp(2.75rem, 5.2vw, 4.35rem)",
+                  fontWeight: 700,
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1.12,
                   marginBottom: "1.5rem",
                   color: "#FFFFFF",
                 }}
@@ -122,7 +88,7 @@ export function Hero() {
                 We turn complex ideas into{" "}
                 <span
                   style={{
-                    background: "linear-gradient(135deg, #FFFFFF 30%, #A9B7C9 100%)",
+                    background: "linear-gradient(135deg, #FFFFFF 40%, #A9B7C9 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
@@ -141,7 +107,7 @@ export function Hero() {
                   marginBottom: "2.25rem",
                 }}
               >
-                Roacs Corporation partners with progressive enterprises and ambitious leaders to architect bespoke software systems, cloud-native infrastructures, scalable mobile platforms, and pragmatic AI workflows built for measurable business longevity.
+                At Roacs Corporation, we design and develop powerful SaaS platforms, web applications, and enterprise solutions that help businesses streamline operations and scale efficiently.
               </p>
             </Reveal>
 
@@ -161,21 +127,15 @@ export function Hero() {
                   size="lg"
                   icon={<ArrowRight size={18} />}
                 >
-                  Explore Our Services
+                  Explore More
                 </Button>
 
-                <Button
-                  href="/contact"
-                  variant="secondary"
-                  size="lg"
-                >
-                  Start a Project
-                </Button>
+               
               </div>
             </Reveal>
 
             {/* Credibility Badges */}
-            <Reveal delay={0.5}>
+            {/* <Reveal delay={0.5}>
               <div
                 style={{
                   display: "flex",
@@ -204,7 +164,7 @@ export function Hero() {
                   </span>
                 </div>
               </div>
-            </Reveal>
+            </Reveal> */}
           </div>
 
           {/* Right Column: Abstract High-Tech Engineering Showcase Visual */}
@@ -393,72 +353,83 @@ export function Hero() {
                 flexWrap: "wrap",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: "1.25rem",
+                gap: "2.75rem",
               }}
             >
               {/* Brand 1: Cazanoo */}
-              <div className="brand-badge-card" title="Cazanoo — Smart Housing">
+              <div className="brand-logo-item" title="Cazanoo — Smart Housing">
                 <Image
-                  src="/images/brands/cazanoo-logo.jpg"
+                  src="/images/brands/cazanoo-transparent.png"
                   alt="Cazanoo Smart Housing"
-                  width={125}
-                  height={34}
-                  style={{ objectFit: "contain", height: "30px", width: "auto" }}
+                  width={200}
+                  height={68}
+                  style={{ objectFit: "contain", height: "52px", width: "auto" }}
                 />
               </div>
 
               {/* Brand 2: BEC */}
-              <div className="brand-badge-card" title="BEC Global">
+              <div className="brand-logo-item" title="BEC Global">
                 <Image
-                  src="/images/brands/bec-logo.jpg"
+                  src="/images/brands/bec-transparent.png"
                   alt="BEC Global"
-                  width={42}
-                  height={42}
-                  style={{ objectFit: "contain", height: "34px", width: "auto" }}
+                  width={64}
+                  height={64}
+                  style={{ objectFit: "contain", height: "56px", width: "auto" }}
                 />
               </div>
 
-              {/* Brand 3: A&B Import Export */}
-              <div className="brand-badge-card" title="A&B Import Export — Global Trade">
+              {/* Brand 3: Tetas by Vanessa */}
+              <div className="brand-logo-item" title="Tetas by Vanessa — Audio Media Platform">
                 <Image
-                  src="/images/brands/aandb-logo.png"
+                  src="/images/brands/tetas-transparent.png"
+                  alt="Tetas by Vanessa"
+                  width={150}
+                  height={60}
+                  style={{ objectFit: "contain", height: "48px", width: "auto" }}
+                />
+              </div>
+
+              {/* Brand 4: A&B Import Export */}
+              <div className="brand-logo-item" title="A&B Import Export — Global Trade">
+                <Image
+                  src="/images/brands/aandb-transparent.png"
                   alt="A&B Import Export"
-                  width={85}
-                  height={34}
-                  style={{ objectFit: "contain", height: "28px", width: "auto" }}
+                  width={140}
+                  height={64}
+                  style={{ objectFit: "contain", height: "50px", width: "auto" }}
                 />
               </div>
 
-              {/* Brand 4: Ambit Triangle Safety */}
-              <div className="brand-badge-card" title="Ambit Triangle Safety">
+              {/* Brand 5: Ambit Triangle Safety */}
+              <div className="brand-logo-item" title="Ambit Triangle Safety">
                 <Image
-                  src="/images/brands/ambit-logo.png"
+                  src="/images/brands/ambit-transparent.png"
                   alt="Ambit Triangle Safety"
-                  width={125}
-                  height={34}
-                  style={{ objectFit: "contain", height: "30px", width: "auto" }}
+                  width={195}
+                  height={66}
+                  style={{ objectFit: "contain", height: "52px", width: "auto" }}
                 />
               </div>
 
-              {/* Brand 5: Yazi Travels */}
-              <div className="brand-badge-card" title="Yazi Travels">
+              {/* Brand 6: Yazi Travels */}
+              <div className="brand-logo-item" title="Yazi Travels">
                 <Image
-                  src="/images/brands/yazi-travels-logo.png"
+                  src="/images/brands/yazi-transparent.png"
                   alt="Yazi Travels"
-                  width={135}
-                  height={34}
-                  style={{ objectFit: "contain", height: "28px", width: "auto" }}
+                  width={215}
+                  height={64}
+                  style={{ objectFit: "contain", height: "48px", width: "auto" }}
                 />
               </div>
 
-              {/* Brand 6: Abir Ayurveda & Wellness */}
-              <div className="brand-badge-card" title="Abir Ayurveda & Wellness">
+              {/* Brand 7: Abir Ayurveda & Wellness */}
+              <div className="brand-logo-item" title="Abir Ayurveda & Wellness">
                 <Image
-                  src="/images/brands/abir-logo.jpg"
+                  src="/images/brands/abir-transparent.png"
                   alt="Abir Ayurveda & Wellness"
-                  width={52}
-                  height={34}
-                  style={{ objectFit: "contain", height: "32px", width: "auto" }}
+                  width={64}
+                  height={64}
+                  style={{ objectFit: "contain", height: "54px", width: "auto" }}
                 />
               </div>
             </div>
