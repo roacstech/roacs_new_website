@@ -18,7 +18,11 @@ export function Hero() {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         color: "#0F172A",
-        paddingTop: "1.75rem",
+        minHeight: "calc(100vh - 68px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: "2.5rem",
         paddingBottom: "3rem",
         overflow: "hidden",
         borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
@@ -112,7 +116,6 @@ export function Hero() {
                 justifyContent: "center",
                 gap: "1rem",
                 flexWrap: "wrap",
-                marginBottom: "2rem",
               }}
             >
               {/* Primary Black Capsule Button with Circle Arrow */}
@@ -195,95 +198,6 @@ export function Hero() {
               </Link>
             </div>
           </Reveal>
-        </div>
-
-        {/* High-Impact Stat Counters Ribbon (from index.html: 300+ projects, 3+ years, 99.9% uptime, 100% satisfaction) */}
-        <div
-          style={{
-            marginTop: "2rem",
-            paddingTop: "2rem",
-            borderTop: "1px solid rgba(0, 0, 0, 0.08)",
-          }}
-        >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-              gap: "2rem",
-            }}
-          >
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                style={{
-                  fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
-                  fontWeight: 800,
-                  color: "#0A1221",
-                  fontFamily: "var(--font-heading)",
-                  lineHeight: 1,
-                  marginBottom: "0.4rem",
-                }}
-              >
-                <span style={{ color: "var(--color-brand-accent)" }}>300</span>+
-              </div>
-              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748B" }}>
-                Successful Projects Completed
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                style={{
-                  fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
-                  fontWeight: 800,
-                  color: "#0A1221",
-                  fontFamily: "var(--font-heading)",
-                  lineHeight: 1,
-                  marginBottom: "0.4rem",
-                }}
-              >
-                <span style={{ color: "var(--color-brand-accent)" }}>3</span>+
-              </div>
-              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748B" }}>
-                Years Working Experience
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                style={{
-                  fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
-                  fontWeight: 800,
-                  color: "#0A1221",
-                  fontFamily: "var(--font-heading)",
-                  lineHeight: 1,
-                  marginBottom: "0.4rem",
-                }}
-              >
-                <span style={{ color: "#059669" }}>99.9</span>%
-              </div>
-              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748B" }}>
-                Production Infrastructure Uptime
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                style={{
-                  fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
-                  fontWeight: 800,
-                  color: "#0A1221",
-                  fontFamily: "var(--font-heading)",
-                  lineHeight: 1,
-                  marginBottom: "0.4rem",
-                }}
-              >
-                <span style={{ color: "#2563EB" }}>50</span>+
-              </div>
-              <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "#64748B" }}>
-                Global Enterprise & Startup Clients
-              </div>
-            </div>
-          </div>
         </div>
       </Container>
     </section>
