@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { constructMetadata } from "@/lib/metadata";
@@ -62,26 +61,7 @@ export default function AboutPage() {
 
         <Container wide>
           <div style={{ position: "relative", zIndex: 1, maxWidth: "860px" }}>
-            {/* Breadcrumb Pill */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.35rem 0.9rem",
-                borderRadius: "9999px",
-                backgroundColor: "rgba(255, 255, 255, 0.08)",
-                border: "1px solid rgba(255, 255, 255, 0.15)",
-                fontSize: "0.8rem",
-                color: "var(--color-muted-blue)",
-                marginBottom: "1.5rem",
-                backdropFilter: "blur(8px)",
-              }}
-            >
-              <Link href="/" style={{ color: "#FFFFFF" }}>Home</Link>
-              <span>/</span>
-              <span style={{ color: "var(--color-brand-accent)", fontWeight: 600 }}>About Us</span>
-            </div>
+    
 
             <span
               style={{
@@ -122,40 +102,32 @@ export default function AboutPage() {
                 fontSize: "1.175rem",
                 lineHeight: 1.65,
                 color: "var(--color-muted-blue)",
-                marginBottom: "2.25rem",
+                marginBottom: "3rem",
                 maxWidth: "760px",
               }}
             >
               We are a forward-thinking software engineering and IT consulting company dedicated to delivering 
               innovative digital platforms, cloud infrastructure, and enterprise automation that empower businesses globally.
             </p>
+          </div>
 
-            {/* Quick Metrics Bar */}
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "1.5rem 3rem",
-                paddingTop: "1.5rem",
-                borderTop: "1px solid rgba(255, 255, 255, 0.12)",
-              }}
-            >
-              <div>
-                <strong style={{ fontSize: "1.75rem", fontWeight: 800, color: "#FFFFFF", display: "block" }}>3+</strong>
-                <span style={{ fontSize: "0.85rem", color: "var(--color-muted-blue)" }}>Years Working Experience</span>
-              </div>
-              <div>
-                <strong style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-brand-accent)", display: "block" }}>100+</strong>
-                <span style={{ fontSize: "0.85rem", color: "var(--color-muted-blue)" }}>Successful Deployments</span>
-              </div>
-              <div>
-                <strong style={{ fontSize: "1.75rem", fontWeight: 800, color: "#FFFFFF", display: "block" }}>40+</strong>
-                <span style={{ fontSize: "0.85rem", color: "var(--color-muted-blue)" }}>Senior Engineers & Specialists</span>
-              </div>
-              <div>
-                <strong style={{ fontSize: "1.75rem", fontWeight: 800, color: "var(--color-brand-accent)", display: "block" }}>99.9%</strong>
-                <span style={{ fontSize: "0.85rem", color: "var(--color-muted-blue)" }}>Production Infrastructure Uptime</span>
-              </div>
+          {/* Frosted Glass Metrics Ribbon Matching Reference UI */}
+          <div className="about-hero-stats-grid">
+            <div className="about-glass-stat-card">
+              <span className="about-glass-stat-number">3+</span>
+              <span className="about-glass-stat-label">Years Working Experience</span>
+            </div>
+            <div className="about-glass-stat-card">
+              <span className="about-glass-stat-number">100+</span>
+              <span className="about-glass-stat-label">Successful Deployments</span>
+            </div>
+            <div className="about-glass-stat-card">
+              <span className="about-glass-stat-number">40+</span>
+              <span className="about-glass-stat-label">Senior Tech Specialists</span>
+            </div>
+            <div className="about-glass-stat-card">
+              <span className="about-glass-stat-number">99.9%</span>
+              <span className="about-glass-stat-label">System Reliability</span>
             </div>
           </div>
         </Container>

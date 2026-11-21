@@ -495,18 +495,23 @@ p {
   padding-left: 4px;
 }
 
-/* Real Brand Logos Strip in Hero - No background, pure floating logos */
-.brand-logo-item {
+/* Real Brand Logos Strip in Hero */
+.brand-badge-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 1.1rem;
+  height: 46px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.9;
-  transition: transform var(--transition-fast), opacity var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.brand-logo-item:hover {
-  opacity: 1;
-  transform: translateY(-2px) scale(1.05);
+.brand-badge-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
 }
 
 /* Accessibility */
@@ -724,198 +729,86 @@ p {
   pointer-events: none;
 }
 
-/* =========================================================================
-   Mobile First & Responsive Layout Perfection (320px - 768px)
-   ========================================================================= */
+/* ==========================================================================
+   About Page Premium Styles & Card Animations
+   ========================================================================== */
 
-/* Prevent horizontal overflow across the board */
-html, body {
-  overflow-x: hidden !important;
-  max-width: 100vw;
-  width: 100%;
+.about-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease;
+  will-change: transform, box-shadow;
 }
 
-@media (max-width: 768px) {
-  :root {
-    --container-padding: 1.15rem;
-    --spacing-3xl: 2.75rem;
-    --spacing-4xl: 3.5rem;
-  }
-
-  .section {
-    padding-top: 2.75rem !important;
-    padding-bottom: 2.75rem !important;
-  }
-
-  /* Hero Section Mobile Polish */
-  .hero-section {
-    padding-top: 2.25rem !important;
-    padding-bottom: 2.5rem !important;
-    min-height: auto !important;
-  }
-
-  .hero-heading {
-    font-size: clamp(1.85rem, 6.8vw, 2.75rem) !important;
-    line-height: 1.16 !important;
-    letter-spacing: -0.03em !important;
-    margin-bottom: 0.85rem !important;
-  }
-
-  .hero-subtitle {
-    font-size: 0.95rem !important;
-    line-height: 1.55 !important;
-    margin-bottom: 1.5rem !important;
-    padding: 0 0.5rem !important;
-  }
-
-  .hero-buttons-wrapper {
-    gap: 0.75rem !important;
-  }
-
-  /* About Section Mobile Polish */
-  .about-image-card {
-    height: 320px !important;
-  }
-
-  .about-floating-badge {
-    right: 12px !important;
-    bottom: -18px !important;
-    padding: 0.85rem 1rem !important;
-    max-width: 220px !important;
-  }
-
-  /* Brand Marquee Mobile Polish */
-  .brand-pill-glass {
-    height: 48px !important;
-    padding: 0.35rem 0.85rem !important;
-    gap: 0.65rem !important;
-  }
-
-  /* Work Process Mobile Tabs */
-  .process-tabs-grid button {
-    padding: 0.85rem 1rem !important;
-  }
-
-  /* Testimonials & Card Padding on Mobile */
-  .card, .pillar-card {
-    padding: 1.5rem 1.25rem !important;
-  }
+.about-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px -12px rgba(16, 29, 53, 0.14), 0 0 20px rgba(237, 25, 24, 0.06);
+  border-color: rgba(237, 25, 24, 0.35) !important;
 }
 
-@media (max-width: 480px) {
-  :root {
-    --container-padding: 1rem;
+.about-dark-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.about-dark-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(37, 99, 235, 0.18);
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.about-val-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+}
+
+.about-val-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+  border-color: rgba(237, 25, 24, 0.4) !important;
+}
+
+.about-val-card .val-img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-val-card:hover .val-img {
+  transform: scale(1.06);
+}
+
+.about-stat-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+}
+
+.about-stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-brand-accent) !important;
+}
+
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
   }
 
-  /* Stack hero CTA buttons vertically on small mobile */
-  .hero-buttons-wrapper {
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 320px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .hero-btn-primary,
-  .hero-btn-secondary {
-    width: 100% !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 0.75rem 1.5rem !important;
-  }
-
-  /* About Floating Badge Compact Size for 320px-375px */
-  .about-floating-badge {
-    position: relative !important;
-    right: auto !important;
-    bottom: auto !important;
-    margin-top: 1rem !important;
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-
-  /* Header adjustments for narrow phones */
-  .mobile-menu-trigger {
-    padding: 0.45rem !important;
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
   }
 }
 
-/* =========================================================================
-   Modern Digital Agency Portfolio - Projects Showcase
-   ========================================================================= */
-
-.projects-agency-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  align-items: stretch;
-}
-
-.projects-agency-grid > * {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.agency-portfolio-card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-@media (min-width: 680px) {
-  .projects-agency-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 26px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .projects-agency-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-}
-
-.filter-scroll-container::-webkit-scrollbar {
-  display: none;
-}
-
-.project-filter-btn:hover {
-  background-color: #F1F5F9 !important;
-  color: #0F172A !important;
-}
-
-.project-filter-btn.active:hover {
-  background-color: var(--color-brand-accent) !important;
-  color: #FFFFFF !important;
-}
-
-@media (max-width: 900px) {
-  .hero-tech-bg-pattern {
-    opacity: 0.3 !important;
-    right: -15% !important;
-    width: 65vw !important;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-tech-bg-pattern {
-    opacity: 0.18 !important;
-    right: -25% !important;
-    width: 85vw !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+.ambient-pulse {
+  animation: pulse-subtle 4s ease-in-out infinite;
 }
 
 /* Our Projects Sidebar Menu (Matching UI reference) */
@@ -1015,6 +908,153 @@ html, body {
 .service-explore-link:hover svg {
   transform: translateX(4px);
 }
+
+/* =========================================================================
+   About Page Hero Frosted Glass Stats Cards (Matching Reference UI)
+   ========================================================================= */
+.about-hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 992px) {
+  .about-hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .about-hero-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes stat-gentle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.about-glass-stat-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 2.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-glass-stat-card:nth-child(1) {
+  animation: stat-gentle-float 6s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.about-glass-stat-card:nth-child(2) {
+  animation: stat-gentle-float 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.about-glass-stat-card:nth-child(3) {
+  animation: stat-gentle-float 6s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.about-glass-stat-card:nth-child(4) {
+  animation: stat-gentle-float 6s ease-in-out infinite;
+  animation-delay: 4.5s;
+}
+
+.about-glass-stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
+  opacity: 0.6;
+  transition: opacity 0.35s ease;
+}
+
+.about-glass-stat-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 75%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.about-glass-stat-card:hover {
+  animation-play-state: paused;
+  transform: translateY(-8px) scale(1.025) !important;
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.38);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35), 0 0 30px rgba(59, 130, 246, 0.22), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.about-glass-stat-card:hover::before {
+  opacity: 1;
+}
+
+.about-glass-stat-card:hover::after {
+  opacity: 1;
+}
+
+.about-glass-stat-number {
+  font-size: clamp(2.25rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              text-shadow 0.35s ease;
+}
+
+.about-glass-stat-card:hover .about-glass-stat-number {
+  transform: scale(1.06) translateY(-2px);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.75);
+}
+
+.about-glass-stat-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.35;
+  transition: color 0.35s ease;
+}
+
+.about-glass-stat-card:hover .about-glass-stat-label {
+  color: #FFFFFF;
+}
+
 
 
 
