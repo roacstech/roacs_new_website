@@ -226,13 +226,13 @@ export function ServicesStickyScroll() {
               }}
             />
 
-            {/* Subtle Bottom Vignette Gradient */}
+            {/* Clean Bottom Gradient for Text Legibility */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(to top, rgba(11, 20, 36, 0.92) 0%, rgba(11, 20, 36, 0.35) 45%, rgba(11, 20, 36, 0.1) 100%)",
+                  "linear-gradient(to top, rgba(11, 20, 36, 0.88) 0%, rgba(11, 20, 36, 0.4) 22%, transparent 48%)",
               }}
             />
 
@@ -294,7 +294,7 @@ export function ServicesStickyScroll() {
               lineHeight: 1.3,
             }}
           >
-            Comprehensive IT Services & Digital Engineering
+          IT Services & Digital Engineering
           </h2>
         </div>
 
