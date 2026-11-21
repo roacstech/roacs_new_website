@@ -4,10 +4,8 @@ import Image from "next/image";
 import { Container } from "@/components/common/Container";
 import { servicesData } from "@/data/services";
 import { 
-  MapPin, 
   Mail, 
-  Phone, 
-  Clock 
+  Phone 
 } from "lucide-react";
 
 export function Footer() {
@@ -23,13 +21,13 @@ export function Footer() {
         overflow: "hidden",
       }}
     >
-      {/* Upper Content Section: Brand Overview, Services, Quick Links, Verified Contact */}
+      {/* Upper Content Section: Brand Overview, Services, Quick Links, Contact */}
       <div
         style={{
           position: "relative",
           zIndex: 2,
           paddingTop: "5rem",
-          paddingBottom: "2rem",
+          paddingBottom: "3.5rem",
         }}
       >
         <Container wide>
@@ -189,14 +187,6 @@ export function Footer() {
                   color: "var(--color-text-on-dark-muted)",
                 }}
               >
-                <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
-                  <MapPin size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0, marginTop: "0.2rem" }} />
-                  <div>
-                    <strong style={{ color: "#FFFFFF", display: "block", marginBottom: "0.15rem" }}>Development Center (India):</strong>
-                    <span>82, KRM Residency, Sarcarsamakulam, Kovilpalayam, Coimbatore, Tamil Nadu - 641107</span>
-                  </div>
-                </div>
-
                 <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
                   <Mail size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0 }} />
                   <div>
@@ -219,59 +209,10 @@ export function Footer() {
                     </div>
                   </div>
                 </div>
-
-                <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
-                  <Clock size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0 }} />
-                  <span>Mon – Sat: 10:00 AM – 6:00 PM IST</span>
-                </div>
               </div>
             </div>
           </div>
         </Container>
-      </div>
-
-      {/* Grand Wordmark Display: Matching Discord's Exact UI Scale, Font & Soft Lavender Hue (ALL CAPS) */}
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          overflow: "hidden",
-          paddingTop: "2.5rem",
-          paddingBottom: "1.25rem",
-          textAlign: "center",
-          userSelect: "none",
-        }}
-      >
-        <div style={{ maxWidth: "1360px", margin: "0 auto", padding: "0 1.5rem" }}>
-          <svg
-            viewBox="0 0 1024 180"
-            width="100%"
-            height="auto"
-            preserveAspectRatio="xMidYMid meet"
-            style={{
-              width: "100%",
-              display: "block",
-              margin: "0 auto",
-            }}
-            aria-label="ROACS"
-            role="img"
-          >
-            <text
-              x="50%"
-              y="152"
-              textAnchor="middle"
-              fill="#DDE1FA"
-              style={{
-                fontFamily: "'Ginto Nord', 'ABC Ginto Nord', 'Archivo Black', 'Poppins', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif",
-                fontWeight: 900,
-                fontSize: "205px",
-                letterSpacing: "0.035em",
-              }}
-            >
-              ROACS
-            </text>
-          </svg>
-        </div>
       </div>
 
       {/* Bottom Tier: Copyright, Legal & Navigation */}
