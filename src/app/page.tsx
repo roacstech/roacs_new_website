@@ -1,6 +1,5 @@
 import { Hero } from "@/components/home/Hero";
 import { BrandMarquee } from "@/components/home/BrandMarquee";
-import { TextTicker } from "@/components/home/TextTicker";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { WorkProcess } from "@/components/home/WorkProcess";
@@ -21,10 +20,7 @@ export default function HomePage() {
       {/* 2. Infinite Continuous Client Brand Marquee (Transparent Logos) */}
       <BrandMarquee />
 
-      {/* 3. Kinetic Text Capabilities Ticker with Crimson Stars */}
-      <TextTicker />
-
-      {/* 4. Company Introduction & Capabilities */}
+      {/* 3. Company Introduction & Capabilities */}
       <AboutPreview />
 
       {/* 5. Core Services & Proprietary Product Spotlight (Material Management) */}
