@@ -64,11 +64,31 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="section section-light">
-        <Container wide>
+      <section 
+        className="section section-light"
+        style={{
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Subtle Clean Tech Grid Overlay */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `
+              linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px)
+            `,
+            backgroundSize: "36px 36px",
+            pointerEvents: "none",
+          }}
+        />
+
+        <Container wide style={{ position: "relative", zIndex: 1 }}>
           <div className="grid-3" style={{ marginBottom: "2rem" }}>
-            {servicesData.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+            {servicesData.map((service, index) => (
+              <ServiceCard key={service.id} service={service} index={index} />
             ))}
           </div>
         </Container>

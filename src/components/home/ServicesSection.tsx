@@ -16,8 +16,29 @@ import {
 
 export function ServicesSection() {
   return (
-    <section className="section section-subtle" id="services">
-      <Container wide>
+    <section 
+      className="section section-subtle" 
+      id="services"
+      style={{
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Subtle Clean Tech Grid Overlay matching Reference */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `
+            linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px)
+          `,
+          backgroundSize: "36px 36px",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Container wide style={{ position: "relative", zIndex: 1 }}>
         <Reveal delay={0.1}>
           <div
             style={{
@@ -42,7 +63,7 @@ export function ServicesSection() {
         <div className="grid-3" style={{ marginBottom: "4rem" }}>
           {servicesData.map((service, index) => (
             <Reveal key={service.id} delay={0.1 + (index % 3) * 0.1}>
-              <ServiceCard service={service} />
+              <ServiceCard service={service} index={index} />
             </Reveal>
           ))}
         </div>
