@@ -228,7 +228,7 @@ export function WorkProcess() {
                 }}
               >
                 <span>Phase {steps[activeStep].number}</span>
-                <span>â€¢</span>
+                <span>•</span>
                 <span>{steps[activeStep].subtitle}</span>
               </div>
 

@@ -4,10 +4,8 @@ import Image from "next/image";
 import { Container } from "@/components/common/Container";
 import { servicesData } from "@/data/services";
 import { 
-  MapPin, 
   Mail, 
-  Phone, 
-  Clock 
+  Phone 
 } from "lucide-react";
 
 export function Footer() {
@@ -141,11 +139,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
-                  Frequently Asked Questions (FAQ)
-                </Link>
-              </li>
-              <li>
                 <Link href="/insights" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
                   Blogs & Tech Insights
                 </Link>
@@ -182,14 +175,6 @@ export function Footer() {
                 color: "var(--color-text-on-dark-muted)",
               }}
             >
-              <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
-                <MapPin size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0, marginTop: "0.2rem" }} />
-                <div>
-                  <strong style={{ color: "#FFFFFF", display: "block", marginBottom: "0.15rem" }}>Development Center (India):</strong>
-                  <span>82, KRM Residency, Sarcarsamakulam, Kovilpalayam, Coimbatore, Tamil Nadu - 641107</span>
-                </div>
-              </div>
-
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
                 <Mail size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0 }} />
                 <div>
@@ -211,11 +196,6 @@ export function Footer() {
                     <a href="tel:+13203162929" style={{ color: "#FFFFFF" }}>+1 320-316-2929</a>
                   </div>
                 </div>
-              </div>
-
-              <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
-                <Clock size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0 }} />
-                <span>Mon â€“ Sat: 10:00 AM â€“ 6:00 PM IST</span>
               </div>
             </div>
           </div>
@@ -262,9 +242,6 @@ export function Footer() {
               </Link>
               <Link href="/material-management" style={{ color: "var(--color-muted-blue)" }}>
                 Products
-              </Link>
-              <Link href="/faq" style={{ color: "var(--color-muted-blue)" }}>
-                FAQ
               </Link>
               <Link href="/contact" style={{ color: "var(--color-muted-blue)" }}>
                 Contact

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Container } from "@/components/common/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { ProjectCard } from "@/components/common/ProjectCard";
+import { ProjectCardReveal } from "@/components/projects/ProjectCardReveal";
 import { Button } from "@/components/common/Button";
 import { Reveal } from "@/components/common/Reveal";
 import { projectsData } from "@/data/projects";
@@ -85,9 +86,9 @@ export function ProjectsSection() {
         {/* Projects Grid */}
         <div className="grid-3">
           {filteredProjects.map((project, idx) => (
-            <Reveal key={project.id} delay={0.08 * (idx + 1)}>
+            <ProjectCardReveal key={project.id} index={idx}>
               <ProjectCard project={project} />
-            </Reveal>
+            </ProjectCardReveal>
           ))}
         </div>
 

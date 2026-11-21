@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { servicesData } from "@/data/services";
@@ -16,6 +16,20 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
   const [servicesExpanded, setServicesExpanded] = useState(false);
   const [productsExpanded, setProductsExpanded] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -260,20 +274,6 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               }}
             >
               Projects
-            </Link>
-
-            <Link
-              href="/faq"
-              onClick={onClose}
-              style={{
-                fontSize: "1.05rem",
-                fontWeight: 600,
-                color: pathname === "/faq" ? "var(--color-brand-accent)" : "#FFFFFF",
-                padding: "0.75rem 0",
-                borderBottom: "1px solid var(--border-dark-subtle)",
-              }}
-            >
-              FAQ
             </Link>
 
             <Link

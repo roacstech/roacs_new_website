@@ -15,52 +15,52 @@ interface BrandItem {
 const brands: BrandItem[] = [
   {
     name: "Cazanoo",
-    industry: "Prefab & Smart Housing",
-    logo: "/images/brands/brand-1.png",
+    industry: "Smart Housing",
+    logo: "/images/brands/cazanoo-transparent.png",
     width: 140,
-    height: 45,
+    height: 44,
   },
   {
     name: "BEC Global",
-    industry: "Corporate & Consulting",
-    logo: "/images/brands/brand-2.jpeg",
-    width: 90,
-    height: 45,
+    industry: "Education & Consulting",
+    logo: "/images/brands/bec-transparent.png",
+    width: 48,
+    height: 48,
+  },
+  {
+    name: "Tetas by Vanessa",
+    industry: "Audio & Media Platform",
+    logo: "/images/brands/tetas-transparent.png",
+    width: 110,
+    height: 42,
   },
   {
     name: "A&B Impex",
     industry: "Export & Global Trade",
-    logo: "/images/brands/brand-3.png",
-    width: 70,
-    height: 45,
+    logo: "/images/brands/aandb-transparent.png",
+    width: 95,
+    height: 42,
   },
   {
     name: "Ambit Triangle",
     industry: "Industrial Safety",
-    logo: "/images/brands/brand-5.png",
-    width: 120,
-    height: 45,
+    logo: "/images/brands/ambit-transparent.png",
+    width: 135,
+    height: 44,
   },
   {
     name: "Yazi Travels",
     industry: "Travel Tech Platform",
-    logo: "/images/brands/yazi-logo.png",
+    logo: "/images/brands/yazi-transparent.png",
     width: 135,
-    height: 38,
+    height: 42,
   },
   {
     name: "Abir Ayurveda",
     industry: "Health & Wellness",
-    logo: "/images/brands/brand-6.jpeg",
-    width: 45,
-    height: 45,
-  },
-  {
-    name: "Tetas Podcast",
-    industry: "Audio & Streaming Media",
-    logo: "/images/brands/Tetas-logo.svg",
-    width: 100,
-    height: 40,
+    logo: "/images/brands/abir-transparent.png",
+    width: 46,
+    height: 46,
   },
 ];
 
@@ -125,19 +125,16 @@ export function BrandMarquee() {
               }}
               title={`${brand.name} — ${brand.industry}`}
             >
-              {/* Pure White Container for Brand Logo (Renders 100% of Original Corporate Color) */}
+              {/* Pure Floating Brand Logo (Transparent Alpha, No White Box) */}
               <div
                 style={{
                   position: "relative",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  height: "40px",
-                  minWidth: "100px",
-                  padding: "0.25rem 0.65rem",
-                  backgroundColor: "#FFFFFF",
-                  borderRadius: "8px",
-                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
+                  height: "38px",
+                  minWidth: "70px",
+                  padding: "0 0.25rem",
                   flexShrink: 0,
                 }}
               >
@@ -148,9 +145,9 @@ export function BrandMarquee() {
                   height={brand.height}
                   style={{
                     objectFit: "contain",
-                    height: "30px",
+                    height: "34px",
                     width: "auto",
-                    maxWidth: "120px",
+                    maxWidth: "130px",
                   }}
                   className="brand-logo-img"
                 />

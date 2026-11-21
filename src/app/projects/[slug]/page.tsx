@@ -5,7 +5,8 @@ import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { projectsData } from "@/data/projects";
 import { constructMetadata } from "@/lib/metadata";
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ChevronsRight } from "lucide-react";
+import { ProjectScrollMockup } from "@/components/projects/ProjectScrollMockup";
 
 interface ProjectDetailPageProps {
   params: Promise<{
@@ -42,17 +43,60 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
   return (
     <div>
-      {/* Case Study Header */}
+      {/* Case Study Header with Background Banner */}
       <section
         style={{
+          position: "relative",
           backgroundColor: "var(--color-primary-navy)",
           color: "#FFFFFF",
-          paddingTop: "4.5rem",
-          paddingBottom: "4.5rem",
+          paddingTop: "5rem",
+          paddingBottom: "5.5rem",
           borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+          overflow: "hidden",
         }}
       >
-        <Container>
+        {/* Background Banner Image if available */}
+        {project.bannerImage && (
+          <>
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                zIndex: 0,
+              }}
+            >
+              <Image
+                src={project.bannerImage}
+                alt={project.title}
+                fill
+                priority
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "right center",
+                }}
+              />
+            </div>
+            {/* Cinematic Gradient Veil for pure contrast and typography readability */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to right, rgba(11, 21, 40, 0.96) 0%, rgba(11, 21, 40, 0.88) 45%, rgba(11, 21, 40, 0.45) 75%, rgba(11, 21, 40, 0.2) 100%)",
+                zIndex: 1,
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to bottom, rgba(11, 21, 40, 0.4) 0%, transparent 25%, transparent 75%, rgba(11, 21, 40, 0.7) 100%)",
+                zIndex: 1,
+              }}
+            />
+          </>
+        )}
+
+        <Container style={{ position: "relative", zIndex: 2 }}>
           <div style={{ marginBottom: "1.5rem" }}>
             <Link
               href="/projects"
@@ -65,7 +109,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               }}
             >
               <ArrowLeft size={16} />
-              <span>Back to Case Studies</span>
+              <span>Back to Projects</span>
             </Link>
           </div>
 
@@ -116,27 +160,8 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
       {/* Main Case Study Content */}
       <section className="section section-light">
         <Container>
-          {/* Main Visual Banner */}
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              height: "440px",
-              borderRadius: "var(--radius-lg)",
-              overflow: "hidden",
-              marginBottom: "3.5rem",
-              boxShadow: "var(--shadow-xl)",
-              backgroundColor: "#E2E8F0",
-            }}
-          >
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              priority
-              style={{ objectFit: "cover" }}
-            />
-          </div>
+          {/* Main Visual Showcase (Clean Static Browser Mockup) */}
+          <ProjectScrollMockup project={project} />
 
           <div
             style={{
@@ -171,7 +196,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 </p>
               </div>
 
-              {/* Solution */}
+              {/* 3. Solution */}
               <div style={{ marginBottom: "2.5rem" }}>
                 <h2
                   style={{
@@ -194,7 +219,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 </p>
               </div>
 
-              {/* Verified Results */}
+              {/* 4. Verified Results */}
               <div>
                 <h2
                   style={{
@@ -237,92 +262,80 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               </div>
             </div>
 
-            {/* Right Meta Column */}
+            {/* Right Meta Column: Projects Directory (Matching UI Reference) */}
             <div>
               <div
                 style={{
-                  backgroundColor: "var(--color-bg-subtle)",
-                  border: "1px solid var(--border-light)",
-                  borderRadius: "var(--radius-md)",
-                  padding: "2rem",
+                  backgroundColor: "#F8FAFC",
+                  border: "1px solid #E2E8F0",
+                  borderRadius: "14px",
+                  padding: "2rem 1.5rem",
                   position: "sticky",
                   top: "100px",
                 }}
               >
                 <h3
                   style={{
-                    fontSize: "1.2rem",
-                    fontWeight: 700,
-                    color: "var(--color-primary-navy)",
-                    marginBottom: "1.5rem",
-                    borderBottom: "1px solid var(--border-light)",
-                    paddingBottom: "0.75rem",
+                    fontSize: "1.35rem",
+                    fontWeight: 800,
+                    color: "#101D35",
+                    margin: "0 0 1.5rem 0",
+                    letterSpacing: "-0.02em",
                   }}
                 >
-                  Project Summary
+                  Our Projects
                 </h3>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem", marginBottom: "2rem" }}>
-                  <div>
-                    <span style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--color-text-muted)" }}>
-                      Client Partner
-                    </span>
-                    <div style={{ fontSize: "1rem", fontWeight: 600, color: "var(--color-primary-navy)", marginTop: "0.2rem" }}>
-                      {project.client}
-                    </div>
-                  </div>
-
-                  <div>
-                    <span style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--color-text-muted)" }}>
-                      Industry
-                    </span>
-                    <div style={{ fontSize: "1rem", fontWeight: 600, color: "var(--color-primary-navy)", marginTop: "0.2rem" }}>
-                      {project.industry}
-                    </div>
-                  </div>
-
-                  <div>
-                    <span style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--color-text-muted)" }}>
-                      Service Engagement
-                    </span>
-                    <div style={{ fontSize: "1rem", fontWeight: 600, color: "var(--color-primary-navy)", marginTop: "0.2rem" }}>
-                      {project.category}
-                    </div>
-                  </div>
-
-                  <div>
-                    <span style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--color-text-muted)" }}>
-                      Core Technologies
-                    </span>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem", marginTop: "0.4rem" }}>
-                      {project.tags.map((t, idx) => (
+                {/* Projects Navigation List */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.75rem",
+                  }}
+                >
+                  {projectsData.map((p) => {
+                    const isCurrent = p.slug === project.slug;
+                    return (
+                      <Link
+                        key={p.id}
+                        href={`/projects/${p.slug}`}
+                        className={isCurrent ? "service-menu-item-active" : "service-menu-item"}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          padding: "1.05rem 1.25rem",
+                          borderRadius: "4px",
+                          textDecoration: "none",
+                          backgroundColor: isCurrent ? "var(--color-brand-accent)" : "#FFFFFF",
+                          color: isCurrent ? "#FFFFFF" : "#101D35",
+                          boxShadow: isCurrent
+                            ? "0 4px 14px rgba(237, 25, 24, 0.25)"
+                            : "0 1px 3px rgba(16, 29, 53, 0.04)",
+                          transition: "all 0.2s ease",
+                        }}
+                      >
                         <span
-                          key={idx}
                           style={{
-                            fontSize: "0.78rem",
-                            backgroundColor: "#FFFFFF",
-                            border: "1px solid var(--border-light)",
-                            padding: "0.25rem 0.5rem",
-                            borderRadius: "var(--radius-xs)",
-                            color: "var(--color-text-primary)",
+                            fontSize: "0.95rem",
+                            fontWeight: 600,
+                            color: isCurrent ? "#FFFFFF" : "#101D35",
+                            lineHeight: 1.35,
                           }}
                         >
-                          {t}
+                          {p.title.replace("—", "-")}
                         </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
 
-                <Button
-                  href="/contact"
-                  variant="primary"
-                  size="md"
-                  icon={<ArrowRight size={16} />}
-                  style={{ width: "100%", justifyContent: "center" }}
-                >
-                  Build a Similar System
-                </Button>
+                        <ChevronsRight
+                          size={18}
+                          color={isCurrent ? "#FFFFFF" : "#101D35"}
+                          style={{ flexShrink: 0, marginLeft: "0.75rem" }}
+                        />
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

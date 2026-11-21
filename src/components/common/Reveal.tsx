@@ -9,6 +9,7 @@ interface RevealProps {
   duration?: number;
   yOffset?: number;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export function Reveal({
@@ -16,12 +17,13 @@ export function Reveal({
   delay = 0,
   duration = 0.6,
   yOffset = 24,
-  className = ""
+  className = "",
+  style
 }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
+    return <div className={className} style={style}>{children}</div>;
   }
 
   return (
@@ -35,6 +37,7 @@ export function Reveal({
         ease: [0.16, 1, 0.3, 1]
       }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>

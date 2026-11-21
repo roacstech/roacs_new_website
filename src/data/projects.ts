@@ -10,9 +10,12 @@ export interface ProjectItem {
   solution: string;
   results: string[];
   image: string;
+  bannerImage?: string;
+  scrollImage?: string;
   tags: string[];
   featured: boolean;
   liveUrl?: string;
+  filterCategories: string[];
 }
 
 export const projectsData: ProjectItem[] = [
@@ -32,9 +35,12 @@ export const projectsData: ProjectItem[] = [
       "Intuitive navigation for technical architectural details"
     ],
     image: "/images/projects/cazanoo.png",
+    bannerImage: "/images/projects/cazanoo-banner.jpg",
+    scrollImage: "/images/projects/cazanoo-long-scroll.jpg",
     tags: ["Web Architecture", "UI/UX Design", "Performance Optimization", "Modular Tech"],
     featured: true,
-    liveUrl: "https://www.cazanoo.com/"
+    liveUrl: "https://www.cazanoo.com/",
+    filterCategories: ["Web Development", "UI/UX Design", "E-commerce"]
   },
   {
     id: "bec-global",
@@ -52,9 +58,12 @@ export const projectsData: ProjectItem[] = [
       "Full adherence to modern accessibility and SEO standards"
     ],
     image: "/images/projects/bec.jpg",
+    bannerImage: "/images/projects/bec-banner.png",
+    scrollImage: "/images/projects/bec-long-scroll.jpg",
     tags: ["Enterprise Web", "Information Architecture", "Cloud Infrastructure"],
     featured: true,
-    liveUrl: "https://www.becgpl.com/"
+    liveUrl: "https://www.becgpl.com/",
+    filterCategories: ["Web Development", "Enterprise Solutions"]
   },
   {
     id: "aandb-impex",
@@ -72,9 +81,12 @@ export const projectsData: ProjectItem[] = [
       "Mobile-optimized catalog for international trade fairs"
     ],
     image: "/images/projects/aandb.jpg",
+    bannerImage: "/images/projects/aandb-banner.jpg",
+    scrollImage: "/images/projects/aandb-long-scroll.jpg",
     tags: ["International Trade", "Catalog Management", "B2B Logistics"],
     featured: true,
-    liveUrl: "https://aandbimpex.com/"
+    liveUrl: "https://aandbimpex.com/",
+    filterCategories: ["Enterprise Solutions", "E-commerce", "Web Development"]
   },
   {
     id: "ambit-triangle",
@@ -92,9 +104,12 @@ export const projectsData: ProjectItem[] = [
       "Zero downtime during critical operational shifts"
     ],
     image: "/images/projects/ambit.jpg",
+    bannerImage: "/images/projects/ambit-banner.jpg",
+    scrollImage: "/images/projects/ambit-long-scroll.jpg",
     tags: ["Compliance", "Industrial Safety", "Portal Engineering"],
     featured: true,
-    liveUrl: "https://ambittrianglesafety.co.in/"
+    liveUrl: "https://ambittrianglesafety.co.in/",
+    filterCategories: ["Enterprise Solutions", "Web Development"]
   },
   {
     id: "abir-ayurveda",
@@ -112,9 +127,12 @@ export const projectsData: ProjectItem[] = [
       "High patient satisfaction with digital schedule confirmations"
     ],
     image: "/images/projects/abir.png",
+    bannerImage: "/images/projects/abir-banner.jpg",
+    scrollImage: "/images/projects/abir-long-scroll.jpg",
     tags: ["Healthcare UI", "Appointment Engine", "Responsive Design"],
     featured: true,
-    liveUrl: "https://abirayurveda.com/"
+    liveUrl: "https://abirayurveda.com/",
+    filterCategories: ["UI/UX Design", "Web Development", "E-commerce"]
   },
   {
     id: "tetas-podcast",
@@ -131,10 +149,13 @@ export const projectsData: ProjectItem[] = [
       "Expanded listener engagement and multi-channel subscription growth",
       "Seamless publishing workflow for production creators"
     ],
-    image: "/images/projects/tetas.png",
+    image: "/images/projects/tetas-showcase.png",
+    bannerImage: "/images/projects/tetas-banner.jpg",
+    scrollImage: "/images/projects/tetas-long-scroll.jpg",
     tags: ["Media Streaming", "Audio Engine", "Web Performance"],
     featured: true,
-    liveUrl: "https://tetaspodcast.com/"
+    liveUrl: "https://tetaspodcast.com/",
+    filterCategories: ["Web Development", "UI/UX Design"]
   },
   {
     id: "accupose",
@@ -152,8 +173,11 @@ export const projectsData: ProjectItem[] = [
       "HIPAA-conscious data isolation and role-based clinician access"
     ],
     image: "/images/projects/accupose.png",
+    bannerImage: "/images/projects/accupose-banner.jpg",
+    scrollImage: "/images/projects/accupose-long-scroll.jpg",
     tags: ["HealthTech", "Biomechanical Analytics", "Data Visualization"],
     featured: true,
-    liveUrl: "https://www.accupose.com/"
+    liveUrl: "https://www.accupose.com/",
+    filterCategories: ["Enterprise Solutions", "UI/UX Design", "Web Development"]
   }
 ];
