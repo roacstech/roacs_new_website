@@ -36,6 +36,7 @@ export function AboutPreview() {
           <div style={{ position: "relative" }}>
             <Reveal delay={0.1}>
               <div
+                className="about-image-card"
                 style={{
                   position: "relative",
                   width: "100%",
@@ -66,6 +67,7 @@ export function AboutPreview() {
 
               {/* Floating Stat Badge */}
               <div
+                className="about-floating-badge"
                 style={{
                   position: "absolute",
                   bottom: "-25px",
@@ -178,7 +180,7 @@ export function AboutPreview() {
                   href="/projects"
                   variant="outline-navy"
                 >
-                  View Case Studies
+                  View More
                 </Button>
               </div>
             </Reveal>

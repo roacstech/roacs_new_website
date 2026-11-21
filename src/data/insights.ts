@@ -9,43 +9,86 @@ export interface InsightItem {
   author: string;
   authorRole: string;
   image?: string;
+  tags?: string[];
 }
 
 export const insightsData: InsightItem[] = [
   {
-    id: "ai-in-business",
-    slug: "how-ai-is-transforming-modern-business-operations",
-    title: "How AI is Transforming Modern Business Operations",
-    excerpt: "Explore how machine learning models, deterministic safeguards, and intelligent workflow automation are streamlining operational overhead and powering data-driven enterprise agility.",
-    category: "Artificial Intelligence",
+    id: "why-your-business-needs-custom-web-application-2026",
+    slug: "why-your-business-needs-a-custom-web-application-in-2026",
+    title: "Why Your Business Needs a Custom Web Application in 2026",
+    excerpt: "Discover why off-the-shelf software falls short and how custom web applications provide tailored workflows, superior performance, and long-term scalability for growing businesses.",
+    category: "Custom Web Application",
     readTime: "5 min read",
     publishedDate: "15 Mar, 2026",
     author: "Roacs Team",
-    authorRole: "Applied Intelligence Practice",
-    image: "/images/blog/blog-1.jpg"
+    authorRole: "Custom Software Practice",
+    image: "/images/blog/blog-1.jpg",
+    tags: ["custom-web", "enterprise", "scalability"]
   },
   {
-    id: "web-development-trends-2026",
-    slug: "top-web-development-trends-to-watch-in-2026",
-    title: "Top Web Development Trends to Watch in 2026",
-    excerpt: "From React Server Components and edge computing to streaming SSR and micro-frontends, discover the foundational modern web architectures driving enterprise performance.",
-    category: "Web Engineering",
+    id: "top-7-benefits-react-nodejs-scalable-apps",
+    slug: "top-7-benefits-of-using-react-and-nodejs-for-scalable-apps",
+    title: "Top 7 Benefits of Using React & Node.js for Scalable Apps",
+    excerpt: "Explore the architectural synergy between React frontend components and high-throughput Node.js backends for powering modern, responsive, and horizontally scalable web applications.",
+    category: "Full Stack Engineering",
     readTime: "6 min read",
     publishedDate: "10 Mar, 2026",
     author: "Roacs Team",
-    authorRole: "Frontend Systems Architecture",
-    image: "/images/blog/blog-2.jpg"
+    authorRole: "Full Stack Architecture",
+    image: "/images/blog/blog-2.jpg",
+    tags: ["react", "nodejs", "fullstack"]
   },
   {
-    id: "cloud-solutions-scalability",
-    slug: "why-cloud-solutions-are-essential-for-business-scalability",
-    title: "Why Cloud Solutions are Essential for Business Scalability",
-    excerpt: "Why modern enterprises rely on automated DevOps pipelines, multi-region container clusters, and elastic cloud infrastructure to achieve zero-downtime reliability and sustainable growth.",
-    category: "Cloud & DevOps",
+    id: "how-cloud-deployment-improves-business-performance",
+    slug: "how-cloud-deployment-improves-business-performance",
+    title: "How Cloud Deployment Improves Business Performance",
+    excerpt: "Learn how migrating enterprise infrastructure to modern elastic cloud platforms reduces latency, optimizes server costs, and achieves continuous 99.99% availability.",
+    category: "Cloud Solutions",
     readTime: "5 min read",
     publishedDate: "05 Mar, 2026",
     author: "Roacs Team",
-    authorRole: "Cloud Infrastructure Engineering",
-    image: "/images/blog/blog-3.jpg"
+    authorRole: "Cloud Infrastructure Practice",
+    image: "/images/blog/blog-3.jpg",
+    tags: ["cloud", "devops", "performance"]
+  },
+  {
+    id: "best-practices-secure-web-application-development",
+    slug: "best-practices-for-secure-web-application-development",
+    title: "Best Practices for Secure Web Application Development",
+    excerpt: "From automated dependency vulnerability scanning and robust token-based authentication to strict CORS and sanitization policies, implement defense-in-depth across your stack.",
+    category: "Web Security",
+    readTime: "7 min read",
+    publishedDate: "01 Mar, 2026",
+    author: "Roacs Team",
+    authorRole: "Application Security Engineering",
+    image: "/images/blog/blog-4.jpg",
+    tags: ["security", "owasp", "web-dev"]
+  },
+  {
+    id: "devops-cicd-speeding-up-software-delivery",
+    slug: "devops-and-cicd-speeding-up-your-software-delivery",
+    title: "DevOps & CI/CD: Speeding Up Your Software Delivery",
+    excerpt: "Discover how automated testing pipelines, trunk-based development, and containerized deployment workflows eliminate release bottlenecks and accelerate developer velocity.",
+    category: "DevOps & CI/CD",
+    readTime: "5 min read",
+    publishedDate: "25 Feb, 2026",
+    author: "Roacs Team",
+    authorRole: "DevOps & Automation Team",
+    image: "/images/blog/blog-5.jpg",
+    tags: ["devops", "cicd", "automation"]
+  },
+  {
+    id: "common-mistakes-businesses-make-in-it-projects",
+    slug: "common-mistakes-businesses-make-in-it-projects",
+    title: "Common Mistakes Businesses Make in IT Projects",
+    excerpt: "Avoid costly pitfalls in software development projects—from scope creep and vague technical specifications to inadequate QA and delayed architectural planning.",
+    category: "IT Consultancy",
+    readTime: "6 min read",
+    publishedDate: "20 Feb, 2026",
+    author: "Roacs Team",
+    authorRole: "Strategic Technology Advisory",
+    image: "/images/blog/blog-6.jpg",
+    tags: ["consultancy", "project-management", "it-strategy"]
   }
 ];

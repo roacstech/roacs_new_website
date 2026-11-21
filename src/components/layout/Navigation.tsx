@@ -321,13 +321,6 @@ export function Navigation() {
       </Link>
 
       <Link
-        href="/faq"
-        className={`nav-link ${pathname === "/faq" ? "active" : ""}`}
-      >
-        FAQ
-      </Link>
-
-      <Link
         href="/insights"
         className={`nav-link ${pathname?.startsWith("/insights") ? "active" : ""}`}
       >

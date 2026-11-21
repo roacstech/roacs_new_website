@@ -1,217 +1,250 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ProjectItem } from "@/data/projects";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
 
 interface ProjectCardProps {
   project: ProjectItem;
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Extract clean client mark for the center image overlay (e.g. CAZANOO, BEC GLOBAL)
+  const watermarkName = project.client.toUpperCase();
+
+  // Extract up to 2 clean category tags for the top pill badges
+  const categoryTags = project.tags.slice(0, 2);
+
   return (
-    <div
-      className="card"
+    <Link
+      href={`/projects/${project.slug}`}
+      className="agency-portfolio-card"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       style={{
-        backgroundColor: "#FFFFFF",
-        border: "1px solid var(--border-light)",
-        borderRadius: "var(--radius-md)",
-        overflow: "hidden",
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        transition: "all var(--transition-normal)",
+        width: "100%",
+        textDecoration: "none",
+        color: "inherit",
+        backgroundColor: "#FFFFFF",
+        borderRadius: "16px",
+        overflow: "hidden",
+        border: "1px solid",
+        borderColor: isHovered ? "rgba(237, 25, 24, 0.3)" : "#E5E7EB",
+        boxShadow: isHovered
+          ? "0 14px 32px rgba(16, 29, 53, 0.08)"
+          : "0 2px 8px rgba(16, 29, 53, 0.03)",
+        transform: isHovered ? "translateY(-4px)" : "translateY(0)",
+        transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease",
       }}
     >
+      {/* 1. Top Media Box with Blur and About Project Content on Hover */}
       <div
         style={{
           position: "relative",
           width: "100%",
-          height: "230px",
-          backgroundColor: "#F1F5F9",
+          aspectRatio: "16 / 10",
           overflow: "hidden",
+          backgroundColor: "#F1F5F9",
+          flexShrink: 0,
         }}
       >
         <Image
           src={project.image}
           alt={project.title}
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 680px) 100vw, (max-width: 1024px) 50vw, 33vw"
           style={{
             objectFit: "cover",
-            transition: "transform var(--transition-slow)",
+            transform: isHovered ? "scale(1.06)" : "scale(1)",
+            filter: isHovered ? "blur(8px) brightness(0.4)" : "blur(0px) brightness(0.95)",
+            transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease",
           }}
-          className="project-image-hover"
+          priority={project.featured}
         />
+
+        {/* Soft Contrast Veil for Normal State */}
         <div
           style={{
             position: "absolute",
-            top: "1rem",
-            left: "1rem",
+            inset: 0,
+            background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.32) 100%)",
+            transition: "opacity 0.25s ease",
+            opacity: isHovered ? 0 : 0.85,
+            zIndex: 1,
+          }}
+        />
+
+        {/* Normal State: Centered Brand Mark / Logo Watermark */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             zIndex: 2,
+            pointerEvents: "none",
+            padding: "1rem",
+            opacity: isHovered ? 0 : 1,
+            transform: isHovered ? "scale(0.92)" : "scale(1)",
+            transition: "opacity 0.25s ease, transform 0.25s ease",
           }}
         >
           <span
             style={{
-              backgroundColor: "rgba(16, 29, 53, 0.88)",
-              backdropFilter: "blur(6px)",
               color: "#FFFFFF",
-              fontSize: "0.72rem",
-              fontWeight: 700,
+              fontSize: "clamp(1.2rem, 2.5vw, 1.55rem)",
+              fontWeight: 800,
+              letterSpacing: "0.12em",
               textTransform: "uppercase",
-              letterSpacing: "0.06em",
-              padding: "0.3rem 0.75rem",
-              borderRadius: "var(--radius-full)",
-              border: "1px solid rgba(255, 255, 255, 0.15)",
+              textShadow: "0 2px 14px rgba(0, 0, 0, 0.55)",
+              textAlign: "center",
             }}
           >
-            {project.industry}
+            {watermarkName}
           </span>
         </div>
 
-        {project.liveUrl && (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={`Visit Live Website: ${project.client}`}
+        {/* Hover State: Blurred Overlay with About Project Content */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            padding: "1.25rem 1.5rem",
+            zIndex: 3,
+            pointerEvents: "none",
+            opacity: isHovered ? 1 : 0,
+            transform: isHovered ? "translateY(0)" : "translateY(8px)",
+            transition: "opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+            backgroundColor: "rgba(16, 29, 53, 0.45)",
+            backdropFilter: isHovered ? "blur(4px)" : "none",
+            WebkitBackdropFilter: isHovered ? "blur(4px)" : "none",
+          }}
+        >
+          <span
             style={{
-              position: "absolute",
-              top: "1rem",
-              right: "1rem",
-              zIndex: 2,
-              width: "36px",
-              height: "36px",
-              borderRadius: "50%",
-              backgroundColor: "rgba(16, 29, 53, 0.85)",
-              color: "#FFFFFF",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backdropFilter: "blur(6px)",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              transition: "all var(--transition-fast)",
-            }}
-            className="external-link-btn"
-          >
-            <ArrowUpRight size={18} />
-          </a>
-        )}
-      </div>
-
-      <div
-        style={{
-          padding: "1.75rem",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          flex: 1,
-        }}
-      >
-        <div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-start",
-              justifyContent: "space-between",
-              gap: "0.75rem",
-              marginBottom: "0.75rem",
+              fontSize: "0.72rem",
+              fontWeight: 800,
+              textTransform: "uppercase",
+              letterSpacing: "0.12em",
+              color: "var(--color-brand-accent)",
+              marginBottom: "0.45rem",
             }}
           >
-            <h3
-              style={{
-                fontSize: "1.25rem",
-                fontWeight: 700,
-                color: "var(--color-primary-navy)",
-                lineHeight: 1.3,
-              }}
-            >
-              {project.title}
-            </h3>
-          </div>
-
+            About Project
+          </span>
           <p
             style={{
-              fontSize: "0.925rem",
-              lineHeight: 1.6,
-              color: "var(--color-text-secondary)",
-              marginBottom: "1.25rem",
+              color: "#FFFFFF",
+              fontSize: "0.85rem",
+              lineHeight: 1.5,
+              margin: 0,
+              fontWeight: 500,
+              display: "-webkit-box",
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textShadow: "0 1px 4px rgba(0, 0, 0, 0.7)",
             }}
           >
             {project.description}
           </p>
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.35rem",
+              fontSize: "0.72rem",
+              fontWeight: 700,
+              color: "#FFFFFF",
+              marginTop: "0.75rem",
+              padding: "0.3rem 0.85rem",
+              borderRadius: "9999px",
+              backgroundColor: "var(--color-brand-accent)",
+              boxShadow: "0 2px 10px rgba(237, 25, 24, 0.4)",
+            }}
+          >
+            View More →
+          </span>
+        </div>
+      </div>
 
+      {/* 2. Bottom Content Box (Seamless Single Card Section) */}
+      <div
+        style={{
+          padding: "1.25rem 1.35rem 1.45rem",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          flex: 1,
+        }}
+      >
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {/* Category Badges (Uniform Height, Year Removed) */}
           <div
             style={{
               display: "flex",
-              flexWrap: "wrap",
+              alignItems: "center",
               gap: "0.4rem",
-              marginBottom: "1.5rem",
+              flexWrap: "wrap",
+              minHeight: "26px",
+              marginBottom: "0.65rem",
             }}
           >
-            {project.tags.slice(0, 3).map((tag, idx) => (
+            {categoryTags.map((tag, idx) => (
               <span
                 key={idx}
                 style={{
-                  fontSize: "0.72rem",
-                  fontWeight: 600,
-                  color: "var(--color-text-muted)",
-                  backgroundColor: "var(--color-bg-subtle)",
-                  padding: "0.25rem 0.6rem",
-                  borderRadius: "var(--radius-xs)",
-                  border: "1px solid var(--border-light)",
+                  border: "1px solid #E2E8F0",
+                  borderRadius: "9999px",
+                  padding: "0.22rem 0.65rem",
+                  fontSize: "0.68rem",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                  color: "#475569",
+                  backgroundColor: "#FAFAFA",
+                  lineHeight: 1.2,
                 }}
               >
                 {tag}
               </span>
             ))}
           </div>
-        </div>
 
-        <div
-          style={{
-            borderTop: "1px solid var(--border-light)",
-            paddingTop: "1rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Link
-            href={`/projects/${project.slug}`}
+          {/* Project Title (Standardized Height for 1 or 2 lines) */}
+          <h3
             style={{
-              fontSize: "0.875rem",
-              fontWeight: 600,
-              color: "var(--color-brand-accent)",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.35rem",
+              fontSize: "1.02rem",
+              fontWeight: 800,
+              textTransform: "uppercase",
+              letterSpacing: "-0.01em",
+              color: isHovered ? "var(--color-brand-accent)" : "#0F172A",
+              lineHeight: 1.35,
+              minHeight: "2.75rem",
+              margin: 0,
+              transition: "color 0.2s ease",
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
             }}
           >
-            <span>Case Study Details</span>
-            <span>&rarr;</span>
-          </Link>
-
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                fontSize: "0.8rem",
-                fontWeight: 600,
-                color: "var(--color-text-muted)",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.3rem",
-              }}
-            >
-              <span>Live Site</span>
-              <ExternalLink size={12} />
-            </a>
-          )}
+            {project.title.replace("—", "-")}
+          </h3>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -41,7 +41,7 @@
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   --font-heading: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-brand-display: 'Ginto Nord', 'ABC Ginto Nord', 'Archivo Black', 'Poppins', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-editorial: var(--font-editorial), 'Playfair Display', 'DM Serif Display', 'Didot', 'Bodoni MT', Georgia, serif;
 
   /* Spacing Scale */
   --spacing-xs: 0.25rem;

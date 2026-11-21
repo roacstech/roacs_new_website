@@ -10,6 +10,7 @@ export function Hero() {
 
   return (
     <section
+      className="hero-section"
       style={{
         position: "relative",
         backgroundColor: "#FAFAFA",
@@ -57,13 +58,15 @@ export function Hero() {
           {/* Centered High-Impact Headline with Reference UI Font Colors */}
           <Reveal delay={0.1}>
             <h1
+              className="hero-heading"
               style={{
-                fontSize: "clamp(2.35rem, 5vw, 4.25rem)",
+                fontSize: "clamp(1.85rem, 6.5vw, 4.25rem)",
                 fontWeight: 800,
                 letterSpacing: "-0.035em",
-                lineHeight: 1.12,
+                lineHeight: 1.14,
                 marginBottom: "1rem",
                 color: "#0A0A0A",
+                wordBreak: "break-word",
               }}
             >
               We Build Scalable{" "}
@@ -93,8 +96,9 @@ export function Hero() {
           {/* Centered Subtitle Copy */}
           <Reveal delay={0.2}>
             <p
+              className="hero-subtitle"
               style={{
-                fontSize: "1.05rem",
+                fontSize: "clamp(0.925rem, 3.6vw, 1.05rem)",
                 lineHeight: 1.6,
                 color: "#52525B",
                 marginBottom: "1.75rem",
@@ -110,6 +114,7 @@ export function Hero() {
           {/* Centered CTA Button Group Styled Like Reference UI */}
           <Reveal delay={0.3}>
             <div
+              className="hero-buttons-wrapper"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -121,9 +126,11 @@ export function Hero() {
               {/* Primary Black Capsule Button with Circle Arrow */}
               <Link
                 href="/contact"
+                className="hero-btn-primary"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
+                  justifyContent: "center",
                   gap: "0.85rem",
                   backgroundColor: "#18181B",
                   color: "#FFFFFF",
@@ -166,9 +173,11 @@ export function Hero() {
               {/* Secondary Clean Glass Pill Button */}
               <Link
                 href="/services"
+                className="hero-btn-secondary"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
+                  justifyContent: "center",
                   gap: "0.5rem",
                   backgroundColor: "rgba(255, 255, 255, 0.85)",
                   color: "#18181B",

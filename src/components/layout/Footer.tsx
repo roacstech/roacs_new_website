@@ -6,6 +6,7 @@ import { servicesData } from "@/data/services";
 import { 
   Mail, 
   Phone 
+  Phone 
 } from "lucide-react";
 
 export function Footer() {
@@ -108,6 +109,55 @@ export function Footer() {
               </ul>
             </div>
 
+          {/* Col 3: Navigation & Proprietary Solution */}
+          <div>
+            <h4
+              style={{
+                fontSize: "1rem",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                color: "#FFFFFF",
+                marginBottom: "1.5rem",
+              }}
+            >
+              Quick Links
+            </h4>
+            <ul
+              style={{
+                listStyle: "none",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+              }}
+            >
+              <li>
+                <Link href="/about" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
+                  About Roacs
+                </Link>
+              </li>
+              <li>
+                <Link href="/material-management" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
+                  Our Products (Material Management)
+                </Link>
+              </li>
+              <li>
+                <Link href="/projects" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
+                  Featured Projects & Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/insights" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
+                  Blogs & Tech Insights
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="footer-link" style={{ fontSize: "0.9rem", color: "var(--color-text-on-dark-muted)" }}>
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
             {/* Col 3: Quick Links */}
             <div>
               <h4
@@ -178,6 +228,23 @@ export function Footer() {
                 Contact Us
               </h4>
 
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.25rem",
+                fontSize: "0.9rem",
+                color: "var(--color-text-on-dark-muted)",
+              }}
+            >
+              <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+                <Mail size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0 }} />
+                <div>
+                  <a href="mailto:info@roacs.com" style={{ color: "#FFFFFF", fontWeight: 500 }}>
+                    info@roacs.com
+                  </a>
+                </div>
+              </div>
               <div
                 style={{
                   display: "flex",
@@ -196,6 +263,19 @@ export function Footer() {
                   </div>
                 </div>
 
+              <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
+                <Phone size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0, marginTop: "0.2rem" }} />
+                <div>
+                  <div>
+                    <span style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)" }}>INDIA: </span>
+                    <a href="tel:+919876543210" style={{ color: "#FFFFFF" }}>+91 98765 43210</a>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: "0.8rem", color: "var(--color-muted-blue)" }}>USA: </span>
+                    <a href="tel:+13203162929" style={{ color: "#FFFFFF" }}>+1 320-316-2929</a>
+                  </div>
+                </div>
+              </div>
                 <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
                   <Phone size={18} color="var(--color-brand-accent)" style={{ flexShrink: 0, marginTop: "0.2rem" }} />
                   <div>
@@ -258,6 +338,7 @@ export function Footer() {
               <Link href="/material-management" className="footer-link" style={{ color: "var(--color-muted-blue)" }}>
                 Products
               </Link>
+              <Link href="/contact" style={{ color: "var(--color-muted-blue)" }}>
               <Link href="/faq" className="footer-link" style={{ color: "var(--color-muted-blue)" }}>
                 FAQ
               </Link>
