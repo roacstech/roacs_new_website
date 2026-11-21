@@ -691,3 +691,82 @@ p {
   pointer-events: none;
 }
 
+
+/* ==========================================================================
+   About Page Premium Styles & Card Animations
+   ========================================================================== */
+
+.about-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.about-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px -12px rgba(16, 29, 53, 0.14), 0 0 20px rgba(237, 25, 24, 0.06);
+  border-color: rgba(237, 25, 24, 0.35) !important;
+}
+
+.about-dark-card-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease,
+              background-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.about-dark-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(37, 99, 235, 0.18);
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.about-val-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+}
+
+.about-val-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+  border-color: rgba(237, 25, 24, 0.4) !important;
+}
+
+.about-val-card .val-img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-val-card:hover .val-img {
+  transform: scale(1.06);
+}
+
+.about-stat-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease;
+}
+
+.about-stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-brand-accent) !important;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+.ambient-pulse {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
