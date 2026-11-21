@@ -6,18 +6,24 @@ export interface ParallaxProduct {
 }
 
 export const servicesParallaxProducts: ParallaxProduct[] = [
-  // Row 1: Core Practice Areas (6 items)
+  // Row 1: Core Engineering & Product Practices (Items 1 to 5)
   {
-    title: "Custom Software Development",
-    link: "/services/custom-software-development",
-    thumbnail: "/images/services/custom-software.avif",
-    category: "Enterprise Practice",
+    title: "UI/UX Design Excellence",
+    link: "/services/ui-ux-design",
+    thumbnail: "/images/services/ui-ux-design.jpg",
+    category: "Product Design",
   },
   {
-    title: "Web Application Development",
-    link: "/services/web-development",
-    thumbnail: "/images/services/web-development.jpg",
-    category: "Modern Web",
+    title: "Cloud & DevOps Solutions",
+    link: "/services/cloud-devops",
+    thumbnail: "/images/services/cloud-devops.jpg",
+    category: "Cloud Infrastructure",
+  },
+  {
+    title: "AI & Intelligent Automation",
+    link: "/services/ai-solutions",
+    thumbnail: "/images/services/ai-solutions.jpg",
+    category: "GenAI & ML",
   },
   {
     title: "Mobile Application Development",
@@ -26,59 +32,41 @@ export const servicesParallaxProducts: ParallaxProduct[] = [
     category: "iOS & Android",
   },
   {
-    title: "AI & Intelligent Automation",
-    link: "/services/ai-solutions",
-    thumbnail: "/images/hero-network-sphere.jpg",
-    category: "GenAI & ML",
-  },
-  {
-    title: "Cloud & DevOps Solutions",
-    link: "/services/cloud-devops",
-    thumbnail: "/images/services/cloud-devops.jpeg",
-    category: "Cloud Infrastructure",
-  },
-  {
-    title: "UI/UX Design Excellence",
-    link: "/services/ui-ux-design",
-    thumbnail: "/images/services/ui-ux-design.png",
-    category: "Product Design",
+    title: "Web Application Development",
+    link: "/services/web-development",
+    thumbnail: "/images/services/web-app-development.jpg",
+    category: "Modern Web",
   },
 
-  // Row 2: Proprietary Products & Flagship Deliverables (6 items)
+  // Row 2: Advisory, Architecture & Flagship Platforms (Items 6 to 10)
   {
-    title: "Roacs Material Management",
-    link: "/material-management",
-    thumbnail: "/images/products/material-management-o2.1.jpg",
-    category: "Proprietary Software",
-  },
-  {
-    title: "Warehouse & Stock Automation",
-    link: "/material-management",
-    thumbnail: "/images/products/inventory-management-01.jpg",
-    category: "Enterprise Platform",
-  },
-  {
-    title: "Strategic IT Consultancy",
+    title: "IT Consultancy",
     link: "/services/it-consultancy",
-    thumbnail: "/images/services/it-consultancy.jpg",
+    thumbnail: "/images/services/it-strategy-consultancy.jpg",
     category: "Advisory & Strategy",
   },
   {
-    title: "AccuPose Health Platform",
-    link: "/projects",
-    thumbnail: "/images/projects/accupose.png",
-    category: "Client Success",
+    title: "Cybersecurity",
+    link: "/services",
+    thumbnail: "/images/services/cybersecurity.jpg",
+    category: "Enterprise Security",
   },
   {
-    title: "Cazanoo Real Estate Portal",
-    link: "/projects",
-    thumbnail: "/images/projects/cazanoo.png",
-    category: "Client Platform",
+    title: "API & Microservices Architecture",
+    link: "/services",
+    thumbnail: "/images/services/api-microservices.jpg",
+    category: "System Integration",
   },
   {
-    title: "Tetas Smart Logistics",
+    title: "Travel & Healthcare Platforms",
     link: "/projects",
-    thumbnail: "/images/projects/tetas.png",
-    category: "Supply Chain",
+    thumbnail: "/images/services/travel-healthcare.jpg",
+    category: "Industry Solutions",
+  },
+  {
+    title: "Roacs Material Management",
+    link: "/material-management",
+    thumbnail: "/images/services/material-management.jpg",
+    category: "Proprietary Software",
   },
 ];
