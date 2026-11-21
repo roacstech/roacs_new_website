@@ -230,7 +230,7 @@ export function Footer() {
         </Container>
       </div>
 
-      {/* Grand Wordmark Display: Matching Discord's Exact UI Scale, Font & Soft Lavender Hue */}
+      {/* Grand Wordmark Display: Matching Discord's Exact UI Scale, Font & Soft Lavender Hue (ALL CAPS) */}
       <div
         style={{
           position: "relative",
@@ -244,7 +244,7 @@ export function Footer() {
       >
         <div style={{ maxWidth: "1360px", margin: "0 auto", padding: "0 1.5rem" }}>
           <svg
-            viewBox="0 0 1024 175"
+            viewBox="0 0 1024 180"
             width="100%"
             height="auto"
             preserveAspectRatio="xMidYMid meet"
@@ -253,22 +253,22 @@ export function Footer() {
               display: "block",
               margin: "0 auto",
             }}
-            aria-label="Roacs"
+            aria-label="ROACS"
             role="img"
           >
             <text
               x="50%"
-              y="148"
+              y="152"
               textAnchor="middle"
               fill="#DDE1FA"
               style={{
                 fontFamily: "'Ginto Nord', 'ABC Ginto Nord', 'Archivo Black', 'Poppins', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif",
                 fontWeight: 900,
-                fontSize: "210px",
-                letterSpacing: "0.025em",
+                fontSize: "205px",
+                letterSpacing: "0.035em",
               }}
             >
-              Roacs
+              ROACS
             </text>
           </svg>
         </div>
