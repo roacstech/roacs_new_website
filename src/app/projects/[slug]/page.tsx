@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/Container";
-import { Button } from "@/components/common/Button";
 import { projectsData } from "@/data/projects";
 import { constructMetadata } from "@/lib/metadata";
 import { ArrowLeft, CheckCircle2, ChevronsRight } from "lucide-react";
