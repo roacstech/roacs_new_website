@@ -162,7 +162,7 @@ export default function AboutPage() {
               >
                 <Image
                   src="/images/about/about-1.jpg"
-                  alt="Roacs Corporation Technical Leadership"
+                  alt="Roacs Corporation Technical Leadership & Cloud Engineering"
                   fill
                   style={{ objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, 50vw"

@@ -50,7 +50,7 @@ export function AboutPreview() {
               >
                 <Image
                   src="/images/about/about-3.jpg"
-                  alt="About Roacs Corporation IT Consulting & Software Development"
+                  alt="Roacs Cloud Infrastructure & Intelligent Software Engineering"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   style={{ objectFit: "cover" }}
