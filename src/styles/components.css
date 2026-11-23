@@ -405,10 +405,6 @@ p {
   .about-detail-grid {
     grid-template-columns: 1fr 1fr !important;
   }
-  .services-header-row {
-    flex-direction: row !important;
-    align-items: flex-end !important;
-  }
   .product-spotlight-grid {
     grid-template-columns: 1.3fr 0.7fr !important;
   }

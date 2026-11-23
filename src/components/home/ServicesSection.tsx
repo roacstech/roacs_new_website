@@ -40,23 +40,13 @@ export function ServicesSection() {
 
       <Container wide style={{ position: "relative", zIndex: 1 }}>
         <Reveal delay={0.1}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              justifyContent: "space-between",
-              marginBottom: "3rem",
-            }}
-            className="services-header-row"
-          >
-            <SectionHeading
-              eyebrow="Our Core Services"
-              eyebrowVariant="accent"
-              title="Innovative IT Solutions for Modern Businesses."
-              description="From strategic IT consultancy to custom software, mobile ecosystems, and cloud automation, we engineer enterprise-grade solutions tailored to accelerate your business goals."
-            />
-          </div>
+          <SectionHeading
+            eyebrow="Our Core Services"
+            eyebrowVariant="accent"
+            title="Innovative IT Solutions for Modern Businesses."
+            description="From strategic IT consultancy to custom software, mobile ecosystems, and cloud automation, we engineer enterprise-grade solutions tailored to accelerate your business goals."
+            align="center"
+          />
         </Reveal>
 
         {/* 6 Core Services Grid */}
