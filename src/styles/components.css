@@ -1305,3 +1305,14 @@ p {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+/* Industry Light Card Styles */
+.industry-light-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 35px -10px rgba(16, 29, 53, 0.08), 0 8px 12px -4px rgba(16, 29, 53, 0.04) !important;
+  border-color: #CBD5E1 !important;
+}
+
+.industry-explore-link:hover {
+  color: var(--color-brand-accent) !important;
+}
