@@ -68,7 +68,7 @@ export function BrandMarquee() {
   return (
     <section
       style={{
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "var(--color-bg-subtle)",
         color: "var(--color-primary-navy)",
         paddingTop: "3.5rem",
         paddingBottom: "3.5rem",
@@ -114,11 +114,11 @@ export function BrandMarquee() {
                 alignItems: "center",
                 gap: "0.85rem",
                 backgroundColor: "#FFFFFF",
-                border: "1px solid var(--border-light)",
+                border: "1px solid #E2E8F0",
                 borderRadius: "var(--radius-md)",
                 padding: "0.45rem 1.15rem",
                 height: "58px",
-                boxShadow: "0 2px 10px rgba(16, 29, 53, 0.05)",
+                boxShadow: "0 4px 14px rgba(16, 29, 53, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03)",
                 flexShrink: 0,
               }}
               title={`${brand.name} — ${brand.industry}`}
