@@ -56,6 +56,7 @@ export function WhyRoacs() {
             eyebrowVariant="accent"
             title="Why leading organizations trust Roacs Corporation with their critical systems."
             description="We bridge the gap between business strategy and deep software engineering, delivering digital solutions that withstand production demands."
+            align="center"
           />
         </Reveal>
 
