@@ -14,40 +14,13 @@ export function InsightsSection() {
     <section className="section section-light" id="insights">
       <Container wide>
         <Reveal delay={0.1}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              marginBottom: "3rem",
-              gap: "1rem",
-            }}
-            className="insights-header-row"
-          >
-            <SectionHeading
-              eyebrow="Latest Insights"
-              eyebrowVariant="tech"
-              title="Technology, Trends & Expert Insights."
-              description="Deep dives, architectural perspectives, and industry trends from the Roacs engineering team to keep your organization at the leading edge of software and cloud technology."
-            />
-
-            <Link
-              href="/insights"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                fontSize: "0.95rem",
-                fontWeight: 600,
-                color: "var(--color-brand-accent)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              <span>View All Insights</span>
-              <ArrowRight size={16} />
-            </Link>
-          </div>
+          <SectionHeading
+            eyebrow="Latest Insights"
+            eyebrowVariant="tech"
+            title="Technology, Trends & Expert Insights."
+            description="Deep dives, architectural perspectives, and industry trends from the Roacs engineering team to keep your organization at the leading edge of software and cloud technology."
+            align="center"
+          />
         </Reveal>
 
         <div className="grid-3">
@@ -205,6 +178,35 @@ export function InsightsSection() {
             </Reveal>
           ))}
         </div>
+
+        {/* Centered Bottom Link */}
+        <Reveal delay={0.3}>
+          <div
+            style={{
+              textAlign: "center",
+              marginTop: "3.5rem",
+            }}
+          >
+            <Link
+              href="/insights"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "var(--color-primary-navy)",
+                fontSize: "0.95rem",
+                fontWeight: 700,
+                borderBottom: "1.5px solid var(--color-brand-accent)",
+                paddingBottom: "0.25rem",
+                transition: "all var(--transition-fast)",
+              }}
+              className="industry-explore-link"
+            >
+              <span>View All Insights & Technical Perspectives</span>
+              <ArrowRight size={16} color="var(--color-brand-accent)" />
+            </Link>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );
