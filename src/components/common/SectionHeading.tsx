@@ -41,12 +41,18 @@ export function SectionHeading({
       )}
       style={{
         maxWidth: align === "center" ? "760px" : "800px",
-        marginBottom: "2.5rem",
+        margin: align === "center" ? "0 auto 2.5rem auto" : align === "right" ? "0 0 2.5rem auto" : "0 0 2.5rem 0",
         textAlign: align,
       }}
     >
       {eyebrow && (
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: align === "center" ? "center" : align === "right" ? "flex-end" : "flex-start",
+            marginBottom: "0.75rem",
+          }}
+        >
           <span className={cn("badge-eyebrow", eyebrowClass)}>
             {eyebrow}
           </span>
@@ -57,6 +63,7 @@ export function SectionHeading({
           color: dark ? "#FFFFFF" : "var(--color-primary-navy)",
           marginBottom: description ? "1rem" : "0",
           fontWeight: 800,
+          textAlign: align,
         }}
       >
         {title}
@@ -67,6 +74,7 @@ export function SectionHeading({
             color: dark ? "var(--color-muted-blue)" : "var(--color-text-secondary)",
             fontSize: "1.125rem",
             lineHeight: 1.6,
+            textAlign: align,
           }}
         >
           {description}
