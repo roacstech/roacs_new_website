@@ -112,60 +112,34 @@ export function AboutPreview() {
               />
             </Reveal>
 
-            {/* Feature Bullets Grid (from index.html) */}
-            <Reveal delay={0.3}>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                  gap: "1.25rem",
-                  marginBottom: "2.5rem",
-                }}
-              >
-                {highlights.map((item, idx) => (
-                  <div
-                    key={idx}
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "0.75rem",
-                      padding: "1rem",
-                      borderRadius: "var(--radius-sm)",
-                      backgroundColor: "var(--color-bg-subtle)",
-                      border: "1px solid var(--border-light)",
-                    }}
-                  >
+            {/* Feature Bullets Grid with Staggered Entrance & Interactive Hover Animations */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                gap: "1.25rem",
+                marginBottom: "2.5rem",
+              }}
+            >
+              {highlights.map((item, idx) => (
+                <Reveal key={idx} delay={0.25 + idx * 0.08} yOffset={16}>
+                  <div className="about-feature-card">
                     <CheckCircle2
                       size={20}
-                      color="var(--color-brand-accent)"
-                      style={{ flexShrink: 0, marginTop: "2px" }}
+                      className="feature-icon"
                     />
                     <div>
-                      <h4
-                        style={{
-                          fontSize: "0.95rem",
-                          fontWeight: 700,
-                          color: "var(--color-primary-navy)",
-                          marginBottom: "0.2rem",
-                        }}
-                      >
+                      <h4 className="feature-title">
                         {item.title}
                       </h4>
-                      <p
-                        style={{
-                          fontSize: "0.825rem",
-                          color: "var(--color-text-secondary)",
-                          lineHeight: 1.4,
-                          margin: 0,
-                        }}
-                      >
+                      <p className="feature-desc">
                         {item.desc}
                       </p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </Reveal>
+                </Reveal>
+              ))}
+            </div>
 
             <Reveal delay={0.4}>
               <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>

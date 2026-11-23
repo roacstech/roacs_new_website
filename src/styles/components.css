@@ -453,6 +453,85 @@ p {
   box-shadow: var(--shadow-lg);
 }
 
+/* About Section Feature Highlight Cards Animation */
+.about-feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+  will-change: transform, box-shadow;
+  cursor: default;
+}
+
+.about-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0%;
+  background-color: var(--color-brand-accent);
+  transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0 2px 2px 0;
+}
+
+.about-feature-card:hover {
+  background-color: #FFFFFF !important;
+  transform: translateY(-5px);
+  border-color: rgba(237, 25, 24, 0.35) !important;
+  box-shadow: 0 14px 30px -8px rgba(16, 29, 53, 0.12), 0 4px 10px -2px rgba(237, 25, 24, 0.05);
+}
+
+.about-feature-card:hover::before {
+  height: 100%;
+}
+
+.about-feature-card .feature-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-brand-accent);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.35s ease;
+}
+
+.about-feature-card:hover .feature-icon {
+  transform: scale(1.22) rotate(6deg);
+  filter: drop-shadow(0 3px 8px rgba(237, 25, 24, 0.45));
+}
+
+.about-feature-card .feature-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 0.25rem;
+  transition: color 0.25s ease;
+}
+
+.about-feature-card:hover .feature-title {
+  color: var(--color-brand-accent);
+}
+
+.about-feature-card .feature-desc {
+  font-size: 0.825rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.about-floating-badge {
+  animation: float-badge-gentle 5s ease-in-out infinite;
+}
+
 .footer-link:hover {
   color: #FFFFFF !important;
   padding-left: 4px;
