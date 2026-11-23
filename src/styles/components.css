@@ -614,25 +614,24 @@ p {
 
 /* Logo Marquee Card */
 .brand-pill-glass {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 0.75rem 1.75rem;
-  height: 64px;
+  padding: 0.5rem 1.15rem;
+  height: 58px;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(16, 29, 53, 0.05);
   transition: all var(--transition-normal);
   flex-shrink: 0;
 }
 
 .brand-pill-glass:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: #FFFFFF;
+  border-color: rgba(237, 25, 24, 0.4);
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(16, 29, 53, 0.1);
 }
 
 /* Accordion Smooth Transition */
