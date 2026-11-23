@@ -46,7 +46,7 @@ export const servicesData: ServiceItem[] = [
     shortDescription: "High-performance, secure, and modern web platforms built with cutting-edge frameworks for rapid delivery and frictionless user interaction.",
     fullDescription: "We engineer resilient web platforms and SaaS solutions using modern architectures. From customer-facing responsive applications to high-concurrency internal administration dashboards, our web solutions prioritize Core Web Vitals, enterprise security, and seamless user experiences.",
     iconName: "Globe",
-    image: "/images/services/web-development.jpg",
+    image: "/images/services/web-app-development.jpg",
     features: [
       "Full-Stack Next.js & React Architectures",
       "Real-Time Data Streaming & WebSockets",
@@ -100,7 +100,7 @@ export const servicesData: ServiceItem[] = [
     shortDescription: "Practical artificial intelligence and machine learning pipelines that automate complex data processing, extraction, and strategic decisions.",
     fullDescription: "We help forward-thinking organizations harness artificial intelligence pragmatically. Rather than building speculative demos, Roacs implements real-world LLM orchestration, intelligent document ingestion, predictive workflows, and computer vision models that tangibly reduce operational costs.",
     iconName: "Cpu",
-    image: "/images/services/it-consultancy.jpg",
+    image: "/images/services/ai-solutions.jpg",
     features: [
       "Domain-Specific LLM Integration & RAG",
       "Automated Optical Character Recognition & Extraction",
@@ -127,7 +127,7 @@ export const servicesData: ServiceItem[] = [
     shortDescription: "Resilient cloud infrastructure, automated CI/CD pipelines, containerization, and 99.99% uptime operational governance.",
     fullDescription: "Accelerate deployment velocity while lowering infrastructure overhead. Roacs architects scalable cloud platforms across AWS, Azure, and Google Cloud using Infrastructure as Code (Terraform), Kubernetes container orchestration, and zero-downtime CI/CD pipelines.",
     iconName: "Cloud",
-    image: "/images/services/cloud-devops.jpeg",
+    image: "/images/services/cloud-devops.jpg",
     features: [
       "Infrastructure as Code (Terraform / OpenTofu)",
       "Automated Zero-Downtime Deployment Pipelines",
@@ -154,7 +154,7 @@ export const servicesData: ServiceItem[] = [
     shortDescription: "Human-centric digital product design, interactive wireframes, and scalable design systems that transform complex data into intuitive experiences.",
     fullDescription: "Great software requires clarity and effortless usability. Our design practice combines qualitative user research, ergonomic wireframing, interactive prototyping, and component-driven Figma design systems that bridge the gap between creative vision and engineering execution.",
     iconName: "Palette",
-    image: "/images/services/ui-ux-design.png",
+    image: "/images/services/ui-ux-design.jpg",
     features: [
       "Design Systems & Reusable Token Libraries",
       "Interactive High-Fidelity Prototypes",
@@ -181,7 +181,7 @@ export const servicesData: ServiceItem[] = [
     shortDescription: "Actionable technology advisory, enterprise architecture planning, tech stack evaluation, and digital transformation roadmaps.",
     fullDescription: "Navigate rapid technological change with confident, experienced leadership. Roacs consultants collaborate with founders, CTOs, and enterprise leaders to evaluate tech debt, select future-proof frameworks, and formulate concrete roadmaps that drive long-term business valuation.",
     iconName: "TrendingUp",
-    image: "/images/services/it-consultancy.jpg",
+    image: "/images/services/it-strategy-consultancy.jpg",
     features: [
       "Technology Architecture Assessment",
       "Vendor & Third-Party Stack Due Diligence",

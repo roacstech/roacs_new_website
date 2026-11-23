@@ -32,13 +32,17 @@ export function Header() {
           right: 0,
           width: "100%",
           zIndex: 1000,
-          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.88)" : "rgba(255, 255, 255, 0.78)",
+          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.92)" : "rgba(255, 255, 255, 0.85)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
           borderBottom: "1px solid rgba(0, 0, 0, 0.06)",
           boxShadow: scrolled ? "0 4px 20px rgba(0, 0, 0, 0.05)" : "0 1px 3px rgba(0, 0, 0, 0.02)",
-          transition: "all var(--transition-normal)",
+          transition: "padding 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease",
           padding: scrolled ? "0.65rem 0" : "0.85rem 0",
+          transform: "translate3d(0, 0, 0)",
+          WebkitBackfaceVisibility: "hidden",
+          backfaceVisibility: "hidden",
+          willChange: "padding, background-color, box-shadow",
         }}
       >
         <Container wide>
@@ -71,6 +75,7 @@ export function Header() {
                   src="/logos/roacs-logo.png"
                   alt="Roacs Corporation"
                   fill
+                  sizes="150px"
                   priority
                   style={{ objectFit: "contain", objectPosition: "left center" }}
                 />

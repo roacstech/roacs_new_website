@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { servicesData } from "@/data/services";
 import { 
   ChevronDown, 
-  ArrowRight, 
   Code2, 
   Globe, 
   Smartphone, 
@@ -14,7 +13,6 @@ import {
   Cloud, 
   Palette, 
   TrendingUp, 
-  Package,
   Boxes
 } from "lucide-react";
 
@@ -107,16 +105,16 @@ export function Navigation() {
             style={{
               position: "absolute",
               top: "100%",
-              left: "-180px",
-              width: "680px",
+              left: "-160px",
+              width: "600px",
               backgroundColor: "#FFFFFF",
               borderRadius: "var(--radius-md)",
               boxShadow: "0 20px 40px -10px rgba(10, 20, 35, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.08)",
-              padding: "1.5rem",
+              padding: "1rem",
               zIndex: 100,
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
-              gap: "0.75rem",
+              gap: "0.4rem 0.75rem",
               animation: "fadeIn 0.2s ease forwards",
             }}
           >
@@ -129,94 +127,29 @@ export function Navigation() {
                   onClick={closeAll}
                   style={{
                     display: "flex",
-                    alignItems: "flex-start",
-                    gap: "0.75rem",
-                    padding: "0.75rem",
+                    alignItems: "center",
+                    gap: "0.65rem",
+                    padding: "0.6rem 0.75rem",
                     borderRadius: "var(--radius-sm)",
-                    transition: "background-color 0.15s ease",
+                    transition: "all 0.15s ease",
                     textDecoration: "none",
                   }}
                   className="dropdown-item"
                 >
-                  <div
+                  <Icon size={18} style={{ color: "var(--color-brand-accent)", flexShrink: 0 }} />
+                  <span
                     style={{
-                      width: "36px",
-                      height: "36px",
-                      borderRadius: "6px",
-                      backgroundColor: "rgba(16, 29, 53, 0.06)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "var(--color-brand-accent)",
-                      flexShrink: 0,
+                      fontSize: "0.875rem",
+                      fontWeight: 600,
+                      color: "var(--color-primary-navy)",
+                      lineHeight: 1.3,
                     }}
                   >
-                    <Icon size={18} />
-                  </div>
-                  <div>
-                    <div
-                      style={{
-                        fontSize: "0.9rem",
-                        fontWeight: 600,
-                        color: "var(--color-primary-navy)",
-                        lineHeight: 1.2,
-                        marginBottom: "0.2rem",
-                      }}
-                    >
-                      {s.title}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "0.78rem",
-                        color: "var(--color-text-muted)",
-                        lineHeight: 1.3,
-                        display: "-webkit-box",
-                        WebkitLineClamp: 1,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                      }}
-                    >
-                      {s.shortDescription}
-                    </div>
-                  </div>
+                    {s.title}
+                  </span>
                 </Link>
               );
             })}
-
-            {/* Proprietary Product Spotlight in Dropdown */}
-            <div
-              style={{
-                gridColumn: "span 2",
-                borderTop: "1px solid var(--border-light)",
-                paddingTop: "0.75rem",
-                marginTop: "0.25rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                <Package size={16} color="var(--color-brand-accent)" />
-                <span style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-primary-navy)" }}>
-                  Proprietary Software: Roacs Material Management
-                </span>
-              </div>
-              <Link
-                href="/material-management"
-                onClick={closeAll}
-                style={{
-                  fontSize: "0.8rem",
-                  fontWeight: 600,
-                  color: "var(--color-brand-accent)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.25rem",
-                }}
-              >
-                <span>View Product</span>
-                <ArrowRight size={14} />
-              </Link>
-            </div>
           </div>
         )}
       </div>
@@ -248,12 +181,12 @@ export function Navigation() {
             style={{
               position: "absolute",
               top: "100%",
-              left: "-80px",
-              width: "360px",
+              left: "-40px",
+              width: "250px",
               backgroundColor: "#FFFFFF",
               borderRadius: "var(--radius-md)",
               boxShadow: "0 20px 40px -10px rgba(10, 20, 35, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.08)",
-              padding: "1.25rem",
+              padding: "0.75rem",
               zIndex: 100,
               animation: "fadeIn 0.2s ease forwards",
             }}
@@ -263,51 +196,26 @@ export function Navigation() {
               onClick={closeAll}
               style={{
                 display: "flex",
-                alignItems: "flex-start",
-                gap: "0.85rem",
-                padding: "0.85rem",
+                alignItems: "center",
+                gap: "0.65rem",
+                padding: "0.6rem 0.75rem",
                 borderRadius: "var(--radius-sm)",
-                transition: "background-color 0.15s ease",
+                transition: "all 0.15s ease",
                 textDecoration: "none",
               }}
               className="dropdown-item"
             >
-              <div
+              <Boxes size={18} style={{ color: "var(--color-brand-accent)", flexShrink: 0 }} />
+              <span
                 style={{
-                  width: "42px",
-                  height: "42px",
-                  borderRadius: "8px",
-                  backgroundColor: "rgba(237, 25, 24, 0.08)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--color-brand-accent)",
-                  flexShrink: 0,
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  color: "var(--color-primary-navy)",
+                  lineHeight: 1.3,
                 }}
               >
-                <Boxes size={22} />
-              </div>
-              <div>
-                <div
-                  style={{
-                    fontSize: "0.95rem",
-                    fontWeight: 700,
-                    color: "var(--color-primary-navy)",
-                    marginBottom: "0.2rem",
-                  }}
-                >
-                  Material Management
-                </div>
-                <div
-                  style={{
-                    fontSize: "0.8rem",
-                    color: "var(--color-text-secondary)",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  Efficiently managing the flow of goods, warehouse stock, and procurement.
-                </div>
-              </div>
+                Material Management
+              </span>
             </Link>
           </div>
         )}
