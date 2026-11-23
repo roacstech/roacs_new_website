@@ -211,7 +211,11 @@ export function ServicesStickyScroll() {
               width: "100%",
               height: "100%",
               overflow: "hidden",
-              backgroundColor: "#0B1424",
+              borderRadius: "1.25rem",
+              backgroundColor: "transparent",
+              border: "none",
+              outline: "none",
+              boxShadow: "none",
             }}
           >
             {/* Real High-Resolution Image */}
@@ -222,7 +226,11 @@ export function ServicesStickyScroll() {
               sizes="480px"
               style={{
                 objectFit: "cover",
+                borderRadius: "1.25rem",
                 transition: "transform 0.5s ease",
+                border: "none",
+                outline: "none",
+                boxShadow: "none",
               }}
             />
 
@@ -231,8 +239,12 @@ export function ServicesStickyScroll() {
               style={{
                 position: "absolute",
                 inset: 0,
+                borderRadius: "1.25rem",
                 background:
-                  "linear-gradient(to top, rgba(11, 20, 36, 0.88) 0%, rgba(11, 20, 36, 0.4) 22%, transparent 48%)",
+                  "linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.25) 20%, transparent 42%)",
+                border: "none",
+                outline: "none",
+                boxShadow: "none",
               }}
             />
 
@@ -289,12 +301,12 @@ export function ServicesStickyScroll() {
             style={{
               fontSize: "clamp(1.35rem, 2.1vw, 1.75rem)",
               fontWeight: 700,
-              color: "var(--color-primary-navy, #101D35)",
+              color: "var(--color-brand-accent, #ED1918)",
               letterSpacing: "-0.02em",
               lineHeight: 1.3,
             }}
           >
-          IT Services & Digital Engineering
+            IT Services & Digital Engineering
           </h2>
         </div>
 
