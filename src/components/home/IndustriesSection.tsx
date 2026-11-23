@@ -20,7 +20,13 @@ export function IndustriesSection() {
     >
       <Container wide>
         <Reveal delay={0.1}>
-          <div style={{ maxWidth: "760px", marginBottom: "3rem" }}>
+          <div
+            style={{
+              maxWidth: "760px",
+              margin: "0 auto 3.5rem auto",
+              textAlign: "center",
+            }}
+          >
             <h2
               style={{
                 fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
@@ -29,6 +35,7 @@ export function IndustriesSection() {
                 lineHeight: 1.2,
                 letterSpacing: "-0.02em",
                 marginBottom: "1rem",
+                textAlign: "center",
               }}
             >
               Domain expertise matched with deep technical capabilities.
@@ -39,6 +46,7 @@ export function IndustriesSection() {
                 color: "#64748B",
                 lineHeight: 1.6,
                 margin: 0,
+                textAlign: "center",
               }}
             >
               We understand that every sector operates under distinct regulatory mandates, user expectations, and operational tempos. Our engineering solutions are built to address these domain-specific realities.
