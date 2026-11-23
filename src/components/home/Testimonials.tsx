@@ -26,8 +26,8 @@ export function Testimonials() {
           style={{
             display: "grid",
             gridTemplateColumns: "1fr",
-            gap: "2rem",
-            maxWidth: "1080px",
+            gap: "1.5rem",
+            maxWidth: "860px",
             margin: "0 auto",
           }}
           className="testimonials-grid"
@@ -38,9 +38,9 @@ export function Testimonials() {
                 style={{
                   backgroundColor: "#FFFFFF",
                   border: "1px solid var(--border-light)",
-                  borderRadius: "var(--radius-lg)",
-                  padding: "2.5rem",
-                  boxShadow: "var(--shadow-md)",
+                  borderRadius: "14px",
+                  padding: "1.6rem",
+                  boxShadow: "0 4px 18px rgba(16, 29, 53, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03)",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
@@ -48,17 +48,17 @@ export function Testimonials() {
                   height: "100%",
                   transition: "all var(--transition-normal)",
                 }}
-                className="card"
+                className="testimonial-card"
               >
                 <div
                   style={{
                     position: "absolute",
-                    top: "1.75rem",
-                    right: "2rem",
+                    top: "1.25rem",
+                    right: "1.25rem",
                     color: "rgba(237, 25, 24, 0.12)",
                   }}
                 >
-                  <Quote size={52} strokeWidth={1.5} />
+                  <Quote size={32} strokeWidth={1.5} />
                 </div>
 
                 <div>
@@ -67,22 +67,22 @@ export function Testimonials() {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "0.25rem",
-                      marginBottom: "1.25rem",
+                      gap: "0.2rem",
+                      marginBottom: "0.85rem",
                     }}
                   >
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        size={18}
+                        size={15}
                         fill="#F59E0B"
                         color="#F59E0B"
                       />
                     ))}
                     <span
                       style={{
-                        marginLeft: "0.5rem",
-                        fontSize: "0.8rem",
+                        marginLeft: "0.4rem",
+                        fontSize: "0.75rem",
                         fontWeight: 700,
                         color: "var(--color-primary-navy)",
                       }}
@@ -93,17 +93,17 @@ export function Testimonials() {
 
                   <p
                     style={{
-                      fontSize: "1.05rem",
-                      lineHeight: 1.7,
+                      fontSize: "0.925rem",
+                      lineHeight: 1.55,
                       color: "var(--color-primary-navy)",
                       fontWeight: 500,
                       fontStyle: "italic",
-                      marginBottom: "2rem",
+                      marginBottom: "1.25rem",
                       position: "relative",
                       zIndex: 1,
                     }}
                   >
-                    â€œ{test.quote}â€ 
+                    &ldquo;{test.quote}&rdquo;
                   </p>
                 </div>
 
@@ -111,16 +111,16 @@ export function Testimonials() {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    gap: "1rem",
+                    gap: "0.85rem",
                     borderTop: "1px solid var(--border-light)",
-                    paddingTop: "1.25rem",
+                    paddingTop: "1rem",
                   }}
                 >
                   <div
                     style={{
                       position: "relative",
-                      width: "52px",
-                      height: "52px",
+                      width: "42px",
+                      height: "42px",
                       borderRadius: "50%",
                       overflow: "hidden",
                       backgroundColor: "var(--color-bg-subtle)",
@@ -138,7 +138,7 @@ export function Testimonials() {
                   <div>
                     <h4
                       style={{
-                        fontSize: "1.05rem",
+                        fontSize: "0.95rem",
                         fontWeight: 700,
                         color: "var(--color-primary-navy)",
                         margin: 0,
@@ -149,7 +149,7 @@ export function Testimonials() {
                     </h4>
                     <span
                       style={{
-                        fontSize: "0.825rem",
+                        fontSize: "0.75rem",
                         color: "var(--color-brand-accent)",
                         fontWeight: 600,
                         display: "block",
@@ -159,7 +159,7 @@ export function Testimonials() {
                     </span>
                     <span
                       style={{
-                        fontSize: "0.78rem",
+                        fontSize: "0.72rem",
                         color: "var(--color-text-muted)",
                       }}
                     >
