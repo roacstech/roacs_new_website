@@ -36,29 +36,30 @@ export function ProjectsSection() {
             style={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              marginBottom: "2.5rem",
-              gap: "1.5rem",
+              alignItems: "center",
+              marginBottom: "3rem",
             }}
-            className="projects-header-row"
           >
             <SectionHeading
               eyebrow="Proven Client Projects"
               eyebrowVariant="accent"
               title="Verified Case Studies Delivered With Engineering Excellence."
               description="A curated look at software solutions, web platforms, and digital products engineered by Roacs for established businesses, high-growth brands, and global enterprises."
+              align="center"
             />
 
             <div
               style={{
-                display: "flex",
+                display: "inline-flex",
                 flexWrap: "wrap",
+                justifyContent: "center",
+                alignItems: "center",
                 gap: "0.5rem",
                 backgroundColor: "var(--color-bg-subtle)",
-                padding: "0.35rem",
-                borderRadius: "var(--radius-sm)",
+                padding: "0.35rem 0.5rem",
+                borderRadius: "var(--radius-full)",
                 border: "1px solid var(--border-light)",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.04)",
               }}
             >
               {categories.map((cat) => (
@@ -66,14 +67,17 @@ export function ProjectsSection() {
                   key={cat.value}
                   onClick={() => setActiveFilter(cat.value)}
                   style={{
-                    padding: "0.5rem 1rem",
-                    borderRadius: "var(--radius-xs)",
+                    padding: "0.5rem 1.15rem",
+                    borderRadius: "var(--radius-full)",
                     fontSize: "0.825rem",
                     fontWeight: 600,
                     backgroundColor: activeFilter === cat.value ? "var(--color-primary-navy)" : "transparent",
                     color: activeFilter === cat.value ? "#FFFFFF" : "var(--color-text-secondary)",
+                    boxShadow: activeFilter === cat.value ? "0 4px 12px rgba(16, 29, 53, 0.18)" : "none",
                     transition: "all var(--transition-fast)",
                     cursor: "pointer",
+                    border: "none",
+                    whiteSpace: "nowrap",
                   }}
                 >
                   {cat.label}
