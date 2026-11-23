@@ -37,7 +37,7 @@ const brands: BrandItem[] = [
   {
     name: "A&B Impex",
     industry: "Export & Global Trade",
-    logo: "/images/brands/aandb-transparent.png",
+    logo: "/images/brands/aandb-navy.png",
     width: 95,
     height: 42,
   },
