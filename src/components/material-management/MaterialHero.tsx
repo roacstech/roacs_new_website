@@ -4,17 +4,17 @@ import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/Container";
-import { 
-  ArrowRight, 
-  Play, 
-  Zap, 
-  ShieldCheck, 
-  BarChart3, 
-  Layers, 
-  Disc, 
-  Droplets, 
-  Hexagon, 
-  AlertTriangle, 
+import {
+  ArrowRight,
+  Play,
+  Zap,
+  ShieldCheck,
+  BarChart3,
+  Layers,
+  Disc,
+  Droplets,
+  Hexagon,
+  AlertTriangle,
   XCircle
 } from "lucide-react";
 
@@ -132,14 +132,14 @@ export function MaterialHero() {
   return (
     <section className="material-hero-section">
       {/* Industrial Aggregate & Quarry Conveyor Facility Background Image */}
-      <div 
-        style={{ 
-          position: "absolute", 
-          inset: 0, 
-          zIndex: 0, 
-          pointerEvents: "none", 
-          overflow: "hidden" 
-        }} 
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+          overflow: "hidden"
+        }}
         aria-hidden="true"
       >
         <Image
@@ -164,7 +164,7 @@ export function MaterialHero() {
       <div className="material-hero-grid-bg" style={{ opacity: 0.15 }} aria-hidden="true" />
 
       {/* Gentle Ambient Top Radial Light */}
-      <div 
+      <div
         style={{
           position: "absolute",
           top: 0,
@@ -181,7 +181,7 @@ export function MaterialHero() {
 
       <Container wide>
         <div className="material-hero-layout" style={{ position: "relative", zIndex: 1 }}>
-          
+
           {/* =========================================================
               Left Column: Executive Value Proposition
              ========================================================= */}
@@ -357,7 +357,7 @@ export function MaterialHero() {
              ========================================================= */}
           <div className="warehouse-console-wrapper">
             <div className="warehouse-glass-console">
-              
+
               {/* Facility Filter Tabs */}
               <div className="console-filter-bar">
                 <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", flexWrap: "wrap", width: "100%" }}>
@@ -392,20 +392,20 @@ export function MaterialHero() {
               <div className="serpentine-pipeline-wrap">
                 {/* Continuous Winding Serpentine Snake Path SVG (when all 4 items displayed) */}
                 {filteredItems.length >= 4 && (
-                  <svg 
-                    className="serpentine-track-svg" 
-                    viewBox="0 0 520 310" 
-                    fill="none" 
+                  <svg
+                    className="serpentine-track-svg"
+                    viewBox="0 0 560 372"
+                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="none"
                     aria-hidden="true"
                   >
                     <path
-                      d="M 62 36 L 458 36 A 39.5 39.5 0 0 1 458 115 L 62 115 A 39.5 39.5 0 0 0 62 194 L 458 194 A 39.5 39.5 0 0 1 458 274"
+                      d="M 70 42 L 490 42 A 48 48 0 0 1 490 138 L 70 138 A 48 48 0 0 0 70 234 L 490 234 A 48 48 0 0 1 490 330"
                       stroke="url(#serpentineGradient)"
-                      strokeWidth="2.75"
+                      strokeWidth="3"
                       strokeLinecap="round"
-                      strokeDasharray="4 2"
+                      strokeDasharray="5 3"
                       opacity="0.85"
                     />
                     <defs>
@@ -429,12 +429,12 @@ export function MaterialHero() {
                     const isEven = index % 2 === 1;
 
                     return (
-                      <div 
-                        key={item.id} 
+                      <div
+                        key={item.id}
                         className={`serpentine-row ${isEven ? "serpentine-row-even" : ""}`}
                       >
                         {/* Visual Capsule (Compact Stadium Shape with Photo & Capacity Ring) */}
-                        <div 
+                        <div
                           className="serpentine-capsule"
                           style={{ borderColor: item.accentColor }}
                         >
@@ -446,27 +446,27 @@ export function MaterialHero() {
                             style={{ objectFit: "cover", objectPosition: "center" }}
                           />
                           {/* Dark Scrim */}
-                          <div 
-                            style={{ 
-                              position: "absolute", 
-                              inset: 0, 
-                              background: "linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.78) 100%)" 
-                            }} 
+                          <div
+                            style={{
+                              position: "absolute",
+                              inset: 0,
+                              background: "linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.78) 100%)"
+                            }}
                           />
 
                           {/* Top Badge: Warehouse ID Tag */}
                           <div
                             style={{
                               position: "absolute",
-                              top: "4px",
-                              left: isEven ? "auto" : "10px",
-                              right: isEven ? "10px" : "auto",
+                              top: "6px",
+                              left: isEven ? "auto" : "12px",
+                              right: isEven ? "12px" : "auto",
                               backgroundColor: "rgba(15, 23, 42, 0.78)",
                               backdropFilter: "blur(4px)",
                               color: "#FFFFFF",
-                              fontSize: "0.54rem",
+                              fontSize: "0.58rem",
                               fontWeight: 800,
-                              padding: "0.08rem 0.35rem",
+                              padding: "0.1rem 0.4rem",
                               borderRadius: "9999px",
                               letterSpacing: "0.05em",
                               border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -476,36 +476,36 @@ export function MaterialHero() {
                           </div>
 
                           {/* Center / Bottom: Compact Circular Capacity Gauge Meter */}
-                          <div 
-                            style={{ 
-                              position: "absolute", 
-                              bottom: "4px", 
-                              left: "50%", 
+                          <div
+                            style={{
+                              position: "absolute",
+                              bottom: "6px",
+                              left: "50%",
                               transform: "translateX(-50%)",
                               display: "flex",
                               alignItems: "center",
-                              gap: "0.25rem",
+                              gap: "0.3rem",
                             }}
                           >
-                            <div style={{ position: "relative", width: 24, height: 24 }}>
-                              <svg width="24" height="24" viewBox="0 0 24 24" style={{ transform: "rotate(-90deg)" }}>
+                            <div style={{ position: "relative", width: 30, height: 30 }}>
+                              <svg width="30" height="30" viewBox="0 0 30 30" style={{ transform: "rotate(-90deg)" }}>
                                 <circle
-                                  cx="12"
-                                  cy="12"
-                                  r="9"
+                                  cx="15"
+                                  cy="15"
+                                  r="11.5"
                                   fill="none"
                                   stroke="rgba(255, 255, 255, 0.2)"
-                                  strokeWidth="2.2"
+                                  strokeWidth="2.5"
                                 />
                                 <circle
-                                  cx="12"
-                                  cy="12"
-                                  r="9"
+                                  cx="15"
+                                  cy="15"
+                                  r="11.5"
                                   fill="none"
                                   stroke={item.accentColor}
-                                  strokeWidth="2.2"
-                                  strokeDasharray={56.55}
-                                  strokeDashoffset={56.55 * (1 - item.capacityPercent / 100)}
+                                  strokeWidth="2.5"
+                                  strokeDasharray={72.26}
+                                  strokeDashoffset={72.26 * (1 - item.capacityPercent / 100)}
                                   strokeLinecap="round"
                                 />
                               </svg>
@@ -516,7 +516,7 @@ export function MaterialHero() {
                                   display: "flex",
                                   alignItems: "center",
                                   justifyContent: "center",
-                                  fontSize: "0.5rem",
+                                  fontSize: "0.58rem",
                                   fontWeight: 800,
                                   color: "#FFFFFF",
                                   fontFamily: "monospace",
@@ -531,10 +531,10 @@ export function MaterialHero() {
                         {/* Content Card (Compact FurniFlex Detail Card Style) */}
                         <div className="serpentine-card">
                           {/* Top: Category Pill Badge */}
-                          <div 
+                          <div
                             className="serpentine-pill-badge"
-                            style={{ 
-                              backgroundColor: `${item.accentColor}14`, 
+                            style={{
+                              backgroundColor: `${item.accentColor}14`,
                               color: item.accentColor,
                               border: `1px solid ${item.accentColor}30`,
                             }}
