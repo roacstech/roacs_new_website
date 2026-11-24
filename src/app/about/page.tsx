@@ -1387,72 +1387,17 @@ export default function AboutPage() {
           borderBottom: "1px solid rgba(226, 232, 240, 0.8)",
         }}
       >
-        {/* Architectural Modern Building Backdrop on Far Right */}
-        <div
-          style={{
-            position: "absolute",
-            right: 0,
-            top: 0,
-            bottom: 0,
-            width: "32%",
-            minWidth: "260px",
-            maxWidth: "460px",
-            pointerEvents: "none",
-            zIndex: 0,
-            maskImage: "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.75) 40%, black 100%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.75) 40%, black 100%)",
-          }}
-        >
+        {/* Full Pristine Artwork Background (Zero Text, High-Res Building & Aurora Wave) */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
           <Image
-            src="/images/about/commitment-building-hq.jpg"
-            alt="Roacs Global Architectural Headquarters"
-            fill
-            sizes="(max-width: 1024px) 100vw, 32vw"
-            style={{ objectFit: "cover", objectPosition: "top right" }}
-          />
-        </div>
-
-        {/* Fluid Glowing Aurora Wave Sweeping Across Bottom */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: "220px",
-            pointerEvents: "none",
-            zIndex: 1,
-          }}
-        >
-          <Image
-            src="/images/about/commitment-wave-alpha.png"
-            alt=""
+            src="/images/about/commitment-perfect-bg.jpg"
+            alt="Roacs Modern Engineering Commitment"
             fill
             sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: "bottom center" }}
+            style={{ objectFit: "cover", objectPosition: "center right" }}
+            priority
           />
         </div>
-
-        {/* Subtle Contour Accent Lines in Bottom-Left */}
-        <svg
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            width: "380px",
-            height: "260px",
-            pointerEvents: "none",
-            zIndex: 1,
-            opacity: 0.65,
-          }}
-          viewBox="0 0 380 260"
-          fill="none"
-        >
-          <path d="M-60,260 C50,240 130,195 190,130 C230,80 270,-10 340,-30" stroke="rgba(99, 102, 241, 0.14)" strokeWidth="1.5" />
-          <path d="M-60,230 C40,210 110,170 165,110 C200,65 240,-20 300,-40" stroke="rgba(99, 102, 241, 0.11)" strokeWidth="1.5" />
-          <path d="M-60,200 C30,180 90,145 140,90 C170,50 210,-30 260,-50" stroke="rgba(99, 102, 241, 0.08)" strokeWidth="1.5" />
-          <path d="M-60,170 C20,150 70,120 115,70 C140,35 180,-40 220,-60" stroke="rgba(99, 102, 241, 0.06)" strokeWidth="1.5" />
-        </svg>
 
         <Container wide style={{ position: "relative", zIndex: 2 }}>
           <div
