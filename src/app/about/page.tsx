@@ -15,7 +15,6 @@ import {
   Users, 
   CheckCircle2, 
   Cpu, 
-  Award,
   Globe
 } from "lucide-react";
 
@@ -120,8 +119,8 @@ export default function AboutPage() {
           {/* Frosted Glass Metrics Ribbon Matching Reference UI */}
           <div className="about-hero-stats-grid">
             <div className="about-glass-stat-card">
-              <span className="about-glass-stat-number">3+</span>
-              <span className="about-glass-stat-label">Years Working Experience</span>
+              <span className="about-glass-stat-number">50+</span>
+              <span className="about-glass-stat-label">Enterprise Clients</span>
             </div>
             <div className="about-glass-stat-card">
               <span className="about-glass-stat-number">100+</span>
@@ -144,6 +143,50 @@ export default function AboutPage() {
           ========================================================================= */}
       <section className="section" style={{ backgroundColor: "#FFFFFF", padding: "6rem 0" }}>
         <Container wide>
+          {/* Centered Section Header */}
+          <div style={{ maxWidth: "860px", margin: "0 auto 4rem auto", textAlign: "center" }}>
+            <span
+              style={{
+                fontSize: "0.8125rem",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.12em",
+                color: "var(--color-brand-accent)",
+                marginBottom: "0.75rem",
+                display: "inline-block",
+              }}
+            >
+              Who We Are
+            </span>
+
+            <h2
+              style={{
+                fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
+                fontWeight: 800,
+                lineHeight: 1.2,
+                letterSpacing: "-0.02em",
+                color: "var(--color-primary-navy)",
+                marginBottom: "1.25rem",
+              }}
+            >
+              Engineering Digital Products That Deliver Sustainable Impact
+            </h2>
+
+            <p
+              style={{
+                fontSize: "1.05rem",
+                lineHeight: 1.7,
+                color: "var(--color-text-secondary)",
+                margin: "0 auto",
+                maxWidth: "760px",
+              }}
+            >
+              We are a forward-thinking software company dedicated to delivering innovative digital solutions that drive business success. 
+              Our team combines creativity, technology, and strategy to build products that are efficient, scalable, and user-friendly. 
+              We believe in turning complex challenges into simple, powerful solutions that help businesses grow in the digital era.
+            </p>
+          </div>
+
           <div
             style={{
               display: "grid",
@@ -152,7 +195,7 @@ export default function AboutPage() {
               alignItems: "center",
             }}
           >
-            {/* Visual Showcase: Overlapping Photos & Floating Badge */}
+            {/* Visual Showcase: Overlapping Photos */}
             <div style={{ position: "relative" }}>
               {/* Main Photo */}
               <div
@@ -198,94 +241,10 @@ export default function AboutPage() {
                   sizes="(max-width: 768px) 80vw, 35vw"
                 />
               </div>
-
-              {/* Floating Experience Badge */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "25px",
-                  left: "-15px",
-                  zIndex: 3,
-                  backgroundColor: "rgba(2, 11, 30, 0.94)",
-                  color: "#FFFFFF",
-                  padding: "1rem 1.4rem",
-                  borderRadius: "var(--radius-md)",
-                  boxShadow: "0 15px 35px rgba(0, 0, 0, 0.35)",
-                  border: "1px solid rgba(255, 255, 255, 0.15)",
-                  backdropFilter: "blur(10px)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.85rem",
-                }}
-                className="hero-float-badge-1"
-              >
-                <div
-                  style={{
-                    width: "42px",
-                    height: "42px",
-                    borderRadius: "50%",
-                    backgroundColor: "rgba(237, 25, 24, 0.15)",
-                    border: "1px solid rgba(237, 25, 24, 0.4)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--color-brand-accent)",
-                    flexShrink: 0,
-                  }}
-                >
-                  <Award size={22} />
-                </div>
-                <div>
-                  <div style={{ fontSize: "1.45rem", fontWeight: 800, lineHeight: 1 }}>3+ Years</div>
-                  <div style={{ fontSize: "0.75rem", color: "var(--color-muted-blue)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                    Working Experience
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Content Column */}
             <div>
-              <span
-                style={{
-                  fontSize: "0.8125rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
-                  color: "var(--color-brand-accent)",
-                  marginBottom: "0.75rem",
-                  display: "inline-block",
-                }}
-              >
-                Who We Are
-              </span>
-
-              <h2
-                style={{
-                  fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
-                  fontWeight: 800,
-                  lineHeight: 1.2,
-                  letterSpacing: "-0.02em",
-                  color: "var(--color-primary-navy)",
-                  marginBottom: "1.5rem",
-                }}
-              >
-                Engineering Digital Products That Deliver Sustainable Impact
-              </h2>
-
-              <p
-                style={{
-                  fontSize: "1.05rem",
-                  lineHeight: 1.7,
-                  color: "var(--color-text-secondary)",
-                  marginBottom: "2rem",
-                }}
-              >
-                We are a forward-thinking software company dedicated to delivering innovative digital solutions that drive business success. 
-                Our team combines creativity, technology, and strategy to build products that are efficient, scalable, and user-friendly. 
-                We believe in turning complex challenges into simple, powerful solutions that help businesses grow in the digital era.
-              </p>
-
               {/* Two Interactive Cards */}
               <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem", marginBottom: "2rem" }}>
                 {/* Feature 1 */}
