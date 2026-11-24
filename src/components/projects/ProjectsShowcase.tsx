@@ -22,9 +22,8 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
       <Container wide>
         {/* 3-Column Modern Digital Agency Projects Grid (No Filters) */}
         <div
-          className="projects-agency-grid"
+          className="grid-3"
           style={{
-            display: "grid",
             gap: "28px",
           }}
         >

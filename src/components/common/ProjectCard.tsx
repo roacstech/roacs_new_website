@@ -15,7 +15,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   // Extract clean client mark for the center image overlay (e.g. CAZANOO, BEC GLOBAL)
   const watermarkName = project.client.toUpperCase();
 
-  // Extract up to 2 clean category tags for the top pill badges
+  // Extract up to 2 clean category tags for the pill badges
   const categoryTags = project.tags.slice(0, 2);
 
   return (
@@ -40,10 +40,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ? "0 14px 32px rgba(16, 29, 53, 0.08)"
           : "0 2px 8px rgba(16, 29, 53, 0.03)",
         transform: isHovered ? "translateY(-4px)" : "translateY(0)",
-        transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease",
+        transition:
+          "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease",
       }}
     >
-      {/* 1. Top Media Box with Blur and About Project Content on Hover */}
+      {/* 1. Top Media Box: Clean, sharp image with centered bold white client mark */}
       <div
         style={{
           position: "relative",
@@ -61,26 +62,26 @@ export function ProjectCard({ project }: ProjectCardProps) {
           sizes="(max-width: 680px) 100vw, (max-width: 1024px) 50vw, 33vw"
           style={{
             objectFit: "cover",
-            transform: isHovered ? "scale(1.06)" : "scale(1)",
-            filter: isHovered ? "blur(8px) brightness(0.4)" : "blur(0px) brightness(0.95)",
-            transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease",
+            transform: isHovered ? "scale(1.05)" : "scale(1)",
+            transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
           priority={project.featured}
         />
 
-        {/* Soft Contrast Veil for Normal State */}
+        {/* Contrast Tint for Text Legibility */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.32) 100%)",
-            transition: "opacity 0.25s ease",
-            opacity: isHovered ? 0 : 0.85,
+            background:
+              "linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.42) 100%)",
+            transition: "opacity 0.3s ease",
+            opacity: 1,
             zIndex: 1,
           }}
         />
 
-        {/* Normal State: Centered Brand Mark / Logo Watermark */}
+        {/* Centered Bold Client Brand Mark / Name (Always visible as in reference Image 1) */}
         <div
           style={{
             position: "absolute",
@@ -91,96 +92,27 @@ export function ProjectCard({ project }: ProjectCardProps) {
             zIndex: 2,
             pointerEvents: "none",
             padding: "1rem",
-            opacity: isHovered ? 0 : 1,
-            transform: isHovered ? "scale(0.92)" : "scale(1)",
-            transition: "opacity 0.25s ease, transform 0.25s ease",
+            transform: isHovered ? "scale(1.04)" : "scale(1)",
+            transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
           <span
             style={{
               color: "#FFFFFF",
-              fontSize: "clamp(1.2rem, 2.5vw, 1.55rem)",
+              fontSize: "clamp(1.15rem, 2.2vw, 1.55rem)",
               fontWeight: 800,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              textShadow: "0 2px 14px rgba(0, 0, 0, 0.55)",
+              textShadow: "0 2px 12px rgba(0, 0, 0, 0.7)",
               textAlign: "center",
             }}
           >
             {watermarkName}
           </span>
         </div>
-
-        {/* Hover State: Blurred Overlay with About Project Content */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            padding: "1.25rem 1.5rem",
-            zIndex: 3,
-            pointerEvents: "none",
-            opacity: isHovered ? 1 : 0,
-            transform: isHovered ? "translateY(0)" : "translateY(8px)",
-            transition: "opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-            backgroundColor: "rgba(16, 29, 53, 0.45)",
-            backdropFilter: isHovered ? "blur(4px)" : "none",
-            WebkitBackdropFilter: isHovered ? "blur(4px)" : "none",
-          }}
-        >
-          <span
-            style={{
-              fontSize: "0.72rem",
-              fontWeight: 800,
-              textTransform: "uppercase",
-              letterSpacing: "0.12em",
-              color: "var(--color-brand-accent)",
-              marginBottom: "0.45rem",
-            }}
-          >
-            About Project
-          </span>
-          <p
-            style={{
-              color: "#FFFFFF",
-              fontSize: "0.85rem",
-              lineHeight: 1.5,
-              margin: 0,
-              fontWeight: 500,
-              display: "-webkit-box",
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textShadow: "0 1px 4px rgba(0, 0, 0, 0.7)",
-            }}
-          >
-            {project.description}
-          </p>
-          <span
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.35rem",
-              fontSize: "0.72rem",
-              fontWeight: 700,
-              color: "#FFFFFF",
-              marginTop: "0.75rem",
-              padding: "0.3rem 0.85rem",
-              borderRadius: "9999px",
-              backgroundColor: "var(--color-brand-accent)",
-              boxShadow: "0 2px 10px rgba(237, 25, 24, 0.4)",
-            }}
-          >
-            View More →
-          </span>
-        </div>
       </div>
 
-      {/* 2. Bottom Content Box (Seamless Single Card Section) */}
+      {/* 2. Bottom Content Box: Category pills and uppercase project title */}
       <div
         style={{
           padding: "1.25rem 1.35rem 1.45rem",
@@ -191,7 +123,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         }}
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
-          {/* Category Badges (Uniform Height, Year Removed) */}
+          {/* Category Badges */}
           <div
             style={{
               display: "flex",
@@ -223,7 +155,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             ))}
           </div>
 
-          {/* Project Title (Standardized Height for 1 or 2 lines) */}
+          {/* Project Title */}
           <h3
             style={{
               fontSize: "1.02rem",

@@ -31,7 +31,7 @@ export function Header() {
           left: 0,
           right: 0,
           width: "100%",
-          zIndex: 1000,
+          zIndex: 100000,
           backgroundColor: scrolled ? "rgba(255, 255, 255, 0.92)" : "rgba(255, 255, 255, 0.85)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",

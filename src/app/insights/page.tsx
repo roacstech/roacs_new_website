@@ -132,19 +132,20 @@ export default function InsightsPage() {
         }
       `}</style>
 
-      {/* Hero section matching reference with centered Latest pill, title, subtitle & visual whiteboard banner */}
+      {/* Hero section with clean, sharp whiteboard sketches & perfectly balanced visibility */}
       <section
         style={{
-          backgroundColor: "#F8FAFC",
+          backgroundColor: "#FFFFFF",
           color: "var(--color-primary-navy, #101D35)",
-          paddingTop: "5.5rem",
-          paddingBottom: "5.5rem",
+          paddingTop: "4.75rem",
+          paddingBottom: "4.75rem",
+          minHeight: "330px",
           borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Background visual banner with whiteboard doodles & hanging lamps */}
+        {/* Background high-res whiteboard doodles banner */}
         <div
           style={{
             position: "absolute",
@@ -158,30 +159,21 @@ export default function InsightsPage() {
             alt="Engineering Concepts & Ideas Whiteboard"
             fill
             priority
-            quality={95}
+            quality={100}
             sizes="100vw"
             style={{
               objectFit: "cover",
-              objectPosition: "center center",
+              objectPosition: "center 45%",
               opacity: 0.95,
             }}
           />
-          {/* Subtle translucent central veil so text is crisp and readable while showing sketches & lamps */}
+          {/* Gentle translucent central veil: text is 100% crisp while all surrounding doodles are clearly visible */}
           <div
             style={{
               position: "absolute",
               inset: 0,
               background:
-                "radial-gradient(ellipse at center, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 45%, rgba(255, 255, 255, 0.5) 80%, rgba(255, 255, 255, 0.25) 100%)",
-            }}
-          />
-          {/* Gentle edge blending into page layout */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, transparent 20%, transparent 75%, rgba(255, 255, 255, 0.95) 100%)",
+                "radial-gradient(ellipse at center, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.58) 45%, rgba(255, 255, 255, 0.15) 80%, rgba(255, 255, 255, 0.02) 100%)",
             }}
           />
         </div>

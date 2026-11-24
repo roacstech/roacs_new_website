@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@/app/globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Preloader } from "@/components/common/Preloader";
 import { constructMetadata, generateOrganizationSchema } from "@/lib/metadata";
 
 export const viewport: Viewport = {
@@ -33,6 +34,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <Preloader />
         <Header />
         <main>{children}</main>
         <Footer />

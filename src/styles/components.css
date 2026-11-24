@@ -1395,3 +1395,63 @@ p {
 .industry-explore-link:hover {
   color: var(--color-brand-accent) !important;
 }
+
+/* Insight Detail & Recent Posts Responsive Layout */
+.insight-detail-page {
+  background-color: #FFFFFF;
+  padding-top: 3.5rem;
+  padding-bottom: 7.5rem;
+}
+
+@keyframes blogFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.insight-detail-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .insight-detail-grid {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2.75rem;
+  }
+}
+
+.insight-detail-main-column {
+  flex: 1 1 0%;
+  min-width: 0;
+  animation: blogFadeInUp 0.5s ease-out forwards;
+}
+
+.insight-detail-sidebar-column {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .insight-detail-sidebar-column {
+    width: 350px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 96px;
+  }
+}
+
+.recent-post-link:hover .recent-post-title {
+  color: var(--color-brand-accent) !important;
+}
+
+.recent-post-link:hover .recent-post-thumb img {
+  transform: scale(1.08);
+}
+

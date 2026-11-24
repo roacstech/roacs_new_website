@@ -9,6 +9,7 @@ export interface InsightItem {
   author: string;
   authorRole: string;
   image?: string;
+  heroImage?: string;
   tags?: string[];
 }
 
@@ -24,6 +25,7 @@ export const insightsData: InsightItem[] = [
     author: "Roacs Team",
     authorRole: "Custom Software Practice",
     image: "/images/blog/blog-1.jpg",
+    heroImage: "/images/insights/article-hero-bg.jpg",
     tags: ["custom-web", "enterprise", "scalability"]
   },
   {
@@ -37,6 +39,7 @@ export const insightsData: InsightItem[] = [
     author: "Roacs Team",
     authorRole: "Full Stack Architecture",
     image: "/images/blog/blog-2.jpg",
+    heroImage: "/images/insights/article-hero-react-node.jpg",
     tags: ["react", "nodejs", "fullstack"]
   },
   {
@@ -50,6 +53,7 @@ export const insightsData: InsightItem[] = [
     author: "Roacs Team",
     authorRole: "Cloud Infrastructure Practice",
     image: "/images/blog/blog-3.jpg",
+    heroImage: "/images/insights/article-hero-cloud.jpg",
     tags: ["cloud", "devops", "performance"]
   },
   {
@@ -63,6 +67,7 @@ export const insightsData: InsightItem[] = [
     author: "Roacs Team",
     authorRole: "Application Security Engineering",
     image: "/images/blog/blog-4.jpg",
+    heroImage: "/images/insights/article-hero-security.jpg",
     tags: ["security", "owasp", "web-dev"]
   },
   {
@@ -76,6 +81,7 @@ export const insightsData: InsightItem[] = [
     author: "Roacs Team",
     authorRole: "DevOps & Automation Team",
     image: "/images/blog/blog-5.jpg",
+    heroImage: "/images/insights/article-hero-devops.jpg",
     tags: ["devops", "cicd", "automation"]
   },
   {
@@ -89,6 +95,7 @@ export const insightsData: InsightItem[] = [
     author: "Roacs Team",
     authorRole: "Strategic Technology Advisory",
     image: "/images/blog/blog-6.jpg",
+    heroImage: "/images/insights/article-hero-consultancy.jpg",
     tags: ["consultancy", "project-management", "it-strategy"]
   }
 ];
