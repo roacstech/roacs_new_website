@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Container } from "@/components/common/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { Button } from "@/components/common/Button";
@@ -331,96 +330,8 @@ export default function MaterialManagementPage() {
               </div>
             </div>
 
-            {/* Right Column: 3D Live Warehouse Console with Floating Elements */}
+            {/* Right Column: 3D Live Warehouse Console */}
             <div className="warehouse-console-wrapper">
-              {/* Floating 3D Cardboard Parcel Box */}
-              <Image
-                src="/images/3d-parcel-box.png"
-                alt="3D Parcel Box"
-                width={120}
-                height={160}
-                className="floating-parcel-box"
-                style={{
-                  position: "absolute",
-                  top: "-30px",
-                  left: "10px",
-                  zIndex: 2,
-                  pointerEvents: "none",
-                  filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.12))",
-                }}
-                priority
-              />
-
-              {/* Floating 3D Translucent Bar Chart with Rising Arrow */}
-              <Image
-                src="/images/3d-growth-chart.png"
-                alt="3D Growth Chart"
-                width={250}
-                height={140}
-                className="floating-growth-chart"
-                style={{
-                  position: "absolute",
-                  top: "-45px",
-                  right: "15px",
-                  zIndex: 2,
-                  pointerEvents: "none",
-                  filter: "drop-shadow(0 15px 30px rgba(37,99,235,0.2))",
-                }}
-                priority
-              />
-
-              {/* Floating 3D Purple Glossy Cube */}
-              <Image
-                src="/images/3d-purple-cube.png"
-                alt="3D Purple Cube"
-                width={80}
-                height={90}
-                className="floating-purple-cube"
-                style={{
-                  position: "absolute",
-                  bottom: "-20px",
-                  left: "15px",
-                  zIndex: 25,
-                  pointerEvents: "none",
-                  filter: "drop-shadow(0 15px 25px rgba(124,58,237,0.3))",
-                }}
-                priority
-              />
-
-              {/* Subtle Neon Orbit Rings Behind Console */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "20%",
-                  right: "-20px",
-                  width: "380px",
-                  height: "220px",
-                  borderRadius: "50%",
-                  border: "2px solid rgba(6, 182, 212, 0.35)",
-                  transform: "rotate(-25deg)",
-                  filter: "blur(0.5px)",
-                  pointerEvents: "none",
-                  zIndex: 1,
-                }}
-                aria-hidden="true"
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "15%",
-                  left: "-10px",
-                  width: "340px",
-                  height: "180px",
-                  borderRadius: "50%",
-                  border: "2px solid rgba(139, 92, 246, 0.3)",
-                  transform: "rotate(15deg)",
-                  filter: "blur(0.5px)",
-                  pointerEvents: "none",
-                  zIndex: 1,
-                }}
-                aria-hidden="true"
-              />
-
               {/* Main 3D Tilted Glass Console */}
               <div className="warehouse-glass-console">
                 {/* Console Header */}
@@ -635,49 +546,6 @@ export default function MaterialManagementPage() {
             </div>
           </div>
         </Container>
-
-        {/* Ambient Bottom Fluid Wave Ribbons */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: "140px",
-            pointerEvents: "none",
-            overflow: "hidden",
-            zIndex: 1,
-          }}
-          aria-hidden="true"
-        >
-          <svg
-            viewBox="0 0 1440 180"
-            fill="none"
-            preserveAspectRatio="none"
-            style={{ width: "100%", height: "100%" }}
-          >
-            <defs>
-              <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#C084FC" stopOpacity="0.45" />
-                <stop offset="40%" stopColor="#818CF8" stopOpacity="0.35" />
-                <stop offset="100%" stopColor="#60A5FA" stopOpacity="0.25" />
-              </linearGradient>
-              <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#A855F7" stopOpacity="0.3" />
-                <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.2" />
-                <stop offset="100%" stopColor="#2DD4BF" stopOpacity="0.15" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M0,90 C320,160 580,20 900,100 C1180,170 1340,90 1440,110 L1440,180 L0,180 Z"
-              fill="url(#waveGrad1)"
-            />
-            <path
-              d="M0,120 C360,50 680,180 1020,90 C1220,40 1380,130 1440,140 L1440,180 L0,180 Z"
-              fill="url(#waveGrad2)"
-            />
-          </svg>
-        </div>
       </section>
 
       {/* Core Modules Grid */}
