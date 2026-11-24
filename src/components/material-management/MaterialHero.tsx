@@ -16,11 +16,13 @@ import {
   Layers, 
   Disc, 
   Droplets, 
-  Hexagon,
-  Search,
-  AlertTriangle,
-  XCircle,
-  Building2
+  Hexagon, 
+  Search, 
+  AlertTriangle, 
+  XCircle, 
+  Building2,
+  Workflow,
+  LayoutGrid
 } from "lucide-react";
 
 interface StockItem {
@@ -28,6 +30,7 @@ interface StockItem {
   sku: string;
   name: string;
   category: "metals" | "gaskets" | "chemicals" | "fasteners";
+  categoryLabel: string;
   facility: string;
   bay: string;
   quantity: string;
@@ -38,6 +41,8 @@ interface StockItem {
   unitCost: string;
   accentColor: string;
   icon: React.ElementType;
+  image: string;
+  warehouseCode: string;
 }
 
 const STOCK_DATA: StockItem[] = [
@@ -46,6 +51,7 @@ const STOCK_DATA: StockItem[] = [
     sku: "SKU-2321-364",
     name: "High-Tensile Steel Rods (12mm)",
     category: "metals",
+    categoryLabel: "Raw Metals Division",
     facility: "Warehouse E-14",
     bay: "Rack 08-B",
     quantity: "2,450 kg",
@@ -56,12 +62,15 @@ const STOCK_DATA: StockItem[] = [
     unitCost: "$3.40 / kg",
     accentColor: "#0284C7",
     icon: Layers,
+    image: "/images/services/material-management.jpg",
+    warehouseCode: "WH E-14",
   },
   {
     id: "2",
     sku: "SKU-4419-268",
     name: "Industrial Silicone Gaskets",
     category: "gaskets",
+    categoryLabel: "Precision Gaskets & Seals",
     facility: "Central Depot",
     bay: "Bay 02-C",
     quantity: "140 pcs",
@@ -72,12 +81,15 @@ const STOCK_DATA: StockItem[] = [
     unitCost: "$18.50 / pc",
     accentColor: "#F59E0B",
     icon: Disc,
+    image: "/images/products/material-management-o2.1.jpg",
+    warehouseCode: "CENTRAL DEPOT",
   },
   {
     id: "3",
     sku: "SKU-2717-884",
     name: "Hydraulic Fluid Type-IV (20L)",
     category: "chemicals",
+    categoryLabel: "Hydraulic & Chemical Fluids",
     facility: "Main Yard",
     bay: "Tank C-4",
     quantity: "85 drums",
@@ -88,12 +100,15 @@ const STOCK_DATA: StockItem[] = [
     unitCost: "$142.00 / drum",
     accentColor: "#0D9488",
     icon: Droplets,
+    image: "/images/about/cloud-infrastructure.jpg",
+    warehouseCode: "MAIN YARD T-4",
   },
   {
     id: "4",
     sku: "SKU-1104-546",
     name: "Titanium Fasteners M8x40",
     category: "fasteners",
+    categoryLabel: "Structural Fasteners",
     facility: "Warehouse A-1",
     bay: "Bin 14-D",
     quantity: "12 boxes",
@@ -104,12 +119,15 @@ const STOCK_DATA: StockItem[] = [
     unitCost: "$95.00 / box",
     accentColor: "#EF4444",
     icon: Hexagon,
+    image: "/images/about/quality.jpg",
+    warehouseCode: "WH A-1 BIN 14",
   },
 ];
 
 export function MaterialHero() {
   const [activeTab, setActiveTab] = useState<"all" | "critical" | "metals" | "fluids">("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [viewMode, setViewMode] = useState<"serpentine" | "grid">("serpentine");
 
   const filteredItems = useMemo(() => {
     return STOCK_DATA.filter((item) => {
@@ -352,14 +370,14 @@ export function MaterialHero() {
           </div>
 
           {/* =========================================================
-              Right Column: Control Tower Console
+              Right Column: Control Tower Console (Serpentine Flow & Grid)
              ========================================================= */}
           <div className="warehouse-console-wrapper">
             <div className="warehouse-glass-console">
               
-              {/* Chrome Top Bar: Traffic lights + Roacs Title + Pulse Telemetry */}
+              {/* Chrome Top Bar: Traffic lights + Roacs Title + View Switcher + Pulse Telemetry */}
               <div className="console-top-bar">
-                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
                   <div className="console-traffic-pips">
                     <span className="console-pip console-pip-red" />
                     <span className="console-pip console-pip-yellow" />
@@ -368,45 +386,81 @@ export function MaterialHero() {
 
                   <div style={{ height: "16px", width: "1px", backgroundColor: "#E2E8F0" }} />
 
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                    {/* Roacs Red Triangle Logo Mark */}
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
-                      <path d="M12 2L2 20H22L12 2Z" fill="#ED1918" />
-                      <path d="M12 7.5L6.5 17.5H17.5L12 7.5Z" fill="#FFFFFF" />
-                      <circle cx="12" cy="14" r="1.8" fill="#ED1918" />
-                    </svg>
-                    <span style={{ fontSize: "0.88rem", fontWeight: 700, color: "#0F172A", letterSpacing: "-0.01em" }}>
+                  {/* Roacs Brand Mark & Header */}
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
+                    <div
+                      style={{
+                        width: 18,
+                        height: 18,
+                        borderRadius: "4px",
+                        backgroundColor: "#ED1918",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "#FFFFFF",
+                        fontSize: "0.6rem",
+                        fontWeight: 900,
+                        boxShadow: "0 1px 4px rgba(237, 25, 24, 0.4)",
+                      }}
+                    >
+                      ▲
+                    </div>
+                    <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A" }}>
                       Live Warehouse Stock Balances
                     </span>
                   </div>
                 </div>
 
-                {/* Auto Sync Active Pill */}
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.4rem",
-                    fontSize: "0.72rem",
-                    backgroundColor: "rgba(16, 185, 129, 0.1)",
-                    color: "#059669",
-                    padding: "0.25rem 0.65rem",
-                    borderRadius: "9999px",
-                    fontWeight: 700,
-                    border: "1px solid rgba(16, 185, 129, 0.2)",
-                  }}
-                >
-                  <span
+                <div style={{ display: "flex", alignItems: "center", gap: "0.65rem" }}>
+                  {/* View Mode Toggle: Serpentine Flow vs Compact Grid */}
+                  <div className="serpentine-view-toggle">
+                    <button
+                      type="button"
+                      onClick={() => setViewMode("serpentine")}
+                      className={`serpentine-view-btn ${viewMode === "serpentine" ? "serpentine-view-btn-active" : "serpentine-view-btn-inactive"}`}
+                      title="Winding Serpentine Pipeline View"
+                    >
+                      <Workflow size={12} />
+                      <span>Pipeline</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setViewMode("grid")}
+                      className={`serpentine-view-btn ${viewMode === "grid" ? "serpentine-view-btn-active" : "serpentine-view-btn-inactive"}`}
+                      title="Compact Table Grid View"
+                    >
+                      <LayoutGrid size={12} />
+                      <span>Grid</span>
+                    </button>
+                  </div>
+
+                  {/* Auto Sync Active Pill */}
+                  <div
                     style={{
-                      width: 6,
-                      height: 6,
-                      borderRadius: "50%",
-                      backgroundColor: "#10B981",
-                      boxShadow: "0 0 6px rgba(16, 185, 129, 0.8)",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.4rem",
+                      fontSize: "0.72rem",
+                      backgroundColor: "rgba(16, 185, 129, 0.1)",
+                      color: "#059669",
+                      padding: "0.25rem 0.65rem",
+                      borderRadius: "9999px",
+                      fontWeight: 700,
+                      border: "1px solid rgba(16, 185, 129, 0.2)",
                     }}
-                  />
-                  <span>Auto-Sync Active</span>
-                  <Activity size={11} color="#059669" />
+                  >
+                    <span
+                      style={{
+                        width: 6,
+                        height: 6,
+                        borderRadius: "50%",
+                        backgroundColor: "#10B981",
+                        boxShadow: "0 0 6px rgba(16, 185, 129, 0.8)",
+                      }}
+                    />
+                    <span>Auto-Sync</span>
+                    <Activity size={11} color="#059669" />
+                  </div>
                 </div>
               </div>
 
@@ -451,46 +505,176 @@ export function MaterialHero() {
                 </div>
               </div>
 
-              {/* Dense High-Precision Inventory Records */}
-              <div style={{ padding: "0.85rem 1.15rem", display: "flex", flexDirection: "column", gap: "0.65rem" }}>
-                {filteredItems.length === 0 ? (
-                  <div style={{ padding: "2rem", textAlign: "center", fontSize: "0.825rem", color: "#64748B" }}>
-                    No matching inventory items found.
-                  </div>
-                ) : (
-                  filteredItems.map((item) => {
-                    const ItemIcon = item.icon;
-                    return (
-                      <div key={item.id} className="stock-row-card">
-                        {/* Colored Left Accent Stripe */}
-                        <div
-                          className="stock-row-stripe"
-                          style={{ backgroundColor: item.accentColor }}
-                        />
+              {/* =========================================================
+                  VIEW 1: Serpentine Flow Pipeline (FurniFlex Style)
+                 ========================================================= */}
+              {viewMode === "serpentine" && (
+                <div className="serpentine-pipeline-wrap">
+                  {/* Continuous Winding Serpentine Snake Path SVG (when all 4 items displayed) */}
+                  {filteredItems.length >= 4 && (
+                    <svg 
+                      className="serpentine-track-svg" 
+                      viewBox="0 0 600 480" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                      preserveAspectRatio="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M 90 20 A 45 45 0 0 0 90 110 L 510 110 A 45 45 0 0 1 510 230 L 90 230 A 45 45 0 0 0 90 350 L 510 350 A 45 45 0 0 1 510 460"
+                        stroke="url(#serpentineGradient)"
+                        strokeWidth="3.5"
+                        strokeLinecap="round"
+                        strokeDasharray="4 2"
+                        opacity="0.85"
+                      />
+                      <defs>
+                        <linearGradient id="serpentineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#4338CA" />
+                          <stop offset="40%" stopColor="#0284C7" />
+                          <stop offset="70%" stopColor="#0D9488" />
+                          <stop offset="100%" stopColor="#EF4444" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  )}
 
-                        {/* Left: Icon + Details */}
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                          <div
-                            style={{
-                              width: 36,
-                              height: 36,
-                              borderRadius: "8px",
-                              backgroundColor: `${item.accentColor}18`,
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              color: item.accentColor,
-                              flexShrink: 0,
-                            }}
+                  {filteredItems.length === 0 ? (
+                    <div style={{ padding: "3rem 1rem", textAlign: "center", fontSize: "0.85rem", color: "#64748B" }}>
+                      No matching inventory items found for current filter.
+                    </div>
+                  ) : (
+                    filteredItems.map((item, index) => {
+                      const ItemIcon = item.icon;
+                      const isEven = index % 2 === 1;
+
+                      return (
+                        <div 
+                          key={item.id} 
+                          className={`serpentine-row ${isEven ? "serpentine-row-even" : ""}`}
+                        >
+                          {/* Visual Capsule (Stadium Shape with Photo & Capacity Ring) */}
+                          <div 
+                            className="serpentine-capsule"
+                            style={{ borderColor: item.accentColor }}
                           >
-                            <ItemIcon size={18} />
+                            <Image
+                              src={item.image}
+                              alt={item.name}
+                              fill
+                              sizes="(max-width: 640px) 100vw, 200px"
+                              style={{ objectFit: "cover", objectPosition: "center" }}
+                            />
+                            {/* Dark Scrim */}
+                            <div 
+                              style={{ 
+                                position: "absolute", 
+                                inset: 0, 
+                                background: "linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.78) 100%)" 
+                              }} 
+                            />
+
+                            {/* Top Badge: Warehouse ID Tag */}
+                            <div
+                              style={{
+                                position: "absolute",
+                                top: "8px",
+                                left: isEven ? "auto" : "16px",
+                                right: isEven ? "16px" : "auto",
+                                backgroundColor: "rgba(15, 23, 42, 0.75)",
+                                backdropFilter: "blur(4px)",
+                                color: "#FFFFFF",
+                                fontSize: "0.62rem",
+                                fontWeight: 800,
+                                padding: "0.15rem 0.5rem",
+                                borderRadius: "9999px",
+                                letterSpacing: "0.06em",
+                                border: "1px solid rgba(255, 255, 255, 0.2)",
+                              }}
+                            >
+                              {item.warehouseCode}
+                            </div>
+
+                            {/* Center / Bottom: Circular Capacity Gauge Meter */}
+                            <div 
+                              style={{ 
+                                position: "absolute", 
+                                bottom: "8px", 
+                                left: "50%", 
+                                transform: "translateX(-50%)",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.45rem",
+                              }}
+                            >
+                              <div style={{ position: "relative", width: 36, height: 36 }}>
+                                <svg width="36" height="36" viewBox="0 0 36 36" style={{ transform: "rotate(-90deg)" }}>
+                                  <circle
+                                    cx="18"
+                                    cy="18"
+                                    r="14"
+                                    fill="none"
+                                    stroke="rgba(255, 255, 255, 0.2)"
+                                    strokeWidth="3"
+                                  />
+                                  <circle
+                                    cx="18"
+                                    cy="18"
+                                    r="14"
+                                    fill="none"
+                                    stroke={item.accentColor}
+                                    strokeWidth="3"
+                                    strokeDasharray={87.96}
+                                    strokeDashoffset={87.96 * (1 - item.capacityPercent / 100)}
+                                    strokeLinecap="round"
+                                  />
+                                </svg>
+                                <span
+                                  style={{
+                                    position: "absolute",
+                                    inset: 0,
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    fontSize: "0.65rem",
+                                    fontWeight: 800,
+                                    color: "#FFFFFF",
+                                    fontFamily: "monospace",
+                                  }}
+                                >
+                                  {item.capacityPercent}%
+                                </span>
+                              </div>
+                            </div>
                           </div>
 
-                          <div>
-                            <div style={{ fontWeight: 700, color: "#0F172A", fontSize: "0.875rem" }}>
-                              {item.name}
+                          {/* Content Card (FurniFlex Detail Card Style) */}
+                          <div className="serpentine-card">
+                            {/* Top: Category Pill Badge (Matching Image 1 badge) */}
+                            <div 
+                              className="serpentine-pill-badge"
+                              style={{ 
+                                backgroundColor: `${item.accentColor}14`, 
+                                color: item.accentColor,
+                                border: `1px solid ${item.accentColor}30`,
+                              }}
+                            >
+                              <ItemIcon size={11} />
+                              <span>{item.categoryLabel}</span>
                             </div>
-                            <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontSize: "0.72rem", color: "#64748B", marginTop: "2px" }}>
+
+                            {/* Item Name */}
+                            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "0.5rem" }}>
+                              <div style={{ fontWeight: 800, color: "#0F172A", fontSize: "0.925rem", lineHeight: 1.25 }}>
+                                {item.name}
+                              </div>
+                              <div style={{ fontFamily: "monospace", fontWeight: 800, color: "#0F172A", fontSize: "0.95rem", flexShrink: 0 }}>
+                                {item.quantity}
+                              </div>
+                            </div>
+
+                            {/* SKU Chip & Warehouse Location */}
+                            <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontSize: "0.72rem", color: "#64748B", marginTop: "0.3rem", flexWrap: "wrap" }}>
                               <span style={{ fontFamily: "monospace", fontWeight: 600, backgroundColor: "#F1F5F9", padding: "0.1rem 0.4rem", borderRadius: "4px", color: "#475569", border: "1px solid #E2E8F0" }}>
                                 {item.sku}
                               </span>
@@ -499,58 +683,144 @@ export function MaterialHero() {
                               <span>•</span>
                               <span style={{ color: "#94A3B8" }}>{item.bay}</span>
                             </div>
+
+                            {/* Bottom Status & Reorder Threshold */}
+                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "0.6rem", paddingTop: "0.45rem", borderTop: "1px dashed rgba(226, 232, 240, 0.9)" }}>
+                              <div style={{ fontSize: "0.72rem", color: "#64748B" }}>
+                                <span style={{ fontWeight: 600, color: "#475569" }}>Reorder: </span>
+                                {item.reorderPoint} ({item.unitCost})
+                              </div>
+
+                              <div>
+                                {item.statusType === "success" && (
+                                  <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.68rem", fontWeight: 700, color: "#059669", backgroundColor: "#ECFDF5", border: "1px solid #A7F3D0", padding: "0.12rem 0.5rem", borderRadius: "9999px" }}>
+                                    <span>↗</span> In Stock
+                                  </span>
+                                )}
+                                {item.statusType === "warning" && (
+                                  <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.68rem", fontWeight: 700, color: "#D97706", backgroundColor: "#FFFBEB", border: "1px solid #FDE68A", padding: "0.12rem 0.5rem", borderRadius: "9999px" }}>
+                                    <AlertTriangle size={10} color="#D97706" /> Low Stock
+                                  </span>
+                                )}
+                                {item.statusType === "danger" && (
+                                  <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.68rem", fontWeight: 700, color: "#DC2626", backgroundColor: "#FEF2F2", border: "1px solid #FECACA", padding: "0.12rem 0.5rem", borderRadius: "9999px" }}>
+                                    <XCircle size={10} color="#DC2626" /> Critical
+                                  </span>
+                                )}
+                              </div>
+                            </div>
                           </div>
                         </div>
+                      );
+                    })
+                  )}
+                </div>
+              )}
 
-                        {/* Center: Capacity Micro Progress Bar */}
-                        <div className="console-capacity-bar-wrap">
-                          <div style={{ display: "flex", justifyContent: "space-between", width: "100%", fontSize: "0.68rem", color: "#64748B" }}>
-                            <span>Capacity</span>
-                            <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#334155" }}>
-                              {item.capacityPercent}%
-                            </span>
-                          </div>
-                          <div style={{ width: "100%", height: "5px", borderRadius: "9999px", backgroundColor: "#F1F5F9", overflow: "hidden" }}>
+              {/* =========================================================
+                  VIEW 2: Compact High-Precision Grid Console
+                 ========================================================= */}
+              {viewMode === "grid" && (
+                <div style={{ padding: "0.85rem 1.15rem", display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+                  {filteredItems.length === 0 ? (
+                    <div style={{ padding: "2rem", textAlign: "center", fontSize: "0.825rem", color: "#64748B" }}>
+                      No matching inventory items found.
+                    </div>
+                  ) : (
+                    filteredItems.map((item) => {
+                      const ItemIcon = item.icon;
+                      return (
+                        <div key={item.id} className="stock-row-card">
+                          {/* Colored Left Accent Stripe */}
+                          <div
+                            className="stock-row-stripe"
+                            style={{ backgroundColor: item.accentColor }}
+                          />
+
+                          {/* Left: Icon + Details */}
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                             <div
                               style={{
-                                height: "100%",
-                                borderRadius: "9999px",
-                                width: `${item.capacityPercent}%`,
-                                backgroundColor: item.accentColor,
-                                transition: "width 0.4s ease",
+                                width: 36,
+                                height: 36,
+                                borderRadius: "8px",
+                                backgroundColor: `${item.accentColor}18`,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                color: item.accentColor,
+                                flexShrink: 0,
                               }}
-                            />
-                          </div>
-                        </div>
+                            >
+                              <ItemIcon size={18} />
+                            </div>
 
-                        {/* Right: Quantity + Status Badge */}
-                        <div style={{ textAlign: "right", flexShrink: 0 }}>
-                          <div style={{ fontFamily: "monospace", fontWeight: 800, color: "#0F172A", fontSize: "0.95rem" }}>
-                            {item.quantity}
+                            <div>
+                              <div style={{ fontWeight: 700, color: "#0F172A", fontSize: "0.875rem" }}>
+                                {item.name}
+                              </div>
+                              <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontSize: "0.72rem", color: "#64748B", marginTop: "2px" }}>
+                                <span style={{ fontFamily: "monospace", fontWeight: 600, backgroundColor: "#F1F5F9", padding: "0.1rem 0.4rem", borderRadius: "4px", color: "#475569", border: "1px solid #E2E8F0" }}>
+                                  {item.sku}
+                                </span>
+                                <span>•</span>
+                                <span>{item.facility}</span>
+                                <span>•</span>
+                                <span style={{ color: "#94A3B8" }}>{item.bay}</span>
+                              </div>
+                            </div>
                           </div>
-                          <div style={{ marginTop: "2px" }}>
-                            {item.statusType === "success" && (
-                              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", fontWeight: 700, color: "#059669", backgroundColor: "#ECFDF5", border: "1px solid #A7F3D0", padding: "0.15rem 0.55rem", borderRadius: "9999px" }}>
-                                <span>↗</span> In Stock
+
+                          {/* Center: Capacity Micro Progress Bar */}
+                          <div className="console-capacity-bar-wrap">
+                            <div style={{ display: "flex", justifyContent: "space-between", width: "100%", fontSize: "0.68rem", color: "#64748B" }}>
+                              <span>Capacity</span>
+                              <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#334155" }}>
+                                {item.capacityPercent}%
                               </span>
-                            )}
-                            {item.statusType === "warning" && (
-                              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", fontWeight: 700, color: "#D97706", backgroundColor: "#FFFBEB", border: "1px solid #FDE68A", padding: "0.15rem 0.55rem", borderRadius: "9999px" }}>
-                                <AlertTriangle size={10} color="#D97706" /> Low Stock
-                              </span>
-                            )}
-                            {item.statusType === "danger" && (
-                              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", fontWeight: 700, color: "#DC2626", backgroundColor: "#FEF2F2", border: "1px solid #FECACA", padding: "0.15rem 0.55rem", borderRadius: "9999px" }}>
-                                <XCircle size={10} color="#DC2626" /> Out of Stock
-                              </span>
-                            )}
+                            </div>
+                            <div style={{ width: "100%", height: "5px", borderRadius: "9999px", backgroundColor: "#F1F5F9", overflow: "hidden" }}>
+                              <div
+                                style={{
+                                  height: "100%",
+                                  borderRadius: "9999px",
+                                  width: `${item.capacityPercent}%`,
+                                  backgroundColor: item.accentColor,
+                                  transition: "width 0.4s ease",
+                                }}
+                              />
+                            </div>
+                          </div>
+
+                          {/* Right: Quantity + Status Badge */}
+                          <div style={{ textAlign: "right", flexShrink: 0 }}>
+                            <div style={{ fontFamily: "monospace", fontWeight: 800, color: "#0F172A", fontSize: "0.95rem" }}>
+                              {item.quantity}
+                            </div>
+                            <div style={{ marginTop: "2px" }}>
+                              {item.statusType === "success" && (
+                                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", fontWeight: 700, color: "#059669", backgroundColor: "#ECFDF5", border: "1px solid #A7F3D0", padding: "0.15rem 0.55rem", borderRadius: "9999px" }}>
+                                  <span>↗</span> In Stock
+                                </span>
+                              )}
+                              {item.statusType === "warning" && (
+                                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", fontWeight: 700, color: "#D97706", backgroundColor: "#FFFBEB", border: "1px solid #FDE68A", padding: "0.15rem 0.55rem", borderRadius: "9999px" }}>
+                                  <AlertTriangle size={10} color="#D97706" /> Low Stock
+                                </span>
+                              )}
+                              {item.statusType === "danger" && (
+                                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", fontWeight: 700, color: "#DC2626", backgroundColor: "#FEF2F2", border: "1px solid #FECACA", padding: "0.15rem 0.55rem", borderRadius: "9999px" }}>
+                                  <XCircle size={10} color="#DC2626" /> Out of Stock
+                                </span>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })
-                )}
-              </div>
+                      );
+                    })
+                  )}
+                </div>
+              )}
 
               {/* Bottom Bento Telemetry Cards (3 Executive KPIs) */}
               <div className="console-bento-grid">

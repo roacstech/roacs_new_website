@@ -1697,7 +1697,7 @@ p {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 650px;
+  max-width: 680px;
   background: #FFFFFF;
   border-radius: 20px;
   border: 1px solid rgba(226, 232, 240, 0.95);
@@ -1878,4 +1878,148 @@ p {
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* =========================================================================
+   Serpentine Flow Pipeline (FurniFlex-style Winding S-Track for Stock Flow)
+   ========================================================================= */
+.serpentine-pipeline-wrap {
+  position: relative;
+  width: 100%;
+  padding: 1.25rem 1.15rem;
+  background: #FFFFFF;
+}
+
+.serpentine-track-svg {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.15rem;
+  right: 1.15rem;
+  bottom: 1.25rem;
+  width: calc(100% - 2.3rem);
+  height: calc(100% - 2.5rem);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.serpentine-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.35rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.serpentine-row:last-child {
+  margin-bottom: 0;
+}
+
+.serpentine-row-even {
+  flex-direction: row-reverse;
+}
+
+.serpentine-capsule {
+  position: relative;
+  width: 180px;
+  height: 106px;
+  border-radius: 53px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.16);
+  border: 3.5px solid rgba(255, 255, 255, 0.95);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: #0F172A;
+}
+
+.serpentine-row:hover .serpentine-capsule {
+  transform: scale(1.03);
+  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.25);
+}
+
+.serpentine-card {
+  flex: 1;
+  min-width: 0;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(226, 232, 240, 0.95);
+  border-radius: 16px;
+  padding: 0.85rem 1.1rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.serpentine-row:hover .serpentine-card {
+  border-color: #CBD5E1;
+  background: #F8FAFC;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.serpentine-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.serpentine-view-toggle {
+  display: inline-flex;
+  align-items: center;
+  background-color: #F1F5F9;
+  border-radius: 8px;
+  padding: 2px;
+  border: 1px solid #E2E8F0;
+}
+
+.serpentine-view-btn {
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.serpentine-view-btn-active {
+  background-color: #FFFFFF;
+  color: #0F172A;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.serpentine-view-btn-inactive {
+  background-color: transparent;
+  color: #64748B;
+}
+
+.serpentine-view-btn-inactive:hover {
+  color: #0F172A;
+}
+
+@media (max-width: 640px) {
+  .serpentine-row,
+  .serpentine-row-even {
+    flex-direction: column !important;
+    align-items: stretch;
+  }
+  .serpentine-capsule {
+    width: 100%;
+    height: 90px;
+    border-radius: 20px;
+  }
+  .serpentine-track-svg {
+    display: none;
+  }
 }
