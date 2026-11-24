@@ -49,11 +49,11 @@ export function AboutPreview() {
                 }}
               >
                 <Image
-                  src="/images/about/team-collaboration.jpg"
-                  alt="Roacs Software Engineering Team & Technical Architecture"
+                  src="/images/about/ai-cloud-solutions.jpg"
+                  alt="Roacs Intelligent Software Solutions & AI Cloud Architecture"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  style={{ objectFit: "cover", objectPosition: "left center" }}
+                  style={{ objectFit: "cover", objectPosition: "center" }}
                   priority
                 />
                 <div
