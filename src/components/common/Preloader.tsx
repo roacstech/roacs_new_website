@@ -11,9 +11,14 @@ export function Preloader() {
   useEffect(() => {
     setMounted(true);
 
+    // Lock body scrolling while loading so footer cannot peek or scroll into view
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     // Initial display duration
     const fadeTimer = setTimeout(() => {
       setLoading(false);
+      document.body.style.overflow = originalOverflow || "";
     }, 1800);
 
     // Smoothly remove from DOM after fade completes
@@ -24,6 +29,7 @@ export function Preloader() {
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(hideTimer);
+      document.body.style.overflow = originalOverflow || "";
     };
   }, []);
 
@@ -33,16 +39,16 @@ export function Preloader() {
     <div
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 9999, // Below Header (zIndex 100000) so navbar remains completely visible
+        inset: 0,
+        width: "100vw",
+        height: "100vh",
+        zIndex: 9999, // Below Header (zIndex 100000) so only navbar shows
         backgroundColor: "#FFFFFF",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: "72px", // Accounts for navbar height so logo is centered in content area
+        paddingTop: "72px",
+        overflow: "hidden",
         opacity: loading ? 1 : 0,
         pointerEvents: loading ? "all" : "none",
         transition:
