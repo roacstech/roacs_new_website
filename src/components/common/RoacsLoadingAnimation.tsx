@@ -38,40 +38,40 @@ export function RoacsLoadingAnimation({
       }}
     >
       <style>{`
-        /* Stage 1: Sharp specular glint on 'r' */
-        @keyframes rGlint {
+        /* Stage 1: Soft radiant pulse on letter 'r' (seamless, zero lines) */
+        @keyframes rPulse {
           0%, 100% {
             opacity: 0;
-            transform: scale(0.3) rotate(0deg);
+            transform: scale(0.6) translate(-50%, -50%);
           }
-          10% {
-            opacity: 1;
-            transform: scale(1.1) rotate(45deg);
+          12% {
+            opacity: 0.9;
+            transform: scale(1.05) translate(-50%, -50%);
           }
-          20% {
-            opacity: 0.8;
-            transform: scale(1.3) rotate(90deg);
+          24% {
+            opacity: 0.4;
+            transform: scale(1.2) translate(-50%, -50%);
           }
-          32% {
+          34% {
             opacity: 0;
-            transform: scale(0.4) rotate(135deg);
+            transform: scale(1.3) translate(-50%, -50%);
           }
         }
 
-        /* Stages 1-3: Light Wave Sweep across 'roacs' text */
+        /* Stages 1-3: Smooth metallic sheen sweep across 'roacs' */
         @keyframes textLightSweep {
           0% {
             transform: translateX(-110%);
             opacity: 0;
           }
           6% {
-            opacity: 0.75;
+            opacity: 0.7;
           }
           18% {
-            opacity: 1;
+            opacity: 0.95;
           }
           65% {
-            opacity: 0.95;
+            opacity: 0.9;
           }
           78% {
             transform: translateX(115%);
@@ -83,7 +83,7 @@ export function RoacsLoadingAnimation({
           }
         }
 
-        /* Stage 2: Yellow Chevron Nudge & Glow */
+        /* Stage 2: Yellow Chevron Nudge & Warm Glow */
         @keyframes stage2YellowNudge {
           0%, 18% {
             opacity: 0.95;
@@ -93,12 +93,12 @@ export function RoacsLoadingAnimation({
           26% {
             opacity: 1;
             transform: translate(3.5px, -3.5px) scale(1.02);
-            filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.85)) drop-shadow(0 0 3px #F59E0B) brightness(1.12);
+            filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.8)) drop-shadow(0 0 3px #F59E0B) brightness(1.1);
           }
           44% {
             opacity: 1;
             transform: translate(3.5px, -3.5px) scale(1.02);
-            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.75)) drop-shadow(0 0 2px #F59E0B) brightness(1.1);
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.7)) drop-shadow(0 0 2px #F59E0B) brightness(1.08);
           }
           54%, 100% {
             opacity: 0.95;
@@ -117,12 +117,12 @@ export function RoacsLoadingAnimation({
           54% {
             opacity: 1;
             transform: translate(4px, -4px) scale(1.02);
-            filter: drop-shadow(0 0 14px rgba(34, 197, 94, 0.85)) drop-shadow(0 0 4px #10B981) brightness(1.18);
+            filter: drop-shadow(0 0 14px rgba(34, 197, 94, 0.85)) drop-shadow(0 0 3px #10B981) brightness(1.15);
           }
           74% {
             opacity: 1;
             transform: translate(4px, -4px) scale(1.02);
-            filter: drop-shadow(0 0 12px rgba(46, 196, 182, 0.75)) drop-shadow(0 0 3px #10B981) brightness(1.12);
+            filter: drop-shadow(0 0 12px rgba(46, 196, 182, 0.75)) drop-shadow(0 0 2px #10B981) brightness(1.1);
           }
           84%, 100% {
             opacity: 0.95;
@@ -173,20 +173,20 @@ export function RoacsLoadingAnimation({
         /* Stage 4: Settle trail & base breathing loop */
         @keyframes baseRedPulse {
           0%, 100% {
-            filter: drop-shadow(0 2px 8px rgba(229, 26, 26, 0.12));
+            filter: drop-shadow(0 2px 6px rgba(229, 26, 26, 0.1));
           }
           20% {
-            filter: drop-shadow(0 4px 14px rgba(229, 26, 26, 0.22));
+            filter: drop-shadow(0 4px 12px rgba(229, 26, 26, 0.18));
           }
           50% {
-            filter: drop-shadow(0 3px 10px rgba(229, 26, 26, 0.16));
+            filter: drop-shadow(0 3px 8px rgba(229, 26, 26, 0.14));
           }
         }
       `}</style>
 
-      {/* Layer 1: Base authentic red wordmark (Ultra-HD 8K vector-quality asset) */}
+      {/* Layer 1: Base authentic solid red wordmark (smooth pure red, zero white lines) */}
       <img
-        src="/logos/anim_text_8k.png"
+        src="/logos/anim_text_pure.png"
         alt="roacs"
         style={{
           position: "absolute",
@@ -200,7 +200,7 @@ export function RoacsLoadingAnimation({
         }}
       />
 
-      {/* Layer 2: Masked Light Sweep Wave constrained to exact 'roacs' letter contours */}
+      {/* Layer 2: Masked metallic light sweep across the red wordmark */}
       <div
         style={{
           position: "absolute",
@@ -208,8 +208,8 @@ export function RoacsLoadingAnimation({
           left: 0,
           width: "100%",
           height: "100%",
-          WebkitMaskImage: "url(/logos/anim_text_8k.png)",
-          maskImage: "url(/logos/anim_text_8k.png)",
+          WebkitMaskImage: "url(/logos/anim_text_pure.png)",
+          maskImage: "url(/logos/anim_text_pure.png)",
           WebkitMaskSize: "100% 100%",
           maskSize: "100% 100%",
           WebkitMaskRepeat: "no-repeat",
@@ -226,65 +226,34 @@ export function RoacsLoadingAnimation({
             width: "100%",
             height: "100%",
             background:
-              "linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.15) 25%, rgba(255, 255, 255, 0.95) 45%, rgba(255, 220, 220, 0.8) 55%, transparent 75%)",
+              "linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.35) 47%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 0.35) 53%, transparent 65%)",
             animation: "textLightSweep 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite",
-            mixBlendMode: "screen",
+            mixBlendMode: "lighten",
           }}
         />
       </div>
 
-      {/* Layer 3: Stage 1 Crisp Specular Glint on letter 'r' (precise diamond star, no blurry red halo) */}
+      {/* Layer 3: Stage 1 Warm glow bloom on 'r' (seamless radial glow, NO white lines) */}
       <div
         style={{
           position: "absolute",
-          left: "8.5%",
-          top: "46%",
-          width: "16px",
-          height: "16px",
+          left: "9%",
+          top: "54%",
+          width: `${height * 0.45}px`,
+          height: `${height * 0.45}px`,
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(255, 120, 120, 0.8) 0%, rgba(229, 26, 26, 0.4) 45%, transparent 75%)",
+          transformOrigin: "center center",
+          animation: "rPulse 2.6s cubic-bezier(0.2, 0.8, 0.4, 1) infinite",
           pointerEvents: "none",
-          animation: "rGlint 2.6s cubic-bezier(0.2, 0.8, 0.4, 1) infinite",
+          mixBlendMode: "screen",
         }}
-      >
-        {/* Core brilliant white flare */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, #FFFFFF 0%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 140, 140, 0.6) 60%, transparent 80%)",
-            boxShadow: "0 0 8px rgba(255, 255, 255, 0.9), 0 0 16px rgba(229, 26, 26, 0.5)",
-          }}
-        />
-        {/* Horizontal flare cross */}
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "-50%",
-            right: "-50%",
-            height: "2px",
-            background: "linear-gradient(90deg, transparent, #FFFFFF, transparent)",
-            transform: "translateY(-50%)",
-          }}
-        />
-        {/* Vertical flare cross */}
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "-50%",
-            bottom: "-50%",
-            width: "2px",
-            background: "linear-gradient(180deg, transparent, #FFFFFF, transparent)",
-            transform: "translateX(-50%)",
-          }}
-        />
-      </div>
+      />
 
-      {/* Layer 4: Yellow Chevron (Ultra-HD 8K asset, Stage 2 Nudge & Illumination) */}
+      {/* Layer 4: Yellow Chevron (Stage 2 Nudge & Illumination) */}
       <img
-        src="/logos/anim_yellow_8k.png"
+        src="/logos/anim_yellow_pure.png"
         alt=""
         style={{
           position: "absolute",
@@ -299,9 +268,9 @@ export function RoacsLoadingAnimation({
         }}
       />
 
-      {/* Layer 5: Green Chevron (Ultra-HD 8K asset, Stage 3 Nudge & Emerald Illumination) */}
+      {/* Layer 5: Green Chevron (Stage 3 Nudge & Emerald Illumination) */}
       <img
-        src="/logos/anim_green_8k.png"
+        src="/logos/anim_green_pure.png"
         alt=""
         style={{
           position: "absolute",
