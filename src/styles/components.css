@@ -1452,3 +1452,61 @@ p {
   color: #FFFFFF !important;
   box-shadow: 0 4px 18px rgba(16, 185, 129, 0.6) !important;
 }
+
+/* =========================================================================
+   About Page - Commitment Light Futuristic Section (Story Curved Timeline)
+   ========================================================================= */
+.commitment-node {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.commitment-badge {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.commitment-node:hover .commitment-badge-purple {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 16px 32px -4px rgba(168, 85, 247, 0.35), 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-color: rgba(168, 85, 247, 0.55) !important;
+}
+
+.commitment-node:hover .commitment-badge-teal {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 16px 32px -4px rgba(13, 148, 136, 0.35), 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-color: rgba(13, 148, 136, 0.55) !important;
+}
+
+.commitment-node:hover .commitment-badge-blue {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 16px 32px -4px rgba(37, 99, 235, 0.35), 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-color: rgba(37, 99, 235, 0.55) !important;
+}
+
+.commitment-primary-btn {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.25s ease;
+}
+
+.commitment-primary-btn:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 32px -4px rgba(99, 102, 241, 0.55);
+  filter: brightness(1.05);
+}
+
+.commitment-secondary-link {
+  transition: color 0.2s ease;
+}
+
+.commitment-secondary-link:hover .commitment-circle-arrow {
+  transform: translateX(4px);
+  border-color: #6366F1 !important;
+  background-color: rgba(99, 102, 241, 0.08) !important;
+  color: #6366F1 !important;
+}
+
+.commitment-secondary-link:hover span:first-child {
+  color: #4F46E5 !important;
+}

@@ -12,12 +12,11 @@ import {
   TrendingUp, 
   ShieldCheck, 
   Briefcase, 
-  Sparkles, 
   Users, 
   CheckCircle2, 
   Cpu, 
-  Globe,
-  Star
+  Star,
+  Leaf
 } from "lucide-react";
 
 export const metadata: Metadata = constructMetadata({
@@ -1374,125 +1373,370 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 6: "Enterprise Standards & Story"
+          SECTION 6: "Enterprise Standards & Story" - Commitment & Culture Showcase
           ========================================================================= */}
-      <section className="section" style={{ backgroundColor: "#020B1E", color: "#FFFFFF", padding: "6rem 0" }}>
-        <Container wide>
+      <section
+        style={{
+          position: "relative",
+          background: "radial-gradient(ellipse at 18% 22%, #EEF4FF 0%, #F8FAFD 45%, #FFFFFF 100%)",
+          color: "#0F172A",
+          paddingTop: "6.5rem",
+          paddingBottom: "7.5rem",
+          overflow: "hidden",
+          borderTop: "1px solid rgba(226, 232, 240, 0.8)",
+          borderBottom: "1px solid rgba(226, 232, 240, 0.8)",
+        }}
+      >
+        {/* Architectural Modern Building Backdrop on Far Right */}
+        <div
+          style={{
+            position: "absolute",
+            right: 0,
+            top: 0,
+            bottom: 0,
+            width: "32%",
+            minWidth: "260px",
+            maxWidth: "460px",
+            pointerEvents: "none",
+            zIndex: 0,
+            maskImage: "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.75) 40%, black 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.75) 40%, black 100%)",
+          }}
+        >
+          <Image
+            src="/images/about/commitment-building-hq.jpg"
+            alt="Roacs Global Architectural Headquarters"
+            fill
+            sizes="(max-width: 1024px) 100vw, 32vw"
+            style={{ objectFit: "cover", objectPosition: "top right" }}
+          />
+        </div>
+
+        {/* Fluid Glowing Aurora Wave Sweeping Across Bottom */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "220px",
+            pointerEvents: "none",
+            zIndex: 1,
+          }}
+        >
+          <Image
+            src="/images/about/commitment-wave-alpha.png"
+            alt=""
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "bottom center" }}
+          />
+        </div>
+
+        {/* Subtle Contour Accent Lines in Bottom-Left */}
+        <svg
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            width: "380px",
+            height: "260px",
+            pointerEvents: "none",
+            zIndex: 1,
+            opacity: 0.65,
+          }}
+          viewBox="0 0 380 260"
+          fill="none"
+        >
+          <path d="M-60,260 C50,240 130,195 190,130 C230,80 270,-10 340,-30" stroke="rgba(99, 102, 241, 0.14)" strokeWidth="1.5" />
+          <path d="M-60,230 C40,210 110,170 165,110 C200,65 240,-20 300,-40" stroke="rgba(99, 102, 241, 0.11)" strokeWidth="1.5" />
+          <path d="M-60,200 C30,180 90,145 140,90 C170,50 210,-30 260,-50" stroke="rgba(99, 102, 241, 0.08)" strokeWidth="1.5" />
+          <path d="M-60,170 C20,150 70,120 115,70 C140,35 180,-40 220,-60" stroke="rgba(99, 102, 241, 0.06)" strokeWidth="1.5" />
+        </svg>
+
+        <Container wide style={{ position: "relative", zIndex: 2 }}>
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-              gap: "4rem",
+              gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
+              gap: "4.5rem",
               alignItems: "center",
             }}
           >
-            <div>
-              <span
-                style={{
-                  fontSize: "0.8125rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.12em",
-                  color: "var(--color-brand-accent)",
-                  marginBottom: "0.75rem",
-                  display: "inline-block",
-                }}
-              >
-                Our Commitment
-              </span>
+            {/* Left Column: Vision & Action */}
+            <div style={{ maxWidth: "580px" }}>
+              {/* Eyebrow with Gradient Accent Line */}
+              <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", marginBottom: "1.25rem" }}>
+                <span
+                  style={{
+                    fontSize: "0.8125rem",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.14em",
+                    color: "#475569",
+                  }}
+                >
+                  Our Commitment
+                </span>
+                <span
+                  style={{
+                    width: "42px",
+                    height: "3px",
+                    borderRadius: "9999px",
+                    background: "linear-gradient(90deg, #A855F7 0%, #38BDF8 100%)",
+                    display: "inline-block",
+                  }}
+                />
+              </div>
 
               <h2
                 style={{
-                  fontSize: "clamp(2rem, 3.5vw, 2.75rem)",
+                  fontSize: "clamp(2.25rem, 4vw, 3.25rem)",
                   fontWeight: 800,
-                  letterSpacing: "-0.02em",
-                  color: "#FFFFFF",
-                  lineHeight: 1.2,
-                  marginBottom: "1.5rem",
+                  letterSpacing: "-0.03em",
+                  color: "#0F172A",
+                  lineHeight: 1.18,
+                  marginBottom: "1.75rem",
                 }}
               >
-                Delivering Sustainable Enterprise Value Through Modern Engineering
+                Delivering Sustainable <br />
+                Enterprise Value Through <br />
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #7C3AED 0%, #2563EB 60%, #0284C7 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    display: "inline-block",
+                  }}
+                >
+                  Modern Engineering
+                </span>
               </h2>
 
-              <p style={{ color: "var(--color-muted-blue)", lineHeight: 1.7, fontSize: "1.05rem", marginBottom: "1.5rem" }}>
+              <p style={{ color: "#475569", lineHeight: 1.7, fontSize: "1.05rem", marginBottom: "1.5rem" }}>
                 At Roacs Corporation, we design and develop powerful SaaS platforms, web applications, and enterprise solutions that 
                 help businesses streamline operations, eliminate technical debt, and scale efficiently in an evolving digital landscape.
               </p>
 
-              <p style={{ color: "var(--color-muted-blue)", lineHeight: 1.7, fontSize: "1.05rem", marginBottom: "2rem" }}>
+              <p style={{ color: "#475569", lineHeight: 1.7, fontSize: "1.05rem", marginBottom: "2.5rem" }}>
                 Our team brings together proven engineering practices with an agile execution mindset. We partner with forward-thinking 
                 enterprises and high-growth startups across India, the United States, and international markets.
               </p>
 
-              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <Button href="/contact" variant="primary" icon={<ArrowRight size={16} />}>
-                  Schedule a Consultation
-                </Button>
-                <Button href="/services" variant="secondary">
-                  View Our Services
-                </Button>
+              <div style={{ display: "flex", gap: "1.75rem", alignItems: "center", flexWrap: "wrap" }}>
+                <Link
+                  href="/contact"
+                  className="commitment-primary-btn"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.6rem",
+                    background: "linear-gradient(90deg, #0062FF 0%, #6366F1 50%, #8B5CF6 100%)",
+                    color: "#FFFFFF",
+                    fontWeight: 600,
+                    fontSize: "0.95rem",
+                    padding: "0.9rem 2rem",
+                    borderRadius: "9999px",
+                    boxShadow: "0 10px 25px -4px rgba(99, 102, 241, 0.42)",
+                    textDecoration: "none",
+                  }}
+                >
+                  <span>Schedule a Consultation</span>
+                  <ArrowRight size={17} />
+                </Link>
+
+                <Link
+                  href="/services"
+                  className="commitment-secondary-link"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.75rem",
+                    color: "#0F172A",
+                    fontWeight: 600,
+                    fontSize: "0.95rem",
+                    textDecoration: "none",
+                  }}
+                >
+                  <span>View Our Services</span>
+                  <span
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      border: "1px solid #CBD5E1",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#0F172A",
+                      transition: "all 0.25s ease",
+                    }}
+                    className="commitment-circle-arrow"
+                  >
+                    <ArrowRight size={15} />
+                  </span>
+                </Link>
               </div>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-              {/* Info Block 1: Our Story */}
-              <div
-                className="about-dark-card-hover"
+            {/* Right Column: Connected Timeline Story Nodes */}
+            <div style={{ position: "relative", paddingLeft: "1rem" }}>
+              {/* Curved Connection Path Behind Badges */}
+              <svg
                 style={{
-                  padding: "2rem",
-                  borderRadius: "var(--radius-lg)",
-                  backgroundColor: "rgba(255, 255, 255, 0.03)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  position: "absolute",
+                  top: "30px",
+                  bottom: "30px",
+                  left: "37px",
+                  width: "60px",
+                  height: "calc(100% - 60px)",
+                  pointerEvents: "none",
+                  zIndex: 0,
+                  overflow: "visible",
                 }}
+                viewBox="0 0 60 400"
+                preserveAspectRatio="none"
               >
-                <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", marginBottom: "0.75rem" }}>
-                  <Sparkles size={22} color="var(--color-brand-accent)" />
-                  <h4 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#FFFFFF" }}>Our Story</h4>
-                </div>
-                <p style={{ color: "var(--color-muted-blue)", fontSize: "0.95rem", lineHeight: 1.6 }}>
-                  Founded with a vision to make complex technology accessible and scalable, Roacs has grown into an international engineering 
-                  partner delivering robust solutions that empower organizations to lead in their respective markets.
-                </p>
-              </div>
+                <defs>
+                  <linearGradient id="commitment-curve-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#C084FC" stopOpacity="0.85" />
+                    <stop offset="45%" stopColor="#2DD4BF" stopOpacity="0.85" />
+                    <stop offset="100%" stopColor="#60A5FA" stopOpacity="0.85" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M 22,10 C -12,100 -15,140 2,200 C 18,260 25,310 28,390"
+                  fill="none"
+                  stroke="url(#commitment-curve-grad)"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                />
+                {/* Accent dots on the curve */}
+                <circle cx="-6" cy="110" r="3.5" fill="#C084FC" />
+                <circle cx="16" cy="295" r="3.5" fill="#60A5FA" />
+              </svg>
 
-              {/* Info Block 2: Sustainability */}
-              <div
-                className="about-dark-card-hover"
-                style={{
-                  padding: "2rem",
-                  borderRadius: "var(--radius-lg)",
-                  backgroundColor: "rgba(255, 255, 255, 0.03)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", marginBottom: "0.75rem" }}>
-                  <Globe size={22} color="var(--color-tech-blue)" />
-                  <h4 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#FFFFFF" }}>Sustainability &amp; Governance</h4>
+              <div style={{ display: "flex", flexDirection: "column", gap: "2.75rem", position: "relative" }}>
+                {/* Node 1: Our Story */}
+                <div
+                  className="commitment-node"
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "1.5rem",
+                    position: "relative",
+                    zIndex: 1,
+                    marginLeft: "18px",
+                  }}
+                >
+                  <div
+                    className="commitment-badge commitment-badge-purple"
+                    style={{
+                      width: "60px",
+                      height: "60px",
+                      borderRadius: "50%",
+                      backgroundColor: "#FFFFFF",
+                      border: "1px solid rgba(168, 85, 247, 0.3)",
+                      boxShadow: "0 10px 24px -4px rgba(168, 85, 247, 0.22), 0 2px 6px rgba(0, 0, 0, 0.04)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333EA" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 3C12 7.97 7.97 12 3 12C7.97 12 12 16.03 12 21C12 16.03 16.03 12 21 12C16.03 12 12 7.97 12 3Z" />
+                    </svg>
+                  </div>
+                  <div style={{ paddingTop: "0.25rem", maxWidth: "420px" }}>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#0F172A", marginBottom: "0.45rem", letterSpacing: "-0.01em" }}>
+                      Our Story
+                    </h3>
+                    <p style={{ color: "#475569", fontSize: "0.9375rem", lineHeight: 1.62 }}>
+                      Founded with a vision to make complex technology accessible and scalable, Roacs has grown into an international engineering 
+                      partner delivering robust solutions that empower organizations to lead in their respective markets.
+                    </p>
+                  </div>
                 </div>
-                <p style={{ color: "var(--color-muted-blue)", fontSize: "0.95rem", lineHeight: 1.6 }}>
-                  Our development approach is built on three pillars: People first, Engineering confidence, and Ethical digital governance. 
-                  We build systems designed to operate reliably for decades, minimizing waste and maximizing efficiency.
-                </p>
-              </div>
 
-              {/* Info Block 3: Engineering Culture */}
-              <div
-                className="about-dark-card-hover"
-                style={{
-                  padding: "2rem",
-                  borderRadius: "var(--radius-lg)",
-                  backgroundColor: "rgba(255, 255, 255, 0.03)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", marginBottom: "0.75rem" }}>
-                  <Users size={22} color="#10B981" />
-                  <h4 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#FFFFFF" }}>Engineering Culture</h4>
+                {/* Node 2: Sustainability & Governance */}
+                <div
+                  className="commitment-node"
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "1.5rem",
+                    position: "relative",
+                    zIndex: 1,
+                    marginLeft: "0px",
+                  }}
+                >
+                  <div
+                    className="commitment-badge commitment-badge-teal"
+                    style={{
+                      width: "60px",
+                      height: "60px",
+                      borderRadius: "50%",
+                      backgroundColor: "#FFFFFF",
+                      border: "1px solid rgba(13, 148, 136, 0.3)",
+                      boxShadow: "0 10px 24px -4px rgba(13, 148, 136, 0.22), 0 2px 6px rgba(0, 0, 0, 0.04)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Leaf size={24} color="#0D9488" strokeWidth={2.2} />
+                  </div>
+                  <div style={{ paddingTop: "0.25rem", maxWidth: "420px" }}>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#0F172A", marginBottom: "0.45rem", letterSpacing: "-0.01em" }}>
+                      Sustainability &amp; Governance
+                    </h3>
+                    <p style={{ color: "#475569", fontSize: "0.9375rem", lineHeight: 1.62 }}>
+                      Our development approach is built on three pillars: People first, Engineering confidence, and Ethical digital governance.
+                    </p>
+                  </div>
                 </div>
-                <p style={{ color: "var(--color-muted-blue)", fontSize: "0.95rem", lineHeight: 1.6 }}>
-                  We cultivate a high-talent engineering culture where continuous learning, peer code reviews, and innovative problem-solving 
-                  empower our specialists to build the next generation of scalable enterprise software.
-                </p>
+
+                {/* Node 3: Engineering Culture */}
+                <div
+                  className="commitment-node"
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "1.5rem",
+                    position: "relative",
+                    zIndex: 1,
+                    marginLeft: "24px",
+                  }}
+                >
+                  <div
+                    className="commitment-badge commitment-badge-blue"
+                    style={{
+                      width: "60px",
+                      height: "60px",
+                      borderRadius: "50%",
+                      backgroundColor: "#FFFFFF",
+                      border: "1px solid rgba(37, 99, 235, 0.3)",
+                      boxShadow: "0 10px 24px -4px rgba(37, 99, 235, 0.22), 0 2px 6px rgba(0, 0, 0, 0.04)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Users size={24} color="#2563EB" strokeWidth={2.2} />
+                  </div>
+                  <div style={{ paddingTop: "0.25rem", maxWidth: "420px" }}>
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#0F172A", marginBottom: "0.45rem", letterSpacing: "-0.01em" }}>
+                      Engineering Culture
+                    </h3>
+                    <p style={{ color: "#475569", fontSize: "0.9375rem", lineHeight: 1.62 }}>
+                      We cultivate a high-talent engineering culture where continuous learning, peer code reviews, and innovative problem-solving 
+                      empower our specialists to build the next generation of scalable enterprise software.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
