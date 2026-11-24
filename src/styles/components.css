@@ -891,7 +891,9 @@ p {
   flex-shrink: 0;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
+  border: none !important;
+  outline: none !important;
   background-color: var(--color-navy-dark);
   transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
@@ -985,10 +987,12 @@ p {
   border-radius: 1.25rem;
   overflow: hidden;
   flex-shrink: 0;
-  box-shadow: 0 25px 50px -15px rgba(237, 25, 24, 0.22), 0 10px 25px -5px rgba(16, 29, 53, 0.1);
-  border: none;
+  box-shadow: 0 26px 36px -24px rgba(0, 0, 0, 0.16);
+  border: none !important;
+  outline: none !important;
   transition: all 0.4s ease;
-  background-color: #0B1424;
+  background-color: transparent !important;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .page-sticky-heading-industrial {

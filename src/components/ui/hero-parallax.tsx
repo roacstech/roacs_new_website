@@ -40,6 +40,15 @@ export function HeroParallax({
   const headerOpacity = useTransform(scrollY, [0, 150], [1, 0]);
   const headerY = useTransform(scrollY, [0, 150], [0, -60]);
 
+  // Dynamic Background:
+  // - Starts as dark navy (#101D35) for the top screen (Image 1) with white text & faint cards
+  // - Smoothly transitions to light color (#F1F5F9) as user scrolls down to the cards view (Image 2)
+  const backgroundColor = useTransform(
+    scrollY,
+    [100, 320],
+    ["#101D35", "#F1F5F9"]
+  );
+
   // Background cards:
   // - Between 0 and 180px: Background is 100% NATIVELY FROZEN by CSS position: sticky!
   //   Zero JavaScript counter-translation = Zero latency = Zero jitter = Zero shaking!
@@ -52,11 +61,15 @@ export function HeroParallax({
   const translateXReverse = useTransform(scrollY, [180, 1200], [0, -650]);
 
   return (
-    <div
+    <motion.div
       ref={ref}
+      style={{ backgroundColor }}
       className="hero-parallax-wrapper relative"
     >
-      <div className="hero-parallax-sticky">
+      <motion.div
+        style={{ backgroundColor }}
+        className="hero-parallax-sticky"
+      >
         <Header
           badge={headerBadge}
           title={headerTitle}
@@ -95,8 +108,8 @@ export function HeroParallax({
             </motion.div>
           </motion.div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
