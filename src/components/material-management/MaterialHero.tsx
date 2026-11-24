@@ -188,12 +188,12 @@ export function MaterialHero() {
             {/* Headline */}
             <h1
               style={{
-                fontSize: "clamp(2rem, 3.6vw, 2.9rem)",
+                fontSize: "clamp(2.35rem, 4.1vw, 3.25rem)",
                 fontWeight: 800,
                 color: "#0F172A",
                 lineHeight: 1.15,
                 letterSpacing: "-0.03em",
-                marginBottom: "0.75rem",
+                marginBottom: "1rem",
               }}
             >
               Roacs Material<br />
@@ -213,49 +213,49 @@ export function MaterialHero() {
             {/* Subheading */}
             <p
               style={{
-                fontSize: "0.95rem",
+                fontSize: "1.025rem",
                 color: "#475569",
-                lineHeight: 1.55,
-                maxWidth: "520px",
-                marginBottom: "1.25rem",
+                lineHeight: 1.62,
+                maxWidth: "540px",
+                marginBottom: "1.75rem",
               }}
             >
               An enterprise-grade supply chain control tower engineered by Roacs Corporation. Eliminate stock-outs, automate multi-tiered procurement cycles, and synchronize inventory flow with sub-second auditability.
             </p>
 
             {/* Dual Action CTAs */}
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.85rem", marginBottom: "1.35rem" }}>
-              <Link href="/contact" className="material-hero-primary-btn" style={{ padding: "0.72rem 1.6rem", fontSize: "0.9rem" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem", marginBottom: "1.85rem" }}>
+              <Link href="/contact" className="material-hero-primary-btn" style={{ padding: "0.82rem 1.85rem", fontSize: "0.95rem" }}>
                 <span>Schedule Platform Demo</span>
                 <span
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    width: 20,
-                    height: 20,
+                    width: 22,
+                    height: 22,
                     borderRadius: "50%",
                     backgroundColor: "rgba(255, 255, 255, 0.22)",
                   }}
                 >
-                  <ArrowRight size={12} color="#FFFFFF" />
+                  <ArrowRight size={13} color="#FFFFFF" />
                 </span>
               </Link>
 
-              <Link href="#capabilities" className="material-hero-secondary-btn" style={{ padding: "0.72rem 1.45rem", fontSize: "0.9rem" }}>
+              <Link href="#capabilities" className="material-hero-secondary-btn" style={{ padding: "0.82rem 1.7rem", fontSize: "0.95rem" }}>
                 <span
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    width: 20,
-                    height: 20,
+                    width: 22,
+                    height: 22,
                     borderRadius: "50%",
                     backgroundColor: "#0F172A",
                     color: "#FFFFFF",
                   }}
                 >
-                  <Play size={10} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: "1px" }} />
+                  <Play size={11} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: "1px" }} />
                 </span>
                 <span>View System Capabilities</span>
               </Link>
@@ -265,18 +265,18 @@ export function MaterialHero() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
-                gap: "0.65rem",
-                paddingTop: "0.85rem",
+                gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+                gap: "0.85rem",
+                paddingTop: "1.25rem",
                 borderTop: "1px solid rgba(226, 232, 240, 0.9)",
               }}
             >
               <div className="material-feature-badge">
                 <div
                   style={{
-                    width: 30,
-                    height: 30,
-                    borderRadius: "8px",
+                    width: 34,
+                    height: 34,
+                    borderRadius: "9px",
                     backgroundColor: "rgba(99, 102, 241, 0.12)",
                     display: "flex",
                     alignItems: "center",
@@ -285,13 +285,13 @@ export function MaterialHero() {
                     flexShrink: 0,
                   }}
                 >
-                  <Zap size={15} />
+                  <Zap size={17} />
                 </div>
                 <div style={{ textAlign: "left" }}>
-                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                  <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.25 }}>
                     Sub-Second Sync
                   </div>
-                  <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.725rem", color: "#64748B", marginTop: "3px" }}>
                     Live multi-hub socket
                   </div>
                 </div>
@@ -300,9 +300,9 @@ export function MaterialHero() {
               <div className="material-feature-badge">
                 <div
                   style={{
-                    width: 30,
-                    height: 30,
-                    borderRadius: "8px",
+                    width: 34,
+                    height: 34,
+                    borderRadius: "9px",
                     backgroundColor: "rgba(16, 185, 129, 0.12)",
                     display: "flex",
                     alignItems: "center",
@@ -311,13 +311,13 @@ export function MaterialHero() {
                     flexShrink: 0,
                   }}
                 >
-                  <ShieldCheck size={15} />
+                  <ShieldCheck size={17} />
                 </div>
                 <div style={{ textAlign: "left" }}>
-                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                  <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.25 }}>
                     Automated POs
                   </div>
-                  <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.725rem", color: "#64748B", marginTop: "3px" }}>
                     Rule-based routing
                   </div>
                 </div>
@@ -326,9 +326,9 @@ export function MaterialHero() {
               <div className="material-feature-badge">
                 <div
                   style={{
-                    width: 30,
-                    height: 30,
-                    borderRadius: "8px",
+                    width: 34,
+                    height: 34,
+                    borderRadius: "9px",
                     backgroundColor: "rgba(37, 99, 235, 0.12)",
                     display: "flex",
                     alignItems: "center",
@@ -337,13 +337,13 @@ export function MaterialHero() {
                     flexShrink: 0,
                   }}
                 >
-                  <BarChart3 size={15} />
+                  <BarChart3 size={17} />
                 </div>
                 <div style={{ textAlign: "left" }}>
-                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                  <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.25 }}>
                     Predictive Stock
                   </div>
-                  <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.725rem", color: "#64748B", marginTop: "3px" }}>
                     Dynamic thresholds
                   </div>
                 </div>
