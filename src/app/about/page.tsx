@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
 import { constructMetadata } from "@/lib/metadata";
@@ -15,7 +16,8 @@ import {
   Users, 
   CheckCircle2, 
   Cpu, 
-  Globe
+  Globe,
+  Star
 } from "lucide-react";
 
 export const metadata: Metadata = constructMetadata({
@@ -311,272 +313,399 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================================================
-          SECTION 2: "What Makes Us Different" (Why Choose Us) - Animated Cards
+          SECTION 2: "What Makes Us Different" (Why Choose Us) - Premium Neon Glassmorphic Cards
           ========================================================================= */}
       <section
         style={{
-          backgroundColor: "#020B1E",
+          background: "linear-gradient(180deg, #020716 0%, #030D26 50%, #020819 100%)",
           color: "#FFFFFF",
-          padding: "6rem 0",
+          padding: "7rem 0",
           position: "relative",
           overflow: "hidden",
         }}
       >
+        {/* Top-Left Ambient Blue Wave */}
         <div
           style={{
             position: "absolute",
-            bottom: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "900px",
-            height: "300px",
-            background: "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.18) 0%, transparent 70%)",
-            filter: "blur(70px)",
+            top: "-15%",
+            left: "-10%",
+            width: "650px",
+            height: "550px",
+            background: "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.35) 0%, rgba(56, 189, 248, 0.15) 45%, transparent 70%)",
+            filter: "blur(75px)",
             pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
+        {/* Bottom-Right Ambient Indigo Glow */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-15%",
+            right: "-10%",
+            width: "700px",
+            height: "600px",
+            background: "radial-gradient(ellipse at center, rgba(30, 58, 138, 0.35) 0%, rgba(14, 165, 233, 0.12) 45%, transparent 70%)",
+            filter: "blur(80px)",
+            pointerEvents: "none",
+            zIndex: 0,
           }}
         />
 
         <Container wide>
-          <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 4rem", position: "relative", zIndex: 1 }}>
-            <span
+          {/* Centered Section Header */}
+          <div style={{ textAlign: "center", maxWidth: "780px", margin: "0 auto 4.5rem", position: "relative", zIndex: 1 }}>
+            {/* Flanked Glowing Pill Badge */}
+            <div
               style={{
-                fontSize: "0.8125rem",
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.12em",
-                color: "var(--color-brand-accent)",
-                marginBottom: "0.75rem",
-                display: "inline-block",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.85rem",
+                marginBottom: "1.25rem",
               }}
             >
-              Why Choose Us
-            </span>
+              <span
+                style={{
+                  width: "42px",
+                  height: "1px",
+                  background: "linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6))",
+                }}
+              />
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.45rem",
+                  padding: "0.4rem 1.15rem",
+                  borderRadius: "9999px",
+                  backgroundColor: "rgba(15, 23, 42, 0.8)",
+                  border: "1px solid rgba(56, 189, 248, 0.5)",
+                  boxShadow: "0 0 16px rgba(56, 189, 248, 0.25), inset 0 0 10px rgba(56, 189, 248, 0.1)",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                <Star size={13} color="#FBBF24" fill="#FBBF24" />
+                <span
+                  style={{
+                    fontSize: "0.78rem",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.14em",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  Why Choose Us
+                </span>
+              </div>
+              <span
+                style={{
+                  width: "42px",
+                  height: "1px",
+                  background: "linear-gradient(90deg, rgba(56, 189, 248, 0.6), transparent)",
+                }}
+              />
+            </div>
+
+            {/* Headline with Multi-Color Gradient on 'Different' */}
             <h2
               style={{
-                fontSize: "clamp(2rem, 3.75vw, 2.85rem)",
+                fontSize: "clamp(2.25rem, 4.25vw, 3.25rem)",
                 fontWeight: 800,
-                letterSpacing: "-0.025em",
+                letterSpacing: "-0.03em",
                 color: "#FFFFFF",
                 marginBottom: "1rem",
+                lineHeight: 1.18,
               }}
             >
-              What Makes Us Different
+              What Makes Us{" "}
+              <span
+                style={{
+                  background: "linear-gradient(90deg, #38BDF8 0%, #60A5FA 42%, #FBBF24 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Different
+              </span>
             </h2>
-            <p style={{ color: "var(--color-muted-blue)", fontSize: "1.05rem", lineHeight: 1.65 }}>
-              We architect software that removes friction, accelerates operational velocity, and gives you a durable technological edge.
+
+            <p style={{ color: "#94A3B8", fontSize: "1.05rem", lineHeight: 1.7, margin: "0 auto", maxWidth: "680px" }}>
+              We utilize software that transforms intuition, accelerates operational velocity, and gives you a durable technological edge.
             </p>
+
+            {/* Two-Tone Blue & Yellow Accent Capsule Divider */}
+            <div
+              style={{
+                width: "48px",
+                height: "3.5px",
+                borderRadius: "9999px",
+                background: "linear-gradient(90deg, #3B82F6 0%, #3B82F6 50%, #F59E0B 50%, #F59E0B 100%)",
+                margin: "1.5rem auto 0 auto",
+              }}
+            />
           </div>
 
+          {/* 3 Glowing Glassmorphism Cards Grid */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "2rem",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "2.25rem",
               position: "relative",
               zIndex: 1,
             }}
           >
-            {/* Card 1: Commercial Service */}
+            {/* Card 1: Commercial Service (Crimson / Pink-Red Theme) */}
             <div
-              className="about-dark-card-hover"
+              className="difference-card difference-card-red"
               style={{
-                padding: "2.5rem 2rem",
-                borderRadius: "var(--radius-lg)",
-                backgroundColor: "rgba(255, 255, 255, 0.03)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
+                padding: "2.75rem 2.25rem 2.25rem 2.25rem",
+                borderRadius: "22px",
+                background: "linear-gradient(145deg, rgba(225, 29, 72, 0.16) 0%, rgba(13, 20, 38, 0.8) 45%, rgba(6, 11, 25, 0.95) 100%)",
+                border: "1px solid rgba(244, 63, 94, 0.45)",
+                boxShadow: "0 0 25px -4px rgba(244, 63, 94, 0.22), 0 20px 40px -15px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.15)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
                 display: "flex",
                 flexDirection: "column",
+                position: "relative",
               }}
             >
+              {/* App Icon Gradient Badge */}
               <div
                 style={{
-                  width: "56px",
-                  height: "56px",
-                  borderRadius: "var(--radius-md)",
-                  backgroundColor: "rgba(237, 25, 24, 0.12)",
-                  border: "1px solid rgba(237, 25, 24, 0.3)",
+                  width: "58px",
+                  height: "58px",
+                  borderRadius: "16px",
+                  background: "linear-gradient(135deg, #FF3366 0%, #E11D48 60%, #BE123C 100%)",
+                  boxShadow: "0 8px 22px rgba(225, 29, 72, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "var(--color-brand-accent)",
+                  color: "#FFFFFF",
                   marginBottom: "1.75rem",
+                  flexShrink: 0,
                 }}
               >
-                <Briefcase size={26} />
+                <Briefcase size={26} color="#FFFFFF" />
               </div>
 
-              <span
-                style={{
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                  color: "var(--color-brand-accent)",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Enterprise Delivery
-              </span>
+              {/* Category Eyebrow with Line */}
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.6rem" }}>
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#FB7185",
+                  }}
+                >
+                  Enterprise-Level
+                </span>
+                <span style={{ width: "36px", height: "1.5px", background: "rgba(251, 113, 133, 0.45)" }} />
+              </div>
 
-              <h3 style={{ fontSize: "1.35rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "1rem" }}>
+              <h3 style={{ fontSize: "1.45rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "1rem", letterSpacing: "-0.01em" }}>
                 Commercial Service
               </h3>
 
-              <p style={{ color: "var(--color-muted-blue)", fontSize: "0.95rem", lineHeight: 1.65, flexGrow: 1 }}>
+              <p style={{ color: "#94A3B8", fontSize: "0.95rem", lineHeight: 1.7, flexGrow: 1, marginBottom: "2rem" }}>
                 We deliver high-quality software solutions tailored to meet business needs across various industries. 
                 Our focus is on creating value-driven services that optimize productivity and unlock tangible ROI.
               </p>
 
-              <div
-                style={{
-                  marginTop: "1.75rem",
-                  paddingTop: "1.25rem",
-                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  fontSize: "0.825rem",
-                  color: "#FFFFFF",
-                }}
-              >
-                <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                <span>Industry-Tailored Architectures</span>
+              {/* Glowing Outline Pill Button */}
+              <div>
+                <Link
+                  href="/services"
+                  className="difference-btn difference-btn-red"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    padding: "0.65rem 1.4rem",
+                    borderRadius: "9999px",
+                    border: "1px solid rgba(244, 63, 94, 0.55)",
+                    backgroundColor: "rgba(244, 63, 94, 0.08)",
+                    color: "#FDA4AF",
+                    fontSize: "0.85rem",
+                    fontWeight: 600,
+                  }}
+                >
+                  <span>Industry Tailored Solutions</span>
+                  <ArrowRight size={15} />
+                </Link>
               </div>
             </div>
 
-            {/* Card 2: Empowering Growth */}
+            {/* Card 2: Empowering Growth (Cobalt / Cyan-Blue Theme) */}
             <div
-              className="about-dark-card-hover"
+              className="difference-card difference-card-blue"
               style={{
-                padding: "2.5rem 2rem",
-                borderRadius: "var(--radius-lg)",
-                backgroundColor: "rgba(255, 255, 255, 0.03)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
+                padding: "2.75rem 2.25rem 2.25rem 2.25rem",
+                borderRadius: "22px",
+                background: "linear-gradient(145deg, rgba(37, 99, 235, 0.2) 0%, rgba(13, 22, 45, 0.8) 45%, rgba(6, 11, 25, 0.95) 100%)",
+                border: "1px solid rgba(59, 130, 246, 0.55)",
+                boxShadow: "0 0 30px -4px rgba(59, 130, 246, 0.28), 0 20px 40px -15px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.2)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
                 display: "flex",
                 flexDirection: "column",
+                position: "relative",
               }}
             >
+              {/* App Icon Gradient Badge */}
               <div
                 style={{
-                  width: "56px",
-                  height: "56px",
-                  borderRadius: "var(--radius-md)",
-                  backgroundColor: "rgba(37, 99, 235, 0.12)",
-                  border: "1px solid rgba(37, 99, 235, 0.3)",
+                  width: "58px",
+                  height: "58px",
+                  borderRadius: "16px",
+                  background: "linear-gradient(135deg, #38BDF8 0%, #2563EB 60%, #1D4ED8 100%)",
+                  boxShadow: "0 8px 22px rgba(37, 99, 235, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "var(--color-tech-blue)",
+                  color: "#FFFFFF",
                   marginBottom: "1.75rem",
+                  flexShrink: 0,
                 }}
               >
-                <TrendingUp size={26} />
+                <TrendingUp size={26} color="#FFFFFF" />
               </div>
 
-              <span
-                style={{
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                  color: "var(--color-tech-blue)",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Scalable Engineering
-              </span>
+              {/* Category Eyebrow with Line */}
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.6rem" }}>
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#60A5FA",
+                  }}
+                >
+                  Scalable Engineering
+                </span>
+                <span style={{ width: "36px", height: "1.5px", background: "rgba(96, 165, 250, 0.45)" }} />
+              </div>
 
-              <h3 style={{ fontSize: "1.35rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "1rem" }}>
+              <h3 style={{ fontSize: "1.45rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "1rem", letterSpacing: "-0.01em" }}>
                 Empowering Growth
               </h3>
 
-              <p style={{ color: "var(--color-muted-blue)", fontSize: "0.95rem", lineHeight: 1.65, flexGrow: 1 }}>
+              <p style={{ color: "#94A3B8", fontSize: "0.95rem", lineHeight: 1.7, flexGrow: 1, marginBottom: "2rem" }}>
                 We empower businesses by delivering innovative technology solutions that are scalable, reliable, and easy to use. 
                 Our focus is on creating systems that not only solve current challenges but support continuous, long-term expansion.
               </p>
 
-              <div
-                style={{
-                  marginTop: "1.75rem",
-                  paddingTop: "1.25rem",
-                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  fontSize: "0.825rem",
-                  color: "#FFFFFF",
-                }}
-              >
-                <CheckCircle2 size={16} color="var(--color-tech-blue)" />
-                <span>Resilient Scalability Guaranteed</span>
+              {/* Glowing Outline Pill Button */}
+              <div>
+                <Link
+                  href="/services"
+                  className="difference-btn difference-btn-blue"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    padding: "0.65rem 1.4rem",
+                    borderRadius: "9999px",
+                    border: "1px solid rgba(59, 130, 246, 0.6)",
+                    backgroundColor: "rgba(37, 99, 235, 0.12)",
+                    color: "#93C5FD",
+                    fontSize: "0.85rem",
+                    fontWeight: 600,
+                  }}
+                >
+                  <span>Build for What&apos;s Next</span>
+                  <ArrowRight size={15} />
+                </Link>
               </div>
             </div>
 
-            {/* Card 3: Safety & Reliability */}
+            {/* Card 3: Safe & Reliability (Emerald / Mint-Green Theme) */}
             <div
-              className="about-dark-card-hover"
+              className="difference-card difference-card-green"
               style={{
-                padding: "2.5rem 2rem",
-                borderRadius: "var(--radius-lg)",
-                backgroundColor: "rgba(255, 255, 255, 0.03)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
+                padding: "2.75rem 2.25rem 2.25rem 2.25rem",
+                borderRadius: "22px",
+                background: "linear-gradient(145deg, rgba(16, 185, 129, 0.16) 0%, rgba(13, 25, 38, 0.8) 45%, rgba(6, 11, 25, 0.95) 100%)",
+                border: "1px solid rgba(16, 185, 129, 0.45)",
+                boxShadow: "0 0 25px -4px rgba(16, 185, 129, 0.22), 0 20px 40px -15px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.15)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
                 display: "flex",
                 flexDirection: "column",
+                position: "relative",
               }}
             >
+              {/* App Icon Gradient Badge */}
               <div
                 style={{
-                  width: "56px",
-                  height: "56px",
-                  borderRadius: "var(--radius-md)",
-                  backgroundColor: "rgba(16, 185, 129, 0.12)",
-                  border: "1px solid rgba(16, 185, 129, 0.3)",
+                  width: "58px",
+                  height: "58px",
+                  borderRadius: "16px",
+                  background: "linear-gradient(135deg, #34D399 0%, #10B981 60%, #059669 100%)",
+                  boxShadow: "0 8px 22px rgba(16, 185, 129, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#10B981",
+                  color: "#FFFFFF",
                   marginBottom: "1.75rem",
+                  flexShrink: 0,
                 }}
               >
-                <ShieldCheck size={26} />
+                <ShieldCheck size={26} color="#FFFFFF" />
               </div>
 
-              <span
-                style={{
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.08em",
-                  color: "#10B981",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Security First
-              </span>
+              {/* Category Eyebrow with Line */}
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.6rem" }}>
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#34D399",
+                  }}
+                >
+                  Security First
+                </span>
+                <span style={{ width: "36px", height: "1.5px", background: "rgba(52, 211, 153, 0.45)" }} />
+              </div>
 
-              <h3 style={{ fontSize: "1.35rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "1rem" }}>
-                Safety & Reliability
+              <h3 style={{ fontSize: "1.45rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "1rem", letterSpacing: "-0.01em" }}>
+                Safe & Reliability
               </h3>
 
-              <p style={{ color: "var(--color-muted-blue)", fontSize: "0.95rem", lineHeight: 1.65, flexGrow: 1 }}>
+              <p style={{ color: "#94A3B8", fontSize: "0.95rem", lineHeight: 1.7, flexGrow: 1, marginBottom: "2rem" }}>
                 We ensure strong security, high performance, and consistent reliability to keep your systems running smoothly. 
-                Our rigorous deployment standards guarantee production uptime and protect critical organizational data.
+                Our rigorous deployment standards guarantee protection uptime and protect critical organizational data.
               </p>
 
-              <div
-                style={{
-                  marginTop: "1.75rem",
-                  paddingTop: "1.25rem",
-                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  fontSize: "0.825rem",
-                  color: "#FFFFFF",
-                }}
-              >
-                <CheckCircle2 size={16} color="#10B981" />
-                <span>Zero-Trust Enterprise Standards</span>
+              {/* Glowing Outline Pill Button */}
+              <div>
+                <Link
+                  href="/services"
+                  className="difference-btn difference-btn-green"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    padding: "0.65rem 1.4rem",
+                    borderRadius: "9999px",
+                    border: "1px solid rgba(16, 185, 129, 0.55)",
+                    backgroundColor: "rgba(16, 185, 129, 0.08)",
+                    color: "#6EE7B7",
+                    fontSize: "0.85rem",
+                    fontWeight: 600,
+                  }}
+                >
+                  <span>Trust Our Platform</span>
+                  <ArrowRight size={15} />
+                </Link>
               </div>
             </div>
           </div>
