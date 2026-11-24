@@ -41,10 +41,10 @@ export function ProjectsSection() {
             }}
           >
             <SectionHeading
-              eyebrow="Proven Client Projects"
+              eyebrow="Case Studies"
               eyebrowVariant="accent"
-              title="Verified Case Studies Delivered With Engineering Excellence."
-              description="A curated look at software solutions, web platforms, and digital products engineered by Roacs for established businesses, high-growth brands, and global enterprises."
+              title="We help companies anticipate and act with insight, modern engineering, and speed."
+              description="A curated look at enterprise solutions, web platforms, and digital products engineered by Roacs for established businesses, high-growth brands, and global enterprises."
               align="center"
             />
 
@@ -87,8 +87,14 @@ export function ProjectsSection() {
           </div>
         </Reveal>
 
-        {/* Projects Grid */}
-        <div className="grid-3">
+        {/* Projects Grid: 2-Column High-Impact Case Studies Grid (Cognizant Style) */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 520px), 1fr))",
+            gap: "2rem",
+          }}
+        >
           {filteredProjects.map((project, idx) => (
             <ProjectCardReveal key={project.id} index={idx}>
               <ProjectCard project={project} />

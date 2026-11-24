@@ -20,12 +20,12 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
       }}
     >
       <Container wide>
-        {/* 3-Column Modern Digital Agency Projects Grid (No Filters) */}
+        {/* 2-Column High-Impact Case Studies Grid (Cognizant Style) */}
         <div
-          className="projects-agency-grid"
           style={{
             display: "grid",
-            gap: "28px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 520px), 1fr))",
+            gap: "2rem",
           }}
         >
           {projects.map((project, idx) => (

@@ -1539,3 +1539,24 @@ p {
     top: 110px !important;
   }
 }
+
+/* =========================================================================
+   Cognizant-Style Enterprise Case Study Cards (Click-to-Expand Subtext)
+   ========================================================================= */
+.case-study-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.case-study-card:hover {
+  transform: translateY(-4px);
+}
+
+.case-study-title:hover {
+  color: #67E8F9 !important;
+}
+
+.case-study-title:hover .case-study-arrow {
+  transform: translateX(4px);
+}
