@@ -193,21 +193,21 @@ export function MaterialHero() {
         <div className="material-hero-layout" style={{ position: "relative", zIndex: 1 }}>
           
           {/* =========================================================
-              Left Column: Executive Value Proposition
+              Top Center: Executive Value Proposition
              ========================================================= */}
-          <div>
+          <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
             {/* Headline */}
             <h1
               style={{
-                fontSize: "clamp(2.5rem, 4.5vw, 3.5rem)",
+                fontSize: "clamp(2.4rem, 4.5vw, 3.5rem)",
                 fontWeight: 800,
                 color: "#0F172A",
-                lineHeight: 1.12,
+                lineHeight: 1.15,
                 letterSpacing: "-0.03em",
                 marginBottom: "1.25rem",
               }}
             >
-              Roacs Material<br />
+              Roacs Material{" "}
               <span
                 style={{
                   background: "linear-gradient(90deg, #4338CA 0%, #6366F1 45%, #0284C7 100%)",
@@ -227,15 +227,15 @@ export function MaterialHero() {
                 fontSize: "1.1rem",
                 color: "#475569",
                 lineHeight: 1.65,
-                maxWidth: "540px",
-                marginBottom: "2rem",
+                maxWidth: "660px",
+                margin: "0 auto 2rem auto",
               }}
             >
               An enterprise-grade supply chain control tower engineered by Roacs Corporation. Eliminate stock-outs, automate multi-tiered procurement cycles, and synchronize inventory flow with sub-second auditability.
             </p>
 
             {/* Dual Action CTAs */}
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem", marginBottom: "2.5rem" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "2rem" }}>
               <Link href="/contact" className="material-hero-primary-btn">
                 <span>Schedule Platform Demo</span>
                 <span
@@ -275,18 +275,22 @@ export function MaterialHero() {
             {/* 3 Executive Trust Pillars */}
             <div
               style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                alignItems: "center",
                 gap: "0.85rem",
-                paddingTop: "1.5rem",
+                paddingTop: "1.25rem",
                 borderTop: "1px solid rgba(226, 232, 240, 0.9)",
+                maxWidth: "680px",
+                margin: "0 auto",
               }}
             >
               <div className="material-feature-badge">
                 <div
                   style={{
-                    width: 32,
-                    height: 32,
+                    width: 30,
+                    height: 30,
                     borderRadius: "8px",
                     backgroundColor: "rgba(99, 102, 241, 0.12)",
                     display: "flex",
@@ -296,13 +300,13 @@ export function MaterialHero() {
                     flexShrink: 0,
                   }}
                 >
-                  <Zap size={16} />
+                  <Zap size={15} />
                 </div>
-                <div>
-                  <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                <div style={{ textAlign: "left" }}>
+                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
                     Sub-Second Sync
                   </div>
-                  <div style={{ fontSize: "0.72rem", color: "#64748B", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>
                     Live multi-hub socket
                   </div>
                 </div>
@@ -311,8 +315,8 @@ export function MaterialHero() {
               <div className="material-feature-badge">
                 <div
                   style={{
-                    width: 32,
-                    height: 32,
+                    width: 30,
+                    height: 30,
                     borderRadius: "8px",
                     backgroundColor: "rgba(16, 185, 129, 0.12)",
                     display: "flex",
@@ -322,13 +326,13 @@ export function MaterialHero() {
                     flexShrink: 0,
                   }}
                 >
-                  <ShieldCheck size={16} />
+                  <ShieldCheck size={15} />
                 </div>
-                <div>
-                  <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                <div style={{ textAlign: "left" }}>
+                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
                     Automated POs
                   </div>
-                  <div style={{ fontSize: "0.72rem", color: "#64748B", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>
                     Rule-based routing
                   </div>
                 </div>
@@ -337,8 +341,8 @@ export function MaterialHero() {
               <div className="material-feature-badge">
                 <div
                   style={{
-                    width: 32,
-                    height: 32,
+                    width: 30,
+                    height: 30,
                     borderRadius: "8px",
                     backgroundColor: "rgba(37, 99, 235, 0.12)",
                     display: "flex",
@@ -348,13 +352,13 @@ export function MaterialHero() {
                     flexShrink: 0,
                   }}
                 >
-                  <BarChart3 size={16} />
+                  <BarChart3 size={15} />
                 </div>
-                <div>
-                  <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                <div style={{ textAlign: "left" }}>
+                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
                     Predictive Stock
                   </div>
-                  <div style={{ fontSize: "0.72rem", color: "#64748B", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>
                     Dynamic thresholds
                   </div>
                 </div>
@@ -363,7 +367,7 @@ export function MaterialHero() {
           </div>
 
           {/* =========================================================
-              Right Column: Control Tower Console (Serpentine Flow & Grid)
+              Bottom Center: Compact Serpentine Flow Console
              ========================================================= */}
           <div className="warehouse-console-wrapper">
             <div className="warehouse-glass-console">
@@ -383,22 +387,22 @@ export function MaterialHero() {
                   <div style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
                     <div
                       style={{
-                        width: 18,
-                        height: 18,
+                        width: 17,
+                        height: 17,
                         borderRadius: "4px",
                         backgroundColor: "#ED1918",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         color: "#FFFFFF",
-                        fontSize: "0.6rem",
+                        fontSize: "0.55rem",
                         fontWeight: 900,
                         boxShadow: "0 1px 4px rgba(237, 25, 24, 0.4)",
                       }}
                     >
                       ▲
                     </div>
-                    <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A" }}>
+                    <span style={{ fontSize: "0.825rem", fontWeight: 700, color: "#0F172A" }}>
                       Live Warehouse Stock Balances
                     </span>
                   </div>
@@ -407,7 +411,7 @@ export function MaterialHero() {
 
               {/* Sub-Header: Facility Tabs + Live Search Filter */}
               <div className="console-filter-bar">
-                <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", flexWrap: "wrap" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.3rem", flexWrap: "wrap" }}>
                   <button
                     onClick={() => setActiveTab("all")}
                     className={`console-tab-btn ${activeTab === "all" ? "console-tab-btn-active" : "console-tab-btn-inactive"}`}
@@ -435,33 +439,34 @@ export function MaterialHero() {
                 </div>
 
                 <div className="console-search-box">
-                  <Search size={13} color="#94A3B8" style={{ position: "absolute", left: "0.65rem", pointerEvents: "none" }} />
+                  <Search size={12} color="#94A3B8" style={{ position: "absolute", left: "0.55rem", pointerEvents: "none" }} />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Filter SKUs..."
                     className="console-search-input"
+                    style={{ width: "130px", paddingLeft: "1.65rem" }}
                   />
                 </div>
               </div>
 
-              {/* Serpentine Flow Pipeline (FurniFlex Style) */}
+              {/* Serpentine Flow Pipeline (Compact S-Track) */}
               <div className="serpentine-pipeline-wrap">
                 {/* Continuous Winding Serpentine Snake Path SVG (when all 4 items displayed) */}
                 {filteredItems.length >= 4 && (
                   <svg 
                     className="serpentine-track-svg" 
-                    viewBox="0 0 600 480" 
+                    viewBox="0 0 520 370" 
                     fill="none" 
                     xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="none"
                     aria-hidden="true"
                   >
                     <path
-                      d="M 90 20 A 45 45 0 0 0 90 110 L 510 110 A 45 45 0 0 1 510 230 L 90 230 A 45 45 0 0 0 90 350 L 510 350 A 45 45 0 0 1 510 460"
+                      d="M 70 12 A 36 36 0 0 0 70 84 L 450 84 A 45 45 0 0 1 450 174 L 70 174 A 45 45 0 0 0 70 264 L 450 264 A 45 45 0 0 1 450 354"
                       stroke="url(#serpentineGradient)"
-                      strokeWidth="3.5"
+                      strokeWidth="3"
                       strokeLinecap="round"
                       strokeDasharray="4 2"
                       opacity="0.85"
@@ -478,7 +483,7 @@ export function MaterialHero() {
                 )}
 
                 {filteredItems.length === 0 ? (
-                  <div style={{ padding: "3rem 1rem", textAlign: "center", fontSize: "0.85rem", color: "#64748B" }}>
+                  <div style={{ padding: "2.5rem 1rem", textAlign: "center", fontSize: "0.825rem", color: "#64748B" }}>
                     No matching inventory items found for current filter.
                   </div>
                 ) : (
@@ -491,7 +496,7 @@ export function MaterialHero() {
                         key={item.id} 
                         className={`serpentine-row ${isEven ? "serpentine-row-even" : ""}`}
                       >
-                        {/* Visual Capsule (Stadium Shape with Photo & Capacity Ring) */}
+                        {/* Visual Capsule (Compact Stadium Shape with Photo & Capacity Ring) */}
                         <div 
                           className="serpentine-capsule"
                           style={{ borderColor: item.accentColor }}
@@ -500,7 +505,7 @@ export function MaterialHero() {
                             src={item.image}
                             alt={item.name}
                             fill
-                            sizes="(max-width: 640px) 100vw, 200px"
+                            sizes="140px"
                             style={{ objectFit: "cover", objectPosition: "center" }}
                           />
                           {/* Dark Scrim */}
@@ -516,54 +521,54 @@ export function MaterialHero() {
                           <div
                             style={{
                               position: "absolute",
-                              top: "8px",
-                              left: isEven ? "auto" : "16px",
-                              right: isEven ? "16px" : "auto",
-                              backgroundColor: "rgba(15, 23, 42, 0.75)",
+                              top: "6px",
+                              left: isEven ? "auto" : "12px",
+                              right: isEven ? "12px" : "auto",
+                              backgroundColor: "rgba(15, 23, 42, 0.78)",
                               backdropFilter: "blur(4px)",
                               color: "#FFFFFF",
-                              fontSize: "0.62rem",
+                              fontSize: "0.58rem",
                               fontWeight: 800,
-                              padding: "0.15rem 0.5rem",
+                              padding: "0.1rem 0.4rem",
                               borderRadius: "9999px",
-                              letterSpacing: "0.06em",
+                              letterSpacing: "0.05em",
                               border: "1px solid rgba(255, 255, 255, 0.2)",
                             }}
                           >
                             {item.warehouseCode}
                           </div>
 
-                          {/* Center / Bottom: Circular Capacity Gauge Meter */}
+                          {/* Center / Bottom: Compact Circular Capacity Gauge Meter */}
                           <div 
                             style={{ 
                               position: "absolute", 
-                              bottom: "8px", 
+                              bottom: "6px", 
                               left: "50%", 
                               transform: "translateX(-50%)",
                               display: "flex",
                               alignItems: "center",
-                              gap: "0.45rem",
+                              gap: "0.35rem",
                             }}
                           >
-                            <div style={{ position: "relative", width: 36, height: 36 }}>
-                              <svg width="36" height="36" viewBox="0 0 36 36" style={{ transform: "rotate(-90deg)" }}>
+                            <div style={{ position: "relative", width: 30, height: 30 }}>
+                              <svg width="30" height="30" viewBox="0 0 30 30" style={{ transform: "rotate(-90deg)" }}>
                                 <circle
-                                  cx="18"
-                                  cy="18"
-                                  r="14"
+                                  cx="15"
+                                  cy="15"
+                                  r="11.5"
                                   fill="none"
                                   stroke="rgba(255, 255, 255, 0.2)"
-                                  strokeWidth="3"
+                                  strokeWidth="2.5"
                                 />
                                 <circle
-                                  cx="18"
-                                  cy="18"
-                                  r="14"
+                                  cx="15"
+                                  cy="15"
+                                  r="11.5"
                                   fill="none"
                                   stroke={item.accentColor}
-                                  strokeWidth="3"
-                                  strokeDasharray={87.96}
-                                  strokeDashoffset={87.96 * (1 - item.capacityPercent / 100)}
+                                  strokeWidth="2.5"
+                                  strokeDasharray={72.26}
+                                  strokeDashoffset={72.26 * (1 - item.capacityPercent / 100)}
                                   strokeLinecap="round"
                                 />
                               </svg>
@@ -574,7 +579,7 @@ export function MaterialHero() {
                                   display: "flex",
                                   alignItems: "center",
                                   justifyContent: "center",
-                                  fontSize: "0.65rem",
+                                  fontSize: "0.58rem",
                                   fontWeight: 800,
                                   color: "#FFFFFF",
                                   fontFamily: "monospace",
@@ -586,9 +591,9 @@ export function MaterialHero() {
                           </div>
                         </div>
 
-                        {/* Content Card (FurniFlex Detail Card Style) */}
+                        {/* Content Card (Compact FurniFlex Detail Card Style) */}
                         <div className="serpentine-card">
-                          {/* Top: Category Pill Badge (Matching Image 1 badge) */}
+                          {/* Top: Category Pill Badge */}
                           <div 
                             className="serpentine-pill-badge"
                             style={{ 
@@ -597,23 +602,23 @@ export function MaterialHero() {
                               border: `1px solid ${item.accentColor}30`,
                             }}
                           >
-                            <ItemIcon size={11} />
+                            <ItemIcon size={10} />
                             <span>{item.categoryLabel}</span>
                           </div>
 
-                          {/* Item Name */}
+                          {/* Item Name & Quantity */}
                           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "0.5rem" }}>
-                            <div style={{ fontWeight: 800, color: "#0F172A", fontSize: "0.925rem", lineHeight: 1.25 }}>
+                            <div style={{ fontWeight: 700, color: "#0F172A", fontSize: "0.825rem", lineHeight: 1.25 }}>
                               {item.name}
                             </div>
-                            <div style={{ fontFamily: "monospace", fontWeight: 800, color: "#0F172A", fontSize: "0.95rem", flexShrink: 0 }}>
+                            <div style={{ fontFamily: "monospace", fontWeight: 800, color: "#0F172A", fontSize: "0.85rem", flexShrink: 0 }}>
                               {item.quantity}
                             </div>
                           </div>
 
                           {/* SKU Chip & Warehouse Location */}
-                          <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontSize: "0.72rem", color: "#64748B", marginTop: "0.3rem", flexWrap: "wrap" }}>
-                            <span style={{ fontFamily: "monospace", fontWeight: 600, backgroundColor: "#F1F5F9", padding: "0.1rem 0.4rem", borderRadius: "4px", color: "#475569", border: "1px solid #E2E8F0" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", fontSize: "0.68rem", color: "#64748B", marginTop: "0.2rem", flexWrap: "wrap" }}>
+                            <span style={{ fontFamily: "monospace", fontWeight: 600, backgroundColor: "#F1F5F9", padding: "0.08rem 0.35rem", borderRadius: "4px", color: "#475569", border: "1px solid #E2E8F0" }}>
                               {item.sku}
                             </span>
                             <span>•</span>
@@ -623,26 +628,26 @@ export function MaterialHero() {
                           </div>
 
                           {/* Bottom Status & Reorder Threshold */}
-                          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "0.6rem", paddingTop: "0.45rem", borderTop: "1px dashed rgba(226, 232, 240, 0.9)" }}>
-                            <div style={{ fontSize: "0.72rem", color: "#64748B" }}>
+                          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "0.45rem", paddingTop: "0.35rem", borderTop: "1px dashed rgba(226, 232, 240, 0.9)" }}>
+                            <div style={{ fontSize: "0.68rem", color: "#64748B" }}>
                               <span style={{ fontWeight: 600, color: "#475569" }}>Reorder: </span>
                               {item.reorderPoint} ({item.unitCost})
                             </div>
 
                             <div>
                               {item.statusType === "success" && (
-                                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.68rem", fontWeight: 700, color: "#059669", backgroundColor: "#ECFDF5", border: "1px solid #A7F3D0", padding: "0.12rem 0.5rem", borderRadius: "9999px" }}>
+                                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.2rem", fontSize: "0.65rem", fontWeight: 700, color: "#059669", backgroundColor: "#ECFDF5", border: "1px solid #A7F3D0", padding: "0.1rem 0.45rem", borderRadius: "9999px" }}>
                                   <span>↗</span> In Stock
                                 </span>
                               )}
                               {item.statusType === "warning" && (
-                                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.68rem", fontWeight: 700, color: "#D97706", backgroundColor: "#FFFBEB", border: "1px solid #FDE68A", padding: "0.12rem 0.5rem", borderRadius: "9999px" }}>
-                                  <AlertTriangle size={10} color="#D97706" /> Low Stock
+                                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.2rem", fontSize: "0.65rem", fontWeight: 700, color: "#D97706", backgroundColor: "#FFFBEB", border: "1px solid #FDE68A", padding: "0.1rem 0.45rem", borderRadius: "9999px" }}>
+                                  <AlertTriangle size={9} color="#D97706" /> Low Stock
                                 </span>
                               )}
                               {item.statusType === "danger" && (
-                                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.68rem", fontWeight: 700, color: "#DC2626", backgroundColor: "#FEF2F2", border: "1px solid #FECACA", padding: "0.12rem 0.5rem", borderRadius: "9999px" }}>
-                                  <XCircle size={10} color="#DC2626" /> Critical
+                                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.2rem", fontSize: "0.65rem", fontWeight: 700, color: "#DC2626", backgroundColor: "#FEF2F2", border: "1px solid #FECACA", padding: "0.1rem 0.45rem", borderRadius: "9999px" }}>
+                                  <XCircle size={9} color="#DC2626" /> Critical
                                 </span>
                               )}
                             </div>
