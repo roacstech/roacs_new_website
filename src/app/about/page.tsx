@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { Button } from "@/components/common/Button";
+import { Counter } from "@/components/common/Counter";
 import { constructMetadata } from "@/lib/metadata";
 import { CoreValuesShowcase } from "@/components/about/CoreValuesShowcase";
 import { 
@@ -140,19 +141,19 @@ export default function AboutPage() {
           {/* Frosted Glass Metrics Ribbon Matching Reference UI */}
           <div className="about-hero-stats-grid">
             <div className="about-glass-stat-card">
-              <span className="about-glass-stat-number">50+</span>
+              <span className="about-glass-stat-number"><Counter value="50+" duration={1.6} delay={0.05} /></span>
               <span className="about-glass-stat-label">Enterprise Clients</span>
             </div>
             <div className="about-glass-stat-card">
-              <span className="about-glass-stat-number">100+</span>
+              <span className="about-glass-stat-number"><Counter value="100+" duration={1.6} delay={0.15} /></span>
               <span className="about-glass-stat-label">Successful Deployments</span>
             </div>
             <div className="about-glass-stat-card">
-              <span className="about-glass-stat-number">40+</span>
+              <span className="about-glass-stat-number"><Counter value="40+" duration={1.6} delay={0.25} /></span>
               <span className="about-glass-stat-label">Senior Tech Specialists</span>
             </div>
             <div className="about-glass-stat-card">
-              <span className="about-glass-stat-number">99.9%</span>
+              <span className="about-glass-stat-number"><Counter value="99.9%" duration={1.6} delay={0.35} /></span>
               <span className="about-glass-stat-label">System Reliability</span>
             </div>
           </div>
@@ -958,7 +959,7 @@ export default function AboutPage() {
                   letterSpacing: "-0.03em",
                 }}
               >
-                100+
+                <Counter value="100+" duration={1.8} delay={0} />
               </div>
               <h4 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "0.35rem" }}>
                 Successful Deployments
@@ -989,7 +990,7 @@ export default function AboutPage() {
                   letterSpacing: "-0.03em",
                 }}
               >
-                40+
+                <Counter value="40+" duration={1.8} delay={0.12} />
               </div>
               <h4 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "0.35rem" }}>
                 Senior Engineers
@@ -1020,7 +1021,7 @@ export default function AboutPage() {
                   letterSpacing: "-0.03em",
                 }}
               >
-                30+
+                <Counter value="30+" duration={1.8} delay={0.24} />
               </div>
               <h4 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "0.35rem" }}>
                 Proprietary Products
@@ -1051,7 +1052,7 @@ export default function AboutPage() {
                   letterSpacing: "-0.03em",
                 }}
               >
-                1.2k+
+                <Counter value="1.2k+" duration={1.8} delay={0.36} />
               </div>
               <h4 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#FFFFFF", marginBottom: "0.35rem" }}>
                 Satisfied Partners

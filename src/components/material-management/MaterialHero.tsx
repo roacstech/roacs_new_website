@@ -4,17 +4,18 @@ import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/Container";
-import { 
-  ArrowRight, 
-  Play, 
-  Zap, 
-  ShieldCheck, 
-  BarChart3, 
-  Layers, 
-  Disc, 
-  Droplets, 
-  Hexagon, 
-  AlertTriangle, 
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
+import {
+  ArrowRight,
+  Play,
+  Zap,
+  ShieldCheck,
+  BarChart3,
+  Layers,
+  Disc,
+  Droplets,
+  Hexagon,
+  AlertTriangle,
   XCircle
 } from "lucide-react";
 
@@ -131,39 +132,40 @@ export function MaterialHero() {
 
   return (
     <section className="material-hero-section">
-      {/* High-Tech Geometric Mesh Background */}
-      <div 
-        style={{ 
-          position: "absolute", 
-          inset: 0, 
-          zIndex: 0, 
-          pointerEvents: "none", 
-          overflow: "hidden" 
-        }} 
+      {/* Industrial Aggregate & Quarry Conveyor Facility Background Image */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+          overflow: "hidden"
+        }}
         aria-hidden="true"
       >
         <Image
-          src="/images/material-hero-bg.jpg"
-          alt="Tech Mesh Background"
+          src="/images/material/quarry-conveyor-hero-bg.jpg"
+          alt="Modern Industrial Aggregate and Raw Materials Conveyor Facility"
           fill
           priority
           sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center", opacity: 0.22 }}
+          style={{ objectFit: "cover", objectPosition: "center right", opacity: 0.88 }}
         />
-        <div 
-          style={{ 
-            position: "absolute", 
-            inset: 0, 
-            background: "radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.94) 100%)" 
-          }} 
+        {/* Directional Soft Scrim: Opaque on left for pristine text legibility, crystal clear on right */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 38%, rgba(255, 255, 255, 0.42) 70%, rgba(255, 255, 255, 0.15) 100%)"
+          }}
         />
       </div>
 
-      {/* Precision Engineering Grid Background */}
-      <div className="material-hero-grid-bg" aria-hidden="true" />
+      {/* Precision Engineering Grid Background (Subtle Overlay) */}
+      <div className="material-hero-grid-bg" style={{ opacity: 0.15 }} aria-hidden="true" />
 
       {/* Gentle Ambient Top Radial Light */}
-      <div 
+      <div
         style={{
           position: "absolute",
           top: 0,
@@ -180,82 +182,76 @@ export function MaterialHero() {
 
       <Container wide>
         <div className="material-hero-layout" style={{ position: "relative", zIndex: 1 }}>
-          
+
           {/* =========================================================
               Left Column: Executive Value Proposition
              ========================================================= */}
           <div>
-            {/* Headline */}
+            {/* Headline with Multi-Layered Entrance & Fluid Gradient Flow Animation */}
             <h1
+              className="material-hero-title"
               style={{
-                fontSize: "clamp(2rem, 3.6vw, 2.9rem)",
+                fontSize: "clamp(2.35rem, 4.1vw, 3.25rem)",
                 fontWeight: 800,
                 color: "#0F172A",
                 lineHeight: 1.15,
                 letterSpacing: "-0.03em",
-                marginBottom: "0.75rem",
+                marginBottom: "1rem",
               }}
             >
-              Roacs Material<br />
-              <span
-                style={{
-                  background: "linear-gradient(90deg, #4338CA 0%, #6366F1 45%, #0284C7 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  display: "inline-block",
-                }}
-              >
-                Management
-              </span>{" "}
-              Platform
+              Roacs{" "}
+              <AnimatedGradientText className="material-gradient-title">
+                Material<br />
+                Management Platform
+              </AnimatedGradientText>
             </h1>
 
             {/* Subheading */}
             <p
               style={{
-                fontSize: "0.95rem",
+                fontSize: "1.025rem",
                 color: "#475569",
-                lineHeight: 1.55,
-                maxWidth: "520px",
-                marginBottom: "1.25rem",
+                lineHeight: 1.62,
+                maxWidth: "540px",
+                marginBottom: "1.75rem",
               }}
             >
               An enterprise-grade supply chain control tower engineered by Roacs Corporation. Eliminate stock-outs, automate multi-tiered procurement cycles, and synchronize inventory flow with sub-second auditability.
             </p>
 
             {/* Dual Action CTAs */}
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.85rem", marginBottom: "1.35rem" }}>
-              <Link href="/contact" className="material-hero-primary-btn" style={{ padding: "0.72rem 1.6rem", fontSize: "0.9rem" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem", marginBottom: "1.85rem" }}>
+              <Link href="/contact" className="material-hero-primary-btn" style={{ padding: "0.82rem 1.85rem", fontSize: "0.95rem" }}>
                 <span>Schedule Platform Demo</span>
                 <span
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    width: 20,
-                    height: 20,
+                    width: 22,
+                    height: 22,
                     borderRadius: "50%",
                     backgroundColor: "rgba(255, 255, 255, 0.22)",
                   }}
                 >
-                  <ArrowRight size={12} color="#FFFFFF" />
+                  <ArrowRight size={13} color="#FFFFFF" />
                 </span>
               </Link>
 
-              <Link href="#capabilities" className="material-hero-secondary-btn" style={{ padding: "0.72rem 1.45rem", fontSize: "0.9rem" }}>
+              <Link href="#capabilities" className="material-hero-secondary-btn" style={{ padding: "0.82rem 1.7rem", fontSize: "0.95rem" }}>
                 <span
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    width: 20,
-                    height: 20,
+                    width: 22,
+                    height: 22,
                     borderRadius: "50%",
                     backgroundColor: "#0F172A",
                     color: "#FFFFFF",
                   }}
                 >
-                  <Play size={10} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: "1px" }} />
+                  <Play size={11} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: "1px" }} />
                 </span>
                 <span>View System Capabilities</span>
               </Link>
@@ -265,18 +261,18 @@ export function MaterialHero() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
-                gap: "0.65rem",
-                paddingTop: "0.85rem",
+                gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+                gap: "0.85rem",
+                paddingTop: "1.25rem",
                 borderTop: "1px solid rgba(226, 232, 240, 0.9)",
               }}
             >
               <div className="material-feature-badge">
                 <div
                   style={{
-                    width: 30,
-                    height: 30,
-                    borderRadius: "8px",
+                    width: 34,
+                    height: 34,
+                    borderRadius: "9px",
                     backgroundColor: "rgba(99, 102, 241, 0.12)",
                     display: "flex",
                     alignItems: "center",
@@ -285,13 +281,13 @@ export function MaterialHero() {
                     flexShrink: 0,
                   }}
                 >
-                  <Zap size={15} />
+                  <Zap size={17} />
                 </div>
                 <div style={{ textAlign: "left" }}>
-                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                  <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.25 }}>
                     Sub-Second Sync
                   </div>
-                  <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.725rem", color: "#64748B", marginTop: "3px" }}>
                     Live multi-hub socket
                   </div>
                 </div>
@@ -300,9 +296,9 @@ export function MaterialHero() {
               <div className="material-feature-badge">
                 <div
                   style={{
-                    width: 30,
-                    height: 30,
-                    borderRadius: "8px",
+                    width: 34,
+                    height: 34,
+                    borderRadius: "9px",
                     backgroundColor: "rgba(16, 185, 129, 0.12)",
                     display: "flex",
                     alignItems: "center",
@@ -311,13 +307,13 @@ export function MaterialHero() {
                     flexShrink: 0,
                   }}
                 >
-                  <ShieldCheck size={15} />
+                  <ShieldCheck size={17} />
                 </div>
                 <div style={{ textAlign: "left" }}>
-                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                  <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.25 }}>
                     Automated POs
                   </div>
-                  <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.725rem", color: "#64748B", marginTop: "3px" }}>
                     Rule-based routing
                   </div>
                 </div>
@@ -326,9 +322,9 @@ export function MaterialHero() {
               <div className="material-feature-badge">
                 <div
                   style={{
-                    width: 30,
-                    height: 30,
-                    borderRadius: "8px",
+                    width: 34,
+                    height: 34,
+                    borderRadius: "9px",
                     backgroundColor: "rgba(37, 99, 235, 0.12)",
                     display: "flex",
                     alignItems: "center",
@@ -337,13 +333,13 @@ export function MaterialHero() {
                     flexShrink: 0,
                   }}
                 >
-                  <BarChart3 size={15} />
+                  <BarChart3 size={17} />
                 </div>
                 <div style={{ textAlign: "left" }}>
-                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                  <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.25 }}>
                     Predictive Stock
                   </div>
-                  <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.725rem", color: "#64748B", marginTop: "3px" }}>
                     Dynamic thresholds
                   </div>
                 </div>
@@ -356,7 +352,7 @@ export function MaterialHero() {
              ========================================================= */}
           <div className="warehouse-console-wrapper">
             <div className="warehouse-glass-console">
-              
+
               {/* Facility Filter Tabs */}
               <div className="console-filter-bar">
                 <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", flexWrap: "wrap", width: "100%" }}>
@@ -391,20 +387,20 @@ export function MaterialHero() {
               <div className="serpentine-pipeline-wrap">
                 {/* Continuous Winding Serpentine Snake Path SVG (when all 4 items displayed) */}
                 {filteredItems.length >= 4 && (
-                  <svg 
-                    className="serpentine-track-svg" 
-                    viewBox="0 0 520 310" 
-                    fill="none" 
+                  <svg
+                    className="serpentine-track-svg"
+                    viewBox="0 0 560 372"
+                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="none"
                     aria-hidden="true"
                   >
                     <path
-                      d="M 62 36 L 458 36 A 39.5 39.5 0 0 1 458 115 L 62 115 A 39.5 39.5 0 0 0 62 194 L 458 194 A 39.5 39.5 0 0 1 458 274"
+                      d="M 70 42 L 490 42 A 48 48 0 0 1 490 138 L 70 138 A 48 48 0 0 0 70 234 L 490 234 A 48 48 0 0 1 490 330"
                       stroke="url(#serpentineGradient)"
-                      strokeWidth="2.75"
+                      strokeWidth="3"
                       strokeLinecap="round"
-                      strokeDasharray="4 2"
+                      strokeDasharray="5 3"
                       opacity="0.85"
                     />
                     <defs>
@@ -428,12 +424,12 @@ export function MaterialHero() {
                     const isEven = index % 2 === 1;
 
                     return (
-                      <div 
-                        key={item.id} 
+                      <div
+                        key={item.id}
                         className={`serpentine-row ${isEven ? "serpentine-row-even" : ""}`}
                       >
                         {/* Visual Capsule (Compact Stadium Shape with Photo & Capacity Ring) */}
-                        <div 
+                        <div
                           className="serpentine-capsule"
                           style={{ borderColor: item.accentColor }}
                         >
@@ -445,27 +441,27 @@ export function MaterialHero() {
                             style={{ objectFit: "cover", objectPosition: "center" }}
                           />
                           {/* Dark Scrim */}
-                          <div 
-                            style={{ 
-                              position: "absolute", 
-                              inset: 0, 
-                              background: "linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.78) 100%)" 
-                            }} 
+                          <div
+                            style={{
+                              position: "absolute",
+                              inset: 0,
+                              background: "linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.78) 100%)"
+                            }}
                           />
 
                           {/* Top Badge: Warehouse ID Tag */}
                           <div
                             style={{
                               position: "absolute",
-                              top: "4px",
-                              left: isEven ? "auto" : "10px",
-                              right: isEven ? "10px" : "auto",
+                              top: "6px",
+                              left: isEven ? "auto" : "12px",
+                              right: isEven ? "12px" : "auto",
                               backgroundColor: "rgba(15, 23, 42, 0.78)",
                               backdropFilter: "blur(4px)",
                               color: "#FFFFFF",
-                              fontSize: "0.54rem",
+                              fontSize: "0.58rem",
                               fontWeight: 800,
-                              padding: "0.08rem 0.35rem",
+                              padding: "0.1rem 0.4rem",
                               borderRadius: "9999px",
                               letterSpacing: "0.05em",
                               border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -475,36 +471,36 @@ export function MaterialHero() {
                           </div>
 
                           {/* Center / Bottom: Compact Circular Capacity Gauge Meter */}
-                          <div 
-                            style={{ 
-                              position: "absolute", 
-                              bottom: "4px", 
-                              left: "50%", 
+                          <div
+                            style={{
+                              position: "absolute",
+                              bottom: "6px",
+                              left: "50%",
                               transform: "translateX(-50%)",
                               display: "flex",
                               alignItems: "center",
-                              gap: "0.25rem",
+                              gap: "0.3rem",
                             }}
                           >
-                            <div style={{ position: "relative", width: 24, height: 24 }}>
-                              <svg width="24" height="24" viewBox="0 0 24 24" style={{ transform: "rotate(-90deg)" }}>
+                            <div style={{ position: "relative", width: 30, height: 30 }}>
+                              <svg width="30" height="30" viewBox="0 0 30 30" style={{ transform: "rotate(-90deg)" }}>
                                 <circle
-                                  cx="12"
-                                  cy="12"
-                                  r="9"
+                                  cx="15"
+                                  cy="15"
+                                  r="11.5"
                                   fill="none"
                                   stroke="rgba(255, 255, 255, 0.2)"
-                                  strokeWidth="2.2"
+                                  strokeWidth="2.5"
                                 />
                                 <circle
-                                  cx="12"
-                                  cy="12"
-                                  r="9"
+                                  cx="15"
+                                  cy="15"
+                                  r="11.5"
                                   fill="none"
                                   stroke={item.accentColor}
-                                  strokeWidth="2.2"
-                                  strokeDasharray={56.55}
-                                  strokeDashoffset={56.55 * (1 - item.capacityPercent / 100)}
+                                  strokeWidth="2.5"
+                                  strokeDasharray={72.26}
+                                  strokeDashoffset={72.26 * (1 - item.capacityPercent / 100)}
                                   strokeLinecap="round"
                                 />
                               </svg>
@@ -515,7 +511,7 @@ export function MaterialHero() {
                                   display: "flex",
                                   alignItems: "center",
                                   justifyContent: "center",
-                                  fontSize: "0.5rem",
+                                  fontSize: "0.58rem",
                                   fontWeight: 800,
                                   color: "#FFFFFF",
                                   fontFamily: "monospace",
@@ -530,10 +526,10 @@ export function MaterialHero() {
                         {/* Content Card (Compact FurniFlex Detail Card Style) */}
                         <div className="serpentine-card">
                           {/* Top: Category Pill Badge */}
-                          <div 
+                          <div
                             className="serpentine-pill-badge"
-                            style={{ 
-                              backgroundColor: `${item.accentColor}14`, 
+                            style={{
+                              backgroundColor: `${item.accentColor}14`,
                               color: item.accentColor,
                               border: `1px solid ${item.accentColor}30`,
                             }}
