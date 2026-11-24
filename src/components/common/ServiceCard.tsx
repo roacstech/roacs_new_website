@@ -44,12 +44,12 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-start",
-            marginBottom: "1.5rem",
+            marginBottom: "1rem",
           }}
         >
           <span
             style={{
-              fontSize: "clamp(2.5rem, 4vw, 3rem)",
+              fontSize: "clamp(2.2rem, 3.2vw, 2.75rem)",
               fontWeight: 800,
               color: "#7892FE",
               lineHeight: 1,
@@ -62,8 +62,8 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
 
           <div
             style={{
-              width: "44px",
-              height: "44px",
+              width: "42px",
+              height: "42px",
               borderRadius: "12px",
               backgroundColor: "#FFFFFF",
               border: "1px solid #D6E4FF",
@@ -75,17 +75,17 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
               flexShrink: 0,
             }}
           >
-            <IconComponent size={22} strokeWidth={2} />
+            <IconComponent size={20} strokeWidth={2} />
           </div>
         </div>
 
         {/* Title */}
         <h3
           style={{
-            fontSize: "1.35rem",
+            fontSize: "1.2rem",
             fontWeight: 800,
             color: "var(--color-primary-navy)",
-            marginBottom: "0.85rem",
+            marginBottom: "0.6rem",
             lineHeight: 1.25,
             letterSpacing: "-0.015em",
           }}
@@ -96,10 +96,10 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         {/* Short Description */}
         <p
           style={{
-            fontSize: "0.935rem",
-            lineHeight: 1.6,
+            fontSize: "0.875rem",
+            lineHeight: 1.55,
             color: "var(--color-text-secondary)",
-            marginBottom: "1.75rem",
+            marginBottom: "1.25rem",
           }}
         >
           {service.shortDescription}
@@ -110,25 +110,42 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "0.65rem",
-            marginBottom: "2rem",
+            gap: "0.55rem",
+            marginBottom: "1.5rem",
             alignItems: "flex-start",
+            width: "100%",
           }}
         >
           {service.features.slice(0, 3).map((feat, idx) => (
-            <div key={idx} className="service-pill-badge">
+            <div
+              key={idx}
+              className="service-pill-badge"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.55rem",
+                padding: "0.42rem 0.85rem",
+                backgroundColor: "#FFFFFF",
+                border: "1px solid #D6E4FF",
+                borderRadius: "9999px",
+                maxWidth: "100%",
+                boxShadow: "0 2px 6px rgba(59, 130, 246, 0.04)",
+              }}
+            >
               <CheckCircle2
-                size={16}
+                size={15}
                 color="#3B82F6"
                 strokeWidth={2.2}
                 style={{ flexShrink: 0 }}
               />
               <span
                 style={{
-                  fontSize: "0.85rem",
+                  fontSize: "0.8rem",
                   fontWeight: 600,
                   color: "#1E293B",
-                  whiteSpace: "nowrap",
+                  lineHeight: 1.3,
+                  whiteSpace: "normal",
+                  wordBreak: "break-word",
                 }}
               >
                 {feat}
@@ -139,13 +156,22 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       </div>
 
       {/* Action Link */}
-      <div style={{ paddingTop: "0.5rem" }}>
+      <div style={{ paddingTop: "0.25rem" }}>
         <Link
           href={`/services/${service.slug}`}
           className="service-explore-link"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            fontSize: "0.885rem",
+            fontWeight: 700,
+            color: "#2563EB",
+            textDecoration: "none",
+          }}
         >
           <span>Explore Capabilities</span>
-          <ArrowRight size={16} />
+          <ArrowRight size={15} />
         </Link>
       </div>
     </div>

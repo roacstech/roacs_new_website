@@ -110,17 +110,20 @@ export function ServicesSection() {
             zIndex: 1,
           }}
         >
-          {/* Sticky Viewport Window Centered on Screen */}
+          {/* Sticky Viewport Window Below Navbar */}
           <div
             style={{
               position: "sticky",
-              top: 0,
-              height: "100vh",
-              maxHeight: "100vh",
+              top: "72px",
+              height: "calc(100vh - 72px)",
+              maxHeight: "calc(100vh - 72px)",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
+              justifyContent: "space-between",
+              paddingTop: "1.25rem",
+              paddingBottom: "1.75rem",
               overflow: "hidden",
+              boxSizing: "border-box",
             }}
           >
             <Container wide>
@@ -129,7 +132,7 @@ export function ServicesSection() {
                 style={{
                   textAlign: "center",
                   maxWidth: "920px",
-                  margin: "0 auto clamp(1.25rem, 2.5vh, 2rem) auto",
+                  margin: "0 auto",
                 }}
               >
                 <div
@@ -137,38 +140,38 @@ export function ServicesSection() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "0.5rem",
-                    padding: "0.3rem 0.85rem",
+                    padding: "0.28rem 0.85rem",
                     borderRadius: "9999px",
                     backgroundColor: "rgba(237, 25, 24, 0.08)",
                     border: "1px solid rgba(237, 25, 24, 0.18)",
                     color: "var(--color-brand-accent, #ED1918)",
-                    fontSize: "0.78rem",
+                    fontSize: "0.75rem",
                     fontWeight: 700,
                     textTransform: "uppercase",
                     letterSpacing: "0.08em",
-                    marginBottom: "0.65rem",
+                    marginBottom: "0.45rem",
                   }}
                 >
                   Our Core Services
                 </div>
                 <h2
                   style={{
-                    fontSize: "clamp(1.85rem, 2.8vw, 2.5rem)",
+                    fontSize: "clamp(1.65rem, 2.5vw, 2.25rem)",
                     fontWeight: 800,
                     color: "var(--color-primary-navy, #101D35)",
                     lineHeight: 1.2,
                     letterSpacing: "-0.025em",
-                    marginBottom: "0.65rem",
+                    marginBottom: "0.45rem",
                   }}
                 >
                   Innovative IT Solutions for Modern Businesses.
                 </h2>
                 <p
                   style={{
-                    fontSize: "clamp(0.9rem, 1.1vw, 0.98rem)",
+                    fontSize: "clamp(0.85rem, 1vw, 0.95rem)",
                     color: "var(--color-text-secondary, #64748B)",
-                    lineHeight: 1.55,
-                    maxWidth: "760px",
+                    lineHeight: 1.5,
+                    maxWidth: "740px",
                     margin: "0 auto",
                   }}
                 >
@@ -181,11 +184,11 @@ export function ServicesSection() {
                 ref={containerRef}
                 style={{
                   width: "100%",
-                  maxWidth: "1280px",
+                  maxWidth: "1300px",
                   margin: "0 auto",
                   overflow: "hidden", // Masks cards 04+ on right and exiting cards on left
                   position: "relative",
-                  padding: "10px 0",
+                  padding: "8px 0",
                 }}
               >
                 <motion.div
@@ -219,7 +222,6 @@ export function ServicesSection() {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "0.65rem",
-                  marginTop: "clamp(1rem, 2vh, 1.5rem)",
                 }}
               >
                 <span style={{ fontSize: "0.75rem", color: "#94A3B8", fontWeight: 600, letterSpacing: "0.04em" }}>
@@ -299,7 +301,7 @@ export function ServicesSection() {
             </div>
           </Container>
         </div>
-      )}    
+      )}
     </section>
   );
 }

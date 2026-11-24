@@ -103,7 +103,7 @@ export const servicesData: ServiceItem[] = [
     image: "/images/services/ai-solutions.jpg",
     features: [
       "Domain-Specific LLM Integration & RAG",
-      "Automated Optical Character Recognition & Extraction",
+      "OCR & Document Data Extraction",
       "Predictive Operations & Demand Forecasting",
       "Intelligent Process Automation (IPA)"
     ],
@@ -130,7 +130,7 @@ export const servicesData: ServiceItem[] = [
     image: "/images/services/cloud-devops.jpg",
     features: [
       "Infrastructure as Code (Terraform / OpenTofu)",
-      "Automated Zero-Downtime Deployment Pipelines",
+      "Zero-Downtime CI/CD Pipelines",
       "Kubernetes & Docker Container Orchestration",
       "24/7 Observability, Logging & Alerting"
     ],
