@@ -1387,15 +1387,22 @@ export default function AboutPage() {
           borderBottom: "1px solid rgba(226, 232, 240, 0.8)",
         }}
       >
-        {/* Full Pristine Artwork Background (Zero Text, High-Res Building & Aurora Wave) */}
+        {/* Modern Geometric & Network Mesh Tech Background */}
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
           <Image
-            src="/images/about/commitment-perfect-bg.jpg"
-            alt="Roacs Modern Engineering Commitment"
+            src="/images/about/commitment-tech-bg.jpg"
+            alt="Roacs Modern Engineering Background"
             fill
             sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: "center right" }}
+            style={{ objectFit: "cover", objectPosition: "center" }}
             priority
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.45) 100%)",
+            }}
           />
         </div>
 
