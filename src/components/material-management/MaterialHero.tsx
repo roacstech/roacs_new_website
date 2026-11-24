@@ -193,13 +193,13 @@ export function MaterialHero() {
         <div className="material-hero-layout" style={{ position: "relative", zIndex: 1 }}>
           
           {/* =========================================================
-              Top Center: Executive Value Proposition
+              Left Column: Executive Value Proposition
              ========================================================= */}
-          <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
+          <div>
             {/* Headline */}
             <h1
               style={{
-                fontSize: "clamp(2.4rem, 4.5vw, 3.5rem)",
+                fontSize: "clamp(2.4rem, 4.2vw, 3.4rem)",
                 fontWeight: 800,
                 color: "#0F172A",
                 lineHeight: 1.15,
@@ -207,7 +207,7 @@ export function MaterialHero() {
                 marginBottom: "1.25rem",
               }}
             >
-              Roacs Material{" "}
+              Roacs Material<br />
               <span
                 style={{
                   background: "linear-gradient(90deg, #4338CA 0%, #6366F1 45%, #0284C7 100%)",
@@ -224,18 +224,18 @@ export function MaterialHero() {
             {/* Subheading */}
             <p
               style={{
-                fontSize: "1.1rem",
+                fontSize: "1.05rem",
                 color: "#475569",
                 lineHeight: 1.65,
-                maxWidth: "660px",
-                margin: "0 auto 2rem auto",
+                maxWidth: "520px",
+                marginBottom: "2rem",
               }}
             >
               An enterprise-grade supply chain control tower engineered by Roacs Corporation. Eliminate stock-outs, automate multi-tiered procurement cycles, and synchronize inventory flow with sub-second auditability.
             </p>
 
             {/* Dual Action CTAs */}
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "2rem" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem", marginBottom: "2.25rem" }}>
               <Link href="/contact" className="material-hero-primary-btn">
                 <span>Schedule Platform Demo</span>
                 <span
@@ -275,15 +275,11 @@ export function MaterialHero() {
             {/* 3 Executive Trust Pillars */}
             <div
               style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                alignItems: "center",
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
                 gap: "0.85rem",
                 paddingTop: "1.25rem",
                 borderTop: "1px solid rgba(226, 232, 240, 0.9)",
-                maxWidth: "680px",
-                margin: "0 auto",
               }}
             >
               <div className="material-feature-badge">
@@ -367,7 +363,7 @@ export function MaterialHero() {
           </div>
 
           {/* =========================================================
-              Bottom Center: Compact Serpentine Flow Console
+              Right Column: Compact Serpentine Flow Console
              ========================================================= */}
           <div className="warehouse-console-wrapper">
             <div className="warehouse-glass-console">
