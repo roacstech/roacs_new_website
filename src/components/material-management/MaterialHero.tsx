@@ -131,7 +131,7 @@ export function MaterialHero() {
 
   return (
     <section className="material-hero-section">
-      {/* Authentic Warehouse & Production Control Tower Background Image */}
+      {/* Industrial Aggregate & Quarry Conveyor Facility Background Image */}
       <div 
         style={{ 
           position: "absolute", 
@@ -143,25 +143,25 @@ export function MaterialHero() {
         aria-hidden="true"
       >
         <Image
-          src="/images/warehouse-production-hero.jpg"
-          alt="Modern Warehouse Logistics and Tablet Production Control"
+          src="/images/material/quarry-conveyor-hero-bg.jpg"
+          alt="Modern Industrial Aggregate and Raw Materials Conveyor Facility"
           fill
           priority
           sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center right", opacity: 0.72 }}
+          style={{ objectFit: "cover", objectPosition: "center right", opacity: 0.88 }}
         />
-        {/* Directional Soft Scrim: Opaque on left for pristine text legibility, luminous on right */}
+        {/* Directional Soft Scrim: Opaque on left for pristine text legibility, crystal clear on right */}
         <div 
           style={{ 
             position: "absolute", 
             inset: 0, 
-            background: "linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.84) 42%, rgba(255, 255, 255, 0.48) 78%, rgba(255, 255, 255, 0.3) 100%)" 
+            background: "linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 38%, rgba(255, 255, 255, 0.42) 70%, rgba(255, 255, 255, 0.15) 100%)" 
           }} 
         />
       </div>
 
       {/* Precision Engineering Grid Background (Subtle Overlay) */}
-      <div className="material-hero-grid-bg" style={{ opacity: 0.2 }} aria-hidden="true" />
+      <div className="material-hero-grid-bg" style={{ opacity: 0.15 }} aria-hidden="true" />
 
       {/* Gentle Ambient Top Radial Light */}
       <div 
