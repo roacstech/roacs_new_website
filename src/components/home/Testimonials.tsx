@@ -26,8 +26,8 @@ export function Testimonials() {
           style={{
             display: "grid",
             gridTemplateColumns: "1fr",
-            gap: "1.5rem",
-            maxWidth: "860px",
+            gap: "1.75rem",
+            maxWidth: "1120px",
             margin: "0 auto",
           }}
           className="testimonials-grid"
