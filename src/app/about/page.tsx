@@ -195,50 +195,26 @@ export default function AboutPage() {
               alignItems: "center",
             }}
           >
-            {/* Visual Showcase: Overlapping Photos */}
+            {/* Visual Showcase: Modern Software Engineering Team */}
             <div style={{ position: "relative" }}>
-              {/* Main Photo */}
               <div
                 style={{
                   position: "relative",
-                  width: "85%",
+                  width: "100%",
                   height: "440px",
                   borderRadius: "var(--radius-lg)",
                   overflow: "hidden",
-                  boxShadow: "0 25px 50px -12px rgba(16, 29, 53, 0.2)",
+                  boxShadow: "0 25px 50px -12px rgba(16, 29, 53, 0.16)",
                   border: "1px solid rgba(0, 0, 0, 0.08)",
                 }}
               >
                 <Image
-                  src="/images/about/cloud-infrastructure.jpg"
-                  alt="Roacs Corporation Technical Leadership & Cloud Engineering"
+                  src="/images/about/team-collaboration.jpg"
+                  alt="Roacs Software Engineering Team & Technical Architecture"
                   fill
-                  style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-
-              {/* Secondary Overlapping Photo */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "-25px",
-                  right: "0px",
-                  width: "55%",
-                  height: "260px",
-                  borderRadius: "var(--radius-md)",
-                  overflow: "hidden",
-                  border: "4px solid #FFFFFF",
-                  boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.25)",
-                  zIndex: 2,
-                }}
-              >
-                <Image
-                  src="/images/about/about-2.jpg"
-                  alt="Roacs Engineering Collaboration"
-                  fill
-                  style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 80vw, 35vw"
+                  style={{ objectFit: "cover", objectPosition: "left center" }}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
                 />
               </div>
             </div>
