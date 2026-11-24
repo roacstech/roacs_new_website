@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/Container";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import {
   ArrowRight,
   Play,
@@ -199,10 +200,10 @@ export function MaterialHero() {
               }}
             >
               Roacs{" "}
-              <span className="material-gradient-title">
+              <AnimatedGradientText className="material-gradient-title">
                 Material<br />
                 Management Platform
-              </span>
+              </AnimatedGradientText>
             </h1>
 
             {/* Subheading */}
