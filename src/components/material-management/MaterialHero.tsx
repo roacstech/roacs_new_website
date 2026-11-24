@@ -151,12 +151,12 @@ export function MaterialHero() {
           style={{ objectFit: "cover", objectPosition: "center right", opacity: 0.88 }}
         />
         {/* Directional Soft Scrim: Opaque on left for pristine text legibility, crystal clear on right */}
-        <div 
-          style={{ 
-            position: "absolute", 
-            inset: 0, 
-            background: "linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 38%, rgba(255, 255, 255, 0.42) 70%, rgba(255, 255, 255, 0.15) 100%)" 
-          }} 
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 38%, rgba(255, 255, 255, 0.42) 70%, rgba(255, 255, 255, 0.15) 100%)"
+          }}
         />
       </div>
 
@@ -186,8 +186,9 @@ export function MaterialHero() {
               Left Column: Executive Value Proposition
              ========================================================= */}
           <div>
-            {/* Headline */}
+            {/* Headline with Multi-Layered Entrance & Fluid Gradient Flow Animation */}
             <h1
+              className="material-hero-title"
               style={{
                 fontSize: "clamp(2.35rem, 4.1vw, 3.25rem)",
                 fontWeight: 800,
@@ -198,14 +199,7 @@ export function MaterialHero() {
               }}
             >
               Roacs Material<br />
-              <span
-                style={{
-                  background: "linear-gradient(90deg, #4338CA 0%, #6366F1 45%, #0284C7 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  display: "inline-block",
-                }}
-              >
+              <span className="material-gradient-title">
                 Management
               </span>{" "}
               Platform

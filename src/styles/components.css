@@ -1755,6 +1755,71 @@ p {
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
 }
 
+/* =========================================================================
+   Material Management Hero Title Animations (Entrance & Fluid Gradient Flow)
+   ========================================================================= */
+@keyframes hero-headline-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes material-gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes material-ambient-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 2px 8px rgba(99, 102, 241, 0.18));
+  }
+  50% {
+    filter: drop-shadow(0 4px 18px rgba(56, 189, 248, 0.42));
+  }
+}
+
+.material-hero-title {
+  animation: hero-headline-slide-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.material-gradient-title {
+  background: linear-gradient(
+    90deg,
+    #4338CA 0%,
+    #6366F1 22%,
+    #0284C7 45%,
+    #38BDF8 60%,
+    #818CF8 80%,
+    #4338CA 100%
+  );
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: material-gradient-flow 5s ease-in-out infinite, material-ambient-pulse 4s ease-in-out infinite;
+  display: inline-block;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+  will-change: background-position, filter;
+  cursor: default;
+}
+
+.material-gradient-title:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: drop-shadow(0 6px 24px rgba(56, 189, 248, 0.6)) !important;
+}
+
 .material-hero-primary-btn {
   display: inline-flex;
   align-items: center;
