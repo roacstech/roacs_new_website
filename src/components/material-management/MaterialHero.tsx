@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
+import { Container } from "@/components/common/Container";
 import { 
   ArrowRight, 
   Play, 
@@ -113,12 +114,10 @@ export function MaterialHero() {
 
   const filteredItems = useMemo(() => {
     return STOCK_DATA.filter((item) => {
-      // Tab filter
       if (activeTab === "critical" && item.statusType === "success") return false;
       if (activeTab === "metals" && item.category !== "metals") return false;
       if (activeTab === "fluids" && item.category !== "chemicals") return false;
 
-      // Search filter
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase();
         return (
@@ -132,386 +131,552 @@ export function MaterialHero() {
   }, [activeTab, searchQuery]);
 
   return (
-    <section className="relative overflow-hidden bg-white border-b border-slate-200/80 pt-16 pb-20 lg:pt-20 lg:pb-28">
-      {/* Precision Tech Background Grid with Radial Vignette */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-60"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(226, 232, 240, 0.45) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(226, 232, 240, 0.45) 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-          maskImage: "radial-gradient(ellipse 70% 60% at 50% 25%, #000 35%, transparent 85%)",
-          WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 25%, #000 35%, transparent 85%)",
-        }}
-        aria-hidden="true"
-      />
+    <section className="material-hero-section">
+      {/* Precision Engineering Grid Background */}
+      <div className="material-hero-grid-bg" aria-hidden="true" />
 
       {/* Gentle Ambient Top Radial Light */}
       <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] pointer-events-none opacity-50"
         style={{
+          position: "absolute",
+          top: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "900px",
+          height: "380px",
+          pointerEvents: "none",
+          opacity: 0.5,
           background: "radial-gradient(circle 450px at 50% -20%, rgba(99, 102, 241, 0.12), rgba(37, 99, 235, 0.04), transparent 70%)",
         }}
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <Container wide>
+        <div className="material-hero-layout">
           
           {/* =========================================================
-              Left Column: Value Proposition & Executive Authority
+              Left Column: Executive Value Proposition
              ========================================================= */}
-          <div className="lg:col-span-5 lg:pr-2">
-            {/* High-Intent Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-slate-900 text-white text-xs font-semibold tracking-wide uppercase shadow-sm border border-slate-800 mb-6">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          <div>
+            {/* Status / Version Eyebrow Badge */}
+            <div className="material-hero-eyebrow">
+              <span style={{ display: "flex", width: 8, height: 8, position: "relative" }}>
+                <span 
+                  style={{
+                    position: "absolute",
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "50%",
+                    backgroundColor: "#34D399",
+                    opacity: 0.75,
+                    animation: "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite"
+                  }} 
+                />
+                <span 
+                  style={{
+                    position: "relative",
+                    width: 8,
+                    height: 8,
+                    borderRadius: "50%",
+                    backgroundColor: "#10B981"
+                  }} 
+                />
               </span>
-              <span className="font-mono text-slate-300 text-[11px] tracking-widest">ENTERPRISE SAAS v2.4</span>
-              <span className="text-slate-600 font-normal">|</span>
-              <span className="text-indigo-300 font-medium">Supply Chain OS</span>
+              <span style={{ fontFamily: "monospace", color: "#CBD5E1", fontSize: "0.75rem", letterSpacing: "0.08em" }}>
+                ENTERPRISE SAAS v2.4
+              </span>
+              <span style={{ color: "#475569" }}>|</span>
+              <span style={{ color: "#A5B4FC" }}>Supply Chain OS</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold text-slate-950 tracking-tight leading-[1.12] mb-6">
+            <h1
+              style={{
+                fontSize: "clamp(2.5rem, 4.5vw, 3.5rem)",
+                fontWeight: 800,
+                color: "#0F172A",
+                lineHeight: 1.12,
+                letterSpacing: "-0.03em",
+                marginBottom: "1.25rem",
+              }}
+            >
               Roacs Material<br />
-              <span className="bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              <span
+                style={{
+                  background: "linear-gradient(90deg, #4338CA 0%, #6366F1 45%, #0284C7 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  display: "inline-block",
+                }}
+              >
                 Management
               </span>{" "}
               Platform
             </h1>
 
             {/* Subheading */}
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl font-normal">
+            <p
+              style={{
+                fontSize: "1.1rem",
+                color: "#475569",
+                lineHeight: 1.65,
+                maxWidth: "540px",
+                marginBottom: "2rem",
+              }}
+            >
               An enterprise-grade supply chain control tower engineered by Roacs Corporation. Eliminate stock-outs, automate multi-tiered procurement cycles, and synchronize inventory flow with sub-second auditability.
             </p>
 
-            {/* Dual Conversion CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 mb-10">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold text-white bg-slate-950 hover:bg-slate-800 shadow-md shadow-slate-950/20 border border-slate-800 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-              >
+            {/* Dual Action CTAs */}
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem", marginBottom: "2.5rem" }}>
+              <Link href="/contact" className="material-hero-primary-btn">
                 <span>Schedule Platform Demo</span>
-                <ArrowRight size={16} className="text-indigo-400" />
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 22,
+                    height: 22,
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(255, 255, 255, 0.22)",
+                  }}
+                >
+                  <ArrowRight size={13} color="#FFFFFF" />
+                </span>
               </Link>
 
-              <Link
-                href="#capabilities"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold text-slate-800 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <div className="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center text-slate-700">
-                  <Play size={10} className="fill-slate-800 text-slate-800 ml-0.5" />
-                </div>
+              <Link href="#capabilities" className="material-hero-secondary-btn">
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 22,
+                    height: 22,
+                    borderRadius: "50%",
+                    backgroundColor: "#0F172A",
+                    color: "#FFFFFF",
+                  }}
+                >
+                  <Play size={10} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: "1px" }} />
+                </span>
                 <span>View System Capabilities</span>
               </Link>
             </div>
 
             {/* 3 Executive Trust Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-slate-200/90">
-              <div className="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-50/70 border border-slate-100">
-                <div className="p-1.5 rounded-lg bg-indigo-100/70 text-indigo-700 mt-0.5">
-                  <Zap size={14} />
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                gap: "0.85rem",
+                paddingTop: "1.5rem",
+                borderTop: "1px solid rgba(226, 232, 240, 0.9)",
+              }}
+            >
+              <div className="material-feature-badge">
+                <div
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: "8px",
+                    backgroundColor: "rgba(99, 102, 241, 0.12)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#6366F1",
+                    flexShrink: 0,
+                  }}
+                >
+                  <Zap size={16} />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-slate-900 leading-tight">Sub-Second Sync</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Live multi-hub socket</div>
+                  <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                    Sub-Second Sync
+                  </div>
+                  <div style={{ fontSize: "0.72rem", color: "#64748B", marginTop: "2px" }}>
+                    Live multi-hub socket
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-50/70 border border-slate-100">
-                <div className="p-1.5 rounded-lg bg-emerald-100/70 text-emerald-700 mt-0.5">
-                  <ShieldCheck size={14} />
+              <div className="material-feature-badge">
+                <div
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: "8px",
+                    backgroundColor: "rgba(16, 185, 129, 0.12)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#059669",
+                    flexShrink: 0,
+                  }}
+                >
+                  <ShieldCheck size={16} />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-slate-900 leading-tight">Automated POs</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Rule-based routing</div>
+                  <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                    Automated POs
+                  </div>
+                  <div style={{ fontSize: "0.72rem", color: "#64748B", marginTop: "2px" }}>
+                    Rule-based routing
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-50/70 border border-slate-100">
-                <div className="p-1.5 rounded-lg bg-blue-100/70 text-blue-700 mt-0.5">
-                  <BarChart3 size={14} />
+              <div className="material-feature-badge">
+                <div
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: "8px",
+                    backgroundColor: "rgba(37, 99, 235, 0.12)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#2563EB",
+                    flexShrink: 0,
+                  }}
+                >
+                  <BarChart3 size={16} />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-slate-900 leading-tight">Predictive Stock</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Dynamic thresholds</div>
+                  <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                    Predictive Stock
+                  </div>
+                  <div style={{ fontSize: "0.72rem", color: "#64748B", marginTop: "2px" }}>
+                    Dynamic thresholds
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Security & Compliance Badges */}
-            <div className="mt-4 flex items-center gap-3 text-[11px] text-slate-400 font-medium">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={12} className="text-emerald-500" />
-                SOC 2 Type II
+            {/* Compliance Badges */}
+            <div
+              style={{
+                marginTop: "1.25rem",
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                gap: "0.85rem",
+                fontSize: "0.75rem",
+                color: "#64748B",
+                fontWeight: 600,
+              }}
+            >
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                <CheckCircle2 size={13} color="#10B981" /> SOC 2 Type II
               </span>
               <span>•</span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={12} className="text-emerald-500" />
-                ISO 27001 Certified
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                <CheckCircle2 size={13} color="#10B981" /> ISO 27001 Certified
               </span>
               <span>•</span>
-              <span className="flex items-center gap-1.5">
-                <Database size={12} className="text-indigo-500" />
-                SAP & Oracle Connectors
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                <Database size={13} color="#6366F1" /> SAP &amp; Oracle Connectors
               </span>
             </div>
           </div>
 
           {/* =========================================================
-              Right Column: Interactive Control Tower Console
+              Right Column: Control Tower Console
              ========================================================= */}
-          <div className="lg:col-span-7">
-            <div className="relative mx-auto max-w-2xl lg:max-w-none">
+          <div className="warehouse-console-wrapper">
+            <div className="warehouse-glass-console">
               
-              {/* Outer Shell with Layered Bevel & Shadow */}
-              <div className="rounded-2xl border border-slate-200/90 bg-white shadow-xl shadow-slate-900/[0.04] ring-1 ring-slate-900/[0.04] overflow-hidden">
-                
-                {/* Console Chrome / Top Bar */}
-                <div className="bg-slate-50/90 border-b border-slate-200/80 px-4 py-3 flex items-center justify-between">
-                  {/* Traffic lights + Title */}
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-slate-300 inline-block" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-slate-300 inline-block" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-slate-300 inline-block" />
-                    </div>
-
-                    <div className="h-4 w-[1px] bg-slate-200 mx-0.5" />
-
-                    <div className="flex items-center gap-2">
-                      {/* Roacs Red Triangle Logo Mark */}
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="shrink-0">
-                        <path d="M12 2L2 20H22L12 2Z" fill="#ED1918" />
-                        <path d="M12 7.5L6.5 17.5H17.5L12 7.5Z" fill="#FFFFFF" />
-                        <circle cx="12" cy="14" r="1.8" fill="#ED1918" />
-                      </svg>
-                      <span className="text-xs font-bold text-slate-800 tracking-tight">
-                        Live Warehouse Stock Balances
-                      </span>
-                    </div>
+              {/* Chrome Top Bar: Traffic lights + Roacs Title + Pulse Telemetry */}
+              <div className="console-top-bar">
+                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                  <div className="console-traffic-pips">
+                    <span className="console-pip console-pip-red" />
+                    <span className="console-pip console-pip-yellow" />
+                    <span className="console-pip console-pip-green" />
                   </div>
 
-                  {/* Telemetry Status Indicator */}
-                  <div className="flex items-center gap-2">
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/70 text-emerald-700 text-[11px] font-semibold">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span>Auto-Sync Active</span>
-                      <Activity size={11} className="text-emerald-600 ml-0.5" />
-                    </div>
+                  <div style={{ height: "16px", width: "1px", backgroundColor: "#E2E8F0" }} />
+
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    {/* Roacs Red Triangle Logo Mark */}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
+                      <path d="M12 2L2 20H22L12 2Z" fill="#ED1918" />
+                      <path d="M12 7.5L6.5 17.5H17.5L12 7.5Z" fill="#FFFFFF" />
+                      <circle cx="12" cy="14" r="1.8" fill="#ED1918" />
+                    </svg>
+                    <span style={{ fontSize: "0.88rem", fontWeight: 700, color: "#0F172A", letterSpacing: "-0.01em" }}>
+                      Live Warehouse Stock Balances
+                    </span>
                   </div>
                 </div>
 
-                {/* Sub-Header: Filter Tabs + Live Search Bar */}
-                <div className="px-4 py-2.5 bg-white border-b border-slate-100 flex flex-wrap items-center justify-between gap-3">
-                  {/* Tabs */}
-                  <div className="flex items-center gap-1">
-                    <button
-                      onClick={() => setActiveTab("all")}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
-                        activeTab === "all"
-                          ? "bg-slate-900 text-white shadow-sm"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                      }`}
-                    >
-                      All Facilities ({STOCK_DATA.length})
-                    </button>
-                    <button
-                      onClick={() => setActiveTab("critical")}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
-                        activeTab === "critical"
-                          ? "bg-amber-500 text-white shadow-sm"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                      }`}
-                    >
-                      Alerts & Low (2)
-                    </button>
-                    <button
-                      onClick={() => setActiveTab("metals")}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
-                        activeTab === "metals"
-                          ? "bg-indigo-600 text-white shadow-sm"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                      }`}
-                    >
-                      Raw Metals
-                    </button>
-                    <button
-                      onClick={() => setActiveTab("fluids")}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
-                        activeTab === "fluids"
-                          ? "bg-teal-600 text-white shadow-sm"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                      }`}
-                    >
-                      Fluids
-                    </button>
-                  </div>
+                {/* Auto Sync Active Pill */}
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.4rem",
+                    fontSize: "0.72rem",
+                    backgroundColor: "rgba(16, 185, 129, 0.1)",
+                    color: "#059669",
+                    padding: "0.25rem 0.65rem",
+                    borderRadius: "9999px",
+                    fontWeight: 700,
+                    border: "1px solid rgba(16, 185, 129, 0.2)",
+                  }}
+                >
+                  <span
+                    style={{
+                      width: 6,
+                      height: 6,
+                      borderRadius: "50%",
+                      backgroundColor: "#10B981",
+                      boxShadow: "0 0 6px rgba(16, 185, 129, 0.8)",
+                    }}
+                  />
+                  <span>Auto-Sync Active</span>
+                  <Activity size={11} color="#059669" />
+                </div>
+              </div>
 
-                  {/* Micro Search Input */}
-                  <div className="relative flex items-center">
-                    <Search size={13} className="absolute left-2.5 text-slate-400 pointer-events-none" />
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Filter SKUs..."
-                      className="pl-7 pr-3 py-1 rounded-lg text-xs border border-slate-200 bg-slate-50 text-slate-800 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 w-36 transition-all"
-                    />
-                  </div>
+              {/* Sub-Header: Facility Tabs + Live Search Filter */}
+              <div className="console-filter-bar">
+                <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", flexWrap: "wrap" }}>
+                  <button
+                    onClick={() => setActiveTab("all")}
+                    className={`console-tab-btn ${activeTab === "all" ? "console-tab-btn-active" : "console-tab-btn-inactive"}`}
+                  >
+                    All Facilities ({STOCK_DATA.length})
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("critical")}
+                    className={`console-tab-btn ${activeTab === "critical" ? "console-tab-btn-alert" : "console-tab-btn-inactive"}`}
+                  >
+                    Alerts &amp; Low (2)
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("metals")}
+                    className={`console-tab-btn ${activeTab === "metals" ? "console-tab-btn-active" : "console-tab-btn-inactive"}`}
+                  >
+                    Raw Metals
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("fluids")}
+                    className={`console-tab-btn ${activeTab === "fluids" ? "console-tab-btn-active" : "console-tab-btn-inactive"}`}
+                  >
+                    Fluids
+                  </button>
                 </div>
 
-                {/* Dense Inventory List */}
-                <div className="p-4 space-y-2.5">
-                  {filteredItems.length === 0 ? (
-                    <div className="py-8 text-center text-xs text-slate-500">
-                      No matching materials found for &ldquo;{searchQuery}&rdquo;.
-                    </div>
-                  ) : (
-                    filteredItems.map((item) => {
-                      const Icon = item.icon;
-                      return (
+                <div className="console-search-box">
+                  <Search size={13} color="#94A3B8" style={{ position: "absolute", left: "0.65rem", pointerEvents: "none" }} />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Filter SKUs..."
+                    className="console-search-input"
+                  />
+                </div>
+              </div>
+
+              {/* Dense High-Precision Inventory Records */}
+              <div style={{ padding: "0.85rem 1.15rem", display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+                {filteredItems.length === 0 ? (
+                  <div style={{ padding: "2rem", textAlign: "center", fontSize: "0.825rem", color: "#64748B" }}>
+                    No matching inventory items found.
+                  </div>
+                ) : (
+                  filteredItems.map((item) => {
+                    const ItemIcon = item.icon;
+                    return (
+                      <div key={item.id} className="stock-row-card">
+                        {/* Colored Left Accent Stripe */}
                         <div
-                          key={item.id}
-                          className="group relative flex items-center justify-between p-3 rounded-xl border border-slate-200/70 bg-white hover:bg-slate-50/80 hover:border-slate-300 transition-all duration-150"
-                        >
-                          {/* Left Accent Stripe */}
+                          className="stock-row-stripe"
+                          style={{ backgroundColor: item.accentColor }}
+                        />
+
+                        {/* Left: Icon + Details */}
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                           <div
-                            className="absolute left-0 top-2 bottom-2 w-1 rounded-r"
-                            style={{ backgroundColor: item.accentColor }}
-                          />
-
-                          {/* Left: Category Icon + Item Details */}
-                          <div className="flex items-center gap-3 pl-2.5">
-                            <div 
-                              className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-                              style={{ 
-                                backgroundColor: `${item.accentColor}15`,
-                                color: item.accentColor
-                              }}
-                            >
-                              <Icon size={18} />
-                            </div>
-
-                            <div>
-                              <div className="flex items-center gap-2">
-                                <span className="font-semibold text-slate-900 text-sm tracking-tight group-hover:text-indigo-600 transition-colors">
-                                  {item.name}
-                                </span>
-                              </div>
-                              <div className="flex items-center gap-2 text-xs text-slate-500 mt-0.5">
-                                <span className="font-mono text-[11px] font-medium bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 border border-slate-200/60">
-                                  {item.sku}
-                                </span>
-                                <span>•</span>
-                                <span>{item.facility}</span>
-                                <span>•</span>
-                                <span className="text-slate-400">{item.bay}</span>
-                              </div>
-                            </div>
+                            style={{
+                              width: 36,
+                              height: 36,
+                              borderRadius: "8px",
+                              backgroundColor: `${item.accentColor}18`,
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              color: item.accentColor,
+                              flexShrink: 0,
+                            }}
+                          >
+                            <ItemIcon size={18} />
                           </div>
 
-                          {/* Center: Micro Capacity Progress Bar */}
-                          <div className="hidden sm:flex flex-col items-end gap-1 w-28">
-                            <div className="flex items-center justify-between w-full text-[11px] text-slate-500">
-                              <span>Capacity</span>
-                              <span className="font-mono font-semibold text-slate-700">{item.capacityPercent}%</span>
+                          <div>
+                            <div style={{ fontWeight: 700, color: "#0F172A", fontSize: "0.875rem" }}>
+                              {item.name}
                             </div>
-                            <div className="w-full h-1.5 rounded-full bg-slate-100 overflow-hidden">
-                              <div
-                                className="h-full rounded-full transition-all duration-500"
-                                style={{
-                                  width: `${item.capacityPercent}%`,
-                                  backgroundColor: item.accentColor,
-                                }}
-                              />
-                            </div>
-                          </div>
-
-                          {/* Right: Quantity + Status Badge */}
-                          <div className="text-right pl-3 shrink-0">
-                            <div className="text-sm font-bold text-slate-950 font-mono tracking-tight">
-                              {item.quantity}
-                            </div>
-                            <div className="mt-0.5">
-                              {item.statusType === "success" && (
-                                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2 py-0.5 rounded-full">
-                                  <span className="text-[10px]">↗</span> In Stock
-                                </span>
-                              )}
-                              {item.statusType === "warning" && (
-                                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-700 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded-full">
-                                  <AlertTriangle size={10} className="text-amber-600" /> Low Stock
-                                </span>
-                              )}
-                              {item.statusType === "danger" && (
-                                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-rose-700 bg-rose-50 border border-rose-200/60 px-2 py-0.5 rounded-full">
-                                  <XCircle size={10} className="text-rose-600" /> Out of Stock
-                                </span>
-                              )}
+                            <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontSize: "0.72rem", color: "#64748B", marginTop: "2px" }}>
+                              <span style={{ fontFamily: "monospace", fontWeight: 600, backgroundColor: "#F1F5F9", padding: "0.1rem 0.4rem", borderRadius: "4px", color: "#475569", border: "1px solid #E2E8F0" }}>
+                                {item.sku}
+                              </span>
+                              <span>•</span>
+                              <span>{item.facility}</span>
+                              <span>•</span>
+                              <span style={{ color: "#94A3B8" }}>{item.bay}</span>
                             </div>
                           </div>
                         </div>
-                      );
-                    })
-                  )}
-                </div>
 
-                {/* Bottom Bento Telemetry (3 Executive KPI Cards) */}
-                <div className="p-4 bg-slate-50/70 border-t border-slate-200/80 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {/* Metric 1 */}
-                  <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                      <TrendingUp size={18} />
-                    </div>
-                    <div>
-                      <div className="text-[11px] font-medium text-slate-500">Discrepancy Rate</div>
-                      <div className="text-base font-extrabold text-slate-900 tracking-tight font-mono">
-                        &lt; 0.02%
+                        {/* Center: Capacity Micro Progress Bar */}
+                        <div className="console-capacity-bar-wrap">
+                          <div style={{ display: "flex", justifyContent: "space-between", width: "100%", fontSize: "0.68rem", color: "#64748B" }}>
+                            <span>Capacity</span>
+                            <span style={{ fontFamily: "monospace", fontWeight: 700, color: "#334155" }}>
+                              {item.capacityPercent}%
+                            </span>
+                          </div>
+                          <div style={{ width: "100%", height: "5px", borderRadius: "9999px", backgroundColor: "#F1F5F9", overflow: "hidden" }}>
+                            <div
+                              style={{
+                                height: "100%",
+                                borderRadius: "9999px",
+                                width: `${item.capacityPercent}%`,
+                                backgroundColor: item.accentColor,
+                                transition: "width 0.4s ease",
+                              }}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Right: Quantity + Status Badge */}
+                        <div style={{ textAlign: "right", flexShrink: 0 }}>
+                          <div style={{ fontFamily: "monospace", fontWeight: 800, color: "#0F172A", fontSize: "0.95rem" }}>
+                            {item.quantity}
+                          </div>
+                          <div style={{ marginTop: "2px" }}>
+                            {item.statusType === "success" && (
+                              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", fontWeight: 700, color: "#059669", backgroundColor: "#ECFDF5", border: "1px solid #A7F3D0", padding: "0.15rem 0.55rem", borderRadius: "9999px" }}>
+                                <span>↗</span> In Stock
+                              </span>
+                            )}
+                            {item.statusType === "warning" && (
+                              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", fontWeight: 700, color: "#D97706", backgroundColor: "#FFFBEB", border: "1px solid #FDE68A", padding: "0.15rem 0.55rem", borderRadius: "9999px" }}>
+                                <AlertTriangle size={10} color="#D97706" /> Low Stock
+                              </span>
+                            )}
+                            {item.statusType === "danger" && (
+                              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", fontWeight: 700, color: "#DC2626", backgroundColor: "#FEF2F2", border: "1px solid #FECACA", padding: "0.15rem 0.55rem", borderRadius: "9999px" }}>
+                                <XCircle size={10} color="#DC2626" /> Out of Stock
+                              </span>
+                            )}
+                          </div>
+                        </div>
                       </div>
-                      <div className="text-[10px] text-emerald-600 font-semibold">99.98% Accuracy</div>
-                    </div>
-                  </div>
-
-                  {/* Metric 2 */}
-                  <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
-                      <Gauge size={18} />
-                    </div>
-                    <div>
-                      <div className="text-[11px] font-medium text-slate-500">Procurement Velocity</div>
-                      <div className="text-base font-extrabold text-slate-900 tracking-tight font-mono">
-                        3.4x Faster
-                      </div>
-                      <div className="text-[10px] text-indigo-600 font-semibold">Auto PO Dispatch</div>
-                    </div>
-                  </div>
-
-                  {/* Metric 3 */}
-                  <div className="p-3 rounded-xl bg-white border border-slate-200/80 shadow-2xs flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                      <Building2 size={18} />
-                    </div>
-                    <div>
-                      <div className="text-[11px] font-medium text-slate-500">Audited Valuation</div>
-                      <div className="text-base font-extrabold text-slate-900 tracking-tight font-mono">
-                        $4.28M
-                      </div>
-                      <div className="text-[10px] text-blue-600 font-semibold">4 Facilities Synced</div>
-                    </div>
-                  </div>
-                </div>
-
+                    );
+                  })
+                )}
               </div>
+
+              {/* Bottom Bento Telemetry Cards (3 Executive KPIs) */}
+              <div className="console-bento-grid">
+                <div className="console-bento-card">
+                  <div
+                    style={{
+                      width: 34,
+                      height: 34,
+                      borderRadius: "8px",
+                      backgroundColor: "rgba(16, 185, 129, 0.12)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#059669",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <TrendingUp size={18} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.7rem", color: "#64748B", fontWeight: 600 }}>
+                      Discrepancy Rate
+                    </div>
+                    <div style={{ fontFamily: "monospace", fontSize: "1.05rem", fontWeight: 800, color: "#059669" }}>
+                      &lt; 0.02%
+                    </div>
+                    <div style={{ fontSize: "0.65rem", color: "#059669", fontWeight: 700 }}>
+                      99.98% Accuracy
+                    </div>
+                  </div>
+                </div>
+
+                <div className="console-bento-card">
+                  <div
+                    style={{
+                      width: 34,
+                      height: 34,
+                      borderRadius: "8px",
+                      backgroundColor: "rgba(99, 102, 241, 0.12)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#6366F1",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Gauge size={18} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.7rem", color: "#64748B", fontWeight: 600 }}>
+                      Procurement Velocity
+                    </div>
+                    <div style={{ fontFamily: "monospace", fontSize: "1.05rem", fontWeight: 800, color: "#4338CA" }}>
+                      3.4x Faster
+                    </div>
+                    <div style={{ fontSize: "0.65rem", color: "#6366F1", fontWeight: 700 }}>
+                      Auto PO Routing
+                    </div>
+                  </div>
+                </div>
+
+                <div className="console-bento-card">
+                  <div
+                    style={{
+                      width: 34,
+                      height: 34,
+                      borderRadius: "8px",
+                      backgroundColor: "rgba(37, 99, 235, 0.12)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#2563EB",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Building2 size={18} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.7rem", color: "#64748B", fontWeight: 600 }}>
+                      Audited Valuation
+                    </div>
+                    <div style={{ fontFamily: "monospace", fontSize: "1.05rem", fontWeight: 800, color: "#0F172A" }}>
+                      $4.28M
+                    </div>
+                    <div style={{ fontSize: "0.65rem", color: "#2563EB", fontWeight: 700 }}>
+                      4 Hubs Synced
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
