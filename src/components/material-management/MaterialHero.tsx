@@ -14,7 +14,6 @@ import {
   Disc, 
   Droplets, 
   Hexagon, 
-  Search, 
   AlertTriangle, 
   XCircle
 } from "lucide-react";
@@ -120,25 +119,15 @@ const STOCK_DATA: StockItem[] = [
 
 export function MaterialHero() {
   const [activeTab, setActiveTab] = useState<"all" | "critical" | "metals" | "fluids">("all");
-  const [searchQuery, setSearchQuery] = useState("");
 
   const filteredItems = useMemo(() => {
     return STOCK_DATA.filter((item) => {
       if (activeTab === "critical" && item.statusType === "success") return false;
       if (activeTab === "metals" && item.category !== "metals") return false;
       if (activeTab === "fluids" && item.category !== "chemicals") return false;
-
-      if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase();
-        return (
-          item.name.toLowerCase().includes(query) ||
-          item.sku.toLowerCase().includes(query) ||
-          item.facility.toLowerCase().includes(query)
-        );
-      }
       return true;
     });
-  }, [activeTab, searchQuery]);
+  }, [activeTab]);
 
   return (
     <section className="material-hero-section">
@@ -199,12 +188,12 @@ export function MaterialHero() {
             {/* Headline */}
             <h1
               style={{
-                fontSize: "clamp(2.4rem, 4.2vw, 3.4rem)",
+                fontSize: "clamp(2rem, 3.6vw, 2.9rem)",
                 fontWeight: 800,
                 color: "#0F172A",
                 lineHeight: 1.15,
                 letterSpacing: "-0.03em",
-                marginBottom: "1.25rem",
+                marginBottom: "0.75rem",
               }}
             >
               Roacs Material<br />
@@ -224,43 +213,43 @@ export function MaterialHero() {
             {/* Subheading */}
             <p
               style={{
-                fontSize: "1.05rem",
+                fontSize: "0.95rem",
                 color: "#475569",
-                lineHeight: 1.65,
+                lineHeight: 1.55,
                 maxWidth: "520px",
-                marginBottom: "2rem",
+                marginBottom: "1.25rem",
               }}
             >
               An enterprise-grade supply chain control tower engineered by Roacs Corporation. Eliminate stock-outs, automate multi-tiered procurement cycles, and synchronize inventory flow with sub-second auditability.
             </p>
 
             {/* Dual Action CTAs */}
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem", marginBottom: "2.25rem" }}>
-              <Link href="/contact" className="material-hero-primary-btn">
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.85rem", marginBottom: "1.35rem" }}>
+              <Link href="/contact" className="material-hero-primary-btn" style={{ padding: "0.72rem 1.6rem", fontSize: "0.9rem" }}>
                 <span>Schedule Platform Demo</span>
                 <span
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    width: 22,
-                    height: 22,
+                    width: 20,
+                    height: 20,
                     borderRadius: "50%",
                     backgroundColor: "rgba(255, 255, 255, 0.22)",
                   }}
                 >
-                  <ArrowRight size={13} color="#FFFFFF" />
+                  <ArrowRight size={12} color="#FFFFFF" />
                 </span>
               </Link>
 
-              <Link href="#capabilities" className="material-hero-secondary-btn">
+              <Link href="#capabilities" className="material-hero-secondary-btn" style={{ padding: "0.72rem 1.45rem", fontSize: "0.9rem" }}>
                 <span
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    width: 22,
-                    height: 22,
+                    width: 20,
+                    height: 20,
                     borderRadius: "50%",
                     backgroundColor: "#0F172A",
                     color: "#FFFFFF",
@@ -276,9 +265,9 @@ export function MaterialHero() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-                gap: "0.85rem",
-                paddingTop: "1.25rem",
+                gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
+                gap: "0.65rem",
+                paddingTop: "0.85rem",
                 borderTop: "1px solid rgba(226, 232, 240, 0.9)",
               }}
             >
@@ -368,46 +357,9 @@ export function MaterialHero() {
           <div className="warehouse-console-wrapper">
             <div className="warehouse-glass-console">
               
-              {/* Chrome Top Bar: Traffic lights + Roacs Title */}
-              <div className="console-top-bar">
-                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
-                  <div className="console-traffic-pips">
-                    <span className="console-pip console-pip-red" />
-                    <span className="console-pip console-pip-yellow" />
-                    <span className="console-pip console-pip-green" />
-                  </div>
-
-                  <div style={{ height: "16px", width: "1px", backgroundColor: "#E2E8F0" }} />
-
-                  {/* Roacs Brand Mark & Header */}
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
-                    <div
-                      style={{
-                        width: 17,
-                        height: 17,
-                        borderRadius: "4px",
-                        backgroundColor: "#ED1918",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "#FFFFFF",
-                        fontSize: "0.55rem",
-                        fontWeight: 900,
-                        boxShadow: "0 1px 4px rgba(237, 25, 24, 0.4)",
-                      }}
-                    >
-                      ▲
-                    </div>
-                    <span style={{ fontSize: "0.825rem", fontWeight: 700, color: "#0F172A" }}>
-                      Live Warehouse Stock Balances
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Sub-Header: Facility Tabs + Live Search Filter */}
+              {/* Facility Filter Tabs */}
               <div className="console-filter-bar">
-                <div style={{ display: "flex", alignItems: "center", gap: "0.3rem", flexWrap: "wrap" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", flexWrap: "wrap", width: "100%" }}>
                   <button
                     onClick={() => setActiveTab("all")}
                     className={`console-tab-btn ${activeTab === "all" ? "console-tab-btn-active" : "console-tab-btn-inactive"}`}
@@ -433,18 +385,6 @@ export function MaterialHero() {
                     Fluids
                   </button>
                 </div>
-
-                <div className="console-search-box">
-                  <Search size={12} color="#94A3B8" style={{ position: "absolute", left: "0.55rem", pointerEvents: "none" }} />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Filter SKUs..."
-                    className="console-search-input"
-                    style={{ width: "130px", paddingLeft: "1.65rem" }}
-                  />
-                </div>
               </div>
 
               {/* Serpentine Flow Pipeline (Compact S-Track) */}
@@ -453,16 +393,16 @@ export function MaterialHero() {
                 {filteredItems.length >= 4 && (
                   <svg 
                     className="serpentine-track-svg" 
-                    viewBox="0 0 520 370" 
+                    viewBox="0 0 520 310" 
                     fill="none" 
                     xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="none"
                     aria-hidden="true"
                   >
                     <path
-                      d="M 70 12 A 36 36 0 0 0 70 84 L 450 84 A 45 45 0 0 1 450 174 L 70 174 A 45 45 0 0 0 70 264 L 450 264 A 45 45 0 0 1 450 354"
+                      d="M 62 36 L 458 36 A 39.5 39.5 0 0 1 458 115 L 62 115 A 39.5 39.5 0 0 0 62 194 L 458 194 A 39.5 39.5 0 0 1 458 274"
                       stroke="url(#serpentineGradient)"
-                      strokeWidth="3"
+                      strokeWidth="2.75"
                       strokeLinecap="round"
                       strokeDasharray="4 2"
                       opacity="0.85"
@@ -517,15 +457,15 @@ export function MaterialHero() {
                           <div
                             style={{
                               position: "absolute",
-                              top: "6px",
-                              left: isEven ? "auto" : "12px",
-                              right: isEven ? "12px" : "auto",
+                              top: "4px",
+                              left: isEven ? "auto" : "10px",
+                              right: isEven ? "10px" : "auto",
                               backgroundColor: "rgba(15, 23, 42, 0.78)",
                               backdropFilter: "blur(4px)",
                               color: "#FFFFFF",
-                              fontSize: "0.58rem",
+                              fontSize: "0.54rem",
                               fontWeight: 800,
-                              padding: "0.1rem 0.4rem",
+                              padding: "0.08rem 0.35rem",
                               borderRadius: "9999px",
                               letterSpacing: "0.05em",
                               border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -538,33 +478,33 @@ export function MaterialHero() {
                           <div 
                             style={{ 
                               position: "absolute", 
-                              bottom: "6px", 
+                              bottom: "4px", 
                               left: "50%", 
                               transform: "translateX(-50%)",
                               display: "flex",
                               alignItems: "center",
-                              gap: "0.35rem",
+                              gap: "0.25rem",
                             }}
                           >
-                            <div style={{ position: "relative", width: 30, height: 30 }}>
-                              <svg width="30" height="30" viewBox="0 0 30 30" style={{ transform: "rotate(-90deg)" }}>
+                            <div style={{ position: "relative", width: 24, height: 24 }}>
+                              <svg width="24" height="24" viewBox="0 0 24 24" style={{ transform: "rotate(-90deg)" }}>
                                 <circle
-                                  cx="15"
-                                  cy="15"
-                                  r="11.5"
+                                  cx="12"
+                                  cy="12"
+                                  r="9"
                                   fill="none"
                                   stroke="rgba(255, 255, 255, 0.2)"
-                                  strokeWidth="2.5"
+                                  strokeWidth="2.2"
                                 />
                                 <circle
-                                  cx="15"
-                                  cy="15"
-                                  r="11.5"
+                                  cx="12"
+                                  cy="12"
+                                  r="9"
                                   fill="none"
                                   stroke={item.accentColor}
-                                  strokeWidth="2.5"
-                                  strokeDasharray={72.26}
-                                  strokeDashoffset={72.26 * (1 - item.capacityPercent / 100)}
+                                  strokeWidth="2.2"
+                                  strokeDasharray={56.55}
+                                  strokeDashoffset={56.55 * (1 - item.capacityPercent / 100)}
                                   strokeLinecap="round"
                                 />
                               </svg>
@@ -575,7 +515,7 @@ export function MaterialHero() {
                                   display: "flex",
                                   alignItems: "center",
                                   justifyContent: "center",
-                                  fontSize: "0.58rem",
+                                  fontSize: "0.5rem",
                                   fontWeight: 800,
                                   color: "#FFFFFF",
                                   fontFamily: "monospace",

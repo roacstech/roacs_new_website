@@ -133,7 +133,7 @@ export function CoreValuesShowcase() {
       style={{ 
         position: "relative", 
         backgroundColor: "#F8FAFC", 
-        paddingTop: "6.5rem", 
+        paddingTop: "3.5rem", 
         paddingBottom: "8rem",
         overflow: "visible"
       }}
@@ -141,12 +141,12 @@ export function CoreValuesShowcase() {
       {/* Dynamic Ambient Background Glow that changes with the active value */}
       <div
         style={{
-          position: "sticky",
-          top: "100px",
+          position: "absolute",
+          top: "60px",
           left: "50%",
+          transform: "translateX(-50%)",
           width: "700px",
           height: "350px",
-          margin: "0 auto",
           background: `radial-gradient(ellipse at center, ${activeValue.glowColor} 0%, transparent 70%)`,
           filter: "blur(80px)",
           pointerEvents: "none",
