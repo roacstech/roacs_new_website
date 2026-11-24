@@ -60,12 +60,18 @@ export default function AboutPage() {
         />
 
         <Container wide>
-          <div style={{ position: "relative", zIndex: 1, maxWidth: "860px" }}>
-    
-
+          <div
+            style={{
+              position: "relative",
+              zIndex: 1,
+              maxWidth: "880px",
+              margin: "0 auto",
+              textAlign: "center",
+            }}
+          >
             <span
               style={{
-                display: "block",
+                display: "inline-block",
                 fontSize: "0.875rem",
                 fontWeight: 700,
                 textTransform: "uppercase",
@@ -102,8 +108,8 @@ export default function AboutPage() {
                 fontSize: "1.175rem",
                 lineHeight: 1.65,
                 color: "var(--color-muted-blue)",
-                marginBottom: "3rem",
                 maxWidth: "760px",
+                margin: "0 auto 3.5rem auto",
               }}
             >
               We are a forward-thinking software engineering and IT consulting company dedicated to delivering 
