@@ -2006,3 +2006,25 @@ p {
     display: none;
   }
 }
+
+@media (min-width: 1024px) {
+  .home-projects-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+.explore-all-projects-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.explore-all-projects-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  background-color: #1E293B !important;
+  box-shadow: 0 14px 30px -4px rgba(15, 23, 42, 0.38) !important;
+  color: #FFFFFF !important;
+}
+
+.case-study-collapse-btn:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  transform: scale(1.1);
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { ProjectCard } from "@/components/common/ProjectCard";
@@ -87,20 +88,53 @@ export function ProjectsSection() {
           </div>
         </Reveal>
 
-        {/* Projects Grid: 2-Column High-Impact Case Studies Grid (Cognizant Style) */}
+        {/* Projects Grid: Compact 3-Card Case Studies Showcase */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 520px), 1fr))",
-            gap: "2rem",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
+            gap: "1.75rem",
           }}
+          className="home-projects-grid"
         >
-          {filteredProjects.map((project, idx) => (
+          {filteredProjects.slice(0, 3).map((project, idx) => (
             <ProjectCardReveal key={project.id} index={idx}>
               <ProjectCard project={project} />
             </ProjectCardReveal>
           ))}
         </div>
+
+        {/* Explore All Projects / Case Studies Button */}
+        <Reveal delay={0.25}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "2.75rem",
+            }}
+          >
+            <Link
+              href="/projects"
+              className="explore-all-projects-btn"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.65rem",
+                padding: "0.85rem 2.25rem",
+                borderRadius: "9999px",
+                backgroundColor: "var(--color-primary-navy)",
+                color: "#FFFFFF",
+                fontWeight: 600,
+                fontSize: "0.95rem",
+                textDecoration: "none",
+                boxShadow: "0 8px 22px -4px rgba(15, 23, 42, 0.25)",
+              }}
+            >
+              <span>Explore All Case Studies</span>
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </Reveal>
 
         {/* Bottom Case Study CTA */}
         <Reveal delay={0.3}>

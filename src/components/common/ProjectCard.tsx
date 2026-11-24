@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ChevronUp, ChevronDown } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import { ProjectItem } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -18,13 +18,29 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const categoryLabel = (project.industry || project.category || "CASE STUDY").toUpperCase();
 
   const handleCardClick = (e: React.MouseEvent) => {
-    // If the click is on an anchor or button inside, let it navigate/action normally
     const target = e.target as HTMLElement;
-    if (target.closest("a") || target.closest("button")) {
+
+    // If clicking a link when already expanded, let normal navigation happen
+    if (target.closest("a")) {
+      if (!isExpanded) {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsExpanded(true);
+      }
       return;
     }
-    // Otherwise toggle expansion
-    setIsExpanded(!isExpanded);
+
+    // If clicking the collapse button
+    if (target.closest(".case-study-collapse-btn")) {
+      e.stopPropagation();
+      setIsExpanded(false);
+      return;
+    }
+
+    // Where they click initially, it should open up
+    if (!isExpanded) {
+      setIsExpanded(true);
+    }
   };
 
   return (
@@ -36,8 +52,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
       style={{
         position: "relative",
         width: "100%",
-        minHeight: isExpanded ? "460px" : "390px",
-        borderRadius: "20px",
+        minHeight: isExpanded ? "420px" : "310px",
+        borderRadius: "16px",
         overflow: "hidden",
         backgroundColor: "#030A1E",
         border: `1px solid ${isExpanded || isHovered ? "rgba(34, 211, 238, 0.55)" : "rgba(255, 255, 255, 0.12)"}`,
@@ -57,7 +73,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         src={project.bannerImage || project.image}
         alt={project.title}
         fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"
         style={{
           objectFit: "cover",
           transform: isHovered || isExpanded ? "scale(1.05)" : "scale(1)",
@@ -80,115 +96,167 @@ export function ProjectCard({ project }: ProjectCardProps) {
         }}
       />
 
-      {/* 2. Lower Frosted Glass Navy Drawer (Cognizant Style) */}
+      {/* 2. Lower Frosted Glass Navy Drawer */}
       <div
         style={{
           position: "relative",
           zIndex: 2,
           width: "100%",
-          background: "linear-gradient(180deg, rgba(8, 22, 58, 0.82) 0%, rgba(4, 12, 36, 0.96) 100%)",
+          background: "linear-gradient(180deg, rgba(8, 22, 58, 0.86) 0%, rgba(4, 12, 36, 0.97) 100%)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
           borderTop: "1px solid rgba(255, 255, 255, 0.16)",
-          padding: "1.75rem 2rem",
+          padding: "1.25rem 1.4rem",
           transition: "padding 0.35s ease, background 0.3s ease",
         }}
       >
-        {/* Category Pill / Underline Label */}
-        <div style={{ marginBottom: "0.85rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        {/* Category Label (Without 'Click to view' text) */}
+        <div style={{ marginBottom: "0.65rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span
             style={{
-              fontSize: "0.75rem",
+              fontSize: "0.72rem",
               fontWeight: 700,
               letterSpacing: "0.14em",
               color: "#E2E8F0",
               textTransform: "uppercase",
               borderBottom: "1px solid rgba(255, 255, 255, 0.3)",
-              paddingBottom: "0.25rem",
+              paddingBottom: "0.2rem",
               display: "inline-block",
             }}
           >
             {categoryLabel}
           </span>
 
-          {/* Click to expand/collapse helper pill */}
-          <span
-            style={{
-              fontSize: "0.72rem",
-              fontWeight: 600,
-              color: isExpanded ? "#22D3EE" : "rgba(255, 255, 255, 0.55)",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.25rem",
-              letterSpacing: "0.04em",
-              transition: "color 0.2s ease",
-            }}
-          >
-            <span>{isExpanded ? "Collapse" : "Click to view"}</span>
-            {isExpanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
-          </span>
+          {/* Subtle Collapse button when open */}
+          {isExpanded && (
+            <button
+              type="button"
+              className="case-study-collapse-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsExpanded(false);
+              }}
+              aria-label="Collapse details"
+              style={{
+                background: "rgba(255, 255, 255, 0.12)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                borderRadius: "50%",
+                width: "20px",
+                height: "20px",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#FFFFFF",
+                cursor: "pointer",
+                padding: 0,
+                transition: "all 0.2s ease",
+              }}
+            >
+              <X size={12} />
+            </button>
+          )}
         </div>
 
-        {/* Project Title with Hollow Play Triangle Icon (▷) */}
-        <Link
-          href={`/projects/${project.slug}`}
-          className="case-study-title"
-          onClick={(e) => e.stopPropagation()}
-          style={{
-            display: "inline-block",
-            fontSize: "clamp(1.18rem, 2vw, 1.55rem)",
-            fontWeight: 700,
-            lineHeight: 1.3,
-            color: "#22D3EE",
-            textDecoration: "none",
-            letterSpacing: "-0.01em",
-            marginBottom: isExpanded ? "0.85rem" : "0",
-            transition: "color 0.25s ease",
-          }}
-        >
-          <span>{project.title.replace("—", "-")}</span>
-          <span
-            className="case-study-arrow"
-            style={{
-              display: "inline-block",
-              marginLeft: "0.55rem",
-              verticalAlign: "middle",
-              transition: "transform 0.25s ease",
-            }}
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill={isExpanded ? "#22D3EE" : "none"}
-              stroke="#22D3EE"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+        {/* Project Title: Clicking initially opens; clicking when open navigates to page */}
+        <div>
+          {isExpanded ? (
+            <Link
+              href={`/projects/${project.slug}`}
+              className="case-study-title"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                display: "inline-block",
+                fontSize: "clamp(1.05rem, 1.4vw, 1.25rem)",
+                fontWeight: 700,
+                lineHeight: 1.3,
+                color: "#22D3EE",
+                textDecoration: "none",
+                letterSpacing: "-0.01em",
+                marginBottom: "0.75rem",
+                transition: "color 0.25s ease",
+              }}
             >
-              <polygon points="6 3 20 12 6 21 6 3" />
-            </svg>
-          </span>
-        </Link>
+              <span>{project.title.replace("—", "-")}</span>
+              <span
+                className="case-study-arrow"
+                style={{
+                  display: "inline-block",
+                  marginLeft: "0.45rem",
+                  verticalAlign: "middle",
+                  transition: "transform 0.25s ease",
+                }}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="#22D3EE"
+                  stroke="#22D3EE"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polygon points="6 3 20 12 6 21 6 3" />
+                </svg>
+              </span>
+            </Link>
+          ) : (
+            <div
+              className="case-study-title"
+              style={{
+                display: "inline-block",
+                fontSize: "clamp(1.05rem, 1.4vw, 1.25rem)",
+                fontWeight: 700,
+                lineHeight: 1.3,
+                color: "#22D3EE",
+                letterSpacing: "-0.01em",
+                cursor: "pointer",
+                transition: "color 0.25s ease",
+              }}
+            >
+              <span>{project.title.replace("—", "-")}</span>
+              <span
+                className="case-study-arrow"
+                style={{
+                  display: "inline-block",
+                  marginLeft: "0.45rem",
+                  verticalAlign: "middle",
+                  transition: "transform 0.25s ease",
+                }}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#22D3EE"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polygon points="6 3 20 12 6 21 6 3" />
+                </svg>
+              </span>
+            </div>
+          )}
+        </div>
 
-        {/* =========================================================================
-            3. EXPANDED CONTENT ("if i click it comes like this")
-            ========================================================================= */}
+        {/* 3. Expanded Content Drawer */}
         <div
           style={{
-            maxHeight: isExpanded ? "300px" : "0px",
+            maxHeight: isExpanded ? "320px" : "0px",
             opacity: isExpanded ? 1 : 0,
             overflow: "hidden",
             transition: "max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease",
           }}
         >
-          {/* Summary Paragraph (matching Card 3: 'In a record-breaking 11 months...') */}
+          {/* Summary Paragraph */}
           <p
             style={{
               color: "rgba(255, 255, 255, 0.92)",
-              fontSize: "0.95rem",
-              lineHeight: 1.65,
-              margin: "0.75rem 0 1.25rem 0",
+              fontSize: "0.875rem",
+              lineHeight: 1.55,
+              margin: "0.5rem 0 1rem 0",
               fontWeight: 400,
             }}
           >
@@ -196,14 +264,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </p>
 
           {/* Technical Tag Badges */}
-          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1.35rem" }}>
+          <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap", marginBottom: "1.1rem" }}>
             {project.tags.slice(0, 3).map((tag, idx) => (
               <span
                 key={idx}
                 style={{
-                  fontSize: "0.75rem",
+                  fontSize: "0.72rem",
                   fontWeight: 600,
-                  padding: "0.25rem 0.75rem",
+                  padding: "0.2rem 0.65rem",
                   borderRadius: "9999px",
                   backgroundColor: "rgba(255, 255, 255, 0.12)",
                   color: "#FFFFFF",
@@ -224,20 +292,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.55rem 1.35rem",
+                gap: "0.45rem",
+                padding: "0.5rem 1.15rem",
                 borderRadius: "9999px",
                 backgroundColor: "#22D3EE",
                 color: "#030A1E",
                 fontWeight: 700,
-                fontSize: "0.85rem",
+                fontSize: "0.82rem",
                 textDecoration: "none",
                 boxShadow: "0 4px 14px rgba(34, 211, 238, 0.35)",
                 transition: "transform 0.2s ease, box-shadow 0.2s ease",
               }}
             >
               <span>Explore Full Case Study</span>
-              <ArrowRight size={15} />
+              <ArrowRight size={14} />
             </Link>
           </div>
         </div>
