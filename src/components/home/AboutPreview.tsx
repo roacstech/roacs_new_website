@@ -80,6 +80,8 @@ export function AboutPreview() {
                   border: "1px solid rgba(255, 255, 255, 0.12)",
                   maxWidth: "260px",
                   overflow: "hidden",
+                  contain: "paint",
+                  isolation: "isolate",
                 }}
               >
                 {/* Ambient Soft Glow Behind Content */}
