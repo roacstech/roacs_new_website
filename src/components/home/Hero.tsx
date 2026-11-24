@@ -2,9 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/common/Container";
 import { Reveal } from "@/components/common/Reveal";
 import { ArrowRight } from "lucide-react";
+import { FlipHeadline } from "./FlipHeadline";
 
 export function Hero() {
 
@@ -48,22 +50,67 @@ export function Hero() {
         {/* Centered Hero Content Matching Reference UI */}
         <div
           style={{
-            maxWidth: "920px",
+            maxWidth: "1180px",
             margin: "0 auto",
             textAlign: "center",
             position: "relative",
             zIndex: 1,
           }}
         >
+          {/* Ambient Floating Icons Matching Reference UI (Image 5) */}
+          <div className="hero-floating-icon hero-float-server" title="Cloud & Server Architecture">
+            <Image
+              src="/images/hero/float-server-orange.png"
+              alt="Cloud Server Infrastructure"
+              width={56}
+              height={34}
+              priority
+              style={{ objectFit: "contain", width: "auto", height: "auto" }}
+            />
+          </div>
+
+          <div className="hero-floating-icon hero-float-doc" title="Enterprise Documentation">
+            <Image
+              src="/images/hero/float-doc-purple.png"
+              alt="System Documentation"
+              width={42}
+              height={52}
+              priority
+              style={{ objectFit: "contain", width: "auto", height: "auto" }}
+            />
+          </div>
+
+          <div className="hero-floating-icon hero-float-bolt" title="High-Speed Execution">
+            <Image
+              src="/images/hero/float-bolt-blue.png"
+              alt="Lightning Fast Performance"
+              width={54}
+              height={45}
+              priority
+              style={{ objectFit: "contain", width: "auto", height: "auto" }}
+            />
+          </div>
+
+          <div className="hero-floating-icon hero-float-chart" title="Analytics & Growth">
+            <Image
+              src="/images/hero/float-chart-green.png"
+              alt="Business Growth Analytics"
+              width={64}
+              height={33}
+              priority
+              style={{ objectFit: "contain", width: "auto", height: "auto" }}
+            />
+          </div>
+
           {/* Centered High-Impact Headline with Reference UI Font Colors */}
           <Reveal delay={0.1}>
             <h1
               className="hero-heading"
               style={{
-                fontSize: "clamp(1.85rem, 6.5vw, 4.25rem)",
+                fontSize: "clamp(1.85rem, 5vw, 3.85rem)",
                 fontWeight: 800,
                 letterSpacing: "-0.035em",
-                lineHeight: 1.14,
+                lineHeight: 1.18,
                 marginBottom: "1rem",
                 color: "#0A0A0A",
                 wordBreak: "break-word",
@@ -80,15 +127,8 @@ export function Hero() {
                 Software
               </span>
               <br />
-              That Drives{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #EC4899 0%, #EF4444 35%, #F59E0B 70%, #2563EB 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                Business Growth
+              <span style={{ display: "inline-block", whiteSpace: "nowrap" }}>
+                That Drives<FlipHeadline />
               </span>
             </h1>
           </Reveal>
