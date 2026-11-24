@@ -6,6 +6,7 @@ import { Container } from "@/components/common/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { Button } from "@/components/common/Button";
 import { Reveal } from "@/components/common/Reveal";
+import { Counter } from "@/components/common/Counter";
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -113,7 +114,7 @@ export function AboutPreview() {
                         lineHeight: 1,
                       }}
                     >
-                      50+ <span style={{ fontSize: "1.1rem", color: "var(--color-brand-accent)" }}>Clients</span>
+                      <Counter value="50+" /> <span style={{ fontSize: "1.1rem", color: "var(--color-brand-accent)" }}>Clients</span>
                     </span>
                   </div>
                   <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-muted-blue)", lineHeight: 1.35 }}>
