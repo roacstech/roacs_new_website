@@ -2108,3 +2108,111 @@ p {
     display: none;
   }
 }
+
+/* Step-by-Step Delivery Pipeline (Reference Image 1 UI) */
+.delivery-pipeline-wrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.delivery-step-card {
+  flex: 1 1 0%;
+  min-width: 0;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 1.75rem 1.15rem 1.75rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.delivery-step-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 20px 40px -10px rgba(16, 29, 53, 0.12), 0 0 25px rgba(59, 130, 246, 0.16);
+}
+
+.delivery-step-card .delivery-step-icon {
+  color: #101D35;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+}
+
+.delivery-step-card:hover .delivery-step-icon {
+  transform: scale(1.14) translateY(-2px);
+  color: #2563EB;
+}
+
+.delivery-step-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #101D35;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+/* On hover, step-1,2,3,4 titles do NOT change color - only the icon changes color */
+.delivery-step-card:hover .delivery-step-title {
+  color: #101D35;
+}
+
+.delivery-pipeline-connector {
+  flex: 0 0 30px;
+  height: 24px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 -2px;
+  z-index: 1;
+}
+
+.delivery-pipeline-connector::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  height: 4px;
+  background-color: #3B82F6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.65);
+  border-radius: 2px;
+}
+
+.delivery-connector-node {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #2563EB;
+  box-shadow: 0 0 10px #60A5FA;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .delivery-pipeline-wrapper {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .delivery-step-card {
+    width: 100%;
+    min-height: auto;
+  }
+  .delivery-pipeline-connector {
+    display: none;
+  }
+}
