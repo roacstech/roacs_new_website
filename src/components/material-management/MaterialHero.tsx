@@ -198,11 +198,11 @@ export function MaterialHero() {
                 marginBottom: "1rem",
               }}
             >
-              Roacs Material<br />
+              Roacs{" "}
               <span className="material-gradient-title">
-                Management
-              </span>{" "}
-              Platform
+                Material<br />
+                Management Platform
+              </span>
             </h1>
 
             {/* Subheading */}

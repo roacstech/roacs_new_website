@@ -1807,8 +1807,11 @@ p {
   background-size: 260% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   animation: material-gradient-flow 5s ease-in-out infinite, material-ambient-pulse 4s ease-in-out infinite;
-  display: inline-block;
+  display: inline;
   position: relative;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
   will-change: background-position, filter;
