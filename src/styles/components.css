@@ -1509,3 +1509,602 @@ p {
   border-color: rgba(237, 25, 24, 0.3);
   box-shadow: 0 10px 24px -6px rgba(16, 29, 53, 0.08);
 }
+
+/* ==========================================================================
+   What Makes Us Different - Neon Glassmorphic Cards (Matching Reference UI)
+   ========================================================================== */
+
+.difference-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease;
+  will-change: transform, box-shadow;
+}
+
+.difference-card:hover {
+  transform: translateY(-8px);
+}
+
+.difference-card-red:hover {
+  border-color: rgba(244, 63, 94, 0.85) !important;
+  box-shadow: 0 0 35px rgba(244, 63, 94, 0.45), 0 25px 50px -12px rgba(0, 0, 0, 0.8) !important;
+}
+
+.difference-card-blue:hover {
+  border-color: rgba(59, 130, 246, 0.9) !important;
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.5), 0 25px 50px -12px rgba(0, 0, 0, 0.8) !important;
+}
+
+.difference-card-green:hover {
+  border-color: rgba(16, 185, 129, 0.85) !important;
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.45), 0 25px 50px -12px rgba(0, 0, 0, 0.8) !important;
+}
+
+.difference-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.difference-btn:hover {
+  transform: translateX(4px);
+}
+
+.difference-btn-red:hover {
+  background: #E11D48 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 18px rgba(225, 29, 72, 0.6) !important;
+}
+
+.difference-btn-blue:hover {
+  background: #2563EB !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.6) !important;
+}
+
+.difference-btn-green:hover {
+  background: #10B981 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.6) !important;
+}
+
+/* =========================================================================
+   About Page - Commitment Light Futuristic Section (Story Curved Timeline)
+   ========================================================================= */
+.commitment-node {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.commitment-badge {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.commitment-node:hover .commitment-badge-purple {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 16px 32px -4px rgba(168, 85, 247, 0.35), 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-color: rgba(168, 85, 247, 0.55) !important;
+}
+
+.commitment-node:hover .commitment-badge-teal {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 16px 32px -4px rgba(13, 148, 136, 0.35), 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-color: rgba(13, 148, 136, 0.55) !important;
+}
+
+.commitment-node:hover .commitment-badge-blue {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 16px 32px -4px rgba(37, 99, 235, 0.35), 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-color: rgba(37, 99, 235, 0.55) !important;
+}
+
+.commitment-primary-btn {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.25s ease;
+}
+
+.commitment-primary-btn:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 32px -4px rgba(99, 102, 241, 0.55);
+  filter: brightness(1.05);
+}
+
+.commitment-secondary-link {
+  transition: color 0.2s ease;
+}
+
+.commitment-secondary-link:hover .commitment-circle-arrow {
+  transform: translateX(4px);
+  border-color: #6366F1 !important;
+  background-color: rgba(99, 102, 241, 0.08) !important;
+  color: #6366F1 !important;
+}
+
+.commitment-secondary-link:hover span:first-child {
+  color: #4F46E5 !important;
+}
+
+/* =========================================================================
+   About Page - MNC Core Values Sticky Stacking Cards & Floating Controller
+   ========================================================================= */
+.mnc-tab-btn:hover {
+  color: #0F172A !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.mnc-badge-pill:hover {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+.mnc-card-img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mnc-sticky-card:hover .mnc-card-img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .mnc-sticky-card {
+    top: 110px !important;
+  }
+}
+
+/* =========================================================================
+   Cognizant-Style Enterprise Case Study Cards (Click-to-Expand Subtext)
+   ========================================================================= */
+.case-study-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.case-study-card:hover {
+  transform: translateY(-4px);
+}
+
+.case-study-title:hover {
+  color: #67E8F9 !important;
+}
+
+.case-study-title:hover .case-study-arrow {
+  transform: translateX(4px);
+}
+
+/* =========================================================================
+   Material Management Hero - Enterprise Control Tower Console (Linear / Stripe Standard)
+   ========================================================================= */
+.material-hero-section {
+  background: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.06) 0%, rgba(248, 250, 252, 0.5) 40%, #FFFFFF 100%);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  padding-top: 5rem;
+  padding-bottom: 5.5rem;
+}
+
+.material-hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  background-image: 
+    linear-gradient(to right, rgba(203, 213, 225, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(203, 213, 225, 0.4) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 25%, #000 35%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 25%, #000 35%, transparent 85%);
+}
+
+.material-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .material-hero-layout {
+    grid-template-columns: 1fr 1.08fr;
+    gap: 3.5rem;
+  }
+}
+
+.material-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  background-color: #0F172A;
+  border: 1px solid #1E293B;
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+}
+
+.material-hero-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.85rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #4F46E5 0%, #2563EB 55%, #06B6D4 100%);
+  color: #FFFFFF !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 25px -4px rgba(37, 99, 235, 0.35), 0 0 16px rgba(6, 182, 212, 0.2);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.material-hero-primary-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 30px -4px rgba(37, 99, 235, 0.5), 0 0 22px rgba(6, 182, 212, 0.35);
+  color: #FFFFFF !important;
+}
+
+.material-hero-primary-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.material-hero-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  color: #0F172A !important;
+  border: 1.5px solid #CBD5E1;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.material-hero-secondary-btn:hover {
+  background-color: #F8FAFC;
+  border-color: #94A3B8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  color: #0F172A !important;
+}
+
+.material-feature-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(248, 250, 252, 0.8);
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transition: all 0.2s ease;
+}
+
+.material-feature-badge:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Control Tower Console Styling */
+.warehouse-console-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .warehouse-console-wrapper {
+    justify-content: flex-end;
+  }
+}
+
+.warehouse-glass-console {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 560px;
+  background: #FFFFFF;
+  border-radius: 18px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 20px 50px -12px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.warehouse-glass-console:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 35px 75px -15px rgba(15, 23, 42, 0.14), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.console-top-bar {
+  background-color: #F8FAFC;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  padding: 0.75rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.console-traffic-pips {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.console-pip {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.console-pip-red {
+  background-color: #FDA4AF;
+}
+
+.console-pip-yellow {
+  background-color: #FDE047;
+}
+
+.console-pip-green {
+  background-color: #86EFAC;
+}
+
+.console-filter-bar {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 0.65rem 1.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.console-tab-btn {
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.console-tab-btn-active {
+  background-color: #0F172A;
+  color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.15);
+}
+
+.console-tab-btn-inactive {
+  background-color: transparent;
+  color: #64748B;
+}
+
+.console-tab-btn-inactive:hover {
+  background-color: #F1F5F9;
+  color: #0F172A;
+}
+
+.console-tab-btn-alert {
+  background-color: #F59E0B;
+  color: #FFFFFF;
+}
+
+.console-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.console-search-input {
+  padding: 0.3rem 0.65rem 0.3rem 1.85rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  border: 1px solid #CBD5E1;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  outline: none;
+  width: 150px;
+  transition: all 0.2s ease;
+}
+
+.console-search-input:focus {
+  background-color: #FFFFFF;
+  border-color: #6366F1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+  width: 180px;
+}
+
+.stock-row-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem 0.75rem 1.25rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 12px;
+  transition: all 0.15s ease;
+  overflow: hidden;
+}
+
+.stock-row-card:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.stock-row-stripe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.console-capacity-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  width: 95px;
+}
+
+@media (max-width: 640px) {
+  .console-capacity-bar-wrap {
+    display: none;
+  }
+}
+
+.console-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  padding: 1rem 1.15rem;
+  background-color: #F8FAFC;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+@media (min-width: 640px) {
+  .console-bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.console-bento-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* =========================================================================
+   Serpentine Flow Pipeline (FurniFlex-style Winding S-Track for Stock Flow)
+   ========================================================================= */
+.serpentine-pipeline-wrap {
+  position: relative;
+  width: 100%;
+  padding: 0.9rem 0.95rem;
+  background: #FFFFFF;
+}
+
+.serpentine-track-svg {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.95rem;
+  right: 0.95rem;
+  bottom: 0.9rem;
+  width: calc(100% - 1.9rem);
+  height: calc(100% - 1.8rem);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.serpentine-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.serpentine-row:last-child {
+  margin-bottom: 0;
+}
+
+.serpentine-row-even {
+  flex-direction: row-reverse;
+}
+
+.serpentine-capsule {
+  position: relative;
+  width: 140px;
+  height: 84px;
+  border-radius: 42px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 6px 18px -3px rgba(15, 23, 42, 0.14);
+  border: 2.5px solid rgba(255, 255, 255, 0.95);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: #0F172A;
+}
+
+.serpentine-row:hover .serpentine-capsule {
+  transform: scale(1.025);
+  box-shadow: 0 10px 22px -3px rgba(15, 23, 42, 0.2);
+}
+
+.serpentine-card {
+  flex: 1;
+  min-width: 0;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(226, 232, 240, 0.95);
+  border-radius: 14px;
+  padding: 0.6rem 0.85rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.serpentine-row:hover .serpentine-card {
+  border-color: #CBD5E1;
+  background: #F8FAFC;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.05);
+}
+
+.serpentine-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 9999px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 640px) {
+  .serpentine-row,
+  .serpentine-row-even {
+    flex-direction: column !important;
+    align-items: stretch;
+  }
+  .serpentine-capsule {
+    width: 100%;
+    height: 80px;
+    border-radius: 18px;
+  }
+  .serpentine-track-svg {
+    display: none;
+  }
+}

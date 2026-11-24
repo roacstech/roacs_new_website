@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight, ChevronUp, ChevronDown } from "lucide-react";
 import { ProjectItem } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -19,26 +20,27 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const categoryTags = project.tags.slice(0, 2);
 
   return (
-    <Link
-      href={`/projects/${project.slug}`}
-      className="agency-portfolio-card"
+    <div
+      className="case-study-card"
+      onClick={handleCardClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
+        position: "relative",
+        width: "100%",
+        minHeight: isExpanded ? "460px" : "390px",
+        borderRadius: "20px",
+        overflow: "hidden",
+        backgroundColor: "#030A1E",
+        border: `1px solid ${isExpanded || isHovered ? "rgba(34, 211, 238, 0.55)" : "rgba(255, 255, 255, 0.12)"}`,
+        boxShadow: isExpanded || isHovered
+          ? "0 20px 45px -10px rgba(0, 0, 0, 0.5), 0 0 25px rgba(34, 211, 238, 0.15)"
+          : "0 10px 30px -10px rgba(0, 0, 0, 0.35)",
+        cursor: "pointer",
         display: "flex",
         flexDirection: "column",
-        height: "100%",
-        width: "100%",
-        textDecoration: "none",
-        color: "inherit",
-        backgroundColor: "#FFFFFF",
-        borderRadius: "16px",
-        overflow: "hidden",
-        border: "1px solid",
-        borderColor: isHovered ? "rgba(237, 25, 24, 0.3)" : "#E5E7EB",
-        boxShadow: isHovered
-          ? "0 14px 32px rgba(16, 29, 53, 0.08)"
-          : "0 2px 8px rgba(16, 29, 53, 0.03)",
+        justifyContent: "flex-end",
+        transition: "min-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease",
         transform: isHovered ? "translateY(-4px)" : "translateY(0)",
         transition:
           "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease",
@@ -107,7 +109,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               textAlign: "center",
             }}
           >
-            {watermarkName}
+            {categoryLabel}
           </span>
         </div>
       </div>
@@ -126,28 +128,30 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {/* Category Badges */}
           <div
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.4rem",
-              flexWrap: "wrap",
-              minHeight: "26px",
-              marginBottom: "0.65rem",
+              color: "rgba(255, 255, 255, 0.92)",
+              fontSize: "0.95rem",
+              lineHeight: 1.65,
+              margin: "0.75rem 0 1.25rem 0",
+              fontWeight: 400,
             }}
           >
-            {categoryTags.map((tag, idx) => (
+            {project.description}
+          </p>
+
+          {/* Technical Tag Badges */}
+          <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1.35rem" }}>
+            {project.tags.slice(0, 3).map((tag, idx) => (
               <span
                 key={idx}
                 style={{
-                  border: "1px solid #E2E8F0",
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  padding: "0.25rem 0.75rem",
                   borderRadius: "9999px",
-                  padding: "0.22rem 0.65rem",
-                  fontSize: "0.68rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  color: "#475569",
-                  backgroundColor: "#FAFAFA",
-                  lineHeight: 1.2,
+                  backgroundColor: "rgba(255, 255, 255, 0.12)",
+                  color: "#FFFFFF",
+                  border: "1px solid rgba(255, 255, 255, 0.18)",
+                  letterSpacing: "0.02em",
                 }}
               >
                 {tag}
@@ -177,6 +181,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </h3>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

@@ -49,11 +49,11 @@ export function AboutPreview() {
                 }}
               >
                 <Image
-                  src="/images/about/cloud-infrastructure.jpg"
-                  alt="Roacs Cloud Infrastructure & Intelligent Software Engineering"
+                  src="/images/about/team-collaboration.jpg"
+                  alt="Roacs Software Engineering Team & Technical Architecture"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "cover", objectPosition: "left center" }}
                   priority
                 />
                 <div
@@ -91,11 +91,11 @@ export function AboutPreview() {
                       lineHeight: 1,
                     }}
                   >
-                    3+ <span style={{ fontSize: "1.1rem", color: "var(--color-brand-accent)" }}>Years</span>
+                    50+ <span style={{ fontSize: "1.1rem", color: "var(--color-brand-accent)" }}>Clients</span>
                   </span>
                 </div>
                 <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-muted-blue)", lineHeight: 1.35 }}>
-                  Working Experience Delivering Global Enterprise Solutions
+                  Global Enterprise Deployments & Production Support
                 </div>
               </div>
             </Reveal>

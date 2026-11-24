@@ -20,7 +20,7 @@ export function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
       }}
     >
       <Container wide>
-        {/* 3-Column Modern Digital Agency Projects Grid (No Filters) */}
+        {/* 2-Column High-Impact Case Studies Grid (Cognizant Style) */}
         <div
           className="grid-3"
           style={{
