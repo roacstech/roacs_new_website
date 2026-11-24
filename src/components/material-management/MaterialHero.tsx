@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { 
@@ -17,10 +18,8 @@ import {
   Droplets, 
   Hexagon,
   Search,
-  CheckCircle2,
   AlertTriangle,
   XCircle,
-  Database,
   Building2
 } from "lucide-react";
 
@@ -132,6 +131,34 @@ export function MaterialHero() {
 
   return (
     <section className="material-hero-section">
+      {/* High-Tech Geometric Mesh Background */}
+      <div 
+        style={{ 
+          position: "absolute", 
+          inset: 0, 
+          zIndex: 0, 
+          pointerEvents: "none", 
+          overflow: "hidden" 
+        }} 
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/material-hero-bg.jpg"
+          alt="Tech Mesh Background"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center", opacity: 0.22 }}
+        />
+        <div 
+          style={{ 
+            position: "absolute", 
+            inset: 0, 
+            background: "radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.94) 100%)" 
+          }} 
+        />
+      </div>
+
       {/* Precision Engineering Grid Background */}
       <div className="material-hero-grid-bg" aria-hidden="true" />
 
@@ -152,43 +179,12 @@ export function MaterialHero() {
       />
 
       <Container wide>
-        <div className="material-hero-layout">
+        <div className="material-hero-layout" style={{ position: "relative", zIndex: 1 }}>
           
           {/* =========================================================
               Left Column: Executive Value Proposition
              ========================================================= */}
           <div>
-            {/* Status / Version Eyebrow Badge */}
-            <div className="material-hero-eyebrow">
-              <span style={{ display: "flex", width: 8, height: 8, position: "relative" }}>
-                <span 
-                  style={{
-                    position: "absolute",
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: "50%",
-                    backgroundColor: "#34D399",
-                    opacity: 0.75,
-                    animation: "ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite"
-                  }} 
-                />
-                <span 
-                  style={{
-                    position: "relative",
-                    width: 8,
-                    height: 8,
-                    borderRadius: "50%",
-                    backgroundColor: "#10B981"
-                  }} 
-                />
-              </span>
-              <span style={{ fontFamily: "monospace", color: "#CBD5E1", fontSize: "0.75rem", letterSpacing: "0.08em" }}>
-                ENTERPRISE SAAS v2.4
-              </span>
-              <span style={{ color: "#475569" }}>|</span>
-              <span style={{ color: "#A5B4FC" }}>Supply Chain OS</span>
-            </div>
-
             {/* Headline */}
             <h1
               style={{
@@ -352,32 +348,6 @@ export function MaterialHero() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Compliance Badges */}
-            <div
-              style={{
-                marginTop: "1.25rem",
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: "0.85rem",
-                fontSize: "0.75rem",
-                color: "#64748B",
-                fontWeight: 600,
-              }}
-            >
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
-                <CheckCircle2 size={13} color="#10B981" /> SOC 2 Type II
-              </span>
-              <span>•</span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
-                <CheckCircle2 size={13} color="#10B981" /> ISO 27001 Certified
-              </span>
-              <span>•</span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
-                <Database size={13} color="#6366F1" /> SAP &amp; Oracle Connectors
-              </span>
             </div>
           </div>
 
