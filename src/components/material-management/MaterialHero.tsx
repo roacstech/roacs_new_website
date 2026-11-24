@@ -131,7 +131,7 @@ export function MaterialHero() {
 
   return (
     <section className="material-hero-section">
-      {/* High-Tech Geometric Mesh Background */}
+      {/* Authentic Warehouse & Production Control Tower Background Image */}
       <div 
         style={{ 
           position: "absolute", 
@@ -143,24 +143,25 @@ export function MaterialHero() {
         aria-hidden="true"
       >
         <Image
-          src="/images/material-hero-bg.jpg"
-          alt="Tech Mesh Background"
+          src="/images/warehouse-production-hero.jpg"
+          alt="Modern Warehouse Logistics and Tablet Production Control"
           fill
           priority
           sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center", opacity: 0.22 }}
+          style={{ objectFit: "cover", objectPosition: "center right", opacity: 0.72 }}
         />
+        {/* Directional Soft Scrim: Opaque on left for pristine text legibility, luminous on right */}
         <div 
           style={{ 
             position: "absolute", 
             inset: 0, 
-            background: "radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.94) 100%)" 
+            background: "linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.84) 42%, rgba(255, 255, 255, 0.48) 78%, rgba(255, 255, 255, 0.3) 100%)" 
           }} 
         />
       </div>
 
-      {/* Precision Engineering Grid Background */}
-      <div className="material-hero-grid-bg" aria-hidden="true" />
+      {/* Precision Engineering Grid Background (Subtle Overlay) */}
+      <div className="material-hero-grid-bg" style={{ opacity: 0.2 }} aria-hidden="true" />
 
       {/* Gentle Ambient Top Radial Light */}
       <div 
