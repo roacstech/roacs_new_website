@@ -79,23 +79,44 @@ export function AboutPreview() {
                   boxShadow: "0 18px 40px rgba(16, 29, 53, 0.3)",
                   border: "1px solid rgba(255, 255, 255, 0.12)",
                   maxWidth: "260px",
+                  overflow: "hidden",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.4rem" }}>
-                  <Award size={22} color="var(--color-brand-accent)" />
-                  <span
-                    style={{
-                      fontSize: "2rem",
-                      fontWeight: 800,
-                      color: "#FFFFFF",
-                      lineHeight: 1,
-                    }}
-                  >
-                    50+ <span style={{ fontSize: "1.1rem", color: "var(--color-brand-accent)" }}>Clients</span>
-                  </span>
-                </div>
-                <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-muted-blue)", lineHeight: 1.35 }}>
-                  Global Enterprise Deployments & Production Support
+                {/* Ambient Soft Glow Behind Content */}
+                <div
+                  className="floating-badge-ambient-glow"
+                  style={{
+                    position: "absolute",
+                    top: "-20%",
+                    right: "-20%",
+                    width: "140px",
+                    height: "140px",
+                    borderRadius: "50%",
+                    background: "radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(237, 25, 24, 0.15) 50%, transparent 70%)",
+                    filter: "blur(20px)",
+                    pointerEvents: "none",
+                    opacity: 0.6,
+                    transition: "opacity 0.3s ease, transform 0.3s ease",
+                  }}
+                />
+
+                <div style={{ position: "relative", zIndex: 1 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.4rem" }}>
+                    <Award size={22} color="var(--color-brand-accent)" className="floating-award-icon" />
+                    <span
+                      style={{
+                        fontSize: "2rem",
+                        fontWeight: 800,
+                        color: "#FFFFFF",
+                        lineHeight: 1,
+                      }}
+                    >
+                      50+ <span style={{ fontSize: "1.1rem", color: "var(--color-brand-accent)" }}>Clients</span>
+                    </span>
+                  </div>
+                  <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-muted-blue)", lineHeight: 1.35 }}>
+                    Global Enterprise Deployments & Production Support
+                  </div>
                 </div>
               </div>
             </Reveal>

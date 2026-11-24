@@ -542,6 +542,82 @@ p {
 
 .about-floating-badge {
   animation: float-badge-gentle 5s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Light Pass Shimmer Beam Effect across Card */
+.about-floating-badge::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -140%;
+  width: 180%;
+  height: 220%;
+  background: linear-gradient(
+    115deg,
+    transparent 32%,
+    rgba(255, 255, 255, 0.08) 40%,
+    rgba(255, 255, 255, 0.45) 48%,
+    rgba(56, 189, 248, 0.75) 51%,
+    rgba(255, 255, 255, 0.55) 54%,
+    transparent 65%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+@keyframes light-sweep {
+  0% {
+    left: -140%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 140%;
+    opacity: 0;
+  }
+}
+
+.about-floating-badge:hover::before,
+.about-floating-badge:active::before {
+  animation: light-sweep 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.about-floating-badge:hover,
+.about-floating-badge:active {
+  animation-play-state: paused;
+  transform: translateY(-8px) scale(1.03) !important;
+  border-color: rgba(56, 189, 248, 0.65) !important;
+  box-shadow: 0 25px 55px -10px rgba(0, 0, 0, 0.6),
+              0 0 35px rgba(56, 189, 248, 0.4),
+              0 0 15px rgba(237, 25, 24, 0.3) !important;
+}
+
+.about-floating-badge .floating-award-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.about-floating-badge:hover .floating-award-icon,
+.about-floating-badge:active .floating-award-icon {
+  transform: scale(1.2) rotate(6deg);
+  filter: drop-shadow(0 0 8px rgba(237, 25, 24, 0.8));
+}
+
+.about-floating-badge:hover .floating-badge-ambient-glow,
+.about-floating-badge:active .floating-badge-ambient-glow {
+  opacity: 1 !important;
+  transform: scale(1.3) !important;
 }
 
 .footer-link:hover {
