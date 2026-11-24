@@ -35,14 +35,33 @@ export default function AboutPage() {
       <section
         style={{
           position: "relative",
-          background: "linear-gradient(180deg, #020B1E 0%, #051538 50%, #082154 100%)",
+          backgroundColor: "#020B1E",
           color: "#FFFFFF",
-          paddingTop: "5.5rem",
-          paddingBottom: "5.5rem",
+          paddingTop: "6rem",
+          paddingBottom: "6rem",
           overflow: "hidden",
           borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
         }}
       >
+        {/* Background Office Image with Deep Navy Gradient Overlay */}
+        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+          <Image
+            src="/images/about/about-hero-bg.jpg"
+            alt="Roacs Engineering Headquarters & Technical Workspace"
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center" }}
+            priority
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(180deg, rgba(2, 11, 30, 0.88) 0%, rgba(3, 16, 44, 0.84) 50%, rgba(2, 9, 26, 0.94) 100%)",
+            }}
+          />
+        </div>
+
         {/* Ambient Glow Orbs */}
         <div
           style={{
@@ -55,12 +74,12 @@ export default function AboutPage() {
             background: "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.25) 0%, rgba(237, 25, 24, 0.12) 45%, transparent 70%)",
             filter: "blur(60px)",
             pointerEvents: "none",
-            zIndex: 0,
+            zIndex: 1,
           }}
           className="ambient-pulse"
         />
 
-        <Container wide>
+        <Container wide style={{ position: "relative", zIndex: 2 }}>
           <div
             style={{
               position: "relative",
