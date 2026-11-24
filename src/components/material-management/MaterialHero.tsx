@@ -14,7 +14,6 @@ import {
   Disc, 
   Droplets, 
   Hexagon, 
-  Search, 
   AlertTriangle, 
   XCircle
 } from "lucide-react";
@@ -120,25 +119,15 @@ const STOCK_DATA: StockItem[] = [
 
 export function MaterialHero() {
   const [activeTab, setActiveTab] = useState<"all" | "critical" | "metals" | "fluids">("all");
-  const [searchQuery, setSearchQuery] = useState("");
 
   const filteredItems = useMemo(() => {
     return STOCK_DATA.filter((item) => {
       if (activeTab === "critical" && item.statusType === "success") return false;
       if (activeTab === "metals" && item.category !== "metals") return false;
       if (activeTab === "fluids" && item.category !== "chemicals") return false;
-
-      if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase();
-        return (
-          item.name.toLowerCase().includes(query) ||
-          item.sku.toLowerCase().includes(query) ||
-          item.facility.toLowerCase().includes(query)
-        );
-      }
       return true;
     });
-  }, [activeTab, searchQuery]);
+  }, [activeTab]);
 
   return (
     <section className="material-hero-section">
@@ -368,46 +357,9 @@ export function MaterialHero() {
           <div className="warehouse-console-wrapper">
             <div className="warehouse-glass-console">
               
-              {/* Chrome Top Bar: Traffic lights + Roacs Title */}
-              <div className="console-top-bar">
-                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
-                  <div className="console-traffic-pips">
-                    <span className="console-pip console-pip-red" />
-                    <span className="console-pip console-pip-yellow" />
-                    <span className="console-pip console-pip-green" />
-                  </div>
-
-                  <div style={{ height: "16px", width: "1px", backgroundColor: "#E2E8F0" }} />
-
-                  {/* Roacs Brand Mark & Header */}
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
-                    <div
-                      style={{
-                        width: 17,
-                        height: 17,
-                        borderRadius: "4px",
-                        backgroundColor: "#ED1918",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "#FFFFFF",
-                        fontSize: "0.55rem",
-                        fontWeight: 900,
-                        boxShadow: "0 1px 4px rgba(237, 25, 24, 0.4)",
-                      }}
-                    >
-                      ▲
-                    </div>
-                    <span style={{ fontSize: "0.825rem", fontWeight: 700, color: "#0F172A" }}>
-                      Live Warehouse Stock Balances
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Sub-Header: Facility Tabs + Live Search Filter */}
+              {/* Facility Filter Tabs */}
               <div className="console-filter-bar">
-                <div style={{ display: "flex", alignItems: "center", gap: "0.3rem", flexWrap: "wrap" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", flexWrap: "wrap", width: "100%" }}>
                   <button
                     onClick={() => setActiveTab("all")}
                     className={`console-tab-btn ${activeTab === "all" ? "console-tab-btn-active" : "console-tab-btn-inactive"}`}
@@ -432,18 +384,6 @@ export function MaterialHero() {
                   >
                     Fluids
                   </button>
-                </div>
-
-                <div className="console-search-box">
-                  <Search size={12} color="#94A3B8" style={{ position: "absolute", left: "0.55rem", pointerEvents: "none" }} />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Filter SKUs..."
-                    className="console-search-input"
-                    style={{ width: "130px", paddingLeft: "1.65rem" }}
-                  />
                 </div>
               </div>
 
