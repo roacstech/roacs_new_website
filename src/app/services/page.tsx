@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { ServicesStickyScroll } from "@/components/services/ServicesStickyScroll";
+import { ServicesFaq } from "@/components/services/ServicesFaq";
 import { servicesParallaxProducts } from "@/data/services-parallax";
 import { constructMetadata } from "@/lib/metadata";
 
@@ -19,6 +20,9 @@ export default function ServicesPage() {
 
       {/* Aceternity Sticky Scroll Reveal Section */}
       <ServicesStickyScroll />
+
+      {/* Services FAQ Section */}
+      <ServicesFaq />
 
       {/* Contact CTA */}
       <ContactCTA />
