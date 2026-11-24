@@ -1,17 +1,22 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Container } from "@/components/common/Container";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { ServiceCard } from "@/components/common/ServiceCard";
-import { Button } from "@/components/common/Button";
 import { Reveal } from "@/components/common/Reveal";
 import { servicesData } from "@/data/services";
 import { 
   ArrowRight, 
   Package, 
-  CheckCircle2, 
-  Boxes 
+  Layers,
+  Sparkles,
+  QrCode,
+  BellRing,
+  Boxes,
+  TrendingUp,
+  Activity
 } from "lucide-react";
 
 export function ServicesSection() {
@@ -62,236 +67,540 @@ export function ServicesSection() {
         <Reveal delay={0.3}>
           <div
             style={{
-              backgroundColor: "var(--color-primary-navy)",
-              color: "#FFFFFF",
-              borderRadius: "var(--radius-lg)",
-              border: "1px solid rgba(255, 255, 255, 0.14)",
-              padding: "3rem 2.5rem",
+              background: "linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 55%, #F0F4FF 100%)",
+              color: "#0F172A",
+              borderRadius: "24px",
+              border: "1px solid rgba(226, 232, 240, 0.95)",
+              padding: "clamp(2rem, 3.5vw, 3rem) clamp(1.75rem, 3vw, 2.75rem)",
               display: "grid",
               gridTemplateColumns: "1fr",
               gap: "2.5rem",
               alignItems: "center",
-              boxShadow: "var(--shadow-xl)",
+              boxShadow: "0 20px 50px -12px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(0, 0, 0, 0.03)",
               position: "relative",
               overflow: "hidden",
             }}
             className="product-spotlight-grid"
           >
-            {/* Ambient Red Glow */}
+            {/* Ambient Dual Glow */}
             <div
               style={{
                 position: "absolute",
-                top: "-15%",
-                right: "10%",
-                width: "420px",
-                height: "420px",
+                top: "-20%",
+                right: "5%",
+                width: "480px",
+                height: "480px",
                 borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(237, 25, 24, 0.18) 0%, transparent 70%)",
-                filter: "blur(80px)",
+                background: "radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(6, 182, 212, 0.04) 40%, transparent 70%)",
+                filter: "blur(60px)",
                 pointerEvents: "none",
               }}
+              aria-hidden="true"
             />
 
-            <div>
+            {/* Subtle Tech Grid Texture */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundImage: `
+                  linear-gradient(to right, rgba(99, 102, 241, 0.035) 1px, transparent 1px),
+                  linear-gradient(to bottom, rgba(99, 102, 241, 0.035) 1px, transparent 1px)
+                `,
+                backgroundSize: "28px 28px",
+                pointerEvents: "none",
+              }}
+              aria-hidden="true"
+            />
+
+            {/* Left: Value Proposition */}
+            <div style={{ position: "relative", zIndex: 1 }}>
+              {/* Modern SaaS Pill */}
               <div
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "0.5rem",
                   padding: "0.35rem 0.85rem",
-                  borderRadius: "var(--radius-full)",
-                  backgroundColor: "rgba(237, 25, 24, 0.15)",
-                  border: "1px solid rgba(237, 25, 24, 0.3)",
-                  color: "var(--color-brand-accent)",
+                  borderRadius: "9999px",
+                  backgroundColor: "rgba(99, 102, 241, 0.08)",
+                  border: "1px solid rgba(99, 102, 241, 0.22)",
+                  color: "#4338CA",
                   fontSize: "0.78rem",
                   fontWeight: 700,
                   textTransform: "uppercase",
-                  letterSpacing: "0.08em",
+                  letterSpacing: "0.06em",
                   marginBottom: "1.25rem",
                 }}
               >
+                <span
+                  style={{
+                    width: 7,
+                    height: 7,
+                    borderRadius: "50%",
+                    backgroundColor: "#10B981",
+                    display: "inline-block",
+                    boxShadow: "0 0 8px #10B981",
+                  }}
+                />
                 <Package size={14} />
                 <span>Proprietary SaaS Product</span>
               </div>
 
+              {/* Title */}
               <h3
                 style={{
-                  fontSize: "clamp(1.6rem, 3.2vw, 2.2rem)",
+                  fontSize: "clamp(1.75rem, 3.2vw, 2.35rem)",
                   fontWeight: 800,
-                  color: "#FFFFFF",
+                  color: "#0F172A",
                   marginBottom: "1rem",
                   lineHeight: 1.2,
+                  letterSpacing: "-0.02em",
                 }}
               >
-                Roacs Material Management Platform
+                Roacs Material{" "}
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #4338CA 0%, #6366F1 45%, #0284C7 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    display: "inline-block",
+                  }}
+                >
+                  Management
+                </span>{" "}
+                Platform
               </h3>
 
+              {/* Description */}
               <p
                 style={{
-                  fontSize: "1.05rem",
-                  color: "var(--color-muted-blue)",
+                  fontSize: "1.025rem",
+                  color: "#475569",
                   lineHeight: 1.65,
                   marginBottom: "1.75rem",
                 }}
               >
-                An enterprise-grade supply chain and inventory management software engineered to streamline inventory tracking, multi-warehouse flow of goods, supplier procurement, and audit compliance in real time.
+                An enterprise-grade supply chain and inventory control platform engineered by Roacs Corporation. Eliminate stock-outs, automate multi-tiered procurement cycles, and synchronize inventory flow with real-time auditability.
               </p>
 
+              {/* 4 Modern Enterprise Feature Badges */}
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                  gap: "0.85rem",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+                  gap: "0.75rem",
                   marginBottom: "2rem",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-                  <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.875rem", color: "#FFFFFF" }}>Real-time Multi-Warehouse Stock</span>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.65rem",
+                    padding: "0.65rem 0.85rem",
+                    borderRadius: "12px",
+                    backgroundColor: "rgba(255, 255, 255, 0.95)",
+                    border: "1px solid rgba(226, 232, 240, 0.95)",
+                    boxShadow: "0 1px 3px rgba(15, 23, 42, 0.03)",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 28,
+                      height: 28,
+                      borderRadius: "7px",
+                      backgroundColor: "rgba(99, 102, 241, 0.1)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#4F46E5",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Layers size={15} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                      Multi-Warehouse Stock
+                    </div>
+                    <div style={{ fontSize: "0.7rem", color: "#64748B" }}>Sub-second socket sync</div>
+                  </div>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-                  <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.875rem", color: "#FFFFFF" }}>Automated Purchase Requisitions</span>
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.65rem",
+                    padding: "0.65rem 0.85rem",
+                    borderRadius: "12px",
+                    backgroundColor: "rgba(255, 255, 255, 0.95)",
+                    border: "1px solid rgba(226, 232, 240, 0.95)",
+                    boxShadow: "0 1px 3px rgba(15, 23, 42, 0.03)",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 28,
+                      height: 28,
+                      borderRadius: "7px",
+                      backgroundColor: "rgba(16, 185, 129, 0.1)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#059669",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Sparkles size={15} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                      Automated PO Requisitions
+                    </div>
+                    <div style={{ fontSize: "0.7rem", color: "#64748B" }}>Rule-based dispatch</div>
+                  </div>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-                  <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.875rem", color: "#FFFFFF" }}>Barcode & RFID Flow Control</span>
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.65rem",
+                    padding: "0.65rem 0.85rem",
+                    borderRadius: "12px",
+                    backgroundColor: "rgba(255, 255, 255, 0.95)",
+                    border: "1px solid rgba(226, 232, 240, 0.95)",
+                    boxShadow: "0 1px 3px rgba(15, 23, 42, 0.03)",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 28,
+                      height: 28,
+                      borderRadius: "7px",
+                      backgroundColor: "rgba(2, 132, 199, 0.1)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#0284C7",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <QrCode size={15} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                      Barcode & RFID Flow
+                    </div>
+                    <div style={{ fontSize: "0.7rem", color: "#64748B" }}>End-to-end audit trace</div>
+                  </div>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-                  <CheckCircle2 size={16} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.875rem", color: "#FFFFFF" }}>Instant Low-Stock Dispatches</span>
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.65rem",
+                    padding: "0.65rem 0.85rem",
+                    borderRadius: "12px",
+                    backgroundColor: "rgba(255, 255, 255, 0.95)",
+                    border: "1px solid rgba(226, 232, 240, 0.95)",
+                    boxShadow: "0 1px 3px rgba(15, 23, 42, 0.03)",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 28,
+                      height: 28,
+                      borderRadius: "7px",
+                      backgroundColor: "rgba(217, 119, 6, 0.1)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#D97706",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <BellRing size={15} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "#0F172A", lineHeight: 1.2 }}>
+                      Instant Low-Stock Alert
+                    </div>
+                    <div style={{ fontSize: "0.7rem", color: "#64748B" }}>Dynamic thresholds</div>
+                  </div>
                 </div>
               </div>
 
+              {/* CTAs */}
               <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "1rem" }}>
-                <Button
+                <Link
                   href="/material-management"
-                  variant="primary"
-                  icon={<ArrowRight size={16} />}
+                  className="material-hero-primary-btn"
+                  style={{
+                    padding: "0.8rem 1.75rem",
+                    fontSize: "0.92rem",
+                  }}
                 >
-                  Explore Product Platform
-                </Button>
-                <Button
+                  <span>Explore Product Platform</span>
+                  <ArrowRight size={16} />
+                </Link>
+                <Link
                   href="/contact"
-                  variant="secondary"
+                  className="material-hero-secondary-btn"
+                  style={{
+                    padding: "0.8rem 1.65rem",
+                    fontSize: "0.92rem",
+                  }}
                 >
                   Request Live Demo
-                </Button>
+                </Link>
               </div>
             </div>
 
-            {/* Right: Simulated Interactive Inventory Control Console */}
+            {/* Right: Modern Light Warehouse Inventory Monitor Console */}
             <div
               style={{
-                backgroundColor: "rgba(10, 18, 33, 0.85)",
-                border: "1px solid rgba(255, 255, 255, 0.12)",
-                borderRadius: "var(--radius-md)",
-                padding: "1.75rem",
-                backdropFilter: "blur(14px)",
-                boxShadow: "0 16px 36px rgba(0, 0, 0, 0.4)",
+                position: "relative",
+                zIndex: 1,
+                backgroundColor: "#FFFFFF",
+                border: "1px solid rgba(226, 232, 240, 0.95)",
+                borderRadius: "18px",
+                boxShadow: "0 16px 36px -8px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(0, 0, 0, 0.02)",
+                overflow: "hidden",
               }}
             >
+              {/* Chrome Top Bar */}
               <div
                 style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  paddingBottom: "1rem",
-                  borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-                  marginBottom: "1.25rem",
+                  padding: "0.75rem 1.15rem",
+                  backgroundColor: "#F8FAFC",
+                  borderBottom: "1px solid rgba(226, 232, 240, 0.9)",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                  <Boxes size={18} color="var(--color-brand-accent)" />
-                  <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#FFFFFF" }}>
-                    Warehouse Inventory Monitor
-                  </span>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.35rem" }}>
+                    <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#FDA4AF" }} />
+                    <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#FDE047" }} />
+                    <span style={{ width: 8, height: 8, borderRadius: "50%", backgroundColor: "#86EFAC" }} />
+                  </div>
+                  <div style={{ height: "14px", width: "1px", backgroundColor: "#E2E8F0" }} />
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
+                    <Boxes size={15} color="#4338CA" />
+                    <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#0F172A" }}>
+                      Warehouse Inventory Monitor
+                    </span>
+                  </div>
                 </div>
+
                 <span
                   style={{
-                    fontSize: "0.72rem",
-                    padding: "0.2rem 0.5rem",
-                    borderRadius: "4px",
-                    backgroundColor: "rgba(16, 185, 129, 0.15)",
-                    color: "#34D399",
-                    fontWeight: 600,
+                    fontSize: "0.68rem",
+                    padding: "0.2rem 0.55rem",
+                    borderRadius: "9999px",
+                    backgroundColor: "rgba(16, 185, 129, 0.12)",
+                    color: "#059669",
+                    fontWeight: 700,
+                    letterSpacing: "0.04em",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.35rem",
+                    border: "1px solid rgba(16, 185, 129, 0.25)",
                   }}
                 >
+                  <span
+                    style={{
+                      width: 5,
+                      height: 5,
+                      borderRadius: "50%",
+                      backgroundColor: "#10B981",
+                      display: "inline-block",
+                    }}
+                  />
                   CONNECTED
                 </span>
               </div>
 
-              {/* Stock Items Table */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.25rem" }}>
+              {/* Stock Items List */}
+              <div style={{ padding: "0.85rem 1rem", display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+                {/* Row 1 */}
                 <div
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    padding: "0.6rem 0.85rem",
-                    backgroundColor: "rgba(255, 255, 255, 0.04)",
-                    borderRadius: "4px",
-                    fontSize: "0.8rem",
+                    padding: "0.65rem 0.85rem",
+                    backgroundColor: "#F8FAFC",
+                    border: "1px solid rgba(226, 232, 240, 0.8)",
+                    borderRadius: "10px",
+                    position: "relative",
+                    overflow: "hidden",
                   }}
                 >
-                  <div>
-                    <div style={{ fontWeight: 600, color: "#FFFFFF" }}>SKU-9021 Industrial Steel Rods</div>
-                    <div style={{ fontSize: "0.72rem", color: "var(--color-muted-blue)" }}>Warehouse B-4 â€¢ Lot #412</div>
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+                      bottom: 0,
+                      width: "3.5px",
+                      backgroundColor: "#0284C7",
+                    }}
+                  />
+                  <div style={{ paddingLeft: "0.35rem" }}>
+                    <div style={{ fontWeight: 700, color: "#0F172A", fontSize: "0.82rem" }}>
+                      SKU-9021 Industrial Steel Rods
+                    </div>
+                    <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "1px" }}>
+                      Warehouse B-4 • Lot #412
+                    </div>
                   </div>
-                  <span style={{ color: "#34D399", fontWeight: 700, fontSize: "0.78rem" }}>2,450 Units OK</span>
+                  <div style={{ textAlign: "right" }}>
+                    <span
+                      style={{
+                        fontSize: "0.72rem",
+                        fontWeight: 700,
+                        padding: "0.2rem 0.5rem",
+                        borderRadius: "9999px",
+                        backgroundColor: "#ECFDF5",
+                        color: "#059669",
+                        border: "1px solid rgba(16, 185, 129, 0.2)",
+                      }}
+                    >
+                      2,450 Units OK
+                    </span>
+                  </div>
                 </div>
 
+                {/* Row 2 */}
                 <div
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    padding: "0.6rem 0.85rem",
-                    backgroundColor: "rgba(255, 255, 255, 0.04)",
-                    borderRadius: "4px",
-                    fontSize: "0.8rem",
+                    padding: "0.65rem 0.85rem",
+                    backgroundColor: "#F8FAFC",
+                    border: "1px solid rgba(226, 232, 240, 0.8)",
+                    borderRadius: "10px",
+                    position: "relative",
+                    overflow: "hidden",
                   }}
                 >
-                  <div>
-                    <div style={{ fontWeight: 600, color: "#FFFFFF" }}>SKU-4819 Silicon Gaskets</div>
-                    <div style={{ fontSize: "0.72rem", color: "var(--color-muted-blue)" }}>Central Hub â€¢ Bin #14</div>
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+                      bottom: 0,
+                      width: "3.5px",
+                      backgroundColor: "#F59E0B",
+                    }}
+                  />
+                  <div style={{ paddingLeft: "0.35rem" }}>
+                    <div style={{ fontWeight: 700, color: "#0F172A", fontSize: "0.82rem" }}>
+                      SKU-4819 Silicon Gaskets
+                    </div>
+                    <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "1px" }}>
+                      Central Hub • Bin #14
+                    </div>
                   </div>
-                  <span style={{ color: "#F59E0B", fontWeight: 700, fontSize: "0.78rem" }}>Low: 140 Units</span>
+                  <div style={{ textAlign: "right" }}>
+                    <span
+                      style={{
+                        fontSize: "0.72rem",
+                        fontWeight: 700,
+                        padding: "0.2rem 0.5rem",
+                        borderRadius: "9999px",
+                        backgroundColor: "#FFFBEB",
+                        color: "#D97706",
+                        border: "1px solid rgba(245, 158, 11, 0.25)",
+                      }}
+                    >
+                      Low: 140 Units
+                    </span>
+                  </div>
                 </div>
 
+                {/* Row 3 */}
                 <div
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    padding: "0.6rem 0.85rem",
-                    backgroundColor: "rgba(255, 255, 255, 0.04)",
-                    borderRadius: "4px",
-                    fontSize: "0.8rem",
+                    padding: "0.65rem 0.85rem",
+                    backgroundColor: "#F8FAFC",
+                    border: "1px solid rgba(226, 232, 240, 0.8)",
+                    borderRadius: "10px",
+                    position: "relative",
+                    overflow: "hidden",
                   }}
                 >
-                  <div>
-                    <div style={{ fontWeight: 600, color: "#FFFFFF" }}>PO-8840 Auto-Requisition</div>
-                    <div style={{ fontSize: "0.72rem", color: "var(--color-muted-blue)" }}>Supplier: Global Metals Corp</div>
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+                      bottom: 0,
+                      width: "3.5px",
+                      backgroundColor: "#6366F1",
+                    }}
+                  />
+                  <div style={{ paddingLeft: "0.35rem" }}>
+                    <div style={{ fontWeight: 700, color: "#0F172A", fontSize: "0.82rem" }}>
+                      PO-8840 Auto-Requisition
+                    </div>
+                    <div style={{ fontSize: "0.7rem", color: "#64748B", marginTop: "1px" }}>
+                      Supplier: Global Metals Corp
+                    </div>
                   </div>
-                  <span style={{ color: "#38BDF8", fontWeight: 700, fontSize: "0.78rem" }}>Dispatched</span>
+                  <div style={{ textAlign: "right" }}>
+                    <span
+                      style={{
+                        fontSize: "0.72rem",
+                        fontWeight: 700,
+                        padding: "0.2rem 0.5rem",
+                        borderRadius: "9999px",
+                        backgroundColor: "#EFF6FF",
+                        color: "#2563EB",
+                        border: "1px solid rgba(37, 99, 235, 0.2)",
+                      }}
+                    >
+                      Dispatched
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* Bottom Quick Metric */}
+              {/* Bottom Quick Metric Bar */}
               <div
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  paddingTop: "0.75rem",
-                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-                  fontSize: "0.75rem",
-                  color: "var(--color-muted-blue)",
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "0.5rem",
+                  padding: "0.75rem 1rem",
+                  backgroundColor: "#F8FAFC",
+                  borderTop: "1px solid rgba(226, 232, 240, 0.9)",
+                  fontSize: "0.72rem",
                 }}
               >
-                <span>Stock Accuracy: 99.98%</span>
-                <span style={{ color: "var(--color-brand-accent)", fontWeight: 600 }}>Audited & Verified</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                  <TrendingUp size={14} color="#10B981" />
+                  <div>
+                    <span style={{ color: "#64748B" }}>Stock Accuracy: </span>
+                    <strong style={{ color: "#0F172A" }}>99.98%</strong>
+                  </div>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "0.4rem" }}>
+                  <Activity size={14} color="#4338CA" />
+                  <span style={{ color: "#4338CA", fontWeight: 700 }}>
+                    Audited & Verified
+                  </span>
+                </div>
               </div>
             </div>
           </div>

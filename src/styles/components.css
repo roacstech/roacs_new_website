@@ -406,7 +406,8 @@ p {
     grid-template-columns: 1fr 1fr !important;
   }
   .product-spotlight-grid {
-    grid-template-columns: 1.3fr 0.7fr !important;
+    grid-template-columns: 1.12fr 0.88fr !important;
+    gap: 3.5rem !important;
   }
   .service-detail-grid {
     grid-template-columns: 1fr 340px !important;
