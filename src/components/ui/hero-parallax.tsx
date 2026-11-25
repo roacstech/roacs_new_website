@@ -29,6 +29,17 @@ export function HeroParallax({
   headerTitle = "Engineering services built for operational resilience and scale.",
   headerSubtitle = "Explore our core practices across custom software, modern web platforms, mobile ecosystems, cloud infrastructure, and intelligent automation.",
 }: HeroParallaxProps) {
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile, { passive: true });
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const half = Math.ceil(products.length / 2);
   const firstRow = products.slice(0, half);
   const secondRow = products.slice(half);
@@ -59,6 +70,145 @@ export function HeroParallax({
   const translateY = useTransform(scrollY, [180, 500], [0, 0]);
   const translateX = useTransform(scrollY, [180, 1200], [0, 650]);
   const translateXReverse = useTransform(scrollY, [180, 1200], [0, -650]);
+
+  if (isMobile) {
+    return (
+      <div
+        className="hero-parallax-mobile-container"
+        style={{
+          backgroundColor: "#101D35",
+          color: "#FFFFFF",
+          paddingTop: "5.5rem",
+          paddingBottom: "3rem",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            padding: "0 1.25rem",
+            marginBottom: "1.75rem",
+          }}
+        >
+          {headerBadge && (
+            <span className="hero-parallax-badge" style={{ marginBottom: "1rem" }}>
+              {headerBadge}
+            </span>
+          )}
+          <h1
+            style={{
+              fontSize: "clamp(1.75rem, 5.5vw, 2.5rem)",
+              fontWeight: 800,
+              lineHeight: 1.2,
+              color: "#FFFFFF",
+              letterSpacing: "-0.02em",
+              marginBottom: "0.85rem",
+            }}
+          >
+            {headerTitle}
+          </h1>
+          {headerSubtitle && (
+            <p
+              style={{
+                fontSize: "clamp(0.925rem, 3.2vw, 1.05rem)",
+                lineHeight: 1.6,
+                color: "var(--color-muted-blue, #94A3B8)",
+                maxWidth: "680px",
+              }}
+            >
+              {headerSubtitle}
+            </p>
+          )}
+        </div>
+
+        {/* Clean Swipeable Carousel on Mobile */}
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+            overflowX: "auto",
+            scrollSnapType: "x mandatory",
+            WebkitOverflowScrolling: "touch",
+            padding: "0.5rem 1.25rem 1.25rem 1.25rem",
+            scrollbarWidth: "none",
+          }}
+          className="services-mobile-swipe-track"
+        >
+          {products.map((product) => (
+            <div
+              key={product.title}
+              style={{
+                width: "min(78vw, 290px)",
+                height: "185px",
+                flexShrink: 0,
+                scrollSnapAlign: "start",
+                borderRadius: "16px",
+                overflow: "hidden",
+                position: "relative",
+                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.4)",
+              }}
+            >
+              <Image
+                src={product.thumbnail}
+                alt={product.title}
+                fill
+                sizes="(max-width: 768px) 300px, 340px"
+                className="object-cover"
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background:
+                    "linear-gradient(to top, rgba(16, 29, 53, 0.95) 0%, rgba(16, 29, 53, 0.3) 60%, transparent 100%)",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "0.85rem",
+                  left: "1rem",
+                  right: "1rem",
+                }}
+              >
+                {product.category && (
+                  <span
+                    style={{
+                      fontSize: "0.68rem",
+                      fontWeight: 700,
+                      color: "var(--color-brand-accent, #ED1918)",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.06em",
+                      display: "block",
+                      marginBottom: "0.2rem",
+                    }}
+                  >
+                    {product.category}
+                  </span>
+                )}
+                <h3
+                  style={{
+                    fontSize: "0.925rem",
+                    fontWeight: 700,
+                    color: "#FFFFFF",
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {product.title}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ textAlign: "center", fontSize: "0.75rem", color: "#64748B", fontWeight: 600, marginTop: "0.25rem" }}>
+          ← Swipe horizontally to explore capabilities →
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div

@@ -42,9 +42,20 @@ export const StickyScroll = ({
   designStyle = "tall-industrial",
 }: StickyScrollProps) => {
   const [activeCard, setActiveCard] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 860);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
     const handleScroll = () => {
       const viewportMid = window.innerHeight * 0.45;
       let currentActive = 0;
@@ -63,7 +74,7 @@ export const StickyScroll = ({
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [content.length]);
+  }, [content.length, isMobile]);
 
   const renderHeading = (item: StickyScrollItem) => {
     const num = item.number || item.title.split(".")[0]?.trim() || "01";
@@ -197,20 +208,28 @@ export const StickyScroll = ({
               }}
             >
               <span
+                className="page-sticky-heading-num"
                 style={{
                   color: "var(--color-brand-accent, #ED1918)",
                   fontSize: "1.05em",
                   flexShrink: 0,
                   fontFamily: headingStyle?.fontFamily || "'Plus Jakarta Sans', var(--font-heading), sans-serif",
                   fontWeight: headingStyle?.fontWeight || 800,
+                  lineHeight: 1.2,
                 }}
               >
                 {num}
               </span>
               <span
+                className="page-sticky-heading-title"
                 style={{
                   color: dark ? "#FFFFFF" : "#101D35",
-                  whiteSpace: "nowrap",
+                  whiteSpace: "normal",
+                  wordBreak: "break-word",
+                  overflowWrap: "break-word",
+                  lineHeight: 1.25,
+                  flex: 1,
+                  minWidth: 0,
                 }}
               >
                 {headingStyle?.textTransform === "uppercase"
@@ -299,6 +318,125 @@ export const StickyScroll = ({
         );
     }
   };
+
+  if (isMobile) {
+    return (
+      <div
+        className={`page-mobile-services-list ${className || ""}`}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "2.25rem",
+          width: "100%",
+        }}
+      >
+        {content.map((item, index) => (
+          <div
+            key={item.title + index}
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "1.25rem",
+              border: "1px solid #E2E8F0",
+              padding: "1.5rem 1.25rem",
+              boxShadow: "0 4px 18px rgba(0, 0, 0, 0.04)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.15rem",
+            }}
+          >
+            {/* Heading */}
+            {renderHeading(item)}
+
+            {/* Embedded image preview for this specific service item */}
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "clamp(200px, 50vw, 250px)",
+                borderRadius: "1rem",
+                overflow: "hidden",
+              }}
+            >
+              {item.content}
+            </div>
+
+            {/* Overview */}
+            <p
+              style={{
+                fontSize: "0.925rem",
+                color: "var(--color-text-secondary, #475569)",
+                lineHeight: 1.6,
+                margin: 0,
+              }}
+            >
+              {item.description}
+            </p>
+
+            {/* Points */}
+            {item.points && item.points.length > 0 && (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.55rem",
+                  paddingTop: "0.5rem",
+                  borderTop: "1px solid #F1F5F9",
+                }}
+              >
+                {item.points.map((point) => (
+                  <div
+                    key={point}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "0.6rem",
+                    }}
+                  >
+                    <CheckCircle2
+                      size={16}
+                      color="var(--color-brand-accent, #ED1918)"
+                      style={{ flexShrink: 0, marginTop: "0.2rem" }}
+                    />
+                    <span
+                      style={{
+                        fontSize: "0.875rem",
+                        color: "#334155",
+                        fontWeight: 500,
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {point}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Link */}
+            {item.link && (
+              <div style={{ paddingTop: "0.25rem" }}>
+                <Link
+                  href={item.link}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.45rem",
+                    fontSize: "0.875rem",
+                    fontWeight: 700,
+                    color: "var(--color-brand-accent, #ED1918)",
+                    textDecoration: "none",
+                  }}
+                >
+                  <span>Explore Service Details</span>
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className={`page-sticky-scroll-row ${className || ""}`}>

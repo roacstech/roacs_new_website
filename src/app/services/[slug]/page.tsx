@@ -95,8 +95,8 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
           backgroundImage:
             "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(237, 25, 24, 0.15), rgba(11, 20, 36, 0))",
           color: "#FFFFFF",
-          paddingTop: "6.5rem",
-          paddingBottom: "4.5rem",
+          paddingTop: "clamp(4.5rem, 8vw, 6.5rem)",
+          paddingBottom: "clamp(2.5rem, 5vw, 4.5rem)",
           borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
           overflow: "hidden",
         }}
@@ -182,11 +182,11 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               {/* Title */}
               <h1
                 style={{
-                  fontSize: "clamp(2.35rem, 4.5vw, 3.5rem)",
+                  fontSize: "clamp(1.75rem, 5.5vw, 3.25rem)",
                   fontWeight: 800,
                   color: "#FFFFFF",
                   marginBottom: "1.25rem",
-                  lineHeight: 1.12,
+                  lineHeight: 1.15,
                   letterSpacing: "-0.02em",
                 }}
               >
@@ -253,7 +253,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 style={{
                   backgroundColor: "#FFFFFF",
                   borderRadius: "16px",
-                  padding: "2.5rem",
+                  padding: "clamp(1.25rem, 4vw, 2.5rem)",
                   border: "1px solid #E2E8F0",
                   boxShadow: "0 4px 20px rgba(0, 0, 0, 0.03)",
                   marginBottom: "3rem",
@@ -282,7 +282,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
 
                 <h2
                   style={{
-                    fontSize: "1.75rem",
+                    fontSize: "clamp(1.35rem, 3.5vw, 1.75rem)",
                     fontWeight: 800,
                     color: "var(--color-primary-navy)",
                     marginBottom: "1.25rem",
@@ -296,7 +296,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 <div
                   style={{
                     borderLeft: "4px solid var(--color-brand-accent)",
-                    padding: "1.25rem 1.75rem",
+                    padding: "1rem clamp(1rem, 3vw, 1.75rem)",
                     backgroundColor: "rgba(237, 25, 24, 0.03)",
                     borderRadius: "0 10px 10px 0",
                     marginBottom: "2rem",
@@ -304,7 +304,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 >
                   <p
                     style={{
-                      fontSize: "1.125rem",
+                      fontSize: "clamp(0.95rem, 2.5vw, 1.125rem)",
                       fontWeight: 500,
                       color: "#1E293B",
                       lineHeight: 1.75,
@@ -320,7 +320,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                   style={{
                     position: "relative",
                     width: "100%",
-                    height: "360px",
+                    height: "clamp(200px, 45vw, 360px)",
                     borderRadius: "12px",
                     overflow: "hidden",
                     border: "1px solid #E2E8F0",
@@ -399,7 +399,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
                     gap: "1.25rem",
                   }}
                 >
@@ -477,7 +477,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
                     gap: "1rem",
                   }}
                 >
@@ -554,7 +554,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
                     gap: "1.25rem",
                   }}
                 >
@@ -618,7 +618,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 style={{
                   backgroundColor: "#F8FAFC",
                   borderRadius: "24px",
-                  padding: "3rem 2.25rem",
+                  padding: "clamp(1.75rem, 4vw, 3rem) clamp(1rem, 3vw, 2.25rem)",
                   border: "1px solid #E2E8F0",
                   boxShadow: "0 4px 20px rgba(0, 0, 0, 0.02)",
                   marginBottom: "4rem",
@@ -804,7 +804,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                   style={{
                     backgroundColor: "#FFFFFF",
                     borderRadius: "16px",
-                    padding: "2rem 1.75rem",
+                    padding: "clamp(1.5rem, 4vw, 2rem) clamp(1rem, 3vw, 1.75rem)",
                     border: "1px solid #E2E8F0",
                     boxShadow: "0 4px 20px rgba(0, 0, 0, 0.04)",
                   }}

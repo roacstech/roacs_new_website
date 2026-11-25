@@ -102,26 +102,29 @@ export function ServicesFaq() {
 
           {/* Main Content Area: Left Consultation Box + Right Accordion */}
           <div
+            className="services-faq-content-grid"
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
               gap: "2.5rem",
               alignItems: "start",
             }}
           >
             {/* Left Card: Direct Technical Support & Consultation with CardSpotlight */}
-            <Reveal delay={0.15}>
-              <div style={{ position: "sticky", top: "6rem" }}>
-                <CardSpotlight
-                  style={{
-                    backgroundColor: "#080F1E",
-                    border: "1px solid rgba(255, 255, 255, 0.12)",
-                    boxShadow: "0 25px 50px -12px rgba(8, 15, 30, 0.7)",
-                    borderRadius: "1.25rem",
-                    padding: "2.25rem 2rem",
-                  }}
-                  radius={160}
-                >
+            <div className="services-faq-consult-col">
+              <Reveal delay={0.15}>
+                <div style={{ position: "sticky", top: "6rem" }}>
+                  <CardSpotlight
+                    className="services-faq-consult-card"
+                    style={{
+                      backgroundColor: "#080F1E",
+                      border: "1px solid rgba(255, 255, 255, 0.12)",
+                      boxShadow: "0 25px 50px -12px rgba(8, 15, 30, 0.7)",
+                      borderRadius: "1.25rem",
+                      padding: "clamp(1.5rem, 4vw, 2.25rem) clamp(1.25rem, 3.5vw, 2rem)",
+                    }}
+                    radius={160}
+                  >
                   <div
                     style={{
                       display: "inline-flex",
@@ -214,10 +217,11 @@ export function ServicesFaq() {
                 </CardSpotlight>
               </div>
             </Reveal>
+          </div>
 
-            {/* Right Accordion List */}
-            <div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          {/* Right Accordion List */}
+          <div className="services-faq-accordion-col">
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {serviceFaqs.map((faq, idx) => {
                   const isOpen = openIndex === idx;
                   return (
