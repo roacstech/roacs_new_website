@@ -106,6 +106,7 @@ export function Hero() {
           <Reveal delay={0.1}>
             <h1
               className="hero-heading"
+              suppressHydrationWarning
               style={{
                 fontSize: "clamp(1.85rem, 5vw, 3.85rem)",
                 fontWeight: 800,
@@ -127,7 +128,7 @@ export function Hero() {
                 Software
               </span>
               <br className="hero-heading-br" />
-              <span className="hero-headline-subwrap">
+              <span className="hero-headline-subwrap" suppressHydrationWarning>
                 That Drives <FlipHeadline />
               </span>
             </h1>

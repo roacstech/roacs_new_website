@@ -2693,6 +2693,10 @@ p {
   white-space: nowrap;
 }
 
+.hero-heading-br {
+  display: block;
+}
+
 @media (max-width: 768px) {
   .hero-heading {
     font-size: clamp(1.65rem, 6.5vw, 2.75rem) !important;
