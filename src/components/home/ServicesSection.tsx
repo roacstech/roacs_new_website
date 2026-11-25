@@ -105,8 +105,8 @@ export function ServicesSection() {
           ref={scrollSectionRef}
           style={{
             position: "relative",
-            // Height formula: 100vh base + 60vh scroll distance per shift step (4 shifts = 240vh -> 340vh total)
-            height: `calc(100vh + ${(totalCards - 3) * 60}vh)`,
+            // Height formula: 100vh base + 35vh scroll distance per shift step (4 shifts = 140vh -> 240vh total)
+            height: `calc(100vh + ${(totalCards - 3) * 35}vh)`,
             zIndex: 1,
           }}
         >
@@ -116,136 +116,145 @@ export function ServicesSection() {
               position: "sticky",
               top: "72px",
               height: "calc(100vh - 72px)",
-              maxHeight: "calc(100vh - 72px)",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "space-between",
-              paddingTop: "1.25rem",
-              paddingBottom: "1.75rem",
+              justifyContent: "center",
+              padding: "1rem 0",
               overflow: "hidden",
               boxSizing: "border-box",
             }}
           >
             <Container wide>
-              {/* Section Heading */}
-              <div
-                style={{
-                  textAlign: "center",
-                  maxWidth: "920px",
-                  margin: "0 auto",
-                }}
-              >
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    padding: "0.28rem 0.85rem",
-                    borderRadius: "9999px",
-                    backgroundColor: "rgba(237, 25, 24, 0.08)",
-                    border: "1px solid rgba(237, 25, 24, 0.18)",
-                    color: "var(--color-brand-accent, #ED1918)",
-                    fontSize: "0.75rem",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    marginBottom: "0.45rem",
-                  }}
-                >
-                  Our Core Services
-                </div>
-                <h2
-                  style={{
-                    fontSize: "clamp(1.65rem, 2.5vw, 2.25rem)",
-                    fontWeight: 800,
-                    color: "var(--color-primary-navy, #101D35)",
-                    lineHeight: 1.2,
-                    letterSpacing: "-0.025em",
-                    marginBottom: "0.45rem",
-                  }}
-                >
-                  Innovative IT Solutions for Modern Businesses.
-                </h2>
-                <p
-                  style={{
-                    fontSize: "clamp(0.85rem, 1vw, 0.95rem)",
-                    color: "var(--color-text-secondary, #64748B)",
-                    lineHeight: 1.5,
-                    maxWidth: "740px",
-                    margin: "0 auto",
-                  }}
-                >
-                  From strategic IT consultancy to custom software, mobile ecosystems, and cloud automation, we engineer enterprise-grade solutions tailored to accelerate your business goals.
-                </p>
-              </div>
-
-              {/* Exact 3-Card Masked Viewport Window */}
-              <div
-                ref={containerRef}
-                style={{
-                  width: "100%",
-                  maxWidth: "1300px",
-                  margin: "0 auto",
-                  overflow: "hidden", // Masks cards 04+ on right and exiting cards on left
-                  position: "relative",
-                  padding: "8px 0",
-                }}
-              >
-                <motion.div
-                  style={{
-                    x,
-                    display: "flex",
-                    gap: `${gap}px`,
-                    width: "max-content",
-                    willChange: "transform",
-                  }}
-                >
-                  {servicesData.map((service, index) => (
-                    <div
-                      key={service.id}
-                      style={{
-                        width: cardWidth > 0 ? `${cardWidth}px` : "380px",
-                        flexShrink: 0,
-                        display: "flex",
-                      }}
-                    >
-                      <ServiceCard service={service} index={index} />
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-
-              {/* Horizontal Scroll Progress Hint */}
               <div
                 style={{
                   display: "flex",
+                  flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  gap: "0.65rem",
+                  gap: "1.25rem",
+                  width: "100%",
                 }}
               >
-                <span style={{ fontSize: "0.75rem", color: "#94A3B8", fontWeight: 600, letterSpacing: "0.04em" }}>
-                  SCROLL TO EXPLORE ALL 7 SERVICES
-                </span>
+                {/* Section Heading */}
                 <div
                   style={{
-                    width: "80px",
-                    height: "3px",
-                    backgroundColor: "#E2E8F0",
-                    borderRadius: "9999px",
-                    overflow: "hidden",
+                    textAlign: "center",
+                    maxWidth: "920px",
+                    margin: "0 auto",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      padding: "0.28rem 0.85rem",
+                      borderRadius: "9999px",
+                      backgroundColor: "rgba(237, 25, 24, 0.08)",
+                      border: "1px solid rgba(237, 25, 24, 0.18)",
+                      color: "var(--color-brand-accent, #ED1918)",
+                      fontSize: "0.75rem",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      marginBottom: "0.45rem",
+                    }}
+                  >
+                    Our Core Services
+                  </div>
+                  <h2
+                    style={{
+                      fontSize: "clamp(1.65rem, 2.5vw, 2.25rem)",
+                      fontWeight: 800,
+                      color: "var(--color-primary-navy, #101D35)",
+                      lineHeight: 1.2,
+                      letterSpacing: "-0.025em",
+                      marginBottom: "0.45rem",
+                    }}
+                  >
+                    Innovative IT Solutions for Modern Businesses.
+                  </h2>
+                  <p
+                    style={{
+                      fontSize: "clamp(0.85rem, 1vw, 0.95rem)",
+                      color: "var(--color-text-secondary, #64748B)",
+                      lineHeight: 1.5,
+                      maxWidth: "740px",
+                      margin: "0 auto",
+                    }}
+                  >
+                    From strategic IT consultancy to custom software, mobile ecosystems, and cloud automation, we engineer enterprise-grade solutions tailored to accelerate your business goals.
+                  </p>
+                </div>
+
+                {/* Exact 3-Card Masked Viewport Window */}
+                <div
+                  ref={containerRef}
+                  style={{
+                    width: "100%",
+                    maxWidth: "1300px",
+                    margin: "0 auto",
+                    overflow: "hidden", // Masks cards 04+ on right and exiting cards on left
                     position: "relative",
+                    padding: "8px 0",
                   }}
                 >
                   <motion.div
                     style={{
-                      height: "100%",
-                      backgroundColor: "#2563EB",
-                      width: "100%",
-                      scaleX: scrollYProgress,
-                      transformOrigin: "left",
+                      x,
+                      display: "flex",
+                      gap: `${gap}px`,
+                      width: "max-content",
+                      willChange: "transform",
                     }}
-                  />
+                  >
+                    {servicesData.map((service, index) => (
+                      <div
+                        key={service.id}
+                        style={{
+                          width: cardWidth > 0 ? `${cardWidth}px` : "380px",
+                          flexShrink: 0,
+                          display: "flex",
+                        }}
+                      >
+                        <ServiceCard service={service} index={index} />
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+
+                {/* Horizontal Scroll Progress Hint */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.65rem",
+                  }}
+                >
+                  <span style={{ fontSize: "0.75rem", color: "#94A3B8", fontWeight: 600, letterSpacing: "0.04em" }}>
+                    SCROLL TO EXPLORE ALL 7 SERVICES
+                  </span>
+                  <div
+                    style={{
+                      width: "80px",
+                      height: "3px",
+                      backgroundColor: "#E2E8F0",
+                      borderRadius: "9999px",
+                      overflow: "hidden",
+                      position: "relative",
+                    }}
+                  >
+                    <motion.div
+                      style={{
+                        height: "100%",
+                        backgroundColor: "#2563EB",
+                        width: "100%",
+                        scaleX: scrollYProgress,
+                        transformOrigin: "left",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </Container>

@@ -38,9 +38,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       style={{
         position: "fixed",
         inset: 0,
-        zIndex: 1000,
+        zIndex: 100005,
         backgroundColor: "rgba(11, 20, 36, 0.75)",
         backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
         display: "flex",
         justifyContent: "flex-end",
       }}
@@ -51,13 +52,15 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           width: "100%",
           maxWidth: "360px",
           height: "100%",
+          maxHeight: "100dvh",
           backgroundColor: "var(--color-primary-navy)",
           borderLeft: "1px solid var(--border-dark)",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "1.75rem 1.5rem",
+          padding: "1.5rem 1.25rem",
           overflowY: "auto",
+          WebkitOverflowScrolling: "touch",
         }}
         onClick={(e) => e.stopPropagation()}
       >

@@ -70,7 +70,7 @@ export default function AboutPage() {
             top: "-10%",
             left: "50%",
             transform: "translateX(-50%)",
-            width: "800px",
+            width: "min(800px, 100vw)",
             height: "400px",
             background: "radial-gradient(ellipse at center, rgba(37, 99, 235, 0.25) 0%, rgba(237, 25, 24, 0.12) 45%, transparent 70%)",
             filter: "blur(60px)",
