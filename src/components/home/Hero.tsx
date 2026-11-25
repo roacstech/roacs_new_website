@@ -126,9 +126,9 @@ export function Hero() {
               >
                 Software
               </span>
-              <br />
-              <span style={{ display: "inline-block", whiteSpace: "nowrap" }}>
-                That Drives<FlipHeadline />
+              <br className="hero-heading-br" />
+              <span className="hero-headline-subwrap">
+                That Drives <FlipHeadline />
               </span>
             </h1>
           </Reveal>

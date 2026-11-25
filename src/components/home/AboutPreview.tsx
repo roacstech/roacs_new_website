@@ -34,7 +34,7 @@ export function AboutPreview() {
           className="about-grid"
         >
           {/* Left Column: Authentic Brand Image & Floating Metric Card */}
-          <div style={{ position: "relative" }}>
+          <div style={{ position: "relative", width: "100%", maxWidth: "100%" }}>
             <Reveal delay={0.1}>
               <div
                 className="about-image-card"
@@ -126,7 +126,7 @@ export function AboutPreview() {
           </div>
 
           {/* Right Column: Narrative, Strengths & CTA */}
-          <div>
+          <div style={{ width: "100%", maxWidth: "100%" }}>
             <Reveal delay={0.2}>
               <SectionHeading
                 eyebrow="About Roacs Corporation"
@@ -140,9 +140,10 @@ export function AboutPreview() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
                 gap: "1.25rem",
                 marginBottom: "2.5rem",
+                width: "100%",
               }}
             >
               {highlights.map((item, idx) => (
@@ -166,7 +167,16 @@ export function AboutPreview() {
             </div>
 
             <Reveal delay={0.4}>
-              <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+              <div
+                className="about-buttons-wrapper"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1rem",
+                  flexWrap: "wrap",
+                  width: "100%",
+                }}
+              >
                 <Button
                   href="/about"
                   variant="primary"

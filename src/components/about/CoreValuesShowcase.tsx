@@ -135,7 +135,7 @@ export function CoreValuesShowcase() {
         backgroundColor: "#F8FAFC", 
         paddingTop: "3.5rem", 
         paddingBottom: "8rem",
-        overflow: "visible"
+        overflow: "hidden"
       }}
     >
       {/* Dynamic Ambient Background Glow that changes with the active value */}
@@ -145,7 +145,7 @@ export function CoreValuesShowcase() {
           top: "60px",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "700px",
+          width: "min(700px, 100vw)",
           height: "350px",
           background: `radial-gradient(ellipse at center, ${activeValue.glowColor} 0%, transparent 70%)`,
           filter: "blur(80px)",
@@ -202,7 +202,10 @@ export function CoreValuesShowcase() {
             display: "flex",
             justifyContent: "center",
             marginBottom: "3.5rem",
-            padding: "0 1rem",
+            padding: "0 0.5rem",
+            width: "100%",
+            maxWidth: "100%",
+            overflow: "hidden",
           }}
         >
           <div
@@ -212,13 +215,15 @@ export function CoreValuesShowcase() {
               gap: "0.5rem",
               padding: "0.45rem",
               borderRadius: "9999px",
-              backgroundColor: "rgba(255, 255, 255, 0.88)",
+              backgroundColor: "rgba(255, 255, 255, 0.92)",
               backdropFilter: "blur(18px)",
               WebkitBackdropFilter: "blur(18px)",
               border: "1px solid rgba(226, 232, 240, 0.9)",
               boxShadow: "0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 0 1px 1px rgba(0, 0, 0, 0.04)",
               maxWidth: "100%",
               overflowX: "auto",
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none",
             }}
           >
             {/* Live Counter Badge */}

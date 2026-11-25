@@ -126,29 +126,50 @@ export default function MaterialManagementPage() {
 
           {/* CTA Box */}
           <div
+            className="material-cta-card"
             style={{
               marginTop: "4.5rem",
               backgroundColor: "var(--color-primary-navy)",
               color: "#FFFFFF",
               borderRadius: "var(--radius-lg)",
-              padding: "3rem",
+              padding: "clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem)",
               textAlign: "center",
+              overflow: "hidden",
             }}
           >
-            <h2 style={{ fontSize: "2rem", fontWeight: 800, color: "#FFFFFF", marginBottom: "1rem" }}>
+            <h2
+              style={{
+                fontSize: "clamp(1.5rem, 3.8vw, 2rem)",
+                fontWeight: 800,
+                color: "#FFFFFF",
+                marginBottom: "1rem",
+                lineHeight: 1.25,
+              }}
+            >
               Ready to modernize your material & inventory operations?
             </h2>
-            <p style={{ fontSize: "1.05rem", color: "var(--color-muted-blue)", maxWidth: "680px", margin: "0 auto 2rem auto" }}>
+            <p
+              style={{
+                fontSize: "clamp(0.925rem, 2vw, 1.05rem)",
+                color: "var(--color-muted-blue)",
+                maxWidth: "680px",
+                margin: "0 auto 2rem auto",
+                lineHeight: 1.6,
+              }}
+            >
               Schedule a personalized technical demonstration with Roacs solution architects to explore deployment options for your enterprise.
             </p>
-            <Button
-              href="/contact"
-              variant="primary"
-              size="lg"
-              icon={<ArrowRight size={18} />}
-            >
-              Request Enterprise Consultation
-            </Button>
+            <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+              <Button
+                href="/contact"
+                variant="primary"
+                size="md"
+                icon={<ArrowRight size={18} />}
+                className="material-cta-btn"
+              >
+                Request Enterprise Consultation
+              </Button>
+            </div>
           </div>
         </Container>
       </section>

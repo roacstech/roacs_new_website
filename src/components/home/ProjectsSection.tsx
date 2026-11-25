@@ -30,9 +30,19 @@ export function ProjectsSection() {
             <SectionHeading
               eyebrow="Case Studies"
               eyebrowVariant="accent"
-              title="We help companies anticipate and act with insight, modern engineering, and speed."
+              title={
+                <>
+                  We help companies anticipate and act
+                  <br className="hidden sm:inline" /> with insight, modern engineering, and speed.
+                </>
+              }
+              titleStyle={{
+                fontSize: "clamp(1.85rem, 2.5vw, 2.45rem)",
+                lineHeight: 1.25,
+              }}
               description="A curated look at enterprise solutions, web platforms, and digital products engineered by Roacs for established businesses, high-growth brands, and global enterprises."
               align="center"
+              maxWidth="980px"
             />
           </div>
         </Reveal>

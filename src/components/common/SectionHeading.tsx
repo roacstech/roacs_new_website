@@ -4,21 +4,25 @@ import { cn } from "@/lib/utils";
 interface SectionHeadingProps {
   eyebrow?: string;
   eyebrowVariant?: "accent" | "dark" | "tech";
-  title: string;
+  title: React.ReactNode;
+  titleStyle?: React.CSSProperties;
   description?: string;
   align?: "left" | "center" | "right";
   dark?: boolean;
   className?: string;
+  maxWidth?: string;
 }
 
 export function SectionHeading({
   eyebrow,
   eyebrowVariant = "accent",
   title,
+  titleStyle,
   description,
   align = "left",
   dark = false,
   className = "",
+  maxWidth,
 }: SectionHeadingProps) {
   const alignClass = {
     left: "text-left",
@@ -40,7 +44,7 @@ export function SectionHeading({
         className
       )}
       style={{
-        maxWidth: align === "center" ? "760px" : "800px",
+        maxWidth: maxWidth || (align === "center" ? "760px" : "800px"),
         margin: align === "center" ? "0 auto 2.5rem auto" : align === "right" ? "0 0 2.5rem auto" : "0 0 2.5rem 0",
         textAlign: align,
       }}
@@ -64,6 +68,7 @@ export function SectionHeading({
           marginBottom: description ? "1rem" : "0",
           fontWeight: 800,
           textAlign: align,
+          ...titleStyle,
         }}
       >
         {title}

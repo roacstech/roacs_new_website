@@ -171,7 +171,7 @@ export function MaterialHero() {
           top: 0,
           left: "50%",
           transform: "translateX(-50%)",
-          width: "900px",
+          width: "min(900px, 100vw)",
           height: "380px",
           pointerEvents: "none",
           opacity: 0.5,
